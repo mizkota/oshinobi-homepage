@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="もっと充実したテニスライフを実現">
@@ -17,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
         一人ひとりの上達をサポートします
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/courses" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition">
+        <a href={`${base}courses`} class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition">
           コース・料金を見る
         </a>
         <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border-2 border-white/80 hover:bg-white/10 font-bold px-8 py-3 rounded-lg transition">
@@ -55,7 +56,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="text-center mt-10">
-        <a href="/features" class="text-primary font-bold hover:underline">詳しく見る →</a>
+        <a href={`${base}features`} class="text-primary font-bold hover:underline">詳しく見る →</a>
       </div>
     </div>
   </section>
@@ -66,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-3xl font-bold mb-4">OSHINOBI GUT 24</h2>
       <p class="text-lg text-white/80 mb-2">24時間受付のガット張替サービス</p>
       <p class="text-white/70 mb-8">JR白石駅徒歩2分 ・ 全品工賃込み ・ 2,800円〜</p>
-      <a href="/gut24" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
+      <a href={`${base}gut24`} class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
         詳しく見る
       </a>
     </div>
