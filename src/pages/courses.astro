@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const courses = [
+  { day: '月曜', time1: '19:30〜21:00', level1: 'CD', time2: '21:10〜22:40', level2: 'B' },
+  { day: '火曜', time1: '19:30〜21:00', level1: 'B', time2: '21:10〜22:40', level2: 'BC' },
+  { day: '水曜', time1: '19:30〜21:00', level1: '強化/B', time2: '21:10〜22:40', level2: 'CD' },
+  { day: '木曜', time1: '19:30〜21:00', level1: 'CD', time2: '21:10〜22:40', level2: 'BC' },
+  { day: '金曜', time1: '19:30〜21:00', level1: 'BC', time2: '21:10〜22:40', level2: 'B' },
+];
+---
+
+<Layout title="コース・料金システム">
+  <section class="py-16 bg-gradient-to-br from-primary-dark to-primary text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-4">コース・料金システム</h1>
+      <p class="text-white/80 text-lg">入会金無料（2024年11月〜）</p>
+    </div>
+  </section>
+
+  <!-- Group Lessons -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8 text-center">グループレッスン</h2>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-4 py-3 text-left">曜日</th>
+                <th class="px-4 py-3 text-left">前半（19:30〜21:00）</th>
+                <th class="px-4 py-3 text-left">後半（21:10〜22:40）</th>
+              </tr>
+            </thead>
+            <tbody>
+              {courses.map((c, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-bg'}>
+                  <td class="px-4 py-3 font-bold">{c.day}</td>
+                  <td class="px-4 py-3">{c.level1}クラス</td>
+                  <td class="px-4 py-3">{c.level2}クラス</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-accent/10 border border-accent/30 rounded-xl p-6 mb-8 text-center">
+        <p class="text-lg font-bold text-primary">現在、全コース満員御礼です</p>
+        <p class="text-text-light text-sm mt-2">空き状況はLINEでお問い合わせください</p>
+      </div>
+
+      <!-- Pricing -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-bold text-lg mb-4">月会費</h3>
+          <div class="space-y-3">
+            <div class="flex justify-between items-baseline">
+              <span class="text-text-light">通常期（5月〜10月）</span>
+              <span class="text-xl font-bold">12,000<span class="text-sm font-normal">円/月</span></span>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-text-light">冬期（11月〜4月）</span>
+              <span class="text-xl font-bold">13,000<span class="text-sm font-normal">円/月</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="font-bold text-lg mb-4">単発受講</h3>
+          <div class="space-y-3">
+            <div class="flex justify-between items-baseline">
+              <span class="text-text-light">通常期</span>
+              <span class="text-xl font-bold">3,500<span class="text-sm font-normal">円/回</span></span>
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-text-light">冬期</span>
+              <span class="text-xl font-bold">3,800<span class="text-sm font-normal">円/回</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-sm text-text-light text-center">
+        定員：各コース6名 ／ 会場：PLACE OF SPORTS NEO（デコターフコート）
+      </p>
+    </div>
+  </section>
+
+  <!-- Private Lessons -->
+  <section class="py-20 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8 text-center">プライベートレッスン</h2>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-4 py-3 text-left">時間</th>
+                <th class="px-4 py-3 text-right">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white"><td class="px-4 py-3">1時間</td><td class="px-4 py-3 text-right font-bold">7,000円</td></tr>
+              <tr class="bg-bg"><td class="px-4 py-3">1.5時間</td><td class="px-4 py-3 text-right font-bold">9,000円</td></tr>
+              <tr class="bg-white"><td class="px-4 py-3">2時間</td><td class="px-4 py-3 text-right font-bold">11,000円</td></tr>
+              <tr class="bg-bg"><td class="px-4 py-3">2.5時間</td><td class="px-4 py-3 text-right font-bold">13,000円</td></tr>
+              <tr class="bg-white"><td class="px-4 py-3">3時間</td><td class="px-4 py-3 text-right font-bold">15,000円</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm">
+        <h3 class="font-bold mb-3">プライベートレッスンについて</h3>
+        <ul class="text-text-light text-sm space-y-2">
+          <li>・最大6名まで参加可能</li>
+          <li>・会員でなくても受講可能</li>
+          <li>・コートはお客様にてご手配ください</li>
+          <li>・白石区・中央区在住の方は無料で出張いたします</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-bg text-center">
+    <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-primary hover:bg-primary-light text-white font-bold px-8 py-3 rounded-lg transition inline-block">
+      LINE でお問い合わせ
+    </a>
+  </section>
+</Layout>

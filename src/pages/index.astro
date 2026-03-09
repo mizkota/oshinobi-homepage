@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="もっと充実したテニスライフを実現">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-dark to-primary text-white py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+        御忍庭球塾
+      </h1>
+      <p class="text-lg md:text-2xl font-medium text-white/90 mb-4">
+        もっと充実したテニスライフを実現
+      </p>
+      <p class="text-white/70 mb-10 max-w-xl mx-auto">
+        札幌市白石区を拠点に、少人数制レッスンで<br class="hidden md:inline" />
+        一人ひとりの上達をサポートします
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/courses" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition">
+          コース・料金を見る
+        </a>
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border-2 border-white/80 hover:bg-white/10 font-bold px-8 py-3 rounded-lg transition">
+          LINE でお問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Overview -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">御忍庭球塾の特徴</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+          <div class="text-4xl mb-4">👥</div>
+          <h3 class="text-xl font-bold mb-3">少人数制（最大6名）</h3>
+          <p class="text-text-light leading-relaxed">
+            1レッスン最大6名まで。コーチの目が一人ひとりに行き届く環境で、確実に上達できます。
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+          <div class="text-4xl mb-4">🏟️</div>
+          <h3 class="text-xl font-bold mb-3">デコターフコート</h3>
+          <p class="text-text-light leading-relaxed">
+            PLACE OF SPORTS NEO のインドアデコターフコートを使用。天候に左右されない快適な環境です。
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition">
+          <div class="text-4xl mb-4">🎥</div>
+          <h3 class="text-xl font-bold mb-3">動画で振り返り</h3>
+          <p class="text-text-light leading-relaxed">
+            レッスンを動画で撮影。自分のプレーを客観的に確認し、効率的にスキルアップできます。
+          </p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="/features" class="text-primary font-bold hover:underline">詳しく見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OSHINOBI GUT 24 Banner -->
+  <section class="py-16 bg-primary text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">OSHINOBI GUT 24</h2>
+      <p class="text-lg text-white/80 mb-2">24時間受付のガット張替サービス</p>
+      <p class="text-white/70 mb-8">JR白石駅徒歩2分 ・ 全品工賃込み ・ 2,800円〜</p>
+      <a href="/gut24" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
+        詳しく見る
+      </a>
+    </div>
+  </section>
+
+  <!-- YouTube -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">ダブルスの技術を毎週配信中</h2>
+      <p class="text-text-light mb-8">YouTubeチャンネルで毎週日曜日にテニス技術動画を投稿しています</p>
+      <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/bXEScAkbFYI"
+          title="テニス解説動画"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="inline-block mt-6 text-primary font-bold hover:underline">
+        YouTubeチャンネルを見る →
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">体験レッスン受付中</h2>
+      <p class="text-text-light mb-8">
+        一般月曜コース・一般木曜コースは体験受講が可能です。<br />
+        初回 2,800円（通常 3,500円）でお試しいただけます。
+      </p>
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-primary hover:bg-primary-light text-white font-bold px-8 py-3 rounded-lg transition inline-block">
+        LINE で体験を申し込む
+      </a>
+    </div>
+  </section>
+</Layout>

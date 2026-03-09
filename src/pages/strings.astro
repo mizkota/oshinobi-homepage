@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const strings = [
+  {
+    name: 'ツイスター',
+    brand: 'Signum Pro',
+    material: 'ポリエステル',
+    gauge: '1.20mm',
+    price: 2800,
+    description: 'スピン性能に優れたコストパフォーマンス抜群のポリストリング。回転系プレーヤーにおすすめ。',
+  },
+  {
+    name: 'トルネード',
+    brand: 'Signum Pro',
+    material: 'ポリエステル',
+    gauge: '1.23mm',
+    price: 2800,
+    description: '独特の螺旋形状でスピンとコントロールを両立。パワーとスピンのバランスが取れた一本。',
+  },
+  {
+    name: 'ポリツアープロ',
+    brand: 'YONEX',
+    material: 'ポリエステル',
+    gauge: '1.25mm',
+    price: 3000,
+    description: 'YONEXの定番ポリストリング。ソフトな打球感とスピン性能を兼ね備えた万能型。',
+  },
+  {
+    name: 'HYPER-G',
+    brand: 'Solinco',
+    material: 'ポリエステル',
+    gauge: '1.25mm',
+    price: 3000,
+    description: '五角形断面によるスピン特化型。ヘビースピンを求めるプレーヤーに人気。',
+  },
+  {
+    name: 'RPMブラスト',
+    brand: 'Babolat',
+    material: 'ポリエステル',
+    gauge: '1.25/1.30mm',
+    price: 3000,
+    description: 'ナダル使用で有名なBabolatの看板ストリング。高いスピン性能とコントロール性。',
+  },
+  {
+    name: 'マッハ-10',
+    brand: 'Solinco',
+    material: 'ポリエステル',
+    gauge: '1.25mm',
+    price: 3100,
+    description: 'パワーとスピンを高次元で融合。爆発的なボールスピードを生み出す攻撃型ストリング。',
+  },
+  {
+    name: 'ポリツアーレブ',
+    brand: 'YONEX',
+    material: 'ポリエステル',
+    gauge: '1.25mm',
+    price: 3200,
+    description: 'ポリツアープロの上位モデル。より高い反発力でパワーショットを可能に。',
+  },
+  {
+    name: 'アルパワー',
+    brand: 'Luxilon',
+    material: 'ポリエステル',
+    gauge: '1.25mm',
+    price: 3200,
+    description: 'フェデラーも使用した世界的名作。パワー・コントロール・フィーリングの全てが高水準。',
+  },
+  {
+    name: 'X-ONE バイフェイズ',
+    brand: 'Tecnifibre',
+    material: 'ナイロン',
+    gauge: '1.24mm',
+    price: 3600,
+    description: 'ナイロン最高峰の打球感。ナチュラルガットに近い柔らかさとホールド感を実現。',
+  },
+];
+---
+
+<Layout title="指定ガット・料金一覧表">
+  <section class="py-16 bg-gradient-to-br from-primary-dark to-primary text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-4">指定ガット・料金一覧</h1>
+      <p class="text-white/80 text-lg">全品工賃込み・追加料金なし</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-6">
+        {strings.map((s) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+              <div>
+                <h2 class="text-xl font-bold">{s.name}</h2>
+                <p class="text-text-light text-sm">{s.brand} / {s.material} / {s.gauge}</p>
+              </div>
+              <div class="text-2xl font-bold text-primary whitespace-nowrap">
+                {s.price.toLocaleString()}<span class="text-sm font-normal">円</span>
+              </div>
+            </div>
+            <p class="text-text-light text-sm leading-relaxed">{s.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-primary text-white text-center">
+    <h2 class="text-2xl font-bold mb-6">ご注文はLINEから</h2>
+    <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
+      LINE で注文する
+    </a>
+  </section>
+</Layout>

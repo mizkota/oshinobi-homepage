@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: '出欠マニュアル',
+    date: '2026年2月7日',
+    category: 'ご案内',
+    slug: 'attendance-manual',
+    excerpt: 'レッスンの出欠に関するマニュアルです。',
+  },
+  {
+    title: '【大会結果】瀧野詩穂さん・長野友美さんが A級部門 準優勝！全国大会へ進出！',
+    date: '2025年10月9日',
+    category: 'ご報告',
+    slug: 'ladies-tournament-2025',
+    excerpt: 'ソニー生命カップ 第47回 全国レディーステニス大会 北海道予選にて、瀧野詩穂さん・長野友美さんが A級部門 準優勝を果たし、全国大会への進出を決めました。',
+  },
+  {
+    title: '【結果報告】北海道テニス選手権 & 全日本テニス選手権 北海道予選',
+    date: '2025年10月9日',
+    category: 'ご報告',
+    slug: 'hokkaido-championship-2025',
+    excerpt: '8月5日〜10日に開催された北海道テニス選手権および全日本テニス選手権 北海道予選の結果報告です。',
+  },
+  {
+    title: '２０２５年の前月まとめについて',
+    date: '2024年12月8日',
+    category: 'ご案内',
+    slug: 'monthly-summary-2025',
+    excerpt: '2024年に試験的に実施した前月のレッスンまとめと所見について、2025年の方針をご案内します。',
+  },
+  {
+    title: '【重要】料金改定のお知らせ',
+    date: '2024年1月29日',
+    category: 'ご案内',
+    slug: 'price-revision-2024',
+    excerpt: '2024年5月より料金を改定させていただくこととなりました。',
+  },
+  {
+    title: '【２０２３ 石狩インドアテニス大会 結果】',
+    date: '2023年11月26日',
+    category: 'ご案内',
+    slug: 'ishikari-indoor-2023',
+    excerpt: '石狩インドアテニス大会にて、会員の方々が多数入賞されました。',
+  },
+  {
+    title: '第一回おしのび合宿終了の報告',
+    date: '2023年11月26日',
+    category: 'ご案内',
+    slug: 'camp-report-2023',
+    excerpt: '初めての泊まりがけイベント「おしのび合宿」が無事終了しました。',
+  },
+  {
+    title: '体験受講のご案内',
+    date: '2021年5月21日',
+    category: 'ご案内',
+    slug: 'trial-lesson',
+    excerpt: '一般月曜コース・一般木曜コースで体験レッスンを受付中。初回2,800円で受講できます。',
+  },
+];
+---
+
+<Layout title="お知らせ・ブログ">
+  <section class="py-16 bg-gradient-to-br from-primary-dark to-primary text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-4">お知らせ</h1>
+    </div>
+  </section>
+
+  <section class="py-20 bg-bg">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="space-y-6">
+        {posts.map((post) => (
+          <article class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">
+                {post.category}
+              </span>
+              <time class="text-sm text-text-light">{post.date}</time>
+            </div>
+            <h2 class="text-lg font-bold mb-2">{post.title}</h2>
+            <p class="text-text-light text-sm leading-relaxed">{post.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

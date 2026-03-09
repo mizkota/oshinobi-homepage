@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a5c2e;
+  --color-primary-light: #2d8a47;
+  --color-primary-dark: #0f3d1d;
+  --color-accent: #c8a84e;
+  --color-accent-light: #e0c76e;
+  --color-bg: #fafaf7;
+  --color-bg-dark: #f0efe8;
+  --color-text: #2c2c2c;
+  --color-text-light: #6b6b6b;
+  --font-family-sans: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+}
