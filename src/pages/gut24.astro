@@ -1,158 +1,381 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 
 const strings = [
-  { name: 'ツイスター', brand: 'Signum Pro', material: 'ポリ', gauge: '1.20mm', price: 2800 },
-  { name: 'トルネード', brand: 'Signum Pro', material: 'ポリ', gauge: '1.23mm', price: 2800 },
-  { name: 'ポリツアープロ', brand: 'YONEX', material: 'ポリ', gauge: '1.25mm', price: 3000 },
-  { name: 'HYPER-G', brand: 'Solinco', material: 'ポリ', gauge: '1.25mm', price: 3000 },
-  { name: 'RPMブラスト', brand: 'Babolat', material: 'ポリ', gauge: '1.25/1.30mm', price: 3000 },
-  { name: 'マッハ-10', brand: 'Solinco', material: 'ポリ', gauge: '1.25mm', price: 3100 },
-  { name: 'ポリツアーレブ', brand: 'YONEX', material: 'ポリ', gauge: '1.25mm', price: 3200 },
-  { name: 'アルパワー', brand: 'Luxilon', material: 'ポリ', gauge: '1.25mm', price: 3200 },
-  { name: 'X-ONE バイフェイズ', brand: 'Tecnifibre', material: 'ナイロン', gauge: '1.24mm', price: 3600 },
+  {
+    name: 'ツイスター',
+    brand: 'Signum Pro',
+    material: 'ポリ',
+    gauge: '1.20mm',
+    price: 2800,
+    image: 'twister.webp',
+    desc: 'スピン性能に優れたコスパ抜群のポリ。回転系プレーヤーに。',
+    color: '#7cb342',
+  },
+  {
+    name: 'トルネード',
+    brand: 'Signum Pro',
+    material: 'ポリ',
+    gauge: '1.23mm',
+    price: 2800,
+    image: 'tornado.webp',
+    desc: '螺旋形状でスピンとコントロールを両立。バランス型。',
+    color: '#e65100',
+  },
+  {
+    name: 'ポリツアープロ',
+    brand: 'YONEX',
+    material: 'ポリ',
+    gauge: '1.25mm',
+    price: 3000,
+    image: 'polytour-pro.webp',
+    desc: 'ソフトな打球感とスピン性能を兼ね備えた万能型。',
+    color: '#1565c0',
+  },
+  {
+    name: 'HYPER-G',
+    brand: 'Solinco',
+    material: 'ポリ',
+    gauge: '1.25mm',
+    price: 3000,
+    image: 'hyper-g.webp',
+    desc: '五角形断面のスピン特化。ヘビースピナーに人気。',
+    color: '#2e7d32',
+  },
+  {
+    name: 'RPMブラスト',
+    brand: 'Babolat',
+    material: 'ポリ',
+    gauge: '1.25/1.30mm',
+    price: 3000,
+    image: 'rpm-blast.webp',
+    desc: 'ナダル使用で有名。高いスピン性能とコントロール。',
+    color: '#212121',
+  },
+  {
+    name: 'マッハ-10',
+    brand: 'Solinco',
+    material: 'ポリ',
+    gauge: '1.25mm',
+    price: 3100,
+    image: 'mach10.jpg',
+    desc: 'パワーとスピンの融合。爆発的なボールスピード。',
+    color: '#b71c1c',
+  },
+  {
+    name: 'ポリツアーレブ',
+    brand: 'YONEX',
+    material: 'ポリ',
+    gauge: '1.25mm',
+    price: 3200,
+    image: 'polytour-rev.webp',
+    desc: 'ポリツアープロ上位モデル。より高い反発力。',
+    color: '#4a148c',
+  },
+  {
+    name: 'アルパワー',
+    brand: 'Luxilon',
+    material: 'ポリ',
+    gauge: '1.25mm',
+    price: 3200,
+    image: 'alu-power.webp',
+    desc: 'フェデラーも使用した名作。全てが高水準。',
+    color: '#827717',
+  },
+  {
+    name: 'X-ONE バイフェイズ',
+    brand: 'Tecnifibre',
+    material: 'ナイロン',
+    gauge: '1.24mm',
+    price: 3600,
+    image: 'xone-biphase.webp',
+    desc: 'ナイロン最高峰。ナチュラルに近い柔らかさ。',
+    color: '#00695c',
+  },
 ];
 ---
 
-<Layout title="OSHINOBI GUT 24 - 24時間ガット張替サービス">
-  <!-- Hero -->
-  <section class="py-20 bg-gradient-to-br from-primary-dark to-primary text-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-black mb-4">OSHINOBI GUT 24</h1>
-      <p class="text-xl text-white/90 mb-2">24時間受付のガット張替サービス</p>
-      <p class="text-white/70 mb-8">JR白石駅北口 徒歩2分 ・ 全品工賃込み</p>
-      <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
-        LINE で注文する
+<Layout title="OSHINOBI GUT 24 - 24時間ガット張替サービス" description="JR白石駅徒歩2分。24時間受付・非対面のガット張替サービス。全品工賃込み2,800円〜。">
+
+  <!-- ===== HERO ===== -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]"></div>
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <div class="inline-block bg-accent/20 text-accent-light text-sm font-bold px-4 py-2 rounded-full mb-6">
+            JR白石駅北口 徒歩2分
+          </div>
+          <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+            OSHINOBI<br />GUT <span class="text-accent">24</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white/80 mb-4">
+            24時間受付のガット張替サービス
+          </p>
+          <p class="text-white/50 mb-8 text-lg">
+            全品工賃込み・追加料金なし
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-10 py-5 rounded-xl transition shadow-lg shadow-accent/30 text-lg">
+              LINE で今すぐ注文
+            </a>
+            <a href="#lineup" class="border-2 border-white/30 hover:border-white/60 text-white font-bold px-10 py-5 rounded-xl transition text-lg">
+              ラインナップを見る
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-accent/20 rounded-3xl blur-2xl transform rotate-6"></div>
+            <img src={`${base}images/logo/gut24-logo.png`} alt="OSHINOBI GUT 24" class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl shadow-2xl" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICE IMPACT ===== -->
+  <section class="bg-primary text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
+        <div>
+          <p class="text-white/60 text-sm mb-1">全品工賃込み</p>
+          <p class="text-5xl md:text-6xl font-black">2,800<span class="text-2xl">円〜</span></p>
+        </div>
+        <div class="hidden md:block w-px h-16 bg-white/20"></div>
+        <div>
+          <p class="text-white/60 text-sm mb-1">受付時間</p>
+          <p class="text-5xl md:text-6xl font-black">24<span class="text-2xl">時間</span></p>
+        </div>
+        <div class="hidden md:block w-px h-16 bg-white/20"></div>
+        <div>
+          <p class="text-white/60 text-sm mb-1">仕上がり</p>
+          <p class="text-5xl md:text-6xl font-black">約2<span class="text-2xl">日</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3 REASONS ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-accent font-bold text-sm tracking-widest mb-3">WHY CHOOSE US</p>
+        <h2 class="text-4xl font-black">選ばれる<span class="text-primary">3つ</span>の理由</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">1</div>
+          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🕐</div>
+          <h3 class="text-2xl font-black mb-4">24時間受付</h3>
+          <p class="text-text-light leading-relaxed">
+            非対面ポスト投函式だから、<strong class="text-text">仕事帰りでも早朝でも</strong>いつでも預けて、いつでも受け取れます。待ち時間ゼロ。
+          </p>
+        </div>
+        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">2</div>
+          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">💰</div>
+          <h3 class="text-2xl font-black mb-4">業界最安水準</h3>
+          <p class="text-text-light leading-relaxed">
+            全品工賃込みで<strong class="text-text">2,800円〜</strong>。追加料金は一切なし。表示価格がお支払い金額です。
+          </p>
+        </div>
+        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">3</div>
+          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🎾</div>
+          <h3 class="text-2xl font-black mb-4">厳選ストリング</h3>
+          <p class="text-text-light leading-relaxed">
+            プロも使用する<strong class="text-text">高品質ストリングのみ</strong>を厳選。安いだけじゃない、本物の品質をお届けします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STRING LINEUP ===== -->
+  <section id="lineup" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-accent font-bold text-sm tracking-widest mb-3">LINEUP</p>
+        <h2 class="text-4xl font-black mb-4">取り扱いストリング</h2>
+        <p class="text-text-light">すべて工賃込み。表示価格以外の費用はかかりません。</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {strings.map((s) => (
+          <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-500 group">
+            <div class="h-48 bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden">
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition duration-500" style={`background-color: ${s.color}`}></div>
+              <img src={`${base}images/strings/${s.image}`} alt={s.name} class="max-h-36 max-w-full object-contain group-hover:scale-110 transition duration-500" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-xs font-bold text-white px-2 py-0.5 rounded" style={`background-color: ${s.color}`}>{s.brand}</span>
+                <span class="text-xs text-text-light">{s.material} / {s.gauge}</span>
+              </div>
+              <h3 class="text-xl font-black mb-2">{s.name}</h3>
+              <p class="text-text-light text-sm mb-4 leading-relaxed">{s.desc}</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <span class="text-3xl font-black text-primary">{s.price.toLocaleString()}</span>
+                  <span class="text-sm text-text-light ml-1">円</span>
+                </div>
+                <span class="text-xs bg-primary/5 text-primary font-bold px-3 py-1 rounded-full">工賃込み</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MID CTA ===== -->
+  <section class="py-16 bg-gradient-to-r from-primary-dark to-primary text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-2xl md:text-3xl font-black mb-6">気になるストリングはありましたか？</p>
+      <p class="text-white/70 mb-8">テンションの相談もLINEで承ります。1ポンド単位で調整可能です。</p>
+      <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-10 py-5 rounded-xl transition inline-block text-lg shadow-lg shadow-accent/30">
+        LINE で注文・相談する
       </a>
     </div>
   </section>
 
-  <!-- 3 Reasons -->
-  <section class="py-20 bg-bg">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">選ばれる3つの理由</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-          <div class="text-4xl mb-4">🕐</div>
-          <h3 class="text-xl font-bold mb-3">24時間受付</h3>
-          <p class="text-text-light">
-            非対面ポスト投函式。いつでも預けて、いつでも受け取れます。
-          </p>
+  <!-- ===== HOW TO ===== -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-accent font-bold text-sm tracking-widest mb-3">HOW TO USE</p>
+        <h2 class="text-4xl font-black">かんたん<span class="text-primary">3ステップ</span></h2>
+      </div>
+
+      <div class="space-y-0">
+        <!-- Step 1 -->
+        <div class="flex gap-6 md:gap-10">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">1</div>
+            <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
+          </div>
+          <div class="pb-12">
+            <h3 class="text-2xl font-black mb-3">LINEで注文</h3>
+            <p class="text-text-light leading-relaxed text-lg">
+              リッチメニューから<strong class="text-text">ストリング・縦テンション・横テンション</strong>を選択するだけ。30秒で注文完了。
+            </p>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-          <div class="text-4xl mb-4">💰</div>
-          <h3 class="text-xl font-bold mb-3">業界最安水準</h3>
-          <p class="text-text-light">
-            全品工賃込み 2,800円〜。追加料金なし、表示価格のみです。
-          </p>
+
+        <!-- Step 2 -->
+        <div class="flex gap-6 md:gap-10">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">2</div>
+            <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
+          </div>
+          <div class="pb-12">
+            <h3 class="text-2xl font-black mb-3">ラケットを投函</h3>
+            <p class="text-text-light leading-relaxed text-lg">
+              JR白石駅北口近くの<strong class="text-text">専用ポストにラケットを入れるだけ</strong>。お支払いはPayPayまたは現金（事前払い）。
+            </p>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-          <div class="text-4xl mb-4">🎾</div>
-          <h3 class="text-xl font-bold mb-3">厳選ストリング</h3>
-          <p class="text-text-light">
-            プロも使用する高品質ストリングのみを厳選してラインナップ。
-          </p>
+
+        <!-- Step 3 -->
+        <div class="flex gap-6 md:gap-10">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-accent text-primary-dark rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">✓</div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-black mb-3">完成通知 → 受け取り</h3>
+            <p class="text-text-light leading-relaxed text-lg">
+              約2日で完成。<strong class="text-text">LINEで通知</strong>が届いたら、ポスト番号・暗証番号で受け取り。対面不要で完結します。
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Strings -->
-  <section class="py-20 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center mb-8">取り扱いストリング</h2>
-      <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th class="px-4 py-3 text-left">ストリング</th>
-                <th class="px-4 py-3 text-left">メーカー</th>
-                <th class="px-4 py-3 text-left">素材</th>
-                <th class="px-4 py-3 text-left">ゲージ</th>
-                <th class="px-4 py-3 text-right">価格</th>
-              </tr>
-            </thead>
-            <tbody>
-              {strings.map((s, i) => (
-                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-bg'}>
-                  <td class="px-4 py-3 font-bold">{s.name}</td>
-                  <td class="px-4 py-3 text-text-light">{s.brand}</td>
-                  <td class="px-4 py-3 text-text-light">{s.material}</td>
-                  <td class="px-4 py-3 text-text-light">{s.gauge}</td>
-                  <td class="px-4 py-3 text-right font-bold">{s.price.toLocaleString()}円</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+  <!-- ===== FAQ ===== -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-accent font-bold text-sm tracking-widest mb-3">FAQ</p>
+        <h2 class="text-4xl font-black">よくある質問</h2>
       </div>
-      <p class="text-center mt-4">
-        <a href={`${import.meta.env.BASE_URL}strings`} class="text-primary font-bold hover:underline">各ストリングの詳細を見る →</a>
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group" open>
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+            持ち込みストリングは使えますか？
+            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-text-light leading-relaxed">
+            申し訳ございませんが、品質管理のため指定ストリングのみの対応となります。上記ラインナップからお選びください。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+            仕上がりまでどのくらいかかりますか？
+            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-text-light leading-relaxed">
+            通常約2日程度でお渡し可能です。混雑状況によって前後する場合がありますが、LINEで随時お知らせします。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+            支払い方法は？
+            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-text-light leading-relaxed">
+            PayPayまたは現金（事前払い）に対応しています。ラケット投函時にお支払いください。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+            テンションの相談はできますか？
+            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-text-light leading-relaxed">
+            はい、LINEにてお気軽にご相談ください。プレースタイルやラケットに合わせて、1ポンド単位で調整可能です。
+          </div>
+        </details>
+        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+            御忍庭球塾の会員でなくても利用できますか？
+            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-text-light leading-relaxed">
+            はい、どなたでもご利用いただけます。会員でなくてもお気軽にどうぞ。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]"></div>
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 right-20 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
+      <div class="absolute bottom-10 left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-4 text-center text-white">
+      <p class="text-accent font-bold text-sm tracking-widest mb-6">ORDER NOW</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+        あなたのラケット、<br />最高の状態に。
+      </h2>
+      <p class="text-white/60 text-lg mb-10">
+        LINEで注文 → ポスト投函 → 約2日で完成。<br />
+        対面不要で完結する、新しいガット張替体験。
       </p>
+      <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-12 py-6 rounded-xl transition inline-block text-xl shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5">
+        LINE で今すぐ注文する
+      </a>
+      <p class="text-white/40 text-sm mt-6">JR白石駅北口 徒歩2分 ・ 全品工賃込み 2,800円〜</p>
     </div>
   </section>
 
-  <!-- How to -->
-  <section class="py-20 bg-bg">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center mb-12">ご利用の流れ</h2>
-      <div class="space-y-8">
-        <div class="flex gap-6 items-start">
-          <span class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">1</span>
-          <div>
-            <h3 class="font-bold text-lg mb-2">LINEで注文</h3>
-            <p class="text-text-light">リッチメニューからストリング・縦テンション・横テンションを選択して注文します。</p>
-          </div>
-        </div>
-        <div class="flex gap-6 items-start">
-          <span class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">2</span>
-          <div>
-            <h3 class="font-bold text-lg mb-2">ラケットを投函</h3>
-            <p class="text-text-light">JR白石駅北口近くのポストにラケットを投函。PayPayまたは現金で事前にお支払い。</p>
-          </div>
-        </div>
-        <div class="flex gap-6 items-start">
-          <span class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shrink-0">3</span>
-          <div>
-            <h3 class="font-bold text-lg mb-2">完成通知・受取</h3>
-            <p class="text-text-light">約2日で完成。LINEで通知が届きますので、ポスト番号・暗証番号で受け取ります。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-20 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-center mb-12">よくある質問</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="font-bold mb-2">Q. 持ち込みストリングは使えますか？</h3>
-          <p class="text-text-light">A. 申し訳ございませんが、指定ストリングのみの対応となります。</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="font-bold mb-2">Q. 仕上がりまでどのくらいかかりますか？</h3>
-          <p class="text-text-light">A. 通常約2日程度でお渡し可能です。</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="font-bold mb-2">Q. 支払い方法は？</h3>
-          <p class="text-text-light">A. PayPayまたは現金（事前払い）に対応しています。</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="font-bold mb-2">Q. テンションの相談はできますか？</h3>
-          <p class="text-text-light">A. はい、LINEにてお気軽にご相談ください。1ポンド単位で調整可能です。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-16 bg-primary text-white text-center">
-    <h2 class="text-2xl font-bold mb-6">ガット張替のご注文はLINEから</h2>
-    <a href="https://lin.ee/IY3lcQP" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-3 rounded-lg transition inline-block">
-      LINE で注文する
-    </a>
-  </section>
 </Layout>
