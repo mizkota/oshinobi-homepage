@@ -22,72 +22,87 @@ const base = import.meta.env.BASE_URL;
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <title>{title} | 御忍庭球塾</title>
   </head>
-  <body class="bg-bg text-text font-sans">
-    <header class="bg-primary-dark text-white sticky top-0 z-50 shadow-lg">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href={base} class="flex items-center gap-3 hover:opacity-80 transition">
+  <body class="bg-white text-text font-sans">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href={base} class="flex items-center gap-3 hover:opacity-70 transition">
           <img src={`${base}images/logo/logo.png`} alt="御忍庭球塾" class="h-8" />
         </a>
-        <button id="menu-toggle" class="md:hidden p-2" aria-label="メニュー">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        <nav id="nav-menu" class="hidden md:flex gap-6 text-sm font-medium">
-          <a href={`${base}courses`} class="hover:text-accent-light transition">コース・料金</a>
-          <a href={`${base}gut24`} class="hover:text-accent-light transition">ガット張替</a>
-          <a href={`${base}terms`} class="hover:text-accent-light transition">利用規約</a>
-          <a href={`${base}blog`} class="hover:text-accent-light transition">お知らせ</a>
+        <div class="flex items-center gap-6">
+          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 text-sm font-bold transition tracking-wider">
+            お問い合わせ・体験の申し込み
+          </a>
+          <button id="menu-toggle" class="p-2 flex flex-col gap-1.5" aria-label="メニュー">
+            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-1"></span>
+            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-2"></span>
+            <span class="block w-4 h-0.5 bg-text transition ml-auto" id="menu-bar-3"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="menu-overlay" class="fixed inset-0 z-40 bg-primary-dark/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-500">
+      <div class="flex items-center justify-center h-full">
+        <nav class="text-center">
+          <div class="space-y-8">
+            <a href={`${base}courses`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">コース・料金</a>
+            <a href={`${base}gut24`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">ガット張替</a>
+            <a href={`${base}terms`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">利用規約</a>
+            <a href={`${base}blog`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">お知らせ</a>
+          </div>
+          <div class="mt-12 pt-8 border-t border-white/20">
+            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition inline-block tracking-wider">
+              体験のお申し込み
+            </a>
+          </div>
         </nav>
       </div>
-      <nav id="mobile-menu" class="hidden md:hidden bg-primary-dark border-t border-primary px-4 pb-4">
-        <div class="flex flex-col gap-3 text-sm font-medium pt-2">
-          <a href={`${base}courses`} class="hover:text-accent-light transition py-1">コース・料金</a>
-          <a href={`${base}gut24`} class="hover:text-accent-light transition py-1">ガット張替</a>
-          <a href={`${base}terms`} class="hover:text-accent-light transition py-1">利用規約</a>
-          <a href={`${base}blog`} class="hover:text-accent-light transition py-1">お知らせ</a>
-        </div>
-      </nav>
-    </header>
+    </div>
+
+    <!-- Spacer for fixed header -->
+    <div class="h-16"></div>
 
     <main>
       <slot />
     </main>
 
+    <!-- Footer -->
     <footer class="bg-primary-dark text-white">
-      <div class="max-w-6xl mx-auto px-4 py-12">
-        <div class="grid md:grid-cols-3 gap-8">
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-3 gap-16">
           <div>
-            <h3 class="font-bold text-lg mb-4">御忍庭球塾</h3>
-            <p class="text-sm text-white/70 leading-relaxed">
+            <img src={`${base}images/logo/logo.png`} alt="御忍庭球塾" class="h-10 mb-6 brightness-0 invert" />
+            <p class="text-sm text-white/50 leading-relaxed">
               札幌市白石区を拠点に活動するテニススクール。<br />
               少人数制で一人ひとりに寄り添ったレッスンを提供しています。
             </p>
           </div>
           <div>
-            <h3 class="font-bold text-lg mb-4">LINE でお問い合わせ</h3>
-            <div class="space-y-3 text-sm">
-              <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="block hover:text-accent-light transition">
-                ▶ レッスンのお問い合わせ
+            <h3 class="text-sm font-bold tracking-wider text-accent mb-6">LINE</h3>
+            <div class="space-y-4 text-sm">
+              <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
+                <span>→</span> レッスンのお問い合わせ
               </a>
-              <a href="https://lin.ee/Cc2Tbvk" target="_blank" rel="noopener" class="block hover:text-accent-light transition">
-                ▶ ガット張替のお問い合わせ
+              <a href="https://lin.ee/Cc2Tbvk" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
+                <span>→</span> ガット張替のお問い合わせ
               </a>
             </div>
           </div>
           <div>
-            <h3 class="font-bold text-lg mb-4">リンク</h3>
-            <div class="space-y-3 text-sm">
-              <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="block hover:text-accent-light transition">
-                ▶ YouTube チャンネル
+            <h3 class="text-sm font-bold tracking-wider text-accent mb-6">LINKS</h3>
+            <div class="space-y-4 text-sm">
+              <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
+                <span>→</span> YouTube チャンネル
               </a>
-              <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="block hover:text-accent-light transition">
-                ▶ PLACE OF SPORTS NEO
+              <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
+                <span>→</span> PLACE OF SPORTS NEO
               </a>
             </div>
           </div>
         </div>
-        <div class="border-t border-white/20 mt-8 pt-6 text-center text-sm text-white/50">
+        <div class="border-t border-white/10 mt-16 pt-8 text-center text-xs text-white/30 tracking-wider">
           <p>&copy; {new Date().getFullYear()} 御忍庭球塾 All Rights Reserved.</p>
         </div>
       </div>
@@ -95,9 +110,40 @@ const base = import.meta.env.BASE_URL;
 
     <script>
       const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('menu-overlay');
+      const bar1 = document.getElementById('menu-bar-1');
+      const bar2 = document.getElementById('menu-bar-2');
+      const bar3 = document.getElementById('menu-bar-3');
+      let isOpen = false;
+
       toggle?.addEventListener('click', () => {
-        menu?.classList.toggle('hidden');
+        isOpen = !isOpen;
+        if (isOpen) {
+          overlay?.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            overlay?.classList.remove('opacity-0');
+            overlay?.classList.add('opacity-100');
+          });
+          bar1?.classList.add('rotate-45', 'translate-y-[4px]');
+          bar2?.classList.add('opacity-0');
+          bar3?.classList.add('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
+          document.body.style.overflow = 'hidden';
+        } else {
+          overlay?.classList.remove('opacity-100');
+          overlay?.classList.add('opacity-0');
+          setTimeout(() => overlay?.classList.add('hidden'), 500);
+          bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
+          bar2?.classList.remove('opacity-0');
+          bar3?.classList.remove('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close on link click
+      overlay?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          toggle?.click();
+        });
       });
     </script>
   </body>
