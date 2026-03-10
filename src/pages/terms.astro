@@ -3,37 +3,208 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="ご利用規約">
-  <section class="py-16 bg-gradient-to-br from-primary-dark to-primary text-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold mb-4">ご利用規約</h1>
+  <!-- Hero -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
+    <p class="absolute top-4 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none">TERMS</p>
+    <div class="relative max-w-6xl mx-auto px-4 text-center text-white">
+      <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">TERMS OF SERVICE</p>
+      <h1 class="text-4xl font-bold">ご利用規約</h1>
     </div>
   </section>
 
-  <section class="py-20 bg-bg">
+  <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4">
-      <div class="bg-white rounded-xl p-8 shadow-sm">
-        <h2 class="text-xl font-bold mb-6">規約改定のお知らせ</h2>
-        <p class="text-text-light leading-relaxed mb-6">
+
+      <!-- 改定お知らせ -->
+      <div class="bg-gray-50 border-l-4 border-accent p-6 mb-12">
+        <h2 class="font-bold mb-3">規約改定のお知らせ</h2>
+        <p class="text-text-light text-sm leading-relaxed mb-3">
           2024年2月1日より、以下の条項を改定いたしました。
         </p>
-        <ul class="text-text-light space-y-2 mb-8">
+        <ul class="text-text-light text-sm space-y-1">
           <li>・第6条（料金について）</li>
           <li>・第9条（退会・休会）に2項目追加</li>
-          <li>・第11条（解約）を新設</li>
-          <li>・第16条（緊急時の欠席対応）を新設</li>
+          <li>・第11条（キャンセルポリシー）を新設</li>
+          <li>・第16条（緊急時の対応）を新設</li>
         </ul>
+      </div>
 
-        <div class="bg-bg-dark rounded-lg p-6 text-center">
-          <p class="text-text-light mb-4">規約の全文はPDFにてご確認いただけます。</p>
-          <p class="text-sm text-text-light">
-            ※ 規約PDFについては、LINEにてお問い合わせください。
+      <!-- 規約本文 -->
+      <article class="prose-terms">
+        <h2 class="text-2xl font-bold text-center mb-12">御忍庭球塾利用規約</h2>
+
+        <!-- 第1章 -->
+        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6">第１章　総則</h3>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（名称）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第１条</span>　本塾は御忍庭球塾（以下塾という）と称する。
           </p>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-gray-200">
-          <p class="text-sm text-text-light">代表：水上皓太</p>
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（目的）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第２条</span>　本塾はテニスを通して、会員並びにその家族の親睦と健康の増進を計り、あわせて地域社会のスポーツ文化の発展に貢献する事を目的とする。
+          </p>
         </div>
-      </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（運営）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第３条</span>　本塾は代表である水上皓太個人が運営管理するものとし、会員は本規約に従わなければならない。
+          </p>
+        </div>
+
+        <!-- 第2章 -->
+        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6 mt-12">第２章　会員</h3>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（会員の種類）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第４条</span>　本塾の会員は正会員のみとする。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>（１）正会員 ── 塾の会員価格でレッスンに参加ができる</p>
+            <p>（２）非会員 ── 非会員価格でレッスンに参加ができる</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（入会）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第５条</span>　本塾に入会する時は本規約承認の上、本塾の承認を得た後、入会金等を納入しなければならない。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（会費）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第６条</span>　会費は５月から10月は12,000円、11月から４月は13,000円とする。ただし、経過措置として2024年４月分までは５月から10月は11,000円、11月から４月は12,000円とする。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>２　納入日は毎月月初のレッスン日とする。</p>
+            <p>３　既納の費用はいかなる理由があっても払い戻しはしない。</p>
+            <p>４　会費、その他の費用の額は物価の高騰、その他経済情勢に変動が生じたときは会社の決定に基づき実施の３ヶ月前までに予告し、変更する事ができる。</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（資格喪失）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第７条</span>　会員が次の一つに該当する場合は、自動的にその会員資格を喪失する。その際、振替の残数も喪失する。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>（１）退会又は死亡</p>
+            <p>（２）会員期間の満了</p>
+            <p>（３）除名</p>
+            <p>（４）塾の閉鎖</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（除名）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第８条</span>　会員が次の各項に該当する場合は除名する事ができる。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>（１）本規約並びに会社が定めた規則に違反した時</p>
+            <p>（２）塾の秩序を乱し、他の会員に迷惑をおよぼし、塾の名誉、信用を著しく傷つけた時</p>
+            <p>（３）会費その他の諸支払いを２ヶ月以上滞納し、本塾からの請求に応じなかった時</p>
+            <p>（４）本塾で除名が妥当であると判断された時</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（退会・休会）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第９条</span>　退会・休会の申し出は原則１か月以上前に申出る必要があり、ケガ等やむを得ない場合を除き１か月前未満の退会・休会の申し出は受け付けないこととする。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>２　休会は原則ケガなどやむを得ない場合を想定しているため、仕事の繁忙等による休会は不可とする。</p>
+            <p>３　休会期間は年間（１月から１２月の間）に合計２か月までとする。</p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（振替）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第10条</span>　会員の事情や塾の休業によりレッスンに参加できなかった場合は、別のレッスンに振替する事ができる。振替の期限は事象が発生した月を含む６か月以内とする。また、退会をした場合及び休会中は退会・休会前に発生した振替は使用不可とする。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（キャンセルポリシー）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第11条</span>　欠席連絡の期限は以下のとおりとする。やむを得ない場合を除き、期限を超えて連絡した場合は参加できなかったとしても出席扱いとする。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>（１）①のレッスン（19時30分〜21時）は当日17時30分まで</p>
+            <p>（２）②のレッスン（21時10分〜22時40分）は当日18時30分まで</p>
+          </div>
+        </div>
+
+        <!-- 第3章 -->
+        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6 mt-12">第３章　付則</h3>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（塾の閉鎖）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第12条</span>　本塾は、天災地変及び著しい社会情勢の変化、その他やむを得ない事由が生じた場合は、１ヶ月前に予告し無条件に閉鎖、縮小する事ができる。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（休日）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第13条</span>　本塾は休日を５週月の最終週とし、又、塾のイベント、施設の修繕等がある場合は掲示等により予告し、休業する場合がある。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（免責事由）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第14条</span>　コート利用中のケガ及び塾内で発生した盗難、障害、その他の事故について本塾は一切の責任を負わないものとする。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（SNS投稿の許可）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第15条</span>　会員は、レッスンの内容を撮影しSNSに一部投稿すること認めるものとする。
+          </p>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（水上が急遽来れなくなった場合の取り扱い）</h4>
+          <p class="text-text-light leading-relaxed mb-3">
+            <span class="font-bold text-text">第16条</span>　事故や急病によって水上が来れなくなった場合、以下のような取扱いとする。
+          </p>
+          <div class="pl-6 space-y-2 text-text-light">
+            <p>（１）代理のコーチが見つかった場合は通常通りの取扱いとする</p>
+            <p>（２）代理のコーチが見つからなかった場合は以下の取扱いとする</p>
+            <div class="pl-6 space-y-2">
+              <p>①　レギュラー会員で出席した方は参加者同士でアップ後練習マッチを行うが、次月の会費から1,000円分の割引をすることとする</p>
+              <p>②　レギュラー会員で欠席した方は通常通り欠席扱いとし、振替分１増とする</p>
+              <p>③　振替で参加した方は、参加した場合は通常通り振替消化とする</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="font-bold mb-2">（付則）</h4>
+          <p class="text-text-light leading-relaxed">
+            <span class="font-bold text-text">第17条</span>　本塾は必要に応じて本規定に定めのない事項及び業務執行に必要な細則、利用規定を定めることができ、会員はそれに従わなければならない。
+          </p>
+        </div>
+
+        <!-- 署名 -->
+        <div class="mt-12 pt-8 border-t border-gray-200 text-right text-text-light text-sm">
+          <p>代表：水上皓太</p>
+        </div>
+      </article>
     </div>
   </section>
 </Layout>
