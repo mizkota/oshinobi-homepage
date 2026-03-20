@@ -15,7 +15,10 @@
       "Bash(curl:*)",
       "WebFetch(domain:neo-spo.com)",
       "Bash(identify:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "WebSearch",
+      "Bash(git:*)",
+      "Bash(nslookup oshinobitennis.com 2>/dev/null)"
     ]
   }
 }
