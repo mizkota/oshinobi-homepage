@@ -1,0 +1,501 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="チケット制ご案内" description="御忍庭球塾 チケット制会員向けのご案内ページです。">
+
+  <style>
+    .tg-hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+      padding: 60px 24px 48px;
+      text-align: center;
+      color: white;
+    }
+    .tg-hero h1 { font-size: 28px; font-weight: 900; letter-spacing: 0.05em; }
+    .tg-hero p { margin-top: 12px; font-size: 14px; opacity: 0.7; }
+
+    .tg-container { max-width: 640px; margin: 0 auto; padding: 0 20px 80px; }
+
+    /* Section Card */
+    .tg-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-top: 32px;
+      overflow: hidden;
+    }
+    .tg-card-header {
+      padding: 18px 24px;
+      color: white;
+      font-weight: 700;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tg-card-body { padding: 24px; }
+
+    .bg-green { background: #2E7D32; }
+    .bg-blue { background: #1565C0; }
+    .bg-orange { background: #E65100; }
+    .bg-purple { background: #7B1FA2; }
+    .bg-teal { background: #00897B; }
+
+    /* Flow Diagram */
+    .tg-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 16px 0;
+    }
+    .tg-flow-item { text-align: center; flex: 1; }
+    .tg-flow-item .emoji { font-size: 36px; }
+    .tg-flow-item .label { font-size: 13px; font-weight: 700; margin-top: 6px; }
+    .tg-flow-item .sub { font-size: 11px; color: #888; margin-top: 2px; }
+    .tg-flow-arrow { color: #ccc; font-size: 24px; flex: 0 0 auto; padding: 0 4px; }
+
+    /* Action List */
+    .tg-action { display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; }
+    .tg-action + .tg-action { border-top: 1px solid #f0f0f0; }
+    .tg-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .tg-action-content { flex: 1; }
+    .tg-action-title { font-size: 14px; font-weight: 700; color: #333; }
+    .tg-action-desc { font-size: 12px; color: #888; margin-top: 4px; line-height: 1.7; }
+
+    /* Rule Items */
+    .tg-rule { padding: 16px 0; }
+    .tg-rule + .tg-rule { border-top: 1px solid #f0f0f0; }
+    .tg-rule-header { display: flex; align-items: center; gap: 8px; }
+    .tg-rule-icon { font-size: 22px; flex-shrink: 0; }
+    .tg-rule-title { font-size: 14px; font-weight: 700; color: #333; }
+    .tg-rule-body { font-size: 13px; color: #555; margin-top: 6px; padding-left: 30px; line-height: 1.7; }
+    .tg-rule-note { font-size: 11px; color: #999; margin-top: 3px; padding-left: 30px; }
+    .tg-rule-danger .tg-rule-title { color: #D32F2F; }
+    .tg-rule-danger .tg-rule-body { color: #D32F2F; }
+
+    /* Monthly Flow */
+    .tg-step {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      align-items: flex-start;
+    }
+    .tg-step + .tg-step { border-top: 1px solid #f0f0f0; }
+    .tg-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #00897B;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .tg-step-content { flex: 1; }
+    .tg-step-title { font-size: 14px; font-weight: 700; color: #333; }
+    .tg-step-desc { font-size: 12px; color: #888; margin-top: 4px; line-height: 1.7; }
+    .tg-step-arrow {
+      text-align: center;
+      color: #ccc;
+      font-size: 20px;
+      padding: 4px 0;
+      padding-left: 52px;
+    }
+
+    /* Example Chat Bubble */
+    .tg-chat { margin-top: 16px; }
+    .tg-chat-bubble {
+      background: #E8F5E9;
+      border-radius: 0 16px 16px 16px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.8;
+      display: inline-block;
+      max-width: 90%;
+    }
+    .tg-chat-reply {
+      background: #E3F2FD;
+      border-radius: 16px 0 16px 16px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.6;
+      display: inline-block;
+      max-width: 80%;
+      margin-top: 10px;
+      margin-left: auto;
+    }
+    .tg-chat-label {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .tg-chat-right { text-align: right; }
+
+    /* Example box */
+    .tg-example {
+      background: #F5F5F5;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+    .tg-example + .tg-example { margin-top: 10px; }
+    .tg-example-title { font-size: 13px; font-weight: 700; color: #333; }
+    .tg-example-step { font-size: 12px; color: #666; margin-top: 6px; }
+    .tg-example-result { font-size: 12px; font-weight: 700; margin-top: 4px; }
+
+    /* Highlight Box */
+    .tg-highlight {
+      background: #FFF8E1;
+      border-left: 4px solid #c8a84e;
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 32px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .tg-highlight strong { color: #333; }
+
+    /* Footer CTA */
+    .tg-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 32px 24px;
+      background: #f9f9f6;
+      border-radius: 16px;
+    }
+    .tg-footer p { font-size: 14px; color: #888; line-height: 1.8; }
+    .tg-footer a {
+      display: inline-block;
+      margin-top: 16px;
+      background: #06C755;
+      color: white;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+    .tg-footer a:hover { opacity: 0.8; }
+
+    /* Number circle for changed items */
+    .tg-changed-label {
+      display: inline-block;
+      background: #E8F5E9;
+      color: #2E7D32;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .tg-hero { padding: 48px 20px 36px; }
+      .tg-hero h1 { font-size: 22px; }
+      .tg-flow-item .emoji { font-size: 28px; }
+      .tg-flow-item .label { font-size: 11px; }
+    }
+  </style>
+
+  <!-- Hero -->
+  <div class="tg-hero">
+    <p>🎾 御忍庭球塾</p>
+    <h1>チケット制のご案内</h1>
+    <p>チケット制に切り替わる会員の皆様へ</p>
+  </div>
+
+  <div class="tg-container">
+
+    <!-- 0. 何が変わるの？ -->
+    <div class="tg-card">
+      <div class="tg-card-header bg-green">✨ 何が変わるの？</div>
+      <div class="tg-card-body">
+        <p style="font-size:14px; color:#555; line-height:1.8;">
+          これまでは<strong>決まった曜日のクラスに毎週参加</strong>する形でしたが、
+          チケット制では<strong>毎月届く4枚のチケット</strong>を使って、
+          ご都合の良い日程を選んで参加できるようになります。
+        </p>
+
+        <div style="margin-top:20px; font-weight:700; font-size:15px; color:#333;">📌 基本の流れ</div>
+        <div class="tg-flow">
+          <div class="tg-flow-item">
+            <div class="emoji">🎫</div>
+            <div class="label" style="color:#2E7D32;">毎月4枚</div>
+            <div class="sub">チケット付与</div>
+          </div>
+          <div class="tg-flow-arrow">→</div>
+          <div class="tg-flow-item">
+            <div class="emoji">📅</div>
+            <div class="label" style="color:#E65100;">希望日を連絡</div>
+            <div class="sub">LINEで返信</div>
+          </div>
+          <div class="tg-flow-arrow">→</div>
+          <div class="tg-flow-item">
+            <div class="emoji">🎾</div>
+            <div class="label" style="color:#1565C0;">レッスン参加</div>
+            <div class="sub">チケット消費</div>
+          </div>
+        </div>
+
+        <div class="tg-highlight" style="margin-top:16px;">
+          <strong>💡 つまり</strong><br>
+          月4回まで、空きのあるクラスの中から好きな日程を選んで参加できます。
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. 毎月の流れ -->
+    <div class="tg-card">
+      <div class="tg-card-header bg-teal">📆 毎月の流れ（これだけ覚えればOK）</div>
+      <div class="tg-card-body">
+
+        <div class="tg-step">
+          <div class="tg-step-num">1</div>
+          <div class="tg-step-content">
+            <div class="tg-step-title">月初にLINEが届きます</div>
+            <div class="tg-step-desc">
+              チケット4枚の付与と一緒に、<br>
+              <strong>来月の空きのあるクラス・日程の一覧</strong>が届きます。
+            </div>
+          </div>
+        </div>
+        <div class="tg-step-arrow">↓</div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">2</div>
+          <div class="tg-step-content">
+            <div class="tg-step-title">希望の4回分を返信してください</div>
+            <div class="tg-step-desc">
+              <strong>日付とクラス（①か②）</strong>を送るだけでOKです。
+            </div>
+          </div>
+        </div>
+        <div class="tg-step-arrow">↓</div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">3</div>
+          <div class="tg-step-content">
+            <div class="tg-step-title">管理者が予約を入れます</div>
+            <div class="tg-step-desc">予約が完了したらお知らせします。</div>
+          </div>
+        </div>
+        <div class="tg-step-arrow">↓</div>
+
+        <div class="tg-step">
+          <div class="tg-step-num">4</div>
+          <div class="tg-step-content">
+            <div class="tg-step-title">予定通りレッスンに参加！</div>
+            <div class="tg-step-desc">都合が悪くなったら欠席連絡や振替も可能です。</div>
+          </div>
+        </div>
+
+        <!-- Chat Example -->
+        <div style="margin-top:24px; padding-top:20px; border-top:1px solid #f0f0f0;">
+          <div style="font-size:13px; font-weight:700; color:#00897B; margin-bottom:12px;">💬 実際のやり取りイメージ</div>
+          <div class="tg-chat">
+            <div class="tg-chat-label">御忍庭球塾</div>
+            <div class="tg-chat-bubble">
+              ○○さん<br>
+              お世話になっております！<br>
+              御忍庭球塾の水上です🎾<br><br>
+              🎫 5月分のチケット4枚をお渡ししました！<br><br>
+              ━━━━━━━━━━━<br>
+              📅 5月の日程<br>
+              ━━━━━━━━━━━<br><br>
+              【水曜①】<br>
+              1️⃣ 5/7(水)①<br>
+              2️⃣ 5/14(水)①<br>
+              3️⃣ 5/21(水)①<br>
+              4️⃣ 5/28(水)①<br><br>
+              【木曜②】<br>
+              1️⃣ 5/1(木)②<br>
+              2️⃣ 5/8(木)②<br>
+              3️⃣ 5/15(木)②<br>
+              4️⃣ 5/22(木)②<br><br>
+              ━━━━━━━━━━━<br><br>
+              上記の中から、参加希望の4回分を<br>
+              このチャットで教えてください！<br><br>
+              例）「5/7(水)①と5/8(木)②…」<br>
+              のように日付だけ送っていただければOKです👍
+            </div>
+          </div>
+          <div class="tg-chat tg-chat-right">
+            <div class="tg-chat-label">あなた</div>
+            <div class="tg-chat-reply">
+              5/7(水)①と5/14(水)①と<br>
+              5/1(木)②と5/15(木)②で<br>
+              お願いします！
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2. 予定変更したい時 -->
+    <div class="tg-card">
+      <div class="tg-card-header bg-blue">🔄 予定が変わった時は？</div>
+      <div class="tg-card-body">
+        <p style="font-size:14px; color:#555; line-height:1.8; margin-bottom:16px;">
+          予約後に都合が悪くなっても大丈夫です。<br>
+          LINEメニューからいつでも変更できます。
+        </p>
+
+        <div class="tg-action">
+          <div class="tg-badge" style="background:#FF6B6B;">欠席</div>
+          <div class="tg-action-content">
+            <div class="tg-action-title">予約した日を欠席する場合</div>
+            <div class="tg-action-desc">
+              メニューから「欠席連絡」→ 日付を選択<br>
+              <strong style="color:#4CAF50;">→ チケット1枚もらえる ✅</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="tg-action">
+          <div class="tg-badge" style="background:#1565C0;">振替</div>
+          <div class="tg-action-content">
+            <div class="tg-action-title">別の日に振替出席する場合</div>
+            <div class="tg-action-desc">
+              メニューから「振替出席」→ クラスと日付を選択<br>
+              <strong style="color:#1565C0;">→ チケット1枚つかう 🎫</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="tg-action">
+          <div class="tg-badge" style="background:#FF8F00;">取消</div>
+          <div class="tg-action-content">
+            <div class="tg-action-title">振替をキャンセルする場合</div>
+            <div class="tg-action-desc">
+              メニューから「振替キャンセル」→ 予約を選択<br>
+              <strong style="color:#FF8F00;">→ チケット1枚もどる 🔄</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="tg-action">
+          <div class="tg-badge" style="background:#7B1FA2;">確認</div>
+          <div class="tg-action-content">
+            <div class="tg-action-title">チケット残数を確認</div>
+            <div class="tg-action-desc">
+              メニューから「振替残数確認」<br>
+              残り枚数と有効期限が表示されます
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3. ルールと注意点 -->
+    <div class="tg-card">
+      <div class="tg-card-header bg-orange">📋 ルール</div>
+      <div class="tg-card-body">
+
+        <div class="tg-rule">
+          <div class="tg-rule-header">
+            <div class="tg-rule-icon">🎫</div>
+            <div class="tg-rule-title">毎月のチケット</div>
+          </div>
+          <div class="tg-rule-body">毎月 <strong>4枚</strong> 付与されます</div>
+        </div>
+
+        <div class="tg-rule">
+          <div class="tg-rule-header">
+            <div class="tg-rule-icon">⏰</div>
+            <div class="tg-rule-title">有効期限</div>
+          </div>
+          <div class="tg-rule-body">発行日から <strong>6ヶ月間</strong> 有効</div>
+          <div class="tg-rule-note">※ 期限切れのチケットは使用できません</div>
+        </div>
+
+        <div class="tg-rule">
+          <div class="tg-rule-header">
+            <div class="tg-rule-icon">🔢</div>
+            <div class="tg-rule-title">同時予約の上限</div>
+          </div>
+          <div class="tg-rule-body">自分で振替予約する場合は同時に <strong>2枠まで</strong></div>
+          <div class="tg-rule-note">※ 月初にまとめて入れる4回分はこの上限の対象外です</div>
+        </div>
+
+        <div class="tg-rule tg-rule-danger">
+          <div class="tg-rule-header">
+            <div class="tg-rule-icon">⚠️</div>
+            <div class="tg-rule-title">チケットが0枚の場合</div>
+          </div>
+          <div class="tg-rule-body">振替ではなく<strong>「単発参加（有料）」</strong>としての扱いになります</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. よくある質問 -->
+    <div class="tg-card">
+      <div class="tg-card-header bg-purple">❓ よくある質問</div>
+      <div class="tg-card-body">
+
+        <div class="tg-rule">
+          <div class="tg-rule-title">Q. 月4回以上参加したい場合は？</div>
+          <div class="tg-rule-body">チケットの残数があれば4回以上でも参加できます。ただし5回目以降はチケット残数が減っていきます。チケットが0枚の状態で参加すると単発参加（有料）扱いとなります。</div>
+        </div>
+
+        <div class="tg-rule">
+          <div class="tg-rule-title">Q. 月初に届く一覧に出ていない日程に参加したい場合は？</div>
+          <div class="tg-rule-body">一覧はその時点で空きのある日程のみ表示しています。後から空きが出ることもあるので、LINEメニューの「振替出席」から最新の空き状況を確認できます。</div>
+        </div>
+
+        <div class="tg-rule">
+          <div class="tg-rule-title">Q. 希望日を伝えた後に変更したい場合は？</div>
+          <div class="tg-rule-body">予約が入った後でも、LINEメニューから「欠席連絡」や「振替キャンセル」で自由に変更できます。チケットも自動で返却されます。</div>
+        </div>
+
+        <div class="tg-rule">
+          <div class="tg-rule-title">Q. チケットの残数はどこで確認できる？</div>
+          <div class="tg-rule-body">LINEメニューの「振替残数確認」からいつでも確認できます。残り枚数と各チケットの有効期限が表示されます。</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- まとめ -->
+    <div class="tg-highlight">
+      <strong>💡 まとめ</strong><br>
+      ① 月初にLINEでチケット4枚 ＋ 来月の空き日程が届く<br>
+      ② <strong>希望の日程を返信するだけ</strong>で予約完了<br>
+      ③ 予定変更はLINEメニューからいつでもOK
+    </div>
+
+    <!-- Footer -->
+    <div class="tg-footer">
+      <p>
+        ご不明な点がありましたら<br>
+        お気軽にLINEでメッセージください🙏
+      </p>
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener">
+        LINEでお問い合わせ
+      </a>
+    </div>
+
+  </div>
+
+</Layout>
