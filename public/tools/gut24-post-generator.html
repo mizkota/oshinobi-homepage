@@ -315,6 +315,7 @@ const guts = [
   {
     name: 'ツイスター', brand: 'Signum Pro', type: 'ポリ', gauge: '1.20mm', price: 2800, color: '#9400D3',
     traits: ['スピン', 'コスパ'], feel: '硬め',
+    stats: {power:3, spin:5, control:3, durability:4, feel:2},
     tips: [
       '5角形断面がボールをがっちり掴み、スピン量が爆増🌀コスパ最強のスピン特化ポリです！',
       'ドイツ製高品質ポリでこの価格はコスパ抜群。スピン系プレーヤーに根強いファンが多い⚡',
@@ -324,6 +325,7 @@ const guts = [
   {
     name: 'トルネード', brand: 'Signum Pro', type: 'ポリ', gauge: '1.23mm', price: 2800, color: '#FF8C00',
     traits: ['スピン', 'コントロール'], feel: '中間',
+    stats: {power:3, spin:4, control:4, durability:4, feel:3},
     tips: [
       '螺旋形状の特殊断面がボールに独特の回転を与える。スピンとコントロールを高次元で両立🌪️',
       'ツイスターとは異なる打感で、より弾きの良さを重視したい方に。Signum Proの人気モデル💥',
@@ -333,6 +335,7 @@ const guts = [
   {
     name: 'ポリツアープロ', brand: 'YONEX', type: 'ポリ', gauge: '1.25mm', price: 3000, color: '#8B4513',
     traits: ['柔らかい打感', 'スピン'], feel: '柔らかめ',
+    stats: {power:3, spin:4, control:4, durability:3, feel:4},
     tips: [
       '錦織圭選手も使用したYONEXの看板ポリ。柔らかな打球感とスピン性能を兼ね備えた万能型🏅',
       'ポリとは思えないマイルドな打感で腕への負担が少ない。初めてポリを張る方にも安心🌸',
@@ -342,6 +345,7 @@ const guts = [
   {
     name: 'HYPER-G', brand: 'Solinco', type: 'ポリ', gauge: '1.25mm', price: 3000, color: '#00FF00',
     traits: ['スピン', 'ヘビースピン'], feel: '硬め',
+    stats: {power:4, spin:5, control:3, durability:4, feel:2},
     tips: [
       '5角形断面のスピン特化ポリ。鮮やかなグリーンカラーも目を引くSolincoの人気ナンバー1🟢',
       'エッジがボールに食い込みスピン量が段違い。ヘビートップスピンプレーヤーに刺さる一本🔥',
@@ -351,6 +355,7 @@ const guts = [
   {
     name: 'RPMブラスト', brand: 'Babolat', type: 'ポリ', gauge: '1.25/1.30mm', price: 3000, color: '#FFD700',
     traits: ['スピン', 'コントロール'], feel: '硬め',
+    stats: {power:4, spin:5, control:4, durability:3, feel:2},
     tips: [
       'ナダルが長年愛用したことで世界的に有名なポリの定番。高いスピン性能とコントロールが魅力🏆',
       'ボールへの食いつきが良く、スウィングスピードが上がるほど威力を発揮するスピン系ポリ🔥',
@@ -360,6 +365,7 @@ const guts = [
   {
     name: 'マッハ-10', brand: 'Solinco', type: 'ポリ', gauge: '1.25mm', price: 3100, color: '#FF4500',
     traits: ['パワー', 'スピン'], feel: '硬め',
+    stats: {power:5, spin:4, control:3, durability:3, feel:2},
     tips: [
       'パワーとスピンを高次元で融合したSolincoのフラッグシップモデル。攻撃的なプレーが加速🚀',
       'HYPER-Gよりも弾きが強く、フラット系のショットに独特の伸びが生まれます。ハードヒッター向け💥',
@@ -369,6 +375,7 @@ const guts = [
   {
     name: 'ポリツアーレブ', brand: 'YONEX', type: 'ポリ', gauge: '1.25mm', price: 3200, color: '#FF6347',
     traits: ['パワー', '反発力'], feel: '柔らかめ',
+    stats: {power:4, spin:4, control:4, durability:4, feel:3},
     tips: [
       'ポリツアープロの上位モデル。さらに高い反発力でボールのスピードと伸びが格段にアップ🚀',
       'YONEX独自加工でボールへの引っかかりが抜群。深いトップスピンで相手を追い詰めよう🌀',
@@ -378,6 +385,7 @@ const guts = [
   {
     name: 'アルパワー', brand: 'Luxilon', type: 'ポリ', gauge: '1.25mm', price: 3200, color: '#C0C0C0',
     traits: ['万能', '高品質'], feel: '中間',
+    stats: {power:4, spin:3, control:5, durability:3, feel:3},
     tips: [
       'フェデラーも使用した名作ポリ。フラット系の伸びるボールで相手コートを制圧💫',
       'テンション維持性能が高く、張りたての打感が長続き。試合直前の張り替えにも安心🎯',
@@ -387,6 +395,7 @@ const guts = [
   {
     name: 'X-ONE バイフェイズ', brand: 'Tecnifibre', type: 'ナイロン', gauge: '1.24mm', price: 3600, color: '#1E90FF',
     traits: ['柔らかい打感', '快適'], feel: '非常に柔らか',
+    stats: {power:3, spin:2, control:4, durability:2, feel:5},
     tips: [
       'ナイロン最高峰の呼び声高い名作。ナチュラルガットに近い柔らかさと弾力で腕に極めて優しい🌟',
       '温度変化に応じてガットが変化するバイフェイズ技術で、常に最適なプレフィールを提供✨',
@@ -488,6 +497,15 @@ const compatPatterns = [
 
 function getCompatComment(racket, gut) {
   if (!racket) return null;
+  // 同メーカー → 王道セッティング（最優先）
+  if (racket.maker === gut.brand) {
+    const sameMakerComments = [
+      `${racket.maker}ラケット×${gut.name}はメーカー推奨の王道セッティング！相性は折り紙付きの鉄板コンビです🏆`,
+      `${gut.brand}純正の組み合わせ。メーカーが自信を持って推奨する定番セッティングです👑`,
+      `${racket.maker}ラケット×${gut.name}は定番中の定番。間違いのない王道セッティングです🔥`
+    ];
+    return sameMakerComments[Math.floor(Math.random() * sameMakerComments.length)];
+  }
   for (const pattern of compatPatterns) {
     if (pattern.condition(racket, gut)) {
       const comments = pattern.comments;
@@ -496,9 +514,9 @@ function getCompatComment(racket, gut) {
   }
   // Fallback
   const fallbacks = [
-    `${racket.maker} ${racket.name}との組み合わせ。${gut.name}の特性を活かした個性的なセッティングです🎾`,
-    `ラケットとガットの特性を組み合わせた独自セッティング。使い込むほど自分の武器になります💪`,
-    `${racket.type}系ラケット×${gut.name}の意外な組み合わせ。新しいプレースタイルが開花するかも🌟`
+    `${racket.maker} ${racket.name}との組み合わせ。${gut.name}の特性をしっかり活かせるバランスのいいセッティングです🎾`,
+    `ラケットとガットの特性が組み合わさったオリジナルセッティング。使い込むほど自分の武器になります💪`,
+    `${racket.type}系ラケット×${gut.name}の組み合わせ。ラケットの特性をガットで上手く補完できています✅`
   ];
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
@@ -721,54 +739,74 @@ async function generateImage() {
   ctx.fillStyle = gut.color;
   ctx.fillRect(0, panelY, W, 5);
 
+  // Layout: left ~60% for text, right ~40% for radar chart
+  const LEFT_MAX_X = 630;
+  const RIGHT_START_X = 650;
+  const chartCX = RIGHT_START_X + (W - RIGHT_START_X) / 2; // ~865
+  const chartCY = panelY + (H - panelY - 30) / 2;
+  const chartR = 150;
+
   // Gut name
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 52px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 48px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText(gut.name, 50, panelY + 66);
+  ctx.fillText(gut.name, 50, panelY + 62);
 
   // Brand / type / gauge
   ctx.fillStyle = gut.color;
-  ctx.font = 'bold 24px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 21px "Helvetica Neue", Arial, sans-serif';
   const brandText = `${gut.brand}  /${gut.type}  /${gut.gauge}`;
-  ctx.fillText(brandText, 50, panelY + 100);
+  ctx.fillText(brandText, 50, panelY + 93);
 
-  // Tension display
+  // Tension display (left-aligned)
   ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 36px "Helvetica Neue", Arial, sans-serif';
-  ctx.textAlign = 'right';
-  ctx.fillText(`${tensionV} / ${tensionH} lbs`, W - 50, panelY + 66);
+  ctx.font = 'bold 30px "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(`${tensionV} / ${tensionH} lbs`, 50, panelY + 130);
   ctx.fillStyle = '#8aa0bb';
-  ctx.font = '19px "Helvetica Neue", Arial, sans-serif';
-  ctx.fillText('縦 / 横テンション', W - 50, panelY + 96);
+  ctx.font = '17px "Helvetica Neue", Arial, sans-serif';
+  ctx.fillText('縦 / 横テンション', 50, panelY + 153);
 
   // Racket (if set)
-  let tipStartY = panelY + 130;
+  let tipStartY = panelY + 178;
   if (racketDisplay) {
     ctx.fillStyle = '#8aa0bb';
-    ctx.font = '21px "Helvetica Neue", Arial, sans-serif';
+    ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`🎾 ${racketDisplay}`, 50, tipStartY);
-    tipStartY += 34;
+    tipStartY += 30;
   }
 
-  // Divider
+  // Divider (left panel only)
   ctx.strokeStyle = '#2a4060';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(50, tipStartY + 4);
-  ctx.lineTo(W - 50, tipStartY + 4);
+  ctx.lineTo(LEFT_MAX_X, tipStartY + 4);
   ctx.stroke();
-  tipStartY += 22;
+  tipStartY += 20;
 
-  // Tip text (wrapped)
+  // Tip text (wrapped to left panel)
   ctx.fillStyle = '#d0dce8';
-  ctx.font = '23px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = '21px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'left';
-  const tipLines = wrapText(ctx, tip, W - 100, 23);
+  const tipLines = wrapText(ctx, tip, LEFT_MAX_X - 50, 21);
   tipLines.forEach((line, i) => {
-    ctx.fillText(line, 50, tipStartY + i * 34);
+    ctx.fillText(line, 50, tipStartY + i * 32);
   });
+
+  // Vertical separator
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(RIGHT_START_X - 10, panelY + 15);
+  ctx.lineTo(RIGHT_START_X - 10, H - 50);
+  ctx.stroke();
+
+  // Radar chart (right panel)
+  if (gut.stats) {
+    drawRadarChart(ctx, gut, chartCX, chartCY, chartR);
+  }
 
   // Instagram handle
   ctx.fillStyle = '#c8a84e';
@@ -798,6 +836,76 @@ function wrapText(ctx, text, maxWidth, lineHeight) {
   }
   if (current) lines.push(current);
   return lines;
+}
+
+function hexToRgba(hex, alpha) {
+  if (!hex || !hex.startsWith('#')) return `rgba(200,168,78,${alpha})`;
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function drawRadarChart(ctx, gut, cx, cy, r) {
+  const labels = ['パワー', 'スピン', 'コントロール', '耐久性', '柔らかさ'];
+  const keys = ['power', 'spin', 'control', 'durability', 'feel'];
+  const stats = gut.stats;
+  const n = 5;
+  const startAngle = -Math.PI / 2;
+
+  function getPoint(radius, index) {
+    const angle = startAngle + index * (Math.PI * 2 / n);
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  }
+
+  // 同心五角形ガイドライン（5段階）
+  for (let level = 1; level <= 5; level++) {
+    ctx.beginPath();
+    for (let i = 0; i < n; i++) {
+      const pt = getPoint(r * level / 5, i);
+      i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // 軸線
+  for (let i = 0; i < n; i++) {
+    const pt = getPoint(r, i);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(pt.x, pt.y);
+    ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // データ五角形（塗りつぶし）
+  ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const val = stats[keys[i]] || 0;
+    const pt = getPoint(r * val / 5, i);
+    i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = hexToRgba(gut.color, 0.3);
+  ctx.fill();
+  ctx.strokeStyle = hexToRgba(gut.color, 0.8);
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // ラベル
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '22px "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = 0; i < n; i++) {
+    const pt = getPoint(r + 30, i);
+    ctx.fillText(labels[i], pt.x, pt.y);
+  }
+  ctx.textBaseline = 'alphabetic';
 }
 
 // ========== CAPTION ==========
