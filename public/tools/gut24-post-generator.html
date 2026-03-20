@@ -129,6 +129,28 @@
   }
   .btn-regen:hover { border-color: #c8a84e; color: #c8a84e; }
 
+  /* Compatibility badge */
+  .compat-badge {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #2a4060;
+    background: #0d1e30;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #b0d0b0;
+    display: none;
+  }
+  .compat-badge.visible { display: block; }
+  .compat-badge .compat-label {
+    font-size: 0.7rem;
+    color: #8aa0bb;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
   /* Preview canvas */
   #previewCanvas {
     width: 100%; aspect-ratio: 1;
@@ -242,8 +264,14 @@
       </div>
     </div>
 
-    <label style="margin-top:14px;">ラケット名（任意）</label>
-    <input type="text" id="racketName" placeholder="例: Wilson Blade 98">
+    <label style="margin-top:14px;">ラケット</label>
+    <select id="racketSelect" onchange="onRacketSelectChange()"></select>
+    <input type="text" id="racketCustom" placeholder="ラケット名を入力" class="hidden" style="margin-top:8px;">
+
+    <div class="compat-badge" id="compatBadge">
+      <div class="compat-label">🔗 ガットとの相性</div>
+      <div id="compatText"></div>
+    </div>
   </div>
 
   <!-- Tip -->
@@ -282,10 +310,11 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ========== DATA ==========
+// ========== GUT DATA ==========
 const guts = [
   {
     name: 'ツイスター', brand: 'Signum Pro', type: 'ポリ', gauge: '1.20mm', price: 2800, color: '#9400D3',
+    traits: ['スピン', 'コスパ'], feel: '硬め',
     tips: [
       '5角形断面がボールをがっちり掴み、スピン量が爆増🌀コスパ最強のスピン特化ポリです！',
       'ドイツ製高品質ポリでこの価格はコスパ抜群。スピン系プレーヤーに根強いファンが多い⚡',
@@ -294,6 +323,7 @@ const guts = [
   },
   {
     name: 'トルネード', brand: 'Signum Pro', type: 'ポリ', gauge: '1.23mm', price: 2800, color: '#FF8C00',
+    traits: ['スピン', 'コントロール'], feel: '中間',
     tips: [
       '螺旋形状の特殊断面がボールに独特の回転を与える。スピンとコントロールを高次元で両立🌪️',
       'ツイスターとは異なる打感で、より弾きの良さを重視したい方に。Signum Proの人気モデル💥',
@@ -302,6 +332,7 @@ const guts = [
   },
   {
     name: 'ポリツアープロ', brand: 'YONEX', type: 'ポリ', gauge: '1.25mm', price: 3000, color: '#8B4513',
+    traits: ['柔らかい打感', 'スピン'], feel: '柔らかめ',
     tips: [
       '錦織圭選手も使用したYONEXの看板ポリ。柔らかな打球感とスピン性能を兼ね備えた万能型🏅',
       'ポリとは思えないマイルドな打感で腕への負担が少ない。初めてポリを張る方にも安心🌸',
@@ -310,6 +341,7 @@ const guts = [
   },
   {
     name: 'HYPER-G', brand: 'Solinco', type: 'ポリ', gauge: '1.25mm', price: 3000, color: '#00FF00',
+    traits: ['スピン', 'ヘビースピン'], feel: '硬め',
     tips: [
       '5角形断面のスピン特化ポリ。鮮やかなグリーンカラーも目を引くSolincoの人気ナンバー1🟢',
       'エッジがボールに食い込みスピン量が段違い。ヘビートップスピンプレーヤーに刺さる一本🔥',
@@ -318,6 +350,7 @@ const guts = [
   },
   {
     name: 'RPMブラスト', brand: 'Babolat', type: 'ポリ', gauge: '1.25/1.30mm', price: 3000, color: '#FFD700',
+    traits: ['スピン', 'コントロール'], feel: '硬め',
     tips: [
       'ナダルが長年愛用したことで世界的に有名なポリの定番。高いスピン性能とコントロールが魅力🏆',
       'ボールへの食いつきが良く、スウィングスピードが上がるほど威力を発揮するスピン系ポリ🔥',
@@ -326,6 +359,7 @@ const guts = [
   },
   {
     name: 'マッハ-10', brand: 'Solinco', type: 'ポリ', gauge: '1.25mm', price: 3100, color: '#FF4500',
+    traits: ['パワー', 'スピン'], feel: '硬め',
     tips: [
       'パワーとスピンを高次元で融合したSolincoのフラッグシップモデル。攻撃的なプレーが加速🚀',
       'HYPER-Gよりも弾きが強く、フラット系のショットに独特の伸びが生まれます。ハードヒッター向け💥',
@@ -334,6 +368,7 @@ const guts = [
   },
   {
     name: 'ポリツアーレブ', brand: 'YONEX', type: 'ポリ', gauge: '1.25mm', price: 3200, color: '#FF6347',
+    traits: ['パワー', '反発力'], feel: '柔らかめ',
     tips: [
       'ポリツアープロの上位モデル。さらに高い反発力でボールのスピードと伸びが格段にアップ🚀',
       'YONEX独自加工でボールへの引っかかりが抜群。深いトップスピンで相手を追い詰めよう🌀',
@@ -342,6 +377,7 @@ const guts = [
   },
   {
     name: 'アルパワー', brand: 'Luxilon', type: 'ポリ', gauge: '1.25mm', price: 3200, color: '#C0C0C0',
+    traits: ['万能', '高品質'], feel: '中間',
     tips: [
       'フェデラーも使用した名作ポリ。フラット系の伸びるボールで相手コートを制圧💫',
       'テンション維持性能が高く、張りたての打感が長続き。試合直前の張り替えにも安心🎯',
@@ -350,6 +386,7 @@ const guts = [
   },
   {
     name: 'X-ONE バイフェイズ', brand: 'Tecnifibre', type: 'ナイロン', gauge: '1.24mm', price: 3600, color: '#1E90FF',
+    traits: ['柔らかい打感', '快適'], feel: '非常に柔らか',
     tips: [
       'ナイロン最高峰の呼び声高い名作。ナチュラルガットに近い柔らかさと弾力で腕に極めて優しい🌟',
       '温度変化に応じてガットが変化するバイフェイズ技術で、常に最適なプレフィールを提供✨',
@@ -358,26 +395,212 @@ const guts = [
   }
 ];
 
+// ========== RACKET DATA ==========
+const rackets = [
+  // YONEX
+  { name: 'EZONE 98', maker: 'YONEX', type: 'パワー', stiffness: '中', weight: 305, headSize: 98, pattern: '16x19', traits: ['パワー', 'スピン'] },
+  { name: 'EZONE 100', maker: 'YONEX', type: 'パワー', stiffness: '中', weight: 300, headSize: 100, pattern: '16x19', traits: ['パワー', '楽に飛ぶ'] },
+  { name: 'VCORE 98', maker: 'YONEX', type: 'スピン', stiffness: '中', weight: 305, headSize: 98, pattern: '16x19', traits: ['スピン', 'コントロール'] },
+  { name: 'VCORE 100', maker: 'YONEX', type: 'スピン', stiffness: '中', weight: 300, headSize: 100, pattern: '16x19', traits: ['スピン', 'パワー'] },
+  { name: 'PERCEPT 97', maker: 'YONEX', type: 'コントロール', stiffness: '低', weight: 310, headSize: 97, pattern: '16x19', traits: ['コントロール', '柔らかい打感'] },
+  { name: 'PERCEPT 100', maker: 'YONEX', type: 'コントロール', stiffness: '低', weight: 300, headSize: 100, pattern: '16x19', traits: ['コントロール', '楽に飛ぶ'] },
+  // Babolat
+  { name: 'Pure Aero 98', maker: 'Babolat', type: 'スピン', stiffness: '高', weight: 305, headSize: 98, pattern: '16x20', traits: ['スピン', 'パワー'] },
+  { name: 'Pure Aero 100', maker: 'Babolat', type: 'スピン', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['スピン', '楽に飛ぶ'] },
+  { name: 'Pure Drive 100', maker: 'Babolat', type: 'パワー', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['パワー', '楽に飛ぶ'] },
+  { name: 'Pure Strike 98', maker: 'Babolat', type: 'コントロール', stiffness: '中', weight: 305, headSize: 98, pattern: '16x19', traits: ['コントロール', 'フラット'] },
+  { name: 'Pure Strike 100', maker: 'Babolat', type: 'コントロール', stiffness: '中', weight: 300, headSize: 100, pattern: '16x19', traits: ['コントロール', 'バランス'] },
+  // Wilson
+  { name: 'BLADE 98 v9', maker: 'Wilson', type: 'コントロール', stiffness: '低', weight: 305, headSize: 98, pattern: '16x19', traits: ['コントロール', '柔らかい打感'] },
+  { name: 'BLADE 100 v9', maker: 'Wilson', type: 'コントロール', stiffness: '低', weight: 300, headSize: 100, pattern: '16x19', traits: ['コントロール', '楽に飛ぶ'] },
+  { name: 'PRO STAFF 97 v14', maker: 'Wilson', type: 'コントロール', stiffness: '低', weight: 315, headSize: 97, pattern: '16x19', traits: ['コントロール', '精密'] },
+  { name: 'ULTRA 100 v4', maker: 'Wilson', type: 'パワー', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['パワー', '楽に飛ぶ'] },
+  { name: 'CLASH 100 v2', maker: 'Wilson', type: 'パワー', stiffness: '低', weight: 295, headSize: 100, pattern: '16x19', traits: ['柔らかい打感', 'パワー'] },
+  // HEAD
+  { name: 'Speed MP', maker: 'HEAD', type: 'バランス', stiffness: '中', weight: 300, headSize: 100, pattern: '16x19', traits: ['バランス', 'オールラウンド'] },
+  { name: 'Speed PRO', maker: 'HEAD', type: 'バランス', stiffness: '中', weight: 310, headSize: 100, pattern: '18x20', traits: ['コントロール', 'オールラウンド'] },
+  { name: 'GRAVITY MP', maker: 'HEAD', type: 'スピン', stiffness: '低', weight: 295, headSize: 100, pattern: '16x20', traits: ['スピン', '柔らかい打感'] },
+  { name: 'EXTREME MP', maker: 'HEAD', type: 'スピン', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['スピン', 'パワー'] },
+  { name: 'PRESTIGE MP', maker: 'HEAD', type: 'コントロール', stiffness: '低', weight: 310, headSize: 98, pattern: '18x20', traits: ['コントロール', '精密'] },
+  // Dunlop
+  { name: 'SX 300', maker: 'Dunlop', type: 'スピン', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['スピン', 'パワー'] },
+  { name: 'CX 200', maker: 'Dunlop', type: 'コントロール', stiffness: '低', weight: 305, headSize: 98, pattern: '16x19', traits: ['コントロール', '柔らかい打感'] },
+  { name: 'FX 500', maker: 'Dunlop', type: 'パワー', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['パワー', '楽に飛ぶ'] },
+  // Prince
+  { name: 'TOUR 100', maker: 'Prince', type: 'バランス', stiffness: '中', weight: 300, headSize: 100, pattern: '16x18', traits: ['バランス', 'スピン'] },
+  { name: 'BEAST 100', maker: 'Prince', type: 'パワー', stiffness: '高', weight: 300, headSize: 100, pattern: '16x19', traits: ['パワー', '楽に飛ぶ'] },
+  // Tecnifibre
+  { name: 'T-FIGHT 305', maker: 'Tecnifibre', type: 'コントロール', stiffness: '中', weight: 305, headSize: 98, pattern: '16x19', traits: ['コントロール', 'バランス'] },
+  { name: 'TEMPO 298', maker: 'Tecnifibre', type: 'パワー', stiffness: '中', weight: 298, headSize: 100, pattern: '16x19', traits: ['パワー', '快適'] },
+];
+
+// ========== COMPATIBILITY LOGIC ==========
+const compatPatterns = [
+  {
+    condition: (r, g) => r.type === 'パワー' && (g.feel === '柔らかめ' || g.feel === '非常に柔らか'),
+    comments: [
+      'パワー系ラケットに柔らかいガットの組み合わせ。ラケットの反発力を活かしつつ腕に優しいセッティング✨',
+      'パワーラケット×ソフトガットで爆発的な飛びを実現。肘への負担も少なく長く続けられます🌟',
+      'ラケットのパワーアシストをガットの柔らかさで受け止める。コントロールしながら飛ばせる理想的な組み合わせ💡'
+    ]
+  },
+  {
+    condition: (r, g) => (r.type === 'スピン' || r.traits.includes('スピン')) && g.traits.includes('スピン'),
+    comments: [
+      'スピン系ラケット×スピン系ガットで最強の回転量を実現！バウンド後の伸びが別次元です🌀',
+      'スピン性能を最大化する組み合わせ。ラケットとガット両方の特性が相乗効果を生みます🎯',
+      'ヘビートップスピンプレーヤー垂涎の組み合わせ。アングルショットやムーンボールが武器になります🔥'
+    ]
+  },
+  {
+    condition: (r, g) => r.type === 'コントロール' && g.feel === '硬め',
+    comments: [
+      'コントロール系ラケット×硬めガットでコントロールを極める上級者セッティング。ボールの弾道が思い通りに🎯',
+      'コントロールラケット×硬質ガットは精密なショットを求める上級者向け。ダイレクトな打感が気持ちいい💥',
+      'ラケットの精密さをガットの硬さで最大限に引き出す組み合わせ。一球一球に意図が込められます👑'
+    ]
+  },
+  {
+    condition: (r, g) => r.type === 'コントロール' && (g.feel === '柔らかめ' || g.feel === '非常に柔らか'),
+    comments: [
+      'コントロール系ラケット×柔らかいガットで打感と操作性を両立したバランスセッティング✅',
+      'コントロールラケットに柔らかさをプラス。技術を活かしながら腕にも優しい中上級者向けセッティング🌸',
+      '精密さと快適さを兼ね備えた組み合わせ。長時間プレーでも疲れにくい理想的なセッティングです🎾'
+    ]
+  },
+  {
+    condition: (r, g) => r.traits.includes('パワー') && g.traits.includes('パワー'),
+    comments: [
+      'パワー系ラケット×パワー系ガットで圧倒的な破壊力を持つセッティング。攻撃的なプレーが加速🚀',
+      'ラケットとガット両方のパワーが融合。フラットな強打で相手を押し込むセッティングです💪',
+      'パワー特性を最大化した攻撃型セッティング。ベースラインから主導権を握るプレーヤーに最適🔥'
+    ]
+  },
+  {
+    condition: (r, g) => r.type === 'バランス',
+    comments: [
+      'オールラウンドなラケットにどんなガットも合わせやすい。今回のガット選択で自分のスタイルが引き立ちます⚡',
+      'バランス系ラケットの柔軟性を今回のガットで個性付け。プレースタイルに合わせた調整ができます🎯',
+      'バランスラケット×このガットで新たな可能性を発見。自分だけのセッティングを見つけよう✨'
+    ]
+  }
+];
+
+function getCompatComment(racket, gut) {
+  if (!racket) return null;
+  for (const pattern of compatPatterns) {
+    if (pattern.condition(racket, gut)) {
+      const comments = pattern.comments;
+      return comments[Math.floor(Math.random() * comments.length)];
+    }
+  }
+  // Fallback
+  const fallbacks = [
+    `${racket.maker} ${racket.name}との組み合わせ。${gut.name}の特性を活かした個性的なセッティングです🎾`,
+    `ラケットとガットの特性を組み合わせた独自セッティング。使い込むほど自分の武器になります💪`,
+    `${racket.type}系ラケット×${gut.name}の意外な組み合わせ。新しいプレースタイルが開花するかも🌟`
+  ];
+  return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+}
+
+// ========== STATE ==========
 let selectedGutIndex = 0;
+let selectedRacket = null;
 let uploadedImage = null;
 let generatedImageURL = null;
 
 // ========== INIT ==========
 function init() {
-  const sel = document.getElementById('gutSelect');
+  // Gut select
+  const gutSel = document.getElementById('gutSelect');
   guts.forEach((g, i) => {
     const opt = document.createElement('option');
     opt.value = i;
     opt.textContent = `${g.name}（${g.brand}）— ¥${g.price.toLocaleString()}`;
-    sel.appendChild(opt);
+    gutSel.appendChild(opt);
   });
-  sel.addEventListener('change', () => {
-    selectedGutIndex = parseInt(sel.value);
+  gutSel.addEventListener('change', () => {
+    selectedGutIndex = parseInt(gutSel.value);
     regenTip();
+    updateCompat();
   });
+
+  // Racket select with optgroups
+  const racketSel = document.getElementById('racketSelect');
+  const noneOpt = document.createElement('option');
+  noneOpt.value = '';
+  noneOpt.textContent = '指定なし';
+  racketSel.appendChild(noneOpt);
+
+  const makers = [...new Set(rackets.map(r => r.maker))];
+  makers.forEach(maker => {
+    const group = document.createElement('optgroup');
+    group.label = maker;
+    rackets.filter(r => r.maker === maker).forEach((r, _) => {
+      const idx = rackets.indexOf(r);
+      const opt = document.createElement('option');
+      opt.value = idx;
+      opt.textContent = `${r.name}（${r.weight}g / ${r.headSize}sq.in.）`;
+      group.appendChild(opt);
+    });
+    racketSel.appendChild(group);
+  });
+
+  const otherGroup = document.createElement('optgroup');
+  otherGroup.label = 'その他';
+  const otherOpt = document.createElement('option');
+  otherOpt.value = 'custom';
+  otherOpt.textContent = 'その他（手入力）';
+  otherGroup.appendChild(otherOpt);
+  racketSel.appendChild(otherGroup);
+
   regenTip();
   updateSlider(document.getElementById('tensionV'), 'tensionVVal');
   updateSlider(document.getElementById('tensionH'), 'tensionHVal');
+}
+
+// ========== RACKET SELECT ==========
+function onRacketSelectChange() {
+  const val = document.getElementById('racketSelect').value;
+  const customInput = document.getElementById('racketCustom');
+  if (val === 'custom') {
+    customInput.classList.remove('hidden');
+    selectedRacket = null;
+  } else if (val === '') {
+    customInput.classList.add('hidden');
+    selectedRacket = null;
+  } else {
+    customInput.classList.add('hidden');
+    selectedRacket = rackets[parseInt(val)];
+  }
+  updateCompat();
+}
+
+function updateCompat() {
+  const badge = document.getElementById('compatBadge');
+  const textEl = document.getElementById('compatText');
+  if (!selectedRacket) {
+    badge.classList.remove('visible');
+    return;
+  }
+  const gut = guts[selectedGutIndex];
+  const comment = getCompatComment(selectedRacket, gut);
+  if (comment) {
+    textEl.textContent = comment;
+    badge.classList.add('visible');
+  } else {
+    badge.classList.remove('visible');
+  }
+}
+
+function getRacketDisplayName() {
+  const val = document.getElementById('racketSelect').value;
+  if (val === 'custom') {
+    return document.getElementById('racketCustom').value.trim();
+  }
+  if (val === '' || val === null) return '';
+  const r = rackets[parseInt(val)];
+  return `${r.maker} ${r.name}`;
 }
 
 // ========== PHOTO ==========
@@ -421,7 +644,7 @@ async function generateImage() {
   const gut = guts[selectedGutIndex];
   const tensionV = document.getElementById('tensionV').value;
   const tensionH = document.getElementById('tensionH').value;
-  const racket = document.getElementById('racketName').value.trim();
+  const racketDisplay = getRacketDisplayName();
   const tip = document.getElementById('tipText').value.trim();
 
   // Background gradient
@@ -454,7 +677,7 @@ async function generateImage() {
   ctx.fillText('ガット張替サービス', W / 2, 100);
 
   // Photo area
-  const photoY = 125, photoH = 520;
+  const photoY = 125, photoH = 510;
   if (uploadedImage) {
     await new Promise(resolve => {
       const img = new Image();
@@ -463,7 +686,6 @@ async function generateImage() {
         ctx.beginPath();
         ctx.rect(0, photoY, W, photoH);
         ctx.clip();
-        // Cover crop
         const scale = Math.max(W / img.width, photoH / img.height);
         const sw = img.width * scale, sh = img.height * scale;
         ctx.drawImage(img, (W - sw) / 2, photoY + (photoH - sh) / 2, sw, sh);
@@ -472,7 +694,6 @@ async function generateImage() {
       };
       img.src = uploadedImage;
     });
-    // Overlay gradient on photo
     const photoOverlay = ctx.createLinearGradient(0, photoY, 0, photoY + photoH);
     photoOverlay.addColorStop(0, 'rgba(15,36,64,0.1)');
     photoOverlay.addColorStop(0.7, 'rgba(15,36,64,0.2)');
@@ -480,7 +701,6 @@ async function generateImage() {
     ctx.fillStyle = photoOverlay;
     ctx.fillRect(0, photoY, W, photoH);
   } else {
-    // No photo placeholder
     ctx.fillStyle = '#0d1e30';
     ctx.fillRect(0, photoY, W, photoH);
     ctx.fillStyle = '#2a4060';
@@ -503,62 +723,61 @@ async function generateImage() {
 
   // Gut name
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 56px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 52px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText(gut.name, 50, panelY + 72);
+  ctx.fillText(gut.name, 50, panelY + 66);
 
   // Brand / type / gauge
   ctx.fillStyle = gut.color;
-  ctx.font = 'bold 26px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 24px "Helvetica Neue", Arial, sans-serif';
   const brandText = `${gut.brand}  /${gut.type}  /${gut.gauge}`;
-  ctx.fillText(brandText, 50, panelY + 112);
+  ctx.fillText(brandText, 50, panelY + 100);
 
   // Tension display
   ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 38px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 36px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'right';
-  ctx.fillText(`${tensionV} / ${tensionH} lbs`, W - 50, panelY + 72);
+  ctx.fillText(`${tensionV} / ${tensionH} lbs`, W - 50, panelY + 66);
   ctx.fillStyle = '#8aa0bb';
-  ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
-  ctx.fillText('縦 / 横テンション', W - 50, panelY + 100);
+  ctx.font = '19px "Helvetica Neue", Arial, sans-serif';
+  ctx.fillText('縦 / 横テンション', W - 50, panelY + 96);
 
   // Racket (if set)
-  let tipStartY = panelY + 145;
-  if (racket) {
+  let tipStartY = panelY + 130;
+  if (racketDisplay) {
     ctx.fillStyle = '#8aa0bb';
-    ctx.font = '22px "Helvetica Neue", Arial, sans-serif';
+    ctx.font = '21px "Helvetica Neue", Arial, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(`🎾 ${racket}`, 50, tipStartY);
-    tipStartY += 36;
+    ctx.fillText(`🎾 ${racketDisplay}`, 50, tipStartY);
+    tipStartY += 34;
   }
 
   // Divider
   ctx.strokeStyle = '#2a4060';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(50, tipStartY + 6);
-  ctx.lineTo(W - 50, tipStartY + 6);
+  ctx.moveTo(50, tipStartY + 4);
+  ctx.lineTo(W - 50, tipStartY + 4);
   ctx.stroke();
-  tipStartY += 24;
+  tipStartY += 22;
 
   // Tip text (wrapped)
   ctx.fillStyle = '#d0dce8';
-  ctx.font = '24px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = '23px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'left';
-  const tipLines = wrapText(ctx, tip, W - 100, 24);
+  const tipLines = wrapText(ctx, tip, W - 100, 23);
   tipLines.forEach((line, i) => {
-    ctx.fillText(line, 50, tipStartY + i * 36);
+    ctx.fillText(line, 50, tipStartY + i * 34);
   });
 
   // Instagram handle
   ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 28px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 26px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('@oshinobi_gut_24', W / 2, H - 30);
+  ctx.fillText('@oshinobi_gut_24', W / 2, H - 26);
 
-  // Store and show
   generatedImageURL = canvas.toDataURL('image/png');
-  generateCaption(gut, tensionV, tensionH, racket, tip);
+  generateCaption(gut, tensionV, tensionH, racketDisplay, tip);
 
   document.getElementById('resultsSection').classList.add('visible');
   document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -582,13 +801,35 @@ function wrapText(ctx, text, maxWidth, lineHeight) {
 }
 
 // ========== CAPTION ==========
-function generateCaption(gut, tv, th, racket, tip) {
-  const racketLine = racket ? `🎾 ラケット: ${racket}\n` : '';
+const makerHashtags = {
+  'YONEX': '#YONEX #ヨネックス',
+  'Babolat': '#Babolat #バボラ',
+  'Wilson': '#Wilson #ウィルソン',
+  'HEAD': '#HEAD #ヘッド',
+  'Dunlop': '#Dunlop #ダンロップ',
+  'Prince': '#Prince #プリンス',
+  'Tecnifibre': '#Tecnifibre #テクニファイバー',
+};
+
+function generateCaption(gut, tv, th, racketDisplay, tip) {
+  const racketLine = racketDisplay ? `🎾 ラケット: ${racketDisplay}\n` : '';
+
+  let compatLine = '';
+  if (selectedRacket) {
+    const comment = getCompatComment(selectedRacket, gut);
+    if (comment) compatLine = `\n🔗 相性: ${comment}\n`;
+  }
+
+  let makerTag = '';
+  if (selectedRacket && makerHashtags[selectedRacket.maker]) {
+    makerTag = ' ' + makerHashtags[selectedRacket.maker];
+  }
+
   const caption = `【GUT 24 張替完了🔥】
 
 📌 ガット: ${gut.name}（${gut.brand}）
 📐 テンション: 縦${tv}lbs / 横${th}lbs
-${racketLine}
+${racketLine}${compatLine}
 💡 ${tip}
 
 ━━━━━━━━━━━━━━
@@ -599,7 +840,7 @@ ${racketLine}
 📩 LINEでご注文・お問い合わせ
 @oshinobi_gut_24 のプロフィールリンクから👆
 
-#テニス #ガット張替 #OSHINOBIGU24 #${gut.name.replace(/\s/g, '')} #${gut.brand} #札幌テニス #御忍庭球塾 #テニスガット`;
+#テニス #ガット張替 #OSHINOBIGU24 #${gut.name.replace(/[\s-]/g, '')} #${gut.brand} #札幌テニス #御忍庭球塾 #テニスガット${makerTag}`;
   document.getElementById('captionBox').textContent = caption;
 }
 
