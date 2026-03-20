@@ -424,137 +424,114 @@ async function generateImage() {
   const racket = document.getElementById('racketName').value.trim();
   const tip = document.getElementById('tipText').value.trim();
 
-  // Background gradient
-  const bg = ctx.createLinearGradient(0, 0, W, H);
-  bg.addColorStop(0, '#1e3a5f');
-  bg.addColorStop(1, '#0f2440');
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, W, H);
+  const PHOTO_H = 595;  // upper 55%
+  const INFO_Y = PHOTO_H; // lower 45% starts here
 
-  // Top bar gradient
-  const topBar = ctx.createLinearGradient(0, 0, W, 0);
-  topBar.addColorStop(0, '#c8a84e22');
-  topBar.addColorStop(0.5, '#c8a84e44');
-  topBar.addColorStop(1, '#c8a84e22');
-  ctx.fillStyle = topBar;
-  ctx.fillRect(0, 0, W, 110);
+  // ── 上部: 写真エリア ──────────────────────────
+  // 背景: ダークネイビー
+  ctx.fillStyle = '#0f2440';
+  ctx.fillRect(0, 0, W, PHOTO_H);
 
-  // Gold accent line
-  ctx.fillStyle = '#c8a84e';
-  ctx.fillRect(0, 110, W, 3);
-
-  // Title
-  ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 42px "Helvetica Neue", Arial, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('OSHINOBI GUT 24', W / 2, 68);
-
-  ctx.fillStyle = '#ffffff88';
-  ctx.font = '22px "Helvetica Neue", Arial, sans-serif';
-  ctx.fillText('ガット張替サービス', W / 2, 100);
-
-  // Photo area
-  const photoY = 125, photoH = 520;
   if (uploadedImage) {
     await new Promise(resolve => {
       const img = new Image();
       img.onload = () => {
-        ctx.save();
-        ctx.beginPath();
-        ctx.rect(0, photoY, W, photoH);
-        ctx.clip();
-        // Cover crop
-        const scale = Math.max(W / img.width, photoH / img.height);
-        const sw = img.width * scale, sh = img.height * scale;
-        ctx.drawImage(img, (W - sw) / 2, photoY + (photoH - sh) / 2, sw, sh);
-        ctx.restore();
+        // contain: 縦横比を保ったまま595px内に収める
+        const scaleX = W / img.width;
+        const scaleY = PHOTO_H / img.height;
+        const scale = Math.min(scaleX, scaleY);
+        const sw = img.width * scale;
+        const sh = img.height * scale;
+        const dx = (W - sw) / 2;
+        const dy = (PHOTO_H - sh) / 2;
+        ctx.drawImage(img, dx, dy, sw, sh);
         resolve();
       };
       img.src = uploadedImage;
     });
-    // Overlay gradient on photo
-    const photoOverlay = ctx.createLinearGradient(0, photoY, 0, photoY + photoH);
-    photoOverlay.addColorStop(0, 'rgba(15,36,64,0.1)');
-    photoOverlay.addColorStop(0.7, 'rgba(15,36,64,0.2)');
-    photoOverlay.addColorStop(1, 'rgba(15,36,64,0.85)');
-    ctx.fillStyle = photoOverlay;
-    ctx.fillRect(0, photoY, W, photoH);
   } else {
-    // No photo placeholder
-    ctx.fillStyle = '#0d1e30';
-    ctx.fillRect(0, photoY, W, photoH);
+    // 写真なしのプレースホルダー
     ctx.fillStyle = '#2a4060';
-    ctx.font = '60px Arial';
+    ctx.font = '72px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('📷', W / 2, photoY + photoH / 2 + 20);
+    ctx.fillText('📷', W / 2, PHOTO_H / 2 + 24);
     ctx.fillStyle = '#3a5070';
-    ctx.font = '28px Arial';
-    ctx.fillText('写真をアップロードしてください', W / 2, photoY + photoH / 2 + 80);
+    ctx.font = '28px "Helvetica Neue", Arial, sans-serif';
+    ctx.fillText('写真をアップロードしてください', W / 2, PHOTO_H / 2 + 86);
   }
 
-  // Bottom info panel
-  const panelY = photoY + photoH;
-  ctx.fillStyle = 'rgba(10,22,40,0.92)';
-  ctx.fillRect(0, panelY, W, H - panelY);
-
-  // Gut color accent bar
-  ctx.fillStyle = gut.color;
-  ctx.fillRect(0, panelY, W, 5);
-
-  // Gut name
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 56px "Helvetica Neue", Arial, sans-serif';
-  ctx.textAlign = 'left';
-  ctx.fillText(gut.name, 50, panelY + 72);
-
-  // Brand / type / gauge
-  ctx.fillStyle = gut.color;
-  ctx.font = 'bold 26px "Helvetica Neue", Arial, sans-serif';
-  const brandText = `${gut.brand}  /${gut.type}  /${gut.gauge}`;
-  ctx.fillText(brandText, 50, panelY + 112);
-
-  // Tension display
+  // 左上: 小さくブランド名
+  ctx.fillStyle = 'rgba(0,0,0,0.45)';
+  ctx.fillRect(0, 0, 370, 52);
   ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 38px "Helvetica Neue", Arial, sans-serif';
-  ctx.textAlign = 'right';
-  ctx.fillText(`${tensionV} / ${tensionH} lbs`, W - 50, panelY + 72);
-  ctx.fillStyle = '#8aa0bb';
-  ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
-  ctx.fillText('縦 / 横テンション', W - 50, panelY + 100);
+  ctx.font = 'bold 22px "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('OSHINOBI GUT 24', 24, 34);
 
-  // Racket (if set)
-  let tipStartY = panelY + 145;
+  // ── 下部: テキスト情報エリア ──────────────────
+  const grad = ctx.createLinearGradient(0, INFO_Y, 0, H);
+  grad.addColorStop(0, '#1e3a5f');
+  grad.addColorStop(1, '#0f2440');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, INFO_Y, W, H - INFO_Y);
+
+  // ガットカラーのアクセントライン
+  ctx.fillStyle = gut.color;
+  ctx.fillRect(0, INFO_Y, W, 4);
+
+  // ガット名（大きく・白・太字）
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 60px "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(gut.name, 50, INFO_Y + 76);
+
+  // メーカー・素材・ゲージ（小さく・ライトグレー）
+  ctx.fillStyle = '#9ab0c8';
+  ctx.font = '26px "Helvetica Neue", Arial, sans-serif';
+  ctx.fillText(`${gut.brand}  /  ${gut.type}  /  ${gut.gauge}`, 50, INFO_Y + 118);
+
+  // テンション（ゴールド、右寄せ）
+  ctx.fillStyle = '#c8a84e';
+  ctx.font = 'bold 40px "Helvetica Neue", Arial, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(`縦 ${tensionV} / 横 ${tensionH} lbs`, W - 50, INFO_Y + 76);
+  ctx.fillStyle = '#6a8aaa';
+  ctx.font = '20px "Helvetica Neue", Arial, sans-serif';
+  ctx.fillText('テンション', W - 50, INFO_Y + 108);
+
+  // ラケット名（任意）
+  let curY = INFO_Y + 158;
   if (racket) {
     ctx.fillStyle = '#8aa0bb';
-    ctx.font = '22px "Helvetica Neue", Arial, sans-serif';
+    ctx.font = '24px "Helvetica Neue", Arial, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(`🎾 ${racket}`, 50, tipStartY);
-    tipStartY += 36;
+    ctx.fillText(`🎾 ${racket}`, 50, curY);
+    curY += 38;
   }
 
-  // Divider
+  // 区切り線
   ctx.strokeStyle = '#2a4060';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(50, tipStartY + 6);
-  ctx.lineTo(W - 50, tipStartY + 6);
+  ctx.moveTo(50, curY + 4);
+  ctx.lineTo(W - 50, curY + 4);
   ctx.stroke();
-  tipStartY += 24;
+  curY += 26;
 
-  // Tip text (wrapped)
-  ctx.fillStyle = '#d0dce8';
-  ctx.font = '24px "Helvetica Neue", Arial, sans-serif';
+  // ワンポイントネタ（白、折り返し）
+  ctx.fillStyle = '#dce8f0';
+  ctx.font = '25px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'left';
-  const tipLines = wrapText(ctx, tip, W - 100, 24);
+  const tipLines = wrapText(ctx, tip, W - 100, 25);
   tipLines.forEach((line, i) => {
-    ctx.fillText(line, 50, tipStartY + i * 36);
+    ctx.fillText(line, 50, curY + i * 38);
   });
 
-  // Instagram handle
+  // 最下部: Instagramハンドル
   ctx.fillStyle = '#c8a84e';
-  ctx.font = 'bold 28px "Helvetica Neue", Arial, sans-serif';
+  ctx.font = 'bold 30px "Helvetica Neue", Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('@oshinobi_gut_24', W / 2, H - 30);
+  ctx.fillText('@oshinobi_gut_24', W / 2, H - 28);
 
   // Store and show
   generatedImageURL = canvas.toDataURL('image/png');
