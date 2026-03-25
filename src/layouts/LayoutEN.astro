@@ -6,12 +6,12 @@ interface Props {
   description?: string;
 }
 
-const { title, description = '札幌のテニススクール「御忍庭球塾」。少人数制レッスンで、もっと充実したテニスライフを。' } = Astro.props;
+const { title, description = 'Private tennis lessons in Sapporo, Japan. Learn from a YouTube coach with 7,000+ subscribers.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,45 +20,42 @@ const base = import.meta.env.BASE_URL;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <title>{title} | 御忍庭球塾</title>
+    <title>{title} | Oshinobi Tennis</title>
   </head>
   <body class="bg-white text-text font-sans">
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href={base} class="flex items-center gap-3 hover:opacity-70 transition">
-          <img src={`${base}images/logo/logo.png`} alt="御忍庭球塾" class="h-8" />
+        <a href={`${base}en`} class="flex items-center gap-3 hover:opacity-70 transition">
+          <img src={`${base}images/logo/logo.png`} alt="Oshinobi Tennis" class="h-8" />
         </a>
         <div class="flex items-center gap-4">
-          <a href={`${base}en`} class="text-sm text-text-light hover:text-primary transition font-medium">
-            English
+          <a href={base} class="text-sm text-text-light hover:text-primary transition font-medium">
+            日本語
           </a>
           <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 text-sm font-bold transition tracking-wider">
-            お問い合わせ・体験の申し込み
+            Book a Lesson
           </a>
-          <button id="menu-toggle" class="p-2 flex flex-col gap-1.5" aria-label="メニュー">
-            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-1"></span>
-            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-2"></span>
-            <span class="block w-4 h-0.5 bg-text transition ml-auto" id="menu-bar-3"></span>
+          <button id="menu-toggle-en" class="p-2 flex flex-col gap-1.5" aria-label="Menu">
+            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-1-en"></span>
+            <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-2-en"></span>
+            <span class="block w-4 h-0.5 bg-text transition ml-auto" id="menu-bar-3-en"></span>
           </button>
         </div>
       </div>
     </header>
 
     <!-- Fullscreen Menu Overlay -->
-    <div id="menu-overlay" class="fixed inset-0 z-40 bg-primary-dark/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-500">
+    <div id="menu-overlay-en" class="fixed inset-0 z-40 bg-primary-dark/95 backdrop-blur-md hidden opacity-0 transition-opacity duration-500">
       <div class="flex items-center justify-center h-full">
         <nav class="text-center">
           <div class="space-y-8">
-            <a href={`${base}courses`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">コース・料金</a>
-            <a href={`${base}gut24`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">ガット張替</a>
-            <a href={`${base}terms`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">利用規約</a>
-            <a href={`${base}blog`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">お知らせ</a>
-            <a href={`${base}en`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">English</a>
+            <a href={`${base}en`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Home</a>
+            <a href={base} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">日本語サイト</a>
           </div>
           <div class="mt-12 pt-8 border-t border-white/20">
             <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition inline-block tracking-wider">
-              体験のお申し込み
+              Book a Lesson
             </a>
           </div>
         </nav>
@@ -77,20 +74,17 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid md:grid-cols-3 gap-16">
           <div>
-            <img src={`${base}images/logo/logo.png`} alt="御忍庭球塾" class="h-10 mb-6 brightness-0 invert" />
+            <img src={`${base}images/logo/logo.png`} alt="Oshinobi Tennis" class="h-10 mb-6 brightness-0 invert" />
             <p class="text-sm text-white/50 leading-relaxed">
-              札幌市白石区を拠点に活動するテニススクール。<br />
-              少人数制で一人ひとりに寄り添ったレッスンを提供しています。
+              Private tennis coaching in Sapporo, Japan.<br />
+              Personalized lessons for all levels.
             </p>
           </div>
           <div>
-            <h3 class="text-sm font-bold tracking-wider text-accent mb-6">LINE</h3>
+            <h3 class="text-sm font-bold tracking-wider text-accent mb-6">CONTACT</h3>
             <div class="space-y-4 text-sm">
               <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
-                <span>→</span> レッスンのお問い合わせ
-              </a>
-              <a href="https://lin.ee/5MOenxx" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
-                <span>→</span> ガット張替のお問い合わせ
+                <span>&rarr;</span> Book via LINE
               </a>
             </div>
           </div>
@@ -98,26 +92,29 @@ const base = import.meta.env.BASE_URL;
             <h3 class="text-sm font-bold tracking-wider text-accent mb-6">LINKS</h3>
             <div class="space-y-4 text-sm">
               <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
-                <span>→</span> YouTube チャンネル
+                <span>&rarr;</span> YouTube Channel
               </a>
               <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="flex items-center gap-2 text-white/70 hover:text-accent transition">
-                <span>→</span> PLACE OF SPORTS NEO
+                <span>&rarr;</span> PLACE OF SPORTS NEO
+              </a>
+              <a href={base} class="flex items-center gap-2 text-white/70 hover:text-accent transition">
+                <span>&rarr;</span> 日本語サイト
               </a>
             </div>
           </div>
         </div>
         <div class="border-t border-white/10 mt-16 pt-8 text-center text-xs text-white/30 tracking-wider">
-          <p>&copy; {new Date().getFullYear()} 御忍庭球塾 All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Oshinobi Tennis. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
 
     <script>
-      const toggle = document.getElementById('menu-toggle');
-      const overlay = document.getElementById('menu-overlay');
-      const bar1 = document.getElementById('menu-bar-1');
-      const bar2 = document.getElementById('menu-bar-2');
-      const bar3 = document.getElementById('menu-bar-3');
+      const toggle = document.getElementById('menu-toggle-en');
+      const overlay = document.getElementById('menu-overlay-en');
+      const bar1 = document.getElementById('menu-bar-1-en');
+      const bar2 = document.getElementById('menu-bar-2-en');
+      const bar3 = document.getElementById('menu-bar-3-en');
       let isOpen = false;
 
       toggle?.addEventListener('click', () => {
@@ -143,7 +140,6 @@ const base = import.meta.env.BASE_URL;
         }
       });
 
-      // Close on link click
       overlay?.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           toggle?.click();
