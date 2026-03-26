@@ -12,6 +12,99 @@ const courses = [
 ---
 
 <Layout title="コース・料金システム">
+
+  <Fragment slot="head">
+    <!-- Open Graph -->
+    <meta property="og:title" content="コース・料金システム｜御忍庭球塾" />
+    <meta property="og:description" content="御忍庭球塾のコース・料金案内。グループレッスン月額12,000円〜、プライベートレッスン7,000円〜、体験3,000円。少人数制で確実に上達。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oshinobitennis.com/courses" />
+    <meta property="og:site_name" content="御忍庭球塾" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- 構造化データ: Service -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "テニスレッスン",
+      "provider": {
+        "@type": "SportsActivityLocation",
+        "name": "御忍庭球塾",
+        "url": "https://oshinobitennis.com"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "札幌市"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "コース・料金",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "グループレッスン（通常期）",
+              "description": "定員6名の少人数制レッスン。月曜〜金曜 19:30〜22:40。通常期（5月〜10月）。"
+            },
+            "price": "12000",
+            "priceCurrency": "JPY",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "12000",
+              "priceCurrency": "JPY",
+              "unitText": "月"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "グループレッスン（冬期）",
+              "description": "定員6名の少人数制レッスン。月曜〜金曜 19:30〜22:40。冬期（11月〜4月）。"
+            },
+            "price": "13000",
+            "priceCurrency": "JPY",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "13000",
+              "priceCurrency": "JPY",
+              "unitText": "月"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "体験レッスン",
+              "description": "初回体験レッスン"
+            },
+            "price": "3000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "プライベートレッスン",
+              "description": "最大6名まで参加可能。会員でなくても受講可。1時間〜3時間。"
+            },
+            "price": "7000",
+            "priceCurrency": "JPY",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "7000",
+              "priceCurrency": "JPY",
+              "unitText": "時間",
+              "minPrice": "7000",
+              "maxPrice": "15000"
+            }
+          }
+        ]
+      }
+    })} />
+  </Fragment>
+
   <!-- Hero -->
   <section class="relative py-20">
     <div class="absolute inset-0">

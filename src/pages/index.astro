@@ -5,6 +5,61 @@ const base = import.meta.env.BASE_URL;
 
 <Layout title="もっと充実したテニスライフを実現">
 
+  <Fragment slot="head">
+    <!-- Open Graph -->
+    <meta property="og:title" content="御忍庭球塾｜札幌市白石区のテニススクール" />
+    <meta property="og:description" content="札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスンで一人ひとりの上達をサポートします。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oshinobitennis.com" />
+    <meta property="og:site_name" content="御忍庭球塾" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- 構造化データ: SportsActivityLocation -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "御忍庭球塾",
+      "description": "札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスン。",
+      "url": "https://oshinobitennis.com",
+      "sport": "Tennis",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "白石区米里1条2丁目12-1",
+        "addressLocality": "札幌市",
+        "addressRegion": "北海道",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.0536,
+        "longitude": 141.4078
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "インドアデコターフコート",
+          "value": true
+        }
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "グループレッスン月会費",
+          "price": "12000",
+          "priceCurrency": "JPY",
+          "description": "通常期（5月〜10月）月額12,000円、冬期（11月〜4月）月額13,000円"
+        },
+        {
+          "@type": "Offer",
+          "name": "体験レッスン",
+          "price": "3000",
+          "priceCurrency": "JPY",
+          "description": "初回体験レッスン"
+        }
+      ]
+    })} />
+  </Fragment>
+
   <!-- ===== HERO ===== -->
   <section class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
