@@ -96,7 +96,65 @@ const strings = [
 ];
 ---
 
-<Layout title="OSHINOBI GUT 24 - 24時間ガット張替サービス" description="JR白石駅徒歩2分。24時間受付・非対面のガット張替サービス。全品工賃込み2,800円〜。">
+<Layout title="札幌のガット張替 OSHINOBI GUT 24｜24時間受付・非対面" description="札幌市白石区JR白石駅徒歩2分のガット張替サービス。24時間ポスト受付・非対面で完結。全品工賃込み2,800円〜3,600円。LINE注文で最短2日仕上がり。Google★5.0。">
+
+  <Fragment slot="head">
+    <!-- Open Graph -->
+    <meta property="og:title" content="札幌のガット張替 OSHINOBI GUT 24｜24時間受付・非対面" />
+    <meta property="og:description" content="札幌市白石区JR白石駅徒歩2分。24時間ポスト受付・非対面のガット張替。全品工賃込み2,800円〜。LINE注文で最短2日仕上がり。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oshinobitennis.com/gut24" />
+    <meta property="og:site_name" content="御忍庭球塾" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- 構造化データ: LocalBusiness + Service -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "OSHINOBI GUT 24",
+      "description": "札幌市白石区のガット張替サービス。24時間ポスト受付・非対面で完結。全品工賃込み2,800円〜3,600円。",
+      "url": "https://oshinobitennis.com/gut24",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "札幌市",
+        "addressRegion": "北海道",
+        "addressCountry": "JP",
+        "streetAddress": "白石区 JR白石駅北口 徒歩2分"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.0536,
+        "longitude": 141.4078
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "¥2,800〜¥3,600",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "8"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ガット張替メニュー",
+        "itemListElement": strings.map(s => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `${s.name}（${s.brand}）ガット張替`,
+            "description": s.desc
+          },
+          "price": s.price,
+          "priceCurrency": "JPY"
+        }))
+      }
+    })} />
+  </Fragment>
 
   <!-- ===== HERO ===== -->
   <section class="relative min-h-[90vh] flex items-center overflow-hidden">

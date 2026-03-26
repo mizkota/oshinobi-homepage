@@ -3,7 +3,51 @@ import LayoutEN from '../../layouts/LayoutEN.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<LayoutEN title="Private Tennis Lesson in Sapporo">
+<LayoutEN title="Tennis Lessons in Sapporo, Japan" description="Private tennis coaching in Sapporo by Coach Kota, a YouTube instructor with 7,000+ subscribers. Indoor court, all equipment included. Book via LINE.">
+
+  <Fragment slot="head">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis" />
+    <meta property="og:description" content="Private tennis coaching in Sapporo by Coach Kota. Indoor court, all equipment included. Book via LINE." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oshinobitennis.com/en" />
+    <meta property="og:site_name" content="Oshinobi Tennis" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- 構造化データ: SportsActivityLocation + Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Oshinobi Tennis",
+      "description": "Private tennis coaching in Sapporo, Japan. Personalized lessons by Coach Kota for all levels.",
+      "url": "https://oshinobitennis.com/en",
+      "sport": "Tennis",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-2-12-1 Yonesato, Shiroishi-ku",
+        "addressLocality": "Sapporo",
+        "addressRegion": "Hokkaido",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.0536,
+        "longitude": 141.4078
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Kota Mizukami",
+        "jobTitle": "Tennis Coach",
+        "description": "YouTube tennis coach with 7,000+ subscribers, specializing in doubles strategy.",
+        "sameAs": "https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ"
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Indoor Court", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Equipment Rental", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true }
+      ]
+    })} />
+  </Fragment>
 
   <!-- ===== HERO ===== -->
   <section class="relative min-h-screen flex items-center overflow-hidden">
@@ -15,7 +59,7 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-3xl">
         <p class="text-accent font-bold tracking-[0.3em] text-sm mb-6">TENNIS COACHING IN SAPPORO</p>
         <h1 class="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tight">
-          Private Tennis<br />Lesson in Sapporo
+          Tennis Lessons<br />in Sapporo
         </h1>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
         <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-12 max-w-lg">
