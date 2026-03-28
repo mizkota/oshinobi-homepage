@@ -20,7 +20,7 @@ const base = import.meta.env.BASE_URL;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <title>{title} | Oshinobi Tennis</title>
+    <title>{title}</title>
     <link rel="alternate" hreflang="ja" href="https://oshinobitennis.com/" />
     <link rel="alternate" hreflang="en" href="https://oshinobitennis.com/en" />
     <slot name="head" />
@@ -54,7 +54,12 @@ const base = import.meta.env.BASE_URL;
         <nav class="text-center">
           <div class="space-y-8">
             <a href={`${base}en`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Home</a>
-            <a href={base} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">日本語サイト</a>
+            <a href={`${base}en#lessons`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Lessons</a>
+            <a href={`${base}en#pricing`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Pricing</a>
+            <a href={`${base}en#coach`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Coach</a>
+            <a href={`${base}en#access`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">Access</a>
+            <a href={`${base}en#faq`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition">FAQ</a>
+            <a href={base} class="block text-white/60 text-lg font-bold tracking-wider hover:text-accent transition">日本語サイト</a>
           </div>
           <div class="mt-12 pt-8 border-t border-white/20">
             <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition inline-block tracking-wider">

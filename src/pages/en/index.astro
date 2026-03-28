@@ -3,23 +3,24 @@ import LayoutEN from '../../layouts/LayoutEN.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<LayoutEN title="Tennis Lessons in Sapporo, Japan" description="Private tennis coaching in Sapporo by Coach Kota, a YouTube instructor with 7,000+ subscribers. Indoor court, all equipment included. Book via LINE.">
+<LayoutEN title="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo with an English-speaking coach. Private lesson, group lesson & international lesson available. Indoor court, all equipment included. Book via LINE.">
 
   <Fragment slot="head">
     <!-- Open Graph -->
-    <meta property="og:title" content="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis" />
-    <meta property="og:description" content="Private tennis coaching in Sapporo by Coach Kota. Indoor court, all equipment included. Book via LINE." />
+    <meta property="og:title" content="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" />
+    <meta property="og:description" content="Private tennis lessons in Sapporo with an English-speaking coach. Indoor court, all equipment included. Beginners welcome. Book via LINE." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://oshinobitennis.com/en" />
-    <meta property="og:site_name" content="Oshinobi Tennis" />
+    <meta property="og:site_name" content="Oshinobi Tennis Academy" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
 
-    <!-- 構造化データ: SportsActivityLocation + Person -->
+    <!-- 構造化データ: SportsActivityLocation + Service + FAQPage -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SportsActivityLocation",
-      "name": "Oshinobi Tennis",
-      "description": "Private tennis coaching in Sapporo, Japan. Personalized lessons by Coach Kota for all levels.",
+      "name": "Oshinobi Tennis Academy",
+      "description": "Private tennis lessons in Sapporo, Japan. English-speaking coach. Personalized coaching for all levels from beginners to advanced players.",
       "url": "https://oshinobitennis.com/en",
       "sport": "Tennis",
       "address": {
@@ -27,6 +28,7 @@ const base = import.meta.env.BASE_URL;
         "streetAddress": "1-2-12-1 Yonesato, Shiroishi-ku",
         "addressLocality": "Sapporo",
         "addressRegion": "Hokkaido",
+        "postalCode": "003-0871",
         "addressCountry": "JP"
       },
       "geo": {
@@ -34,17 +36,137 @@ const base = import.meta.env.BASE_URL;
         "latitude": 43.0536,
         "longitude": 141.4078
       },
+      "telephone": "+81-11-827-7171",
       "employee": {
         "@type": "Person",
         "name": "Kota Mizukami",
-        "jobTitle": "Tennis Coach",
-        "description": "YouTube tennis coach with 7,000+ subscribers, specializing in doubles strategy.",
+        "jobTitle": "Head Tennis Coach",
+        "description": "English-speaking tennis coach in Sapporo. YouTube channel with 7,000+ subscribers. Nihon University Tennis Team graduate, specializes in doubles strategy.",
         "sameAs": "https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ"
       },
       "amenityFeature": [
         { "@type": "LocationFeatureSpecification", "name": "Indoor Court", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Free Equipment Rental", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true }
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "English-Speaking Coach", "value": true }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tennis Lesson Plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "International Private Lesson (1 hour)",
+              "description": "One-on-one private tennis lesson for international visitors. English-speaking coach. Equipment included."
+            },
+            "price": "8000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "International Private Lesson (90 min)",
+              "description": "90-minute private tennis lesson for international visitors. English-speaking coach. Equipment included."
+            },
+            "price": "10500",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "International Private Lesson (2 hours)",
+              "description": "2-hour private tennis lesson for international visitors. English-speaking coach. Equipment included."
+            },
+            "price": "13000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Private Lesson",
+              "description": "Private tennis lesson for residents. Up to 6 participants."
+            },
+            "price": "7000",
+            "priceCurrency": "JPY",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "7000",
+              "priceCurrency": "JPY",
+              "unitText": "hour",
+              "minPrice": "7000",
+              "maxPrice": "15000"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Group Lesson (Monthly)",
+              "description": "Small-group tennis lesson, max 6 regular members per class."
+            },
+            "price": "12000",
+            "priceCurrency": "JPY",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "12000",
+              "priceCurrency": "JPY",
+              "unitText": "month"
+            }
+          }
+        ]
+      }
+    })} />
+
+    <!-- FAQ 構造化データ -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the coach speak English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Coach Kota speaks English and can conduct the entire lesson in English. Communication via LINE is also available in English."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the tennis lesson suitable for beginners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. All skill levels are welcome, from complete beginners to advanced players. Lessons are fully personalized to your level and goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to bring my own tennis equipment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, rackets and balls are provided for free. Just bring sportswear and indoor court shoes (clean soles). Shoes can also be rented at the venue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are the tennis lessons held in Sapporo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lessons are held at PLACE OF SPORTS NEO, an indoor sports facility in Shiroishi-ku, Sapporo. The court is available year-round regardless of weather."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book a tennis lesson in Sapporo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simply send a message via LINE (Japan's most popular messaging app). We'll reply in English to confirm your preferred date, time, and lesson duration."
+          }
+        }
       ]
     })} />
   </Fragment>
@@ -62,15 +184,19 @@ const base = import.meta.env.BASE_URL;
           Tennis Lessons<br />in Sapporo
         </h1>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
-        <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-12 max-w-lg">
-          Learn from a Japanese YouTube coach<br />
-          with 7,000+ subscribers
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-4 max-w-lg">
+          Private tennis coaching with an<br />
+          English-speaking Japanese coach
+        </p>
+        <p class="text-base text-white/60 leading-relaxed mb-12 max-w-lg">
+          All levels welcome &mdash; beginners to advanced<br />
+          Indoor court &bull; Free equipment &bull; Year-round
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition text-center tracking-wider">
             Book a Lesson
           </a>
-          <a href="#lesson-menu" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
+          <a href="#pricing" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
             View Pricing
           </a>
         </div>
@@ -84,19 +210,20 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== ABOUT COACH ===== -->
-  <section class="relative py-32 overflow-hidden">
+  <section id="coach" class="relative py-32 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
     <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none tracking-tight">COACH</p>
     <div class="relative max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div class="aspect-[4/3] overflow-hidden">
-          <img src={`${base}images/en/coach_kota.jpg`} alt="Coach Kota on court" class="w-full h-full object-cover" />
+          <img src={`${base}images/en/coach_kota.jpg`} alt="Coach Kota Mizukami on court" class="w-full h-full object-cover" />
         </div>
         <div class="text-white">
-          <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">ABOUT</p>
-          <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">
-            Meet Coach Kota
+          <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">COACH PROFILE</p>
+          <h2 class="text-3xl md:text-4xl font-black mb-2 leading-tight">
+            Kota Mizukami
           </h2>
+          <p class="text-white/50 text-sm mb-8">Head Coach &amp; Founder, Oshinobi Tennis Academy</p>
           <div class="w-12 h-0.5 bg-accent mb-8"></div>
           <ul class="text-white/70 leading-loose mb-8 space-y-3">
             <li class="flex items-start gap-3">
@@ -113,90 +240,342 @@ const base = import.meta.env.BASE_URL;
             </li>
             <li class="flex items-start gap-3">
               <span class="text-accent mt-1">&#9670;</span>
-              <span>Specializes in doubles strategy</span>
+              <span>Specializes in doubles strategy &amp; tactical coaching</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent mt-1">&#9670;</span>
+              <span>English-speaking &mdash; lessons conducted entirely in English</span>
             </li>
           </ul>
-          <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition text-center tracking-wider text-sm inline-block">
-            Watch on YouTube
-          </a>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition text-center tracking-wider text-sm inline-block">
+              Watch on YouTube
+            </a>
+            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-white/40 text-white hover:bg-white/10 font-bold px-8 py-3 transition text-center tracking-wider text-sm inline-block">
+              Message Coach Kota
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== LESSON MENU ===== -->
-  <section id="lesson-menu" class="py-32 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
+  <!-- ===== LESSON TYPES ===== -->
+  <section id="lessons" class="py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">PRICE</p>
-        <h2 class="text-3xl font-bold relative">Lesson Menu</h2>
+        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">LESSONS</p>
+        <h2 class="text-3xl font-bold relative">Lesson Types</h2>
       </div>
 
-      <div class="bg-bg rounded-2xl p-10 text-center">
-        <p class="text-lg text-text leading-relaxed mb-2">
-          Private lessons available from 60 to 120 minutes.
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- International Lesson -->
+        <div class="bg-bg rounded-2xl p-8 shadow-sm border-2 border-accent relative">
+          <div class="absolute -top-3 left-6 bg-accent text-primary-dark text-xs font-bold px-4 py-1 tracking-wider">RECOMMENDED</div>
+          <div class="text-4xl mb-4">&#127758;</div>
+          <h3 class="text-xl font-bold mb-3">International Lesson</h3>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            Designed for visitors and international residents in Sapporo. The entire lesson is conducted in English. Perfect for tourists who want a unique sports experience in Japan.
+          </p>
+          <ul class="text-sm text-text-light space-y-2 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">&#10003;</span>
+              <span>Fully in English</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">&#10003;</span>
+              <span>1-on-1 or small group</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">&#10003;</span>
+              <span>All equipment provided free</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">&#10003;</span>
+              <span>Flexible scheduling</span>
+            </li>
+          </ul>
+          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;8,000</span> / hour</p>
+        </div>
+
+        <!-- Private Lesson -->
+        <div class="bg-bg rounded-2xl p-8 shadow-sm">
+          <div class="text-4xl mb-4">&#127934;</div>
+          <h3 class="text-xl font-bold mb-3">Private Lesson</h3>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            One-on-one or small group (up to 6 people) private coaching. Fully customized to your level, goals, and areas you want to improve. Available to non-members.
+          </p>
+          <ul class="text-sm text-text-light space-y-2 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Up to 6 participants</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>1 to 3 hours available</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>No membership required</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Personalized program</span>
+            </li>
+          </ul>
+          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;7,000</span> / hour</p>
+        </div>
+
+        <!-- Group Lesson -->
+        <div class="bg-bg rounded-2xl p-8 shadow-sm">
+          <div class="text-4xl mb-4">&#128101;</div>
+          <h3 class="text-xl font-bold mb-3">Group Lesson</h3>
+          <p class="text-text-light text-sm leading-relaxed mb-4">
+            Weekly group lessons (Mon&ndash;Fri evenings, 90 min). Small class size of max 6 regular members. Classes organized by skill level. For Sapporo residents.
+          </p>
+          <ul class="text-sm text-text-light space-y-2 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Max 6 members per class</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Levels: Beginner to Advanced</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Mon&ndash;Fri, 19:30&ndash;22:40</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary font-bold">&#10003;</span>
+              <span>Trial lesson available</span>
+            </li>
+          </ul>
+          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;12,000</span> / month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="py-32 bg-bg-dark">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-20">
+        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">PRICE</p>
+        <h2 class="text-3xl font-bold relative">Pricing</h2>
+      </div>
+
+      <!-- International Lesson Pricing -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <span class="text-2xl">&#127758;</span>
+          International Lesson
+          <span class="text-xs bg-accent text-primary-dark px-3 py-1 font-bold tracking-wider">FOR VISITORS</span>
+        </h3>
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-4">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-primary text-white">
+                <tr>
+                  <th class="px-6 py-4 text-left">Duration</th>
+                  <th class="px-6 py-4 text-right">Lesson Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white hover:bg-accent/5 transition">
+                  <td class="px-6 py-4">1 hour</td>
+                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;8,000</td>
+                </tr>
+                <tr class="bg-bg hover:bg-accent/5 transition">
+                  <td class="px-6 py-4">90 minutes</td>
+                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;10,500</td>
+                </tr>
+                <tr class="bg-white hover:bg-accent/5 transition">
+                  <td class="px-6 py-4">2 hours</td>
+                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;13,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="text-sm text-text-light">
+          * Court rental fee applies separately (approx. &#165;4,400&ndash;&#165;6,600/hour depending on time &amp; season).
+          Rackets &amp; balls provided free.
         </p>
-        <p class="text-text-light leading-relaxed mb-8">
-          All equipment included. Court rental fee applies.
+      </div>
+
+      <!-- Private Lesson Pricing -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <span class="text-2xl">&#127934;</span>
+          Private Lesson
+        </h3>
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-4">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-primary text-white">
+                <tr>
+                  <th class="px-6 py-4 text-left">Duration</th>
+                  <th class="px-6 py-4 text-right">Lesson Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">1 hour</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;7,000</td></tr>
+                <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">1.5 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;9,000</td></tr>
+                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">2 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;11,000</td></tr>
+                <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">2.5 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;13,000</td></tr>
+                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">3 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;15,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="text-sm text-text-light">
+          * Up to 6 participants at the same price. Court must be arranged by the client.
+          Free travel to Shiroishi-ku and Chuo-ku locations.
         </p>
-        <p class="font-bold text-lg mb-6">Contact us via LINE for pricing and availability!</p>
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border border-primary text-primary hover:bg-primary hover:text-white font-bold px-10 py-4 transition tracking-wider">
-          Book via LINE
-        </a>
+      </div>
+
+      <!-- Group Lesson Pricing -->
+      <div>
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <span class="text-2xl">&#128101;</span>
+          Group Lesson <span class="text-xs text-text-light font-normal">(Monthly membership)</span>
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <h4 class="font-bold text-lg mb-6 text-center">Monthly Fee</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+                <span class="text-text-light">Regular season (May&ndash;Oct)</span>
+                <span class="text-2xl font-bold text-primary">&#165;12,000<span class="text-sm font-normal text-text-light">/mo</span></span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-text-light">Winter season (Nov&ndash;Apr)</span>
+                <span class="text-2xl font-bold text-primary">&#165;13,000<span class="text-sm font-normal text-text-light">/mo</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <h4 class="font-bold text-lg mb-6 text-center">Drop-in</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+                <span class="text-text-light">Trial lesson (first time)</span>
+                <span class="text-2xl font-bold text-primary">&#165;3,000</span>
+              </div>
+              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+                <span class="text-text-light">Regular season (May&ndash;Oct)</span>
+                <span class="text-2xl font-bold text-primary">&#165;3,300<span class="text-sm font-normal text-text-light">/session</span></span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-text-light">Winter season (Nov&ndash;Apr)</span>
+                <span class="text-2xl font-bold text-primary">&#165;3,800<span class="text-sm font-normal text-text-light">/session</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm text-text-light mt-4 text-center">
+          * Currently all group classes are fully booked. Contact us via LINE for availability.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ===== WHAT'S INCLUDED ===== -->
-  <section class="py-32 bg-bg-dark">
+  <section class="py-32 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
         <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">FEATURES</p>
         <h2 class="text-3xl font-bold relative">What's Included</h2>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
           <div class="text-4xl mb-4">&#127934;</div>
           <h3 class="font-bold mb-3">Personalized Coaching</h3>
-          <p class="text-text-light text-sm leading-relaxed">Tailored lessons for all levels, from beginners to advanced players.</p>
+          <p class="text-text-light text-sm leading-relaxed">Tailored lessons for all levels, from complete beginners to advanced competitive players.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
           <div class="text-4xl mb-4">&#127969;</div>
           <h3 class="font-bold mb-3">Indoor Court</h3>
-          <p class="text-text-light text-sm leading-relaxed">Play rain or shine, even in winter! DecoTurf surface.</p>
+          <p class="text-text-light text-sm leading-relaxed">Play rain or shine, even in Hokkaido's snowy winter! DecoTurf surface, year-round availability.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
           <div class="text-4xl mb-4">&#127873;</div>
           <h3 class="font-bold mb-3">Free Equipment</h3>
-          <p class="text-text-light text-sm leading-relaxed">Rackets and balls provided for free. Just bring sportswear and indoor shoes.</p>
+          <p class="text-text-light text-sm leading-relaxed">Rackets and balls provided for free. Just bring sportswear and indoor shoes (shoe rental available).</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
-          <div class="text-4xl mb-4">&#128647;</div>
-          <h3 class="font-bold mb-3">Easy Access</h3>
-          <p class="text-text-light text-sm leading-relaxed">25 min from downtown Sapporo by bus. Free parking available.</p>
+        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
+          <div class="text-4xl mb-4">&#128172;</div>
+          <h3 class="font-bold mb-3">English OK</h3>
+          <p class="text-text-light text-sm leading-relaxed">Coach Kota speaks English fluently. The entire lesson and booking process is available in English.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== LOCATION ===== -->
-  <section class="py-32 bg-white">
+  <!-- ===== HOW TO BOOK ===== -->
+  <section id="booking" class="py-32 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-20">
+        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">BOOK</p>
+        <h2 class="text-3xl font-bold relative">How to Book</h2>
+        <p class="text-text-light mt-4">Book your lesson in 3 easy steps via LINE</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">1</div>
+          <h3 class="font-bold mb-3">Add us on LINE</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            Tap the "Book via LINE" button below. LINE is Japan's most popular messaging app (free to download).
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">2</div>
+          <h3 class="font-bold mb-3">Send a Message</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            Tell us your preferred date, time, lesson duration, and number of participants. We reply in English!
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">3</div>
+          <h3 class="font-bold mb-3">Show Up &amp; Play</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            Come to the venue, grab the free equipment, and enjoy your personalized tennis lesson!
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
+          Book via LINE
+        </a>
+        <p class="text-sm text-text-light mt-4">Don't have LINE? You can also reach us via the contact form on LINE's web version.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION & ACCESS ===== -->
+  <section id="access" class="py-32 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
         <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">ACCESS</p>
-        <h2 class="text-3xl font-bold relative">Location</h2>
+        <h2 class="text-3xl font-bold relative">Location &amp; Access</h2>
       </div>
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
         <div>
           <h3 class="text-xl font-bold mb-6">PLACE OF SPORTS NEO</h3>
           <p class="text-text-light leading-loose mb-6">
-            1-2-12-1 Yonesato, Shiroishi-ku, Sapporo<br />
-            〒003-0871
+            1-2-12-1 Yonesato, Shiroishi-ku, Sapporo, Hokkaido<br />
+            〒003-0871, Japan
           </p>
-          <div class="space-y-4 text-text-light">
+          <div class="space-y-4 text-text-light mb-8">
             <div class="flex items-start gap-3">
               <span class="text-primary font-bold mt-0.5">&#9679;</span>
-              <span><strong class="text-text">By bus:</strong> From Tozai Line "Bus Center Mae" station, take JR Hokkaido Bus (approx. 25 min)</span>
+              <span><strong class="text-text">By subway + bus:</strong> Take the Tozai Line to "Bus Center Mae" station, then JR Hokkaido Bus (approx. 25 min total from central Sapporo)</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary font-bold mt-0.5">&#9679;</span>
+              <span><strong class="text-text">By taxi:</strong> Approx. 20&ndash;25 min from Sapporo Station (around &#165;3,000&ndash;&#165;4,000)</span>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-primary font-bold mt-0.5">&#9679;</span>
@@ -204,35 +583,140 @@ const base = import.meta.env.BASE_URL;
             </div>
             <div class="flex items-start gap-3">
               <span class="text-primary font-bold mt-0.5">&#9679;</span>
-              <span>TEL: 011-827-7171</span>
+              <span>TEL: 011-827-7171 (venue front desk)</span>
             </div>
           </div>
-          <div class="mt-8">
+          <div>
             <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition inline-flex items-center gap-2">
               Visit venue website <span class="text-lg">&rarr;</span>
             </a>
           </div>
         </div>
-        <div class="aspect-[4/3] overflow-hidden">
-          <img src={`${base}images/en/neo_building.jpg`} alt="PLACE OF SPORTS NEO building" class="w-full h-full object-cover rounded-lg" />
+        <div>
+          <div class="aspect-[4/3] overflow-hidden mb-6">
+            <img src={`${base}images/en/neo_building.jpg`} alt="PLACE OF SPORTS NEO building exterior" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <!-- Google Maps Embed -->
+          <div class="aspect-[4/3] overflow-hidden rounded-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.5!2d141.4078!3d43.0536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b29f4c2e1b0f1%3A0x4c3b2a1d5e6f7890!2sPLACE+OF+SPORTS+NEO!5e0!3m2!1sen!2sjp!4v1"
+              class="w-full h-full border-0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="PLACE OF SPORTS NEO - Google Maps"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="py-32 bg-bg-dark">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-20">
+        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">FAQ</p>
+        <h2 class="text-3xl font-bold relative">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-6">
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            Does the coach speak English?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            Yes! Coach Kota speaks English and can conduct the entire lesson in English. All communication via LINE (booking, questions, etc.) is also available in English. No Japanese language ability is needed.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            I'm a complete beginner. Is that OK?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            Absolutely! All skill levels are welcome, from people who have never held a racket to advanced competitive players. Lessons are fully personalized to your current level and goals.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            Do I need to bring my own racket or equipment?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            No, rackets and balls are provided for free. Just bring sportswear and indoor court shoes (clean soles). If you don't have indoor shoes, they can be rented at the venue.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            Can I play even during winter or rainy days?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            Yes! The court at PLACE OF SPORTS NEO is fully indoors, so lessons are available year-round regardless of weather. Even during Hokkaido's snowy winters, you can enjoy tennis comfortably.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            What is LINE and how do I use it?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            LINE is Japan's most popular free messaging app (similar to WhatsApp). Download it from the App Store or Google Play, then tap our "Book via LINE" button to add us as a friend. Send us a message with your preferred date and time, and we'll reply in English.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            How do I get to the venue from central Sapporo?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            The easiest option is a taxi from Sapporo Station (about 20&ndash;25 min, around &#165;3,000&ndash;&#165;4,000). Alternatively, take the Tozai Line subway to "Bus Center Mae" station, then a JR Hokkaido Bus (about 25 min total). If you're driving, there's free parking with 30+ spaces.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            What does the court rental fee include?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            The court rental fee (&#165;4,400&ndash;&#165;6,600/hour) is charged by the venue and covers the use of the indoor court. It varies by season and time of day. This is separate from the lesson fee. Coach Kota will help you arrange the court booking.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            Can I book a lesson for a group?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            Yes! Both International Lessons and Private Lessons can accommodate small groups. The lesson fee stays the same regardless of the number of participants (up to 6 people), making group bookings very cost-effective.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== YOUTUBE ===== -->
-  <section class="py-32 bg-bg-dark">
+  <section class="py-32 bg-white">
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-16">
         <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">MOVIE</p>
         <h2 class="text-3xl font-bold relative mb-4">Watch Our Doubles Strategy Videos</h2>
-        <p class="text-text-light">Daily tennis tips on our YouTube channel</p>
+        <p class="text-text-light">Daily tennis tips on our YouTube channel (7,210+ subscribers)</p>
       </div>
       <div class="aspect-video overflow-hidden shadow-2xl">
         <iframe
           class="w-full h-full"
           src="https://www.youtube.com/embed/bXEScAkbFYI"
-          title="Tennis coaching video"
+          title="Tennis coaching video by Coach Kota Mizukami"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -254,11 +738,11 @@ const base = import.meta.env.BASE_URL;
     </div>
     <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
       <p class="text-accent font-bold tracking-[0.2em] text-sm mb-6">BOOK NOW</p>
-      <h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Play?</h2>
+      <h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Play Tennis in Sapporo?</h2>
       <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
       <p class="text-white/70 mb-12 text-lg leading-relaxed">
         Send us a message on LINE to book your lesson!<br />
-        We'll reply in English.
+        We'll reply in English. Beginners are absolutely welcome.
       </p>
       <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
         Book via LINE

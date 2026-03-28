@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="札幌のテニス プライベートレッスン｜御忍庭球塾"
+  description="札幌でテニスのプライベートレッスン・マンツーマン個人レッスンなら御忍庭球塾。初心者から経験者まで、一人ひとりに合わせた完全オーダーメイドの指導。札幌市白石区 PLACE OF SPORTS NEOにて開講中。"
+>
+
+  <Fragment slot="head">
+    <!-- Open Graph -->
+    <meta property="og:title" content="札幌のテニス プライベートレッスン｜御忍庭球塾" />
+    <meta property="og:description" content="札幌でテニスのプライベートレッスン・マンツーマン個人レッスンなら御忍庭球塾。一人ひとりに合わせた完全オーダーメイドの指導。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oshinobitennis.com/private-lesson" />
+    <meta property="og:site_name" content="御忍庭球塾" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- JSON-LD 構造化データ -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "テニス プライベートレッスン",
+      "description": "札幌でマンツーマン・個人テニスレッスン。初心者から経験者まで、一人ひとりの目標やレベルに合わせた完全オーダーメイドの指導を提供します。",
+      "serviceType": "テニス プライベートレッスン",
+      "provider": {
+        "@type": "SportsActivityLocation",
+        "name": "御忍庭球塾",
+        "url": "https://oshinobitennis.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "札幌市白石区",
+          "addressRegion": "北海道",
+          "addressCountry": "JP"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "札幌市"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "プライベートレッスン料金",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 1時間" },
+            "price": "7000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 1.5時間" },
+            "price": "9000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 2時間" },
+            "price": "11000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 2.5時間" },
+            "price": "13000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 3時間" },
+            "price": "15000",
+            "priceCurrency": "JPY"
+          }
+        ]
+      }
+    })} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative py-24">
+    <div class="absolute inset-0">
+      <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 text-center text-white">
+      <p class="text-accent font-bold tracking-widest text-sm mb-4">PRIVATE LESSON</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">あなただけの<br class="md:hidden" />テニスレッスン</h1>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
+        目標もペースも、すべてあなたに合わせる。<br />
+        札幌で受けられるマンツーマン・プライベートテニスレッスン。
+      </p>
+    </div>
+  </section>
+
+  <!-- 特徴 -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4 text-center">プライベートレッスンの特徴</h2>
+      <p class="text-text-light text-center mb-12">グループレッスンでは難しい、あなただけの課題にフォーカスします。</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 特徴1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-3">完全マンツーマン指導</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            一人ひとりのレベル・目標・クセに合わせた完全オーダーメイドのレッスン。最大6名までのグループでの受講も可能です。
+          </p>
+        </div>
+
+        <!-- 特徴2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-3">初心者歓迎・経験者も</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            ラケットを握ったことがない方から、試合で勝ちたい経験者まで。どんなレベルにも対応する個人レッスンです。
+          </p>
+        </div>
+
+        <!-- 特徴3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-3">スケジュール柔軟対応</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            ご都合に合わせて日時を調整。仕事終わりや休日など、ご希望の時間帯でレッスンを受けられます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金 -->
+  <section class="py-20 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4 text-center">料金</h2>
+      <p class="text-text-light text-center mb-12">会員でなくても受講可能。コート代は別途お客様負担となります。</p>
+
+      <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-6 py-4 text-left">時間</th>
+                <th class="px-6 py-4 text-right">料金（税込）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white hover:bg-accent/5 transition">
+                <td class="px-6 py-4">1時間</td>
+                <td class="px-6 py-4 text-right font-bold text-lg text-primary">7,000<span class="text-sm font-normal text-text-light">円</span></td>
+              </tr>
+              <tr class="bg-bg hover:bg-accent/5 transition">
+                <td class="px-6 py-4">1.5時間</td>
+                <td class="px-6 py-4 text-right font-bold text-lg text-primary">9,000<span class="text-sm font-normal text-text-light">円</span></td>
+              </tr>
+              <tr class="bg-white hover:bg-accent/5 transition">
+                <td class="px-6 py-4">2時間</td>
+                <td class="px-6 py-4 text-right font-bold text-lg text-primary">11,000<span class="text-sm font-normal text-text-light">円</span></td>
+              </tr>
+              <tr class="bg-bg hover:bg-accent/5 transition">
+                <td class="px-6 py-4">2.5時間</td>
+                <td class="px-6 py-4 text-right font-bold text-lg text-primary">13,000<span class="text-sm font-normal text-text-light">円</span></td>
+              </tr>
+              <tr class="bg-white hover:bg-accent/5 transition">
+                <td class="px-6 py-4">3時間</td>
+                <td class="px-6 py-4 text-right font-bold text-lg text-primary">15,000<span class="text-sm font-normal text-text-light">円</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <h3 class="font-bold text-lg mb-4">ご利用にあたって</h3>
+        <ul class="text-text-light space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-primary font-bold">●</span>
+            <span>最大6名まで参加可能（料金は人数に関わらず一律）</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary font-bold">●</span>
+            <span>会員でなくても受講可能</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary font-bold">●</span>
+            <span>コートはお客様にてご手配ください</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary font-bold">●</span>
+            <span>白石区・中央区在住の方は無料で出張いたします</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- コーチ紹介 -->
+  <section class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-12 text-center">コーチ紹介</h2>
+
+      <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm md:flex md:items-center md:gap-12">
+        <div class="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-6 md:mb-0 flex-shrink-0">
+          <svg class="w-16 h-16 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-1">水上 皓太</h3>
+          <p class="text-primary font-medium text-sm mb-4">御忍庭球塾 代表</p>
+          <p class="text-text-light text-sm leading-relaxed">
+            札幌市白石区を拠点に活動するテニスコーチ。一人ひとりの個性やレベルに合わせた丁寧な指導を心がけています。初心者から上級者まで、テニスを楽しみながら上達できるレッスンを提供します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- レッスン会場 -->
+  <section class="py-20 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-12 text-center">レッスン会場</h2>
+
+      <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <div class="md:flex md:items-start md:gap-8">
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">PLACE OF SPORTS NEO</h3>
+            <p class="text-text-light text-sm mb-4">札幌市白石区</p>
+            <ul class="text-text-light text-sm space-y-2 mb-6">
+              <li class="flex items-start gap-3">
+                <span class="text-primary font-bold">●</span>
+                <span>デコターフコート（インドア）</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary font-bold">●</span>
+                <span>天候に左右されず快適にプレー</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-primary font-bold">●</span>
+                <span>駐車場完備</span>
+              </li>
+            </ul>
+            <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-medium text-sm hover:underline">
+              施設の詳細はこちら →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary text-white text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">プライベートレッスンのお申し込み</h2>
+      <p class="text-white/80 mb-8">日時・内容のご相談はLINEからお気軽にどうぞ。</p>
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-10 py-4 rounded-lg transition inline-block text-lg shadow-lg">
+        LINE でお問い合わせ
+      </a>
+    </div>
+  </section>
+
+</Layout>
