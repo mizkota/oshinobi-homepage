@@ -50,75 +50,14 @@ const base = import.meta.env.BASE_URL;
         { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "English-Speaking Coach", "value": true }
       ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Tennis Lesson Plans",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "International Private Lesson (1 hour)",
-              "description": "One-on-one private tennis lesson for international visitors. English-speaking coach. Equipment included."
-            },
-            "price": "8000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "International Private Lesson (90 min)",
-              "description": "90-minute private tennis lesson for international visitors. English-speaking coach. Equipment included."
-            },
-            "price": "10500",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "International Private Lesson (2 hours)",
-              "description": "2-hour private tennis lesson for international visitors. English-speaking coach. Equipment included."
-            },
-            "price": "13000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Private Lesson",
-              "description": "Private tennis lesson for residents. Up to 6 participants."
-            },
-            "price": "7000",
-            "priceCurrency": "JPY",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "7000",
-              "priceCurrency": "JPY",
-              "unitText": "hour",
-              "minPrice": "7000",
-              "maxPrice": "15000"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Group Lesson (Monthly)",
-              "description": "Small-group tennis lesson, max 6 regular members per class."
-            },
-            "price": "12000",
-            "priceCurrency": "JPY",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "12000",
-              "priceCurrency": "JPY",
-              "unitText": "month"
-            }
-          }
-        ]
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://lin.ee/2CKErIS",
+          "actionPlatform": "http://schema.org/DesktopWebPlatform"
+        },
+        "description": "Contact us via LINE for pricing and availability"
       }
     })} />
 
@@ -197,7 +136,7 @@ const base = import.meta.env.BASE_URL;
             Book a Lesson
           </a>
           <a href="#pricing" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
-            View Pricing
+            Pricing & Contact
           </a>
         </div>
       </div>
@@ -295,7 +234,7 @@ const base = import.meta.env.BASE_URL;
               <span>Flexible scheduling</span>
             </li>
           </ul>
-          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;8,000</span> / hour</p>
+          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
         </div>
 
         <!-- Private Lesson -->
@@ -323,7 +262,7 @@ const base = import.meta.env.BASE_URL;
               <span>Personalized program</span>
             </li>
           </ul>
-          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;7,000</span> / hour</p>
+          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
         </div>
 
         <!-- Group Lesson -->
@@ -351,7 +290,7 @@ const base = import.meta.env.BASE_URL;
               <span>Trial lesson available</span>
             </li>
           </ul>
-          <p class="text-xs text-text-light">From <span class="text-2xl font-bold text-primary">&#165;12,000</span> / month</p>
+          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
         </div>
       </div>
     </div>
@@ -365,116 +304,32 @@ const base = import.meta.env.BASE_URL;
         <h2 class="text-3xl font-bold relative">Pricing</h2>
       </div>
 
-      <!-- International Lesson Pricing -->
-      <div class="mb-12">
-        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-          <span class="text-2xl">&#127758;</span>
-          International Lesson
-          <span class="text-xs bg-accent text-primary-dark px-3 py-1 font-bold tracking-wider">FOR VISITORS</span>
-        </h3>
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-4">
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead class="bg-primary text-white">
-                <tr>
-                  <th class="px-6 py-4 text-left">Duration</th>
-                  <th class="px-6 py-4 text-right">Lesson Fee</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bg-white hover:bg-accent/5 transition">
-                  <td class="px-6 py-4">1 hour</td>
-                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;8,000</td>
-                </tr>
-                <tr class="bg-bg hover:bg-accent/5 transition">
-                  <td class="px-6 py-4">90 minutes</td>
-                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;10,500</td>
-                </tr>
-                <tr class="bg-white hover:bg-accent/5 transition">
-                  <td class="px-6 py-4">2 hours</td>
-                  <td class="px-6 py-4 text-right font-bold text-lg">&#165;13,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <p class="text-sm text-text-light">
-          * Court rental fee applies separately (approx. &#165;4,400&ndash;&#165;6,600/hour depending on time &amp; season).
-          Rackets &amp; balls provided free.
+      <div class="bg-white rounded-2xl p-12 shadow-sm text-center max-w-2xl mx-auto">
+        <div class="text-5xl mb-6">&#128172;</div>
+        <h3 class="text-2xl font-bold mb-4">Contact Us for Detailed Pricing</h3>
+        <p class="text-text-light leading-relaxed mb-8">
+          We offer flexible pricing depending on lesson type, duration, and group size.<br />
+          Send us a message on LINE and we'll provide a personalized quote in English.
         </p>
-      </div>
-
-      <!-- Private Lesson Pricing -->
-      <div class="mb-12">
-        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-          <span class="text-2xl">&#127934;</span>
-          Private Lesson
-        </h3>
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-4">
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead class="bg-primary text-white">
-                <tr>
-                  <th class="px-6 py-4 text-left">Duration</th>
-                  <th class="px-6 py-4 text-right">Lesson Fee</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">1 hour</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;7,000</td></tr>
-                <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">1.5 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;9,000</td></tr>
-                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">2 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;11,000</td></tr>
-                <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">2.5 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;13,000</td></tr>
-                <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">3 hours</td><td class="px-6 py-4 text-right font-bold text-lg">&#165;15,000</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <p class="text-sm text-text-light">
-          * Up to 6 participants at the same price. Court must be arranged by the client.
-          Free travel to Shiroishi-ku and Chuo-ku locations.
-        </p>
-      </div>
-
-      <!-- Group Lesson Pricing -->
-      <div>
-        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-          <span class="text-2xl">&#128101;</span>
-          Group Lesson <span class="text-xs text-text-light font-normal">(Monthly membership)</span>
-        </h3>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-2xl p-8 shadow-sm">
-            <h4 class="font-bold text-lg mb-6 text-center">Monthly Fee</h4>
-            <div class="space-y-4">
-              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
-                <span class="text-text-light">Regular season (May&ndash;Oct)</span>
-                <span class="text-2xl font-bold text-primary">&#165;12,000<span class="text-sm font-normal text-text-light">/mo</span></span>
-              </div>
-              <div class="flex justify-between items-baseline">
-                <span class="text-text-light">Winter season (Nov&ndash;Apr)</span>
-                <span class="text-2xl font-bold text-primary">&#165;13,000<span class="text-sm font-normal text-text-light">/mo</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl p-8 shadow-sm">
-            <h4 class="font-bold text-lg mb-6 text-center">Drop-in</h4>
-            <div class="space-y-4">
-              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
-                <span class="text-text-light">Trial lesson (first time)</span>
-                <span class="text-2xl font-bold text-primary">&#165;3,000</span>
-              </div>
-              <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
-                <span class="text-text-light">Regular season (May&ndash;Oct)</span>
-                <span class="text-2xl font-bold text-primary">&#165;3,300<span class="text-sm font-normal text-text-light">/session</span></span>
-              </div>
-              <div class="flex justify-between items-baseline">
-                <span class="text-text-light">Winter season (Nov&ndash;Apr)</span>
-                <span class="text-2xl font-bold text-primary">&#165;3,800<span class="text-sm font-normal text-text-light">/session</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="text-sm text-text-light mt-4 text-center">
-          * Currently all group classes are fully booked. Contact us via LINE for availability.
+        <ul class="text-sm text-text-light space-y-3 mb-10 text-left max-w-md mx-auto">
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold">&#10003;</span>
+            <span>International Lesson &mdash; for visitors &amp; international residents</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold">&#10003;</span>
+            <span>Private Lesson &mdash; 1-on-1 or small group (up to 6 people)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold">&#10003;</span>
+            <span>Group Lesson &mdash; weekly membership classes</span>
+          </li>
+        </ul>
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
+          Contact Us via LINE
+        </a>
+        <p class="text-sm text-text-light mt-6">
+          * Court rental fee applies separately. Rackets &amp; balls provided free.
         </p>
       </div>
     </div>
@@ -575,7 +430,7 @@ const base = import.meta.env.BASE_URL;
             </div>
             <div class="flex items-start gap-3">
               <span class="text-primary font-bold mt-0.5">&#9679;</span>
-              <span><strong class="text-text">By taxi:</strong> Approx. 20&ndash;25 min from Sapporo Station (around &#165;3,000&ndash;&#165;4,000)</span>
+              <span><strong class="text-text">By taxi:</strong> Approx. 20&ndash;25 min from Sapporo Station</span>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-primary font-bold mt-0.5">&#9679;</span>
@@ -677,7 +532,7 @@ const base = import.meta.env.BASE_URL;
             <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-8 pb-6 text-text-light leading-relaxed">
-            The easiest option is a taxi from Sapporo Station (about 20&ndash;25 min, around &#165;3,000&ndash;&#165;4,000). Alternatively, take the Tozai Line subway to "Bus Center Mae" station, then a JR Hokkaido Bus (about 25 min total). If you're driving, there's free parking with 30+ spaces.
+            The easiest option is a taxi from Sapporo Station (about 20&ndash;25 min). Alternatively, take the Tozai Line subway to "Bus Center Mae" station, then a JR Hokkaido Bus (about 25 min total). If you're driving, there's free parking with 30+ spaces.
           </div>
         </details>
 
@@ -687,7 +542,7 @@ const base = import.meta.env.BASE_URL;
             <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-8 pb-6 text-text-light leading-relaxed">
-            The court rental fee (&#165;4,400&ndash;&#165;6,600/hour) is charged by the venue and covers the use of the indoor court. It varies by season and time of day. This is separate from the lesson fee. Coach Kota will help you arrange the court booking.
+            The court rental fee is charged by the venue and covers the use of the indoor court. It varies by season and time of day. This is separate from the lesson fee. Coach Kota will help you arrange the court booking and explain the costs.
           </div>
         </details>
 

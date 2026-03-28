@@ -39,41 +39,14 @@ const base = import.meta.env.BASE_URL;
         "@type": "City",
         "name": "札幌市"
       },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "プライベートレッスン料金",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 1時間" },
-            "price": "7000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 1.5時間" },
-            "price": "9000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 2時間" },
-            "price": "11000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 2.5時間" },
-            "price": "13000",
-            "priceCurrency": "JPY"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "プライベートレッスン 3時間" },
-            "price": "15000",
-            "priceCurrency": "JPY"
-          }
-        ]
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://lin.ee/2CKErIS",
+          "actionPlatform": "http://schema.org/DesktopWebPlatform"
+        },
+        "description": "LINEからお問い合わせください"
       }
     })} />
   </Fragment>
@@ -143,67 +116,45 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- 料金 -->
+  <!-- お問い合わせ -->
   <section class="py-20 bg-bg-dark">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4 text-center">料金</h2>
-      <p class="text-text-light text-center mb-12">会員でなくても受講可能。コート代は別途お客様負担となります。</p>
+      <h2 class="text-2xl font-bold mb-4 text-center">料金・お問い合わせ</h2>
+      <p class="text-text-light text-center mb-12">レッスン時間やご要望に合わせてご案内いたします。</p>
 
-      <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th class="px-6 py-4 text-left">時間</th>
-                <th class="px-6 py-4 text-right">料金（税込）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-white hover:bg-accent/5 transition">
-                <td class="px-6 py-4">1時間</td>
-                <td class="px-6 py-4 text-right font-bold text-lg text-primary">7,000<span class="text-sm font-normal text-text-light">円</span></td>
-              </tr>
-              <tr class="bg-bg hover:bg-accent/5 transition">
-                <td class="px-6 py-4">1.5時間</td>
-                <td class="px-6 py-4 text-right font-bold text-lg text-primary">9,000<span class="text-sm font-normal text-text-light">円</span></td>
-              </tr>
-              <tr class="bg-white hover:bg-accent/5 transition">
-                <td class="px-6 py-4">2時間</td>
-                <td class="px-6 py-4 text-right font-bold text-lg text-primary">11,000<span class="text-sm font-normal text-text-light">円</span></td>
-              </tr>
-              <tr class="bg-bg hover:bg-accent/5 transition">
-                <td class="px-6 py-4">2.5時間</td>
-                <td class="px-6 py-4 text-right font-bold text-lg text-primary">13,000<span class="text-sm font-normal text-text-light">円</span></td>
-              </tr>
-              <tr class="bg-white hover:bg-accent/5 transition">
-                <td class="px-6 py-4">3時間</td>
-                <td class="px-6 py-4 text-right font-bold text-lg text-primary">15,000<span class="text-sm font-normal text-text-light">円</span></td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="bg-white rounded-2xl p-10 shadow-sm text-center max-w-2xl mx-auto">
+        <div class="text-5xl mb-6">&#128172;</div>
+        <h3 class="text-xl font-bold mb-4">まずはお気軽にご相談ください</h3>
+        <p class="text-text-light leading-relaxed mb-8">
+          レッスン時間・人数・ご希望の内容に応じて、<br />
+          最適なプランと料金をご案内いたします。
+        </p>
+
+        <div class="bg-bg rounded-xl p-6 mb-8 text-left max-w-md mx-auto">
+          <h4 class="font-bold text-sm mb-4 text-center">ご利用にあたって</h4>
+          <ul class="text-text-light text-sm space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">●</span>
+              <span>最大6名まで参加可能</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">●</span>
+              <span>会員でなくても受講可能</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">●</span>
+              <span>コートはお客様にてご手配ください</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary font-bold">●</span>
+              <span>白石区・中央区在住の方は無料で出張いたします</span>
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <div class="bg-white rounded-2xl p-8 shadow-sm">
-        <h3 class="font-bold text-lg mb-4">ご利用にあたって</h3>
-        <ul class="text-text-light space-y-3">
-          <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
-            <span>最大6名まで参加可能（料金は人数に関わらず一律）</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
-            <span>会員でなくても受講可能</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
-            <span>コートはお客様にてご手配ください</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
-            <span>白石区・中央区在住の方は無料で出張いたします</span>
-          </li>
-        </ul>
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-10 py-4 rounded-lg transition inline-block text-lg shadow-lg">
+          LINE でお問い合わせ
+        </a>
       </div>
     </div>
   </section>
