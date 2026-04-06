@@ -3,7 +3,7 @@ import LayoutEN from '../../layouts/LayoutEN.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<LayoutEN title="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo with an English-speaking coach. Private lesson, group lesson & international lesson available. Indoor court, all equipment included. Book via LINE.">
+<LayoutEN title="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo with an English-speaking coach. International lesson available. Indoor court, all equipment included. Book via LINE.">
 
   <Fragment slot="head">
     <!-- Open Graph -->
@@ -175,7 +175,7 @@ const base = import.meta.env.BASE_URL;
             </li>
             <li class="flex items-start gap-3">
               <span class="text-accent mt-1">&#9670;</span>
-              <span>YouTube channel with 7,210+ subscribers</span>
+              <span>YouTube channel with 7,200+ subscribers</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-accent mt-1">&#9670;</span>
@@ -199,20 +199,17 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- ===== LESSON TYPES ===== -->
+  <!-- ===== LESSON ===== -->
   <section id="lessons" class="py-32 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">LESSONS</p>
-        <h2 class="text-3xl font-bold relative">Lesson Types</h2>
+        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">LESSON</p>
+        <h2 class="text-3xl font-bold relative">International Lesson</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- International Lesson -->
+      <div class="max-w-lg mx-auto">
         <div class="bg-bg rounded-2xl p-8 shadow-sm border-2 border-accent relative">
-          <div class="absolute -top-3 left-6 bg-accent text-primary-dark text-xs font-bold px-4 py-1 tracking-wider">RECOMMENDED</div>
           <div class="text-4xl mb-4">&#127758;</div>
-          <h3 class="text-xl font-bold mb-3">International Lesson</h3>
           <p class="text-text-light text-sm leading-relaxed mb-4">
             Designed for visitors and international residents in Sapporo. The entire lesson is conducted in English. Perfect for tourists who want a unique sports experience in Japan.
           </p>
@@ -223,7 +220,7 @@ const base = import.meta.env.BASE_URL;
             </li>
             <li class="flex items-start gap-2">
               <span class="text-accent font-bold">&#10003;</span>
-              <span>1-on-1 or small group</span>
+              <span>Up to 2 participants at a time</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-accent font-bold">&#10003;</span>
@@ -232,62 +229,6 @@ const base = import.meta.env.BASE_URL;
             <li class="flex items-start gap-2">
               <span class="text-accent font-bold">&#10003;</span>
               <span>Flexible scheduling</span>
-            </li>
-          </ul>
-          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
-        </div>
-
-        <!-- Private Lesson -->
-        <div class="bg-bg rounded-2xl p-8 shadow-sm">
-          <div class="text-4xl mb-4">&#127934;</div>
-          <h3 class="text-xl font-bold mb-3">Private Lesson</h3>
-          <p class="text-text-light text-sm leading-relaxed mb-4">
-            One-on-one or small group (up to 6 people) private coaching. Fully customized to your level, goals, and areas you want to improve. Available to non-members.
-          </p>
-          <ul class="text-sm text-text-light space-y-2 mb-6">
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Up to 6 participants</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>1 to 3 hours available</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>No membership required</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Personalized program</span>
-            </li>
-          </ul>
-          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
-        </div>
-
-        <!-- Group Lesson -->
-        <div class="bg-bg rounded-2xl p-8 shadow-sm">
-          <div class="text-4xl mb-4">&#128101;</div>
-          <h3 class="text-xl font-bold mb-3">Group Lesson</h3>
-          <p class="text-text-light text-sm leading-relaxed mb-4">
-            Weekly group lessons (Mon&ndash;Fri evenings, 90 min). Small class size of max 6 regular members. Classes organized by skill level. For Sapporo residents.
-          </p>
-          <ul class="text-sm text-text-light space-y-2 mb-6">
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Max 6 members per class</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Levels: Beginner to Advanced</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Mon&ndash;Fri, 19:30&ndash;22:40</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary font-bold">&#10003;</span>
-              <span>Trial lesson available</span>
             </li>
           </ul>
           <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
@@ -307,24 +248,10 @@ const base = import.meta.env.BASE_URL;
       <div class="bg-white rounded-2xl p-12 shadow-sm text-center max-w-2xl mx-auto">
         <div class="text-5xl mb-6">&#128172;</div>
         <h3 class="text-2xl font-bold mb-4">Contact Us for Detailed Pricing</h3>
-        <p class="text-text-light leading-relaxed mb-8">
-          We offer flexible pricing depending on lesson type, duration, and group size.<br />
+        <p class="text-text-light leading-relaxed mb-10">
+          We offer flexible pricing depending on duration and number of participants.<br />
           Send us a message on LINE and we'll provide a personalized quote in English.
         </p>
-        <ul class="text-sm text-text-light space-y-3 mb-10 text-left max-w-md mx-auto">
-          <li class="flex items-start gap-3">
-            <span class="text-accent font-bold">&#10003;</span>
-            <span>International Lesson &mdash; for visitors &amp; international residents</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-accent font-bold">&#10003;</span>
-            <span>Private Lesson &mdash; 1-on-1 or small group (up to 6 people)</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-accent font-bold">&#10003;</span>
-            <span>Group Lesson &mdash; weekly membership classes</span>
-          </li>
-        </ul>
         <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
           Contact Us via LINE
         </a>
@@ -400,11 +327,89 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
 
-      <div class="text-center">
+      <div class="text-center mb-16">
         <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
           Book via LINE
         </a>
-        <p class="text-sm text-text-light mt-4">Don't have LINE? You can also reach us via the contact form on LINE's web version.</p>
+        <p class="text-sm text-text-light mt-4">LINE is the fastest way to book. We usually reply within a few hours.</p>
+      </div>
+
+      <!-- Booking Form for non-LINE users -->
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-sm">
+        <h3 class="text-xl font-bold text-center mb-2">Don't have LINE? No problem.</h3>
+        <p class="text-text-light text-center text-sm mb-8">Fill out this form and we'll get back to you by email within 24 hours.</p>
+
+        <form id="booking-form" action="https://formsubmit.co/info@oshinobi-co.com" method="POST" class="space-y-6">
+          <input type="hidden" name="_subject" value="New Booking Request from English Page">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_next" value="https://oshinobitennis.com/en#booking-thanks">
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-bold mb-2">Your Name <span class="text-red-500">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="John Smith" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-bold mb-2">Email <span class="text-red-500">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="date" class="block text-sm font-bold mb-2">Preferred Date <span class="text-red-500">*</span></label>
+              <input type="date" id="date" name="preferred_date" required class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+            <div>
+              <label for="time" class="block text-sm font-bold mb-2">Preferred Time</label>
+              <select id="time" name="preferred_time" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                <option value="">Select a time</option>
+                <option value="Morning (9:00-12:00)">Morning (9:00-12:00)</option>
+                <option value="Afternoon (12:00-17:00)">Afternoon (12:00-17:00)</option>
+                <option value="Evening (17:00-21:00)">Evening (17:00-21:00)</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="duration" class="block text-sm font-bold mb-2">Lesson Duration</label>
+              <select id="duration" name="lesson_duration" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                <option value="60min">60 min</option>
+                <option value="90min" selected>90 min (recommended)</option>
+                <option value="120min">120 min</option>
+                <option value="150min">150 min (2.5h)</option>
+                <option value="180min">180 min (3h)</option>
+              </select>
+            </div>
+            <div>
+              <label for="players" class="block text-sm font-bold mb-2">Number of Players</label>
+              <select id="players" name="number_of_players" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                <option value="1">1 player</option>
+                <option value="2">2 players</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-bold mb-2">Message (optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Any questions, skill level, special requests..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-primary/90 transition tracking-wider text-lg">
+            Send Booking Request
+          </button>
+          <p class="text-xs text-text-light text-center">We'll confirm availability and pricing by email. No payment required at this stage.</p>
+        </form>
+
+        <div id="booking-thanks" class="hidden text-center py-8">
+          <div class="text-4xl mb-4">&#10003;</div>
+          <h3 class="text-xl font-bold mb-2">Thank you!</h3>
+          <p class="text-text-light">We've received your booking request and will reply within 24 hours.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -548,11 +553,11 @@ const base = import.meta.env.BASE_URL;
 
         <details class="bg-white rounded-2xl shadow-sm group">
           <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
-            Can I book a lesson for a group?
+            Can I bring a friend?
             <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-8 pb-6 text-text-light leading-relaxed">
-            Yes! Both International Lessons and Private Lessons can accommodate small groups. The lesson fee stays the same regardless of the number of participants (up to 6 people), making group bookings very cost-effective.
+            Yes! Up to 2 people can participate at the same time. It's a great way to enjoy tennis together with a friend or partner.
           </div>
         </details>
       </div>
@@ -565,7 +570,7 @@ const base = import.meta.env.BASE_URL;
       <div class="text-center mb-16">
         <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">MOVIE</p>
         <h2 class="text-3xl font-bold relative mb-4">Watch Our Doubles Strategy Videos</h2>
-        <p class="text-text-light">Daily tennis tips on our YouTube channel (7,210+ subscribers)</p>
+        <p class="text-text-light">Daily tennis tips on our YouTube channel (7,200+ subscribers)</p>
       </div>
       <div class="aspect-video overflow-hidden shadow-2xl">
         <iframe
