@@ -1,65 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { posts } from '../data/blog-posts';
 const base = import.meta.env.BASE_URL;
-
-const posts = [
-  {
-    title: '出欠マニュアル',
-    date: '2026年2月7日',
-    category: 'ご案内',
-    image: 'attendance.png',
-    excerpt: 'レッスンの出欠に関するマニュアルです。',
-  },
-  {
-    title: '【大会結果】瀧野詩穂さん・長野友美さんが A級部門 準優勝！全国大会へ進出！',
-    date: '2025年10月9日',
-    category: 'ご報告',
-    image: 'ladies-tournament.jpg',
-    excerpt: 'ソニー生命カップ 第47回 全国レディーステニス大会 北海道予選にて、瀧野詩穂さん・長野友美さんが A級部門 準優勝を果たし、全国大会への進出を決めました。',
-  },
-  {
-    title: '【結果報告】北海道テニス選手権 & 全日本テニス選手権 北海道予選',
-    date: '2025年10月9日',
-    category: 'ご報告',
-    image: 'hokkaido-championship.jpg',
-    excerpt: '8月5日〜10日に開催された北海道テニス選手権および全日本テニス選手権 北海道予選の結果報告です。',
-  },
-  {
-    title: '２０２５年の前月まとめについて',
-    date: '2024年12月8日',
-    category: 'ご案内',
-    image: null,
-    excerpt: '2024年に試験的に実施した前月のレッスンまとめと所見について、2025年の方針をご案内します。',
-  },
-  {
-    title: '【重要】料金改定のお知らせ',
-    date: '2024年1月29日',
-    category: 'ご案内',
-    image: 'tennis-ball.png',
-    excerpt: '2024年5月より料金を改定させていただくこととなりました。',
-  },
-  {
-    title: '【２０２３ 石狩インドアテニス大会 結果】',
-    date: '2023年11月26日',
-    category: 'ご案内',
-    image: null,
-    excerpt: '石狩インドアテニス大会にて、会員の方々が多数入賞されました。',
-  },
-  {
-    title: '第一回おしのび合宿終了の報告',
-    date: '2023年11月26日',
-    category: 'ご案内',
-    image: 'camp.jpg',
-    excerpt: '初めての泊まりがけイベント「おしのび合宿」が無事終了しました。',
-  },
-  {
-    title: '体験受講のご案内',
-    date: '2021年5月21日',
-    category: 'ご案内',
-    image: null,
-    excerpt: '一般月曜コース・一般木曜コースで体験レッスンを受付中。初回3,000円で受講できます。',
-  },
-];
 ---
 
 <Layout title="お知らせ・ブログ">
@@ -74,8 +16,8 @@ const posts = [
     <div class="max-w-4xl mx-auto px-4">
       <div class="space-y-6">
         {posts.map((post) => (
-          <article class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition overflow-hidden">
-            <div class="flex flex-col sm:flex-row">
+          <a href={`${base}blog/${post.slug}/`} class="block bg-white rounded-2xl shadow-sm hover:shadow-lg transition overflow-hidden">
+            <article class="flex flex-col sm:flex-row">
               {post.image && (
                 <div class="sm:w-48 h-40 sm:h-auto bg-gray-100 shrink-0 overflow-hidden">
                   <img src={`${base}images/blog/${post.image}`} alt={post.title} class="w-full h-full object-cover" />
@@ -88,11 +30,11 @@ const posts = [
                   </span>
                   <time class="text-sm text-text-light">{post.date}</time>
                 </div>
-                <h2 class="text-lg font-bold mb-2">{post.title}</h2>
+                <h2 class="text-lg font-bold mb-2 hover:text-primary transition">{post.title}</h2>
                 <p class="text-text-light text-sm leading-relaxed">{post.excerpt}</p>
               </div>
-            </div>
-          </article>
+            </article>
+          </a>
         ))}
       </div>
     </div>
