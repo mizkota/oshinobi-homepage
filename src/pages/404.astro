@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="ページが見つかりません" description="お探しのページは見つかりませんでした。">
+  <section class="min-h-[70vh] flex items-center bg-bg">
+    <div class="max-w-3xl mx-auto px-4 py-24 text-center">
+      <p class="text-7xl md:text-9xl font-black text-primary/10 leading-none mb-6">404</p>
+      <h1 class="text-2xl md:text-3xl font-bold mb-4">ページが見つかりません</h1>
+      <p class="text-text-light leading-relaxed mb-2">
+        お探しのページは移動または削除された可能性があります。
+      </p>
+      <p class="text-text-light leading-relaxed mb-10">
+        Sorry, the page you're looking for doesn't exist or has been moved.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={base} class="bg-primary hover:bg-primary-light text-white font-bold px-10 py-4 transition tracking-wider">
+          トップページへ
+        </a>
+        <a href={`${base}en/`} class="border border-primary text-primary hover:bg-primary hover:text-white font-bold px-10 py-4 transition tracking-wider">
+          English Top Page
+        </a>
+      </div>
+      <div class="mt-12 text-sm text-text-light space-x-6">
+        <a href={`${base}courses`} class="underline hover:text-primary transition">コース・料金</a>
+        <a href={`${base}gut24`} class="underline hover:text-primary transition">ガット張替 GUT24</a>
+        <a href={`${base}blog`} class="underline hover:text-primary transition">お知らせ</a>
+      </div>
+    </div>
+  </section>
+</Layout>

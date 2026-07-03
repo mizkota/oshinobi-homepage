@@ -3,14 +3,14 @@ import LayoutEN from '../../layouts/LayoutEN.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<LayoutEN title="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo with an English-friendly Japanese coach. Basic English supported. Indoor court, all equipment included. Book via LINE.">
+<LayoutEN title="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. From ¥10,000 (60 min), indoor court open year-round, all equipment free. Beginners welcome.">
 
   <Fragment slot="head">
     <!-- Open Graph -->
-    <meta property="og:title" content="Tennis Lessons in Sapporo, Japan | Oshinobi Tennis Academy" />
-    <meta property="og:description" content="Private tennis lessons in Sapporo with an English-friendly Japanese coach. Basic English supported. Indoor court, all equipment included. Beginners welcome. Book via LINE." />
+    <meta property="og:title" content="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" />
+    <meta property="og:description" content="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. From ¥10,000 (60 min), indoor court open year-round, all equipment free. Beginners welcome." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://oshinobitennis.com/en" />
+    <meta property="og:url" content="https://oshinobitennis.com/en/" />
     <meta property="og:site_name" content="Oshinobi Tennis Academy" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
@@ -21,7 +21,9 @@ const base = import.meta.env.BASE_URL;
       "@type": "SportsActivityLocation",
       "name": "Oshinobi Tennis Academy",
       "description": "Private tennis lessons in Sapporo, Japan. Basic English supported — Japanese coach with conversational English. Personalized coaching for all levels from beginners to advanced players.",
-      "url": "https://oshinobitennis.com/en",
+      "url": "https://oshinobitennis.com/en/",
+      "image": "https://oshinobitennis.com/images/hero/court.jpg",
+      "priceRange": "¥10,000 - ¥16,500 per lesson (court rental separate)",
       "sport": "Tennis",
       "address": {
         "@type": "PostalAddress",
@@ -41,7 +43,7 @@ const base = import.meta.env.BASE_URL;
         "@type": "Person",
         "name": "Kota Mizukami",
         "jobTitle": "Head Tennis Coach",
-        "description": "Tennis coach in Sapporo with basic conversational English. YouTube channel with 7,000+ subscribers. Nihon University Tennis Team graduate, specializes in doubles strategy.",
+        "description": "Tennis coach in Sapporo with basic conversational English. YouTube channel with 7,200+ subscribers. Nihon University Tennis Team graduate, specializes in doubles strategy.",
         "sameAs": "https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ"
       },
       "amenityFeature": [
@@ -103,7 +105,23 @@ const base = import.meta.env.BASE_URL;
           "name": "How do I book a tennis lesson in Sapporo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simply send a message via LINE (Japan's most popular messaging app). We'll reply in simple English to confirm your preferred date, time, and lesson duration."
+            "text": "Simply send a message via LINE (Japan's most popular messaging app), or use the booking form on our website — no LINE account needed. We'll reply in simple English to confirm your preferred date, time, and lesson duration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a private tennis lesson in Sapporo cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "¥10,000 for 60 minutes, ¥13,000 for 90 minutes, or ¥16,500 for 120 minutes — per lesson, not per person (up to 2 players). Indoor court rental (¥4,400–¥6,600 per hour depending on season and time) is added; the coach arranges the court booking for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cancellation policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free cancellation up to 7 days before your lesson. Within 7 days, message us and we'll do our best to reschedule. The court is fully indoors, so lessons are never cancelled due to weather."
           }
         }
       ]
@@ -118,25 +136,30 @@ const base = import.meta.env.BASE_URL;
     </div>
     <div class="relative max-w-6xl mx-auto px-4 py-32 w-full">
       <div class="max-w-3xl">
-        <p class="text-accent font-bold tracking-[0.3em] text-sm mb-6">TENNIS COACHING IN SAPPORO</p>
+        <p class="text-accent font-bold tracking-[0.3em] text-sm mb-6">PRIVATE TENNIS LESSONS &mdash; SAPPORO, HOKKAIDO</p>
         <h1 class="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tight">
-          Tennis Lessons<br />in Sapporo
+          Play Tennis<br />in Sapporo
         </h1>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
         <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-4 max-w-lg">
-          Private tennis coaching with a<br />
-          Japanese coach (basic English OK)
+          Private lessons with a local Japanese coach<br />
+          (basic English OK) &mdash; for travelers &amp; residents
         </p>
-        <p class="text-base text-white/60 leading-relaxed mb-12 max-w-lg">
-          All levels welcome &mdash; beginners to advanced<br />
-          Indoor court &bull; Free equipment &bull; Year-round
+        <p class="text-base text-white/60 leading-relaxed mb-8 max-w-lg">
+          All levels welcome &mdash; beginners to advanced
         </p>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mb-12 text-sm text-white/80 font-medium">
+          <span class="flex items-center gap-2"><span class="text-accent">&#10003;</span> From &yen;10,000 / lesson</span>
+          <span class="flex items-center gap-2"><span class="text-accent">&#10003;</span> Indoor &mdash; snow or shine</span>
+          <span class="flex items-center gap-2"><span class="text-accent">&#10003;</span> Free rackets &amp; balls</span>
+          <span class="flex items-center gap-2"><span class="text-accent">&#10003;</span> YouTube coach &mdash; 7,200+ subscribers</span>
+        </div>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition text-center tracking-wider">
-            Book a Lesson
+          <a href="#booking" class="bg-accent text-primary-dark hover:opacity-90 font-bold px-10 py-4 transition text-center tracking-wider">
+            Check Availability
           </a>
           <a href="#pricing" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
-            Pricing & Contact
+            See Pricing
           </a>
         </div>
       </div>
@@ -231,7 +254,7 @@ const base = import.meta.env.BASE_URL;
               <span>Flexible scheduling</span>
             </li>
           </ul>
-          <p class="text-xs text-text-light">Contact us via LINE for pricing</p>
+          <p class="text-xs text-text-light">Simple, transparent pricing &mdash; <a href="#pricing" class="text-primary font-bold underline">see below</a></p>
         </div>
       </div>
     </div>
@@ -245,18 +268,62 @@ const base = import.meta.env.BASE_URL;
         <h2 class="text-3xl font-bold relative">Pricing</h2>
       </div>
 
-      <div class="bg-white rounded-2xl p-12 shadow-sm text-center max-w-2xl mx-auto">
-        <div class="text-5xl mb-6">&#128172;</div>
-        <h3 class="text-2xl font-bold mb-4">Contact Us for Detailed Pricing</h3>
-        <p class="text-text-light leading-relaxed mb-10">
-          We offer flexible pricing depending on duration and number of participants.<br />
-          Send us a message on LINE and we'll provide a personalized quote in simple English.
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <p class="text-sm font-bold tracking-wider text-text-light mb-2">60 MIN</p>
+          <p class="text-4xl font-black text-primary mb-4">&yen;10,000</p>
+          <p class="text-text-light text-sm leading-relaxed">A quick session &mdash; perfect for a first try or a busy travel day.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center border-2 border-accent relative">
+          <p class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-primary-dark text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">MOST POPULAR</p>
+          <p class="text-sm font-bold tracking-wider text-text-light mb-2">90 MIN</p>
+          <p class="text-4xl font-black text-primary mb-4">&yen;13,000</p>
+          <p class="text-text-light text-sm leading-relaxed">Enough time for warm-up, drills, and match play. Our recommendation.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+          <p class="text-sm font-bold tracking-wider text-text-light mb-2">120 MIN</p>
+          <p class="text-4xl font-black text-primary mb-4">&yen;16,500</p>
+          <p class="text-text-light text-sm leading-relaxed">A full training session for serious improvement.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow-sm max-w-3xl mx-auto mb-8">
+        <ul class="text-sm text-text-light space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">&#10003;</span>
+            <span><strong class="text-text">Price is per lesson, not per person</strong> &mdash; up to 2 players can join at no extra cost. Bring a friend and split it!</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">&#10003;</span>
+            <span><strong class="text-text">Indoor court rental is separate:</strong> &yen;4,400&ndash;&yen;6,600 per hour depending on season and time. Coach Kota arranges the court booking for you &mdash; no Japanese needed.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">&#10003;</span>
+            <span><strong class="text-text">Rackets, balls &amp; coaching all included.</strong> No hidden fees &mdash; local, personal, and honest.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary-dark rounded-2xl p-8 max-w-3xl mx-auto mb-12 text-center">
+        <h3 class="text-white font-bold text-lg mb-3">Cancellation Policy</h3>
+        <p class="text-white/70 text-sm leading-relaxed">
+          Free cancellation up to <strong class="text-white">7 days</strong> before your lesson.
+          Within 7 days, just message us &mdash; we'll do our best to reschedule.<br />
+          The court is fully indoors: <strong class="text-white">no weather cancellations, ever.</strong>
         </p>
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
-          Contact Us via LINE
-        </a>
+      </div>
+
+      <div class="text-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#booking" class="inline-block bg-primary text-white hover:bg-primary/90 font-bold px-12 py-5 transition tracking-wider text-lg">
+            Check Availability
+          </a>
+          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
+            Ask on LINE
+          </a>
+        </div>
         <p class="text-sm text-text-light mt-6">
-          * Court rental fee applies separately. Rackets &amp; balls provided free.
+          No prepayment required &mdash; we'll confirm payment details along with your reservation.
         </p>
       </div>
     </div>
@@ -300,7 +367,7 @@ const base = import.meta.env.BASE_URL;
       <div class="text-center mb-20">
         <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">BOOK</p>
         <h2 class="text-3xl font-bold relative">How to Book</h2>
-        <p class="text-text-light mt-4">Book your lesson in 3 easy steps via LINE</p>
+        <p class="text-text-light mt-4">Via LINE in 3 easy steps &mdash; or use the booking form below (no LINE needed)</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-12">
@@ -543,11 +610,31 @@ const base = import.meta.env.BASE_URL;
 
         <details class="bg-white rounded-2xl shadow-sm group">
           <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            How much does a private tennis lesson in Sapporo cost?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            &yen;10,000 for 60 minutes, &yen;13,000 for 90 minutes, or &yen;16,500 for 120 minutes &mdash; per lesson, not per person (up to 2 players). Indoor court rental (&yen;4,400&ndash;&yen;6,600 per hour depending on season and time) is added; Coach Kota arranges the court booking for you.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
             What does the court rental fee include?
             <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
           </summary>
           <div class="px-8 pb-6 text-text-light leading-relaxed">
-            The court rental fee is charged by the venue and covers the use of the indoor court. It varies by season and time of day. This is separate from the lesson fee. Coach Kota will help you arrange the court booking and explain the costs.
+            The court rental fee is charged by the venue and covers the use of the indoor court: &yen;4,400&ndash;&yen;6,600 per hour depending on season and time of day. This is separate from the lesson fee. Coach Kota arranges the court booking for you and confirms the exact cost before your lesson.
+          </div>
+        </details>
+
+        <details class="bg-white rounded-2xl shadow-sm group">
+          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+            What if I need to cancel?
+            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-8 pb-6 text-text-light leading-relaxed">
+            Free cancellation up to 7 days before your lesson. Within 7 days, just send us a message &mdash; we'll do our best to reschedule instead. And since the court is fully indoors, lessons are never cancelled because of weather.
           </div>
         </details>
 
@@ -601,12 +688,17 @@ const base = import.meta.env.BASE_URL;
       <h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Play Tennis in Sapporo?</h2>
       <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
       <p class="text-white/70 mb-12 text-lg leading-relaxed">
-        Send us a message on LINE to book your lesson!<br />
+        From &yen;10,000 per lesson &mdash; indoor court, all gear included.<br />
         We'll reply in simple English. Beginners are absolutely welcome.
       </p>
-      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
-        Book via LINE
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#booking" class="bg-accent text-primary-dark hover:opacity-90 font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
+          Check Availability
+        </a>
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
+          Book via LINE
+        </a>
+      </div>
     </div>
   </section>
 

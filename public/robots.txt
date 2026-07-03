@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oshinobitennis.com/sitemap-index.xml

@@ -8,6 +8,8 @@ interface Props {
 
 const { title, description = '札幌のテニススクール「御忍庭球塾」。少人数制レッスンで、もっと充実したテニスライフを。' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
 ---
 
 <!doctype html>
@@ -21,8 +23,25 @@ const base = import.meta.env.BASE_URL;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <title>{title} | 御忍庭球塾</title>
-    <link rel="alternate" hreflang="ja" href="https://oshinobitennis.com/" />
-    <link rel="alternate" hreflang="en" href="https://oshinobitennis.com/en" />
+    <link rel="canonical" href={canonical} />
+    {isTop && (
+      <>
+        <link rel="alternate" hreflang="ja" href="https://oshinobitennis.com/" />
+        <link rel="alternate" hreflang="en" href="https://oshinobitennis.com/en/" />
+        <link rel="alternate" hreflang="x-default" href="https://oshinobitennis.com/" />
+      </>
+    )}
+    <meta property="og:title" content={`${title} | 御忍庭球塾`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="御忍庭球塾" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | 御忍庭球塾`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
     <slot name="head" />
   </head>
   <body class="bg-white text-text font-sans">

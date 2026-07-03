@@ -3,17 +3,9 @@ import Layout from '../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="もっと充実したテニスライフを実現">
+<Layout title="もっと充実したテニスライフを実現" description="札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスンで一人ひとりの上達をサポートします。">
 
   <Fragment slot="head">
-    <!-- Open Graph -->
-    <meta property="og:title" content="御忍庭球塾｜札幌市白石区のテニススクール" />
-    <meta property="og:description" content="札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスンで一人ひとりの上達をサポートします。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://oshinobitennis.com" />
-    <meta property="og:site_name" content="御忍庭球塾" />
-    <meta property="og:locale" content="ja_JP" />
-
     <!-- 構造化データ: SportsActivityLocation -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
