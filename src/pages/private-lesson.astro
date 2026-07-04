@@ -44,14 +44,15 @@ const base = import.meta.env.BASE_URL;
   </Fragment>
 
   <!-- Hero -->
-  <section class="relative py-24">
+  <section class="relative py-24 md:py-28 overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-primary-dark/70 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 text-center text-white">
-      <p class="text-accent font-bold tracking-widest text-sm mb-4">PRIVATE LESSON</p>
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">あなただけの<br class="md:hidden" />テニスレッスン</h1>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">PRIVATE LESSON</p>
+      <h1 class="text-[clamp(2rem,5vw,3.25rem)] font-black mb-6 leading-tight tracking-tight">あなただけの<br class="md:hidden" />テニスレッスン</h1>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
       <p class="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
         目標もペースも、すべてあなたに合わせる。<br />
         札幌で受けられるマンツーマン・プライベートテニスレッスン。
@@ -60,14 +61,18 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- 特徴 -->
-  <section class="py-20 bg-bg">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4 text-center">プライベートレッスンの特徴</h2>
-      <p class="text-text-light text-center mb-12">グループレッスンでは難しい、あなただけの課題にフォーカスします。</p>
+  <section class="py-20 md:py-24 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">FEATURES</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">プライベートレッスンの特徴</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+        <p class="text-text-light mt-4">グループレッスンでは難しい、あなただけの課題にフォーカスします。</p>
+      </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- 特徴1 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -80,7 +85,7 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <!-- 特徴2 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -93,7 +98,7 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <!-- 特徴3 -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -109,12 +114,16 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- お問い合わせ -->
-  <section class="py-20 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4 text-center">料金・お問い合わせ</h2>
-      <p class="text-text-light text-center mb-12">レッスン時間やご要望に合わせてご案内いたします。</p>
+  <section class="py-20 md:py-24 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">PRICE &amp; CONTACT</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">料金・お問い合わせ</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+        <p class="text-text-light mt-4">レッスン時間やご要望に合わせてご案内いたします。</p>
+      </div>
 
-      <div class="bg-white rounded-2xl p-10 shadow-sm text-center max-w-2xl mx-auto">
+      <div class="bg-white rounded-2xl p-8 md:p-10 ring-1 ring-line shadow-sm text-center max-w-2xl mx-auto">
         <div class="text-5xl mb-6">&#128172;</div>
         <h3 class="text-xl font-bold mb-4">まずはお気軽にご相談ください</h3>
         <p class="text-text-light leading-relaxed mb-8">
@@ -122,29 +131,29 @@ const base = import.meta.env.BASE_URL;
           最適なプランと料金をご案内いたします。
         </p>
 
-        <div class="bg-bg rounded-xl p-6 mb-8 text-left max-w-md mx-auto">
+        <div class="bg-bg rounded-2xl ring-1 ring-line p-6 mb-8 text-left max-w-md mx-auto">
           <h4 class="font-bold text-sm mb-4 text-center">ご利用にあたって</h4>
-          <ul class="text-text-light text-sm space-y-3">
+          <ul class="text-text-light text-sm space-y-3 leading-relaxed">
             <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">●</span>
+              <span class="text-accent-dark font-bold">●</span>
               <span>最大6名まで参加可能</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">●</span>
+              <span class="text-accent-dark font-bold">●</span>
               <span>会員でなくても受講可能</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">●</span>
+              <span class="text-accent-dark font-bold">●</span>
               <span>コートはお客様にてご手配ください</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">●</span>
+              <span class="text-accent-dark font-bold">●</span>
               <span>白石区・中央区在住の方は無料で出張いたします</span>
             </li>
           </ul>
         </div>
 
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-10 py-4 rounded-lg transition inline-block text-lg shadow-lg">
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
           LINE でお問い合わせ
         </a>
       </div>
@@ -152,11 +161,15 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- コーチ紹介 -->
-  <section class="py-20 bg-bg">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-12 text-center">コーチ紹介</h2>
+  <section class="py-20 md:py-24 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">COACH</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">コーチ紹介</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+      </div>
 
-      <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm md:flex md:items-center md:gap-12">
+      <div class="bg-white rounded-2xl p-8 md:p-12 ring-1 ring-line shadow-sm md:flex md:items-center md:gap-12">
         <div class="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-6 md:mb-0 flex-shrink-0">
           <svg class="w-16 h-16 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -174,30 +187,34 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- レッスン会場 -->
-  <section class="py-20 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-12 text-center">レッスン会場</h2>
+  <section class="py-20 md:py-24 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">VENUE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">レッスン会場</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+      </div>
 
-      <div class="bg-white rounded-2xl p-8 shadow-sm">
+      <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm">
         <div class="md:flex md:items-start md:gap-8">
           <div class="flex-1">
             <h3 class="text-xl font-bold mb-2">PLACE OF SPORTS NEO</h3>
             <p class="text-text-light text-sm mb-4">札幌市白石区</p>
-            <ul class="text-text-light text-sm space-y-2 mb-6">
+            <ul class="text-text-light text-sm space-y-2 mb-6 leading-relaxed">
               <li class="flex items-start gap-3">
-                <span class="text-primary font-bold">●</span>
+                <span class="text-accent-dark font-bold">●</span>
                 <span>デコターフコート（インドア）</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-primary font-bold">●</span>
+                <span class="text-accent-dark font-bold">●</span>
                 <span>天候に左右されず快適にプレー</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-primary font-bold">●</span>
+                <span class="text-accent-dark font-bold">●</span>
                 <span>駐車場完備</span>
               </li>
             </ul>
-            <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-medium text-sm hover:underline">
+            <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-bold text-sm border-b-2 border-accent pb-0.5 hover:text-primary-light transition duration-300">
               施設の詳細はこちら →
             </a>
           </div>
@@ -207,11 +224,12 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary text-white text-center">
-    <div class="max-w-2xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">プライベートレッスンのお申し込み</h2>
+  <section class="py-20 bg-gradient-to-br from-navy-950 via-primary-dark to-primary text-white text-center">
+    <div class="max-w-2xl mx-auto px-4 md:px-6">
+      <h2 class="text-2xl md:text-3xl font-black tracking-tight mb-4">プライベートレッスンのお申し込み</h2>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
       <p class="text-white/80 mb-8">日時・内容のご相談はLINEからお気軽にどうぞ。</p>
-      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-10 py-4 rounded-lg transition inline-block text-lg shadow-lg">
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
         LINE でお問い合わせ
       </a>
     </div>

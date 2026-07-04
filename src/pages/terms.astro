@@ -5,19 +5,20 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="ご利用規約">
   <!-- Hero -->
   <section class="relative py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
-    <p class="absolute top-4 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none">TERMS</p>
-    <div class="relative max-w-6xl mx-auto px-4 text-center text-white">
-      <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">TERMS OF SERVICE</p>
-      <h1 class="text-4xl font-bold">ご利用規約</h1>
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
+    <p class="absolute top-4 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none select-none">TERMS</p>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">TERMS OF SERVICE</p>
+      <h1 class="text-[clamp(2rem,5vw,3rem)] font-black tracking-tight">ご利用規約</h1>
+      <div class="w-12 h-0.5 bg-accent mx-auto mt-6"></div>
     </div>
   </section>
 
-  <section class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4">
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
 
       <!-- 改定お知らせ -->
-      <div class="bg-gray-50 border-l-4 border-accent p-6 mb-12">
+      <div class="bg-bg ring-1 ring-line border-l-4 border-l-accent rounded-r-2xl p-6 md:p-8 mb-12">
         <h2 class="font-bold mb-3">規約改定のお知らせ</h2>
         <p class="text-text-light text-sm leading-relaxed mb-3">
           2024年2月1日より、以下の条項を改定いたしました。
@@ -32,10 +33,10 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- 規約本文 -->
       <article class="prose-terms">
-        <h2 class="text-2xl font-bold text-center mb-12">御忍庭球塾利用規約</h2>
+        <h2 class="text-2xl md:text-3xl font-black tracking-tight text-center mb-12">御忍庭球塾利用規約</h2>
 
         <!-- 第1章 -->
-        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6">第１章　総則</h3>
+        <h3 class="text-lg font-bold text-primary border-b-2 border-accent pb-2 mb-6">第１章　総則</h3>
 
         <div class="mb-8">
           <h4 class="font-bold mb-2">（名称）</h4>
@@ -59,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 第2章 -->
-        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6 mt-12">第２章　会員</h3>
+        <h3 class="text-lg font-bold text-primary border-b-2 border-accent pb-2 mb-6 mt-12">第２章　会員</h3>
 
         <div class="mb-8">
           <h4 class="font-bold mb-2">（会員の種類）</h4>
@@ -147,7 +148,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 第3章 -->
-        <h3 class="text-lg font-bold text-primary border-b-2 border-primary pb-2 mb-6 mt-12">第３章　付則</h3>
+        <h3 class="text-lg font-bold text-primary border-b-2 border-accent pb-2 mb-6 mt-12">第３章　付則</h3>
 
         <div class="mb-8">
           <h4 class="font-bold mb-2">（塾の閉鎖）</h4>
@@ -201,7 +202,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 署名 -->
-        <div class="mt-12 pt-8 border-t border-gray-200 text-right text-text-light text-sm">
+        <div class="mt-12 pt-8 border-t border-line text-right text-text-light text-sm">
           <p>代表：水上皓太</p>
         </div>
       </article>

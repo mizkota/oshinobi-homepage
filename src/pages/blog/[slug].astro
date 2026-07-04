@@ -18,29 +18,30 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title={post.title}>
-  <section class="relative py-20">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
-    <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
+  <section class="relative py-20 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
+    <p class="absolute top-4 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none select-none">NEWS</p>
+    <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
       <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">
+        <span class="bg-accent/20 text-accent-light text-xs font-bold px-3 py-1 rounded-full tracking-wider">
           {post.category}
         </span>
-        <time class="text-sm text-white/80">{post.date}</time>
+        <time class="text-sm text-white/80 font-display">{post.date}</time>
       </div>
-      <h1 class="text-2xl md:text-3xl font-bold leading-relaxed">{post.title}</h1>
+      <h1 class="text-2xl md:text-3xl font-black tracking-tight leading-relaxed">{post.title}</h1>
     </div>
   </section>
 
-  <section class="py-16 bg-bg">
-    <div class="max-w-3xl mx-auto px-4">
-      <article class="bg-white rounded-2xl shadow-sm overflow-hidden">
+  <section class="py-16 md:py-20 bg-bg">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <article class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden">
         {post.image && (
-          <div class="w-full aspect-[16/9] bg-gray-100 overflow-hidden">
+          <div class="w-full aspect-[16/9] bg-bg-dark overflow-hidden">
             <img src={`${base}images/blog/${post.image}`} alt={post.title} class="w-full h-full object-cover" />
           </div>
         )}
         <div class="p-8 md:p-12">
-          <div class="prose prose-lg max-w-none text-text leading-relaxed">
+          <div class="prose prose-lg max-w-none text-text leading-loose">
             {post.body ? (
               <div set:html={post.body} />
             ) : (
@@ -48,11 +49,11 @@ const base = import.meta.env.BASE_URL;
             )}
           </div>
 
-          <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-            <a href={`${base}blog`} class="text-sm text-primary font-bold hover:underline">
+          <div class="mt-12 pt-8 border-t border-line flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+            <a href={`${base}blog`} class="text-sm text-primary font-bold border-b-2 border-accent pb-0.5 self-start hover:text-primary-light transition duration-300">
               ← お知らせ一覧へ戻る
             </a>
-            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 text-sm font-bold transition tracking-wider text-center">
+            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 px-6 py-3 text-sm font-bold transition-all duration-300 tracking-wider text-center">
               お問い合わせ・体験の申し込み
             </a>
           </div>

@@ -150,18 +150,18 @@ const strings = [
 
   <!-- ===== HERO ===== -->
   <section class="relative min-h-[90vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
     <div class="absolute inset-0 opacity-20">
       <div class="absolute top-20 left-10 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-light/20 rounded-full blur-[120px]"></div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 py-20">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="lg:w-1/2 text-center lg:text-left">
           <div class="inline-block bg-accent/20 text-accent-light text-sm font-bold px-4 py-2 rounded-full mb-6">
             JR白石駅北口 徒歩2分
           </div>
-          <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+          <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-black font-display text-white mb-6 leading-tight tracking-tight">
             OSHINOBI<br />GUT <span class="text-accent">24</span>
           </h1>
           <p class="text-xl md:text-2xl text-white/80 mb-4">
@@ -175,10 +175,10 @@ const strings = [
             <span class="bg-white/10 text-white/90 text-sm font-bold px-4 py-2 rounded-full border border-white/20">📱 LINEで簡単注文</span>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-10 py-5 rounded-xl transition shadow-lg shadow-accent/30 text-lg">
+            <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-10 py-5 transition-all duration-300 shadow-lg shadow-accent/20 hover:-translate-y-0.5 text-lg tracking-wider">
               LINE で今すぐ注文
             </a>
-            <a href="#lineup" class="border-2 border-white/30 hover:border-white/60 text-white font-bold px-10 py-5 rounded-xl transition text-lg">
+            <a href="#lineup" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-5 transition-all duration-300 text-lg tracking-wider">
               ラインナップを見る
             </a>
           </div>
@@ -194,22 +194,22 @@ const strings = [
   </section>
 
   <!-- ===== PRICE IMPACT ===== -->
-  <section class="bg-primary text-white py-12">
+  <section class="bg-primary text-white py-12 border-y border-white/10">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
         <div>
           <p class="text-white/60 text-sm mb-1">全品工賃込み</p>
-          <p class="text-5xl md:text-6xl font-black">2,800<span class="text-2xl">円〜</span></p>
+          <p class="text-5xl md:text-6xl font-black font-display">2,800<span class="text-2xl">円〜</span></p>
         </div>
         <div class="hidden md:block w-px h-16 bg-white/20"></div>
         <div>
           <p class="text-white/60 text-sm mb-1">受付時間</p>
-          <p class="text-5xl md:text-6xl font-black">24<span class="text-2xl">時間</span></p>
+          <p class="text-5xl md:text-6xl font-black font-display">24<span class="text-2xl">時間</span></p>
         </div>
         <div class="hidden md:block w-px h-16 bg-white/20"></div>
         <div>
           <p class="text-white/60 text-sm mb-1">仕上がり</p>
-          <p class="text-5xl md:text-6xl font-black">約2<span class="text-2xl">日</span></p>
+          <p class="text-5xl md:text-6xl font-black font-display">約2<span class="text-2xl">日</span></p>
         </div>
         <div class="hidden md:block w-px h-16 bg-white/20"></div>
         <div>
@@ -221,31 +221,32 @@ const strings = [
   </section>
 
   <!-- ===== 3 REASONS ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">WHY CHOOSE US</p>
-        <h2 class="text-4xl font-black">選ばれる<span class="text-primary">3つ</span>の理由</h2>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">WHY CHOOSE US</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">選ばれる<span class="text-primary">3つ</span>の理由</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">1</div>
+        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">1</div>
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🕐</div>
           <h3 class="text-2xl font-black mb-4">24時間受付</h3>
           <p class="text-text-light leading-relaxed">
             非対面ポスト投函式だから、<strong class="text-text">仕事帰りでも早朝でも</strong>いつでも預けて、いつでも受け取れます。待ち時間ゼロ。
           </p>
         </div>
-        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">2</div>
+        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">2</div>
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">💰</div>
           <h3 class="text-2xl font-black mb-4">業界最安水準</h3>
           <p class="text-text-light leading-relaxed">
             全品工賃込みで<strong class="text-text">2,800円〜</strong>。追加料金は一切なし。表示価格がお支払い金額です。
           </p>
         </div>
-        <div class="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 border border-gray-100 hover:shadow-xl transition duration-500 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-2xl flex items-center justify-center font-black text-lg shadow-lg">3</div>
+        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">3</div>
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🎾</div>
           <h3 class="text-2xl font-black mb-4">厳選ストリング</h3>
           <p class="text-text-light leading-relaxed">
@@ -257,18 +258,19 @@ const strings = [
   </section>
 
   <!-- ===== STRING LINEUP ===== -->
-  <section id="lineup" class="py-24 bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-6xl mx-auto px-4">
+  <section id="lineup" class="py-24 md:py-28 bg-bg">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">LINEUP</p>
-        <h2 class="text-4xl font-black mb-4">取り扱いストリング</h2>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">LINEUP</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">取り扱いストリング</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
         <p class="text-text-light">すべて工賃込み。表示価格以外の費用はかかりません。</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {strings.map((s) => (
-          <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition duration-500 group">
-            <div class="h-48 bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden">
+          <div class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="h-48 bg-bg-dark flex items-center justify-center p-6 relative overflow-hidden">
               <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition duration-500" style={`background-color: ${s.color}`}></div>
               <img src={`${base}images/strings/${s.image}`} alt={s.name} class="max-h-36 max-w-full object-contain group-hover:scale-110 transition duration-500" />
             </div>
@@ -281,7 +283,7 @@ const strings = [
               <p class="text-text-light text-sm mb-4 leading-relaxed">{s.desc}</p>
               <div class="flex items-end justify-between">
                 <div>
-                  <span class="text-3xl font-black text-primary">{s.price.toLocaleString()}</span>
+                  <span class="text-3xl font-black font-display text-primary">{s.price.toLocaleString()}</span>
                   <span class="text-sm text-text-light ml-1">円</span>
                 </div>
                 <span class="text-xs bg-primary/5 text-primary font-bold px-3 py-1 rounded-full">工賃込み</span>
@@ -294,29 +296,30 @@ const strings = [
   </section>
 
   <!-- ===== MID CTA ===== -->
-  <section class="py-16 bg-gradient-to-r from-primary-dark to-primary text-white text-center">
-    <div class="max-w-3xl mx-auto px-4">
-      <p class="text-2xl md:text-3xl font-black mb-6">気になるストリングはありましたか？</p>
+  <section class="py-20 bg-gradient-to-r from-navy-950 via-primary-dark to-primary text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <p class="text-2xl md:text-3xl font-black tracking-tight mb-6">気になるストリングはありましたか？</p>
       <p class="text-white/70 mb-8">テンションの相談もLINEで承ります。1ポンド単位で調整可能です。</p>
-      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-10 py-5 rounded-xl transition inline-block text-lg shadow-lg shadow-accent/30">
+      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-10 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
         LINE で注文・相談する
       </a>
     </div>
   </section>
 
   <!-- ===== HOW TO ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">HOW TO USE</p>
-        <h2 class="text-4xl font-black">かんたん<span class="text-primary">3ステップ</span></h2>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">HOW TO USE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">かんたん<span class="text-primary">3ステップ</span></h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
 
       <div class="space-y-0">
         <!-- Step 1 -->
         <div class="flex gap-6 md:gap-10">
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">1</div>
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-primary/20 shrink-0">1</div>
             <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
           </div>
           <div class="pb-12 flex-1">
@@ -330,7 +333,7 @@ const strings = [
         <!-- Step 2 -->
         <div class="flex gap-6 md:gap-10">
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">2</div>
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-primary/20 shrink-0">2</div>
             <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
           </div>
           <div class="pb-12 flex-1">
@@ -358,7 +361,7 @@ const strings = [
         <!-- Step 3 -->
         <div class="flex gap-6 md:gap-10">
           <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-accent text-primary-dark rounded-2xl flex items-center justify-center font-black text-2xl shadow-lg shrink-0">✓</div>
+            <div class="w-16 h-16 bg-accent text-primary-dark rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-accent/20 shrink-0">✓</div>
           </div>
           <div class="flex-1">
             <h3 class="text-2xl font-black mb-3">完成通知 → 受け取り</h3>
@@ -378,29 +381,31 @@ const strings = [
   </section>
 
   <!-- ===== POST LOCATION ===== -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4">
+  <section class="py-24 md:py-28 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">LOCATION</p>
-        <h2 class="text-4xl font-black">ポストの場所</h2>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">LOCATION</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">ポストの場所</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
         <p class="text-text-light text-lg mt-4">札幌市 JR白石駅北口から<strong class="text-text">徒歩2分</strong></p>
       </div>
-      <div class="rounded-2xl overflow-hidden shadow-lg">
+      <div class="rounded-2xl overflow-hidden ring-1 ring-line shadow-lg">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.5!2d141.4!3d43.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2b0052260585%3A0x99699b9354aef3e!2sOSHINOBI%20GUT%2024!5e0!3m2!1sja!2sjp!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">VOICE</p>
-        <h2 class="text-4xl font-black">お客様の声</h2>
-        <p class="text-text-light text-lg mt-4">Googleマップのクチコミより（<span class="text-accent font-bold">★5.0</span> / 8件）</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">VOICE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">お客様の声</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+        <p class="text-text-light text-lg mt-4">Googleマップのクチコミより（<span class="text-accent-dark font-bold">★5.0</span> / 8件）</p>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div class="flex items-center gap-1 mb-4 text-accent">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
@@ -409,7 +414,7 @@ const strings = [
           </p>
           <p class="font-bold text-sm text-text">— Nemofira 様</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div class="flex items-center gap-1 mb-4 text-accent">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
@@ -418,7 +423,7 @@ const strings = [
           </p>
           <p class="font-bold text-sm text-text">— M T 様</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div class="flex items-center gap-1 mb-4 text-accent">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
@@ -427,7 +432,7 @@ const strings = [
           </p>
           <p class="font-bold text-sm text-text">— みやもと 様</p>
         </div>
-        <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div class="flex items-center gap-1 mb-4 text-accent">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
@@ -441,55 +446,56 @@ const strings = [
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section class="py-24 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4">
+  <section class="py-24 md:py-28 bg-bg">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
-        <p class="text-accent font-bold text-sm tracking-widest mb-3">FAQ</p>
-        <h2 class="text-4xl font-black">よくある質問</h2>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">FAQ</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">よくある質問</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
       <div class="space-y-4">
         <details class="bg-white rounded-2xl shadow-sm overflow-hidden group" open>
-          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer hover:text-primary transition duration-300 font-bold text-lg">
             持ち込みストリングは使えますか？
-            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+            <span class="text-accent-dark text-2xl ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
           </summary>
-          <div class="px-6 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 pb-6 pt-5 text-text-light leading-relaxed border-t border-line">
             申し訳ございませんが、品質管理のため指定ストリングのみの対応となります。上記ラインナップからお選びください。
           </div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
-          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden group">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer hover:text-primary transition duration-300 font-bold text-lg">
             仕上がりまでどのくらいかかりますか？
-            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+            <span class="text-accent-dark text-2xl ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
           </summary>
-          <div class="px-6 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 pb-6 pt-5 text-text-light leading-relaxed border-t border-line">
             通常約2日程度でお渡し可能です。混雑状況によって前後する場合がありますが、LINEで随時お知らせします。
           </div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
-          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden group">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer hover:text-primary transition duration-300 font-bold text-lg">
             支払い方法は？
-            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+            <span class="text-accent-dark text-2xl ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
           </summary>
-          <div class="px-6 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 pb-6 pt-5 text-text-light leading-relaxed border-t border-line">
             PayPayまたは現金（事前払い）に対応しています。ラケット投函時にお支払いください。
           </div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
-          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden group">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer hover:text-primary transition duration-300 font-bold text-lg">
             テンションの相談はできますか？
-            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+            <span class="text-accent-dark text-2xl ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
           </summary>
-          <div class="px-6 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 pb-6 pt-5 text-text-light leading-relaxed border-t border-line">
             はい、LINEにてお気軽にご相談ください。プレースタイルやラケットに合わせて、1ポンド単位で調整可能です。
           </div>
         </details>
-        <details class="bg-white rounded-2xl shadow-sm overflow-hidden group">
-          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition font-bold text-lg">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden group">
+          <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer hover:text-primary transition duration-300 font-bold text-lg">
             御忍庭球塾の会員でなくても利用できますか？
-            <span class="text-primary text-2xl ml-4 shrink-0 group-open:rotate-45 transition">+</span>
+            <span class="text-accent-dark text-2xl ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
           </summary>
-          <div class="px-6 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 pb-6 pt-5 text-text-light leading-relaxed border-t border-line">
             はい、どなたでもご利用いただけます。会員でなくてもお気軽にどうぞ。
           </div>
         </details>
@@ -498,22 +504,23 @@ const strings = [
   </section>
 
   <!-- ===== FINAL CTA ===== -->
-  <section class="relative py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]"></div>
+  <section class="relative py-24 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
     <div class="absolute inset-0 opacity-20">
       <div class="absolute top-10 right-20 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
-      <div class="absolute bottom-10 left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-10 left-20 w-96 h-96 bg-primary-light/20 rounded-full blur-[120px]"></div>
     </div>
-    <div class="relative max-w-3xl mx-auto px-4 text-center text-white">
-      <p class="text-accent font-bold text-sm tracking-widest mb-6">ORDER NOW</p>
-      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+    <div class="relative max-w-3xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-6">ORDER NOW</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
         あなたのラケット、<br />最高の状態に。
       </h2>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
       <p class="text-white/60 text-lg mb-10">
         LINEで注文 → ポスト投函 → 約2日で完成。<br />
         対面不要で完結する、新しいガット張替体験。
       </p>
-      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-black px-12 py-6 rounded-xl transition inline-block text-xl shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5">
+      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-12 py-6 transition-all duration-300 inline-block text-xl tracking-wider shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5">
         LINE で今すぐ注文する
       </a>
       <p class="text-white/40 text-sm mt-6">JR白石駅北口 徒歩2分 ・ 全品工賃込み 2,800円〜</p>

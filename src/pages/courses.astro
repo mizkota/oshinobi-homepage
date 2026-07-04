@@ -98,31 +98,37 @@ const courses = [
   </Fragment>
 
   <!-- Hero -->
-  <section class="relative py-20">
+  <section class="relative py-24 md:py-28 overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-primary-dark/70 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 text-center text-white">
-      <h1 class="text-4xl font-bold mb-4">コース・料金システム</h1>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">COURSES &amp; PRICE</p>
+      <h1 class="text-[clamp(2rem,5vw,3rem)] font-black tracking-tight mb-4">コース・料金システム</h1>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-6"></div>
       <p class="text-white/80 text-lg">入会金無料（2024年11月〜）</p>
     </div>
   </section>
 
   <!-- Flyer Image -->
-  <section class="py-16 bg-bg">
-    <div class="max-w-2xl mx-auto px-4">
-      <img src={`${base}images/courses/flyer.jpg`} alt="コース案内チラシ" class="w-full rounded-2xl shadow-lg" />
+  <section class="py-16 md:py-20 bg-bg">
+    <div class="max-w-2xl mx-auto px-4 md:px-6">
+      <img src={`${base}images/courses/flyer.jpg`} alt="コース案内チラシ" class="w-full rounded-2xl ring-1 ring-line shadow-lg" />
     </div>
   </section>
 
   <!-- Group Lessons -->
-  <section class="py-20 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-8 text-center">グループレッスン</h2>
+  <section class="py-20 md:py-24 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">GROUP LESSON</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">グループレッスン</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+      </div>
 
       <!-- 定員説明 -->
-      <div class="bg-white rounded-2xl p-6 shadow-sm mb-8">
+      <div class="bg-white rounded-2xl p-6 md:p-8 ring-1 ring-line shadow-sm mb-8">
         <h3 class="font-bold text-lg mb-3">定員について</h3>
         <div class="text-text-light space-y-2 text-sm leading-relaxed">
           <p>各コースの<strong class="text-text">レギュラー会員の定員は6名</strong>です。</p>
@@ -131,19 +137,19 @@ const courses = [
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+      <div class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden mb-8">
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-primary text-white">
               <tr>
-                <th class="px-6 py-4 text-left">曜日</th>
-                <th class="px-6 py-4 text-left">前半（19:30〜21:00）</th>
-                <th class="px-6 py-4 text-left">後半（21:10〜22:40）</th>
+                <th class="px-6 py-4 text-left font-bold tracking-wider">曜日</th>
+                <th class="px-6 py-4 text-left font-bold tracking-wider">前半（19:30〜21:00）</th>
+                <th class="px-6 py-4 text-left font-bold tracking-wider">後半（21:10〜22:40）</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="divide-y divide-line">
               {courses.map((c, i) => (
-                <tr class={`${i % 2 === 0 ? 'bg-white' : 'bg-bg'} hover:bg-accent/5 transition`}>
+                <tr class={`${i % 2 === 0 ? 'bg-white' : 'bg-bg'} hover:bg-accent/5 transition duration-300`}>
                   <td class="px-6 py-4 font-bold">{c.day}</td>
                   <td class="px-6 py-4">{c.level1}クラス</td>
                   <td class="px-6 py-4">{c.level2}クラス</td>
@@ -154,40 +160,40 @@ const courses = [
         </div>
       </div>
 
-      <div class="bg-accent/10 border border-accent/30 rounded-2xl p-8 mb-8 text-center">
+      <div class="bg-accent/10 ring-1 ring-accent/30 rounded-2xl p-8 mb-8 text-center">
         <p class="text-xl font-bold text-primary mb-2">現在、全コース満員御礼です</p>
         <p class="text-text-light">空き状況はLINEでお問い合わせください</p>
       </div>
 
       <!-- Pricing -->
       <div class="grid md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <h3 class="font-bold text-lg mb-6 text-center">月会費</h3>
           <div class="space-y-4">
-            <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+            <div class="flex justify-between items-baseline border-b border-line pb-3">
               <span class="text-text-light">通常期（5月〜10月）</span>
-              <span class="text-2xl font-bold text-primary">12,000<span class="text-sm font-normal text-text-light">円/月</span></span>
+              <span class="text-2xl font-bold text-primary font-display">12,000<span class="text-sm font-normal text-text-light font-sans">円/月</span></span>
             </div>
             <div class="flex justify-between items-baseline">
               <span class="text-text-light">冬期（11月〜4月）</span>
-              <span class="text-2xl font-bold text-primary">13,000<span class="text-sm font-normal text-text-light">円/月</span></span>
+              <span class="text-2xl font-bold text-primary font-display">13,000<span class="text-sm font-normal text-text-light font-sans">円/月</span></span>
             </div>
           </div>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <h3 class="font-bold text-lg mb-6 text-center">単発受講</h3>
           <div class="space-y-4">
-            <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+            <div class="flex justify-between items-baseline border-b border-line pb-3">
               <span class="text-text-light">体験（初回）</span>
-              <span class="text-2xl font-bold text-primary">3,000<span class="text-sm font-normal text-text-light">円/回</span></span>
+              <span class="text-2xl font-bold text-primary font-display">3,000<span class="text-sm font-normal text-text-light font-sans">円/回</span></span>
             </div>
-            <div class="flex justify-between items-baseline border-b border-gray-100 pb-3">
+            <div class="flex justify-between items-baseline border-b border-line pb-3">
               <span class="text-text-light">通常期（5月〜10月）</span>
-              <span class="text-2xl font-bold text-primary">3,300<span class="text-sm font-normal text-text-light">円/回</span></span>
+              <span class="text-2xl font-bold text-primary font-display">3,300<span class="text-sm font-normal text-text-light font-sans">円/回</span></span>
             </div>
             <div class="flex justify-between items-baseline">
               <span class="text-text-light">冬期（11月〜4月）</span>
-              <span class="text-2xl font-bold text-primary">3,800<span class="text-sm font-normal text-text-light">円/回</span></span>
+              <span class="text-2xl font-bold text-primary font-display">3,800<span class="text-sm font-normal text-text-light font-sans">円/回</span></span>
             </div>
           </div>
         </div>
@@ -200,51 +206,55 @@ const courses = [
   </section>
 
   <!-- Private Lessons -->
-  <section class="py-20 bg-bg">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-8 text-center">プライベートレッスン</h2>
+  <section class="py-20 md:py-24 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">PRIVATE LESSON</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">プライベートレッスン</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
+      </div>
 
-      <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+      <div class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden mb-8">
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-primary text-white">
               <tr>
-                <th class="px-6 py-4 text-left">時間</th>
-                <th class="px-6 py-4 text-right">料金</th>
+                <th class="px-6 py-4 text-left font-bold tracking-wider">時間</th>
+                <th class="px-6 py-4 text-right font-bold tracking-wider">料金</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">1時間</td><td class="px-6 py-4 text-right font-bold text-lg">7,000円</td></tr>
-              <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">1.5時間</td><td class="px-6 py-4 text-right font-bold text-lg">10,000円</td></tr>
-              <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">2時間</td><td class="px-6 py-4 text-right font-bold text-lg">13,000円</td></tr>
-              <tr class="bg-bg hover:bg-accent/5 transition"><td class="px-6 py-4">2.5時間</td><td class="px-6 py-4 text-right font-bold text-lg">16,000円</td></tr>
-              <tr class="bg-white hover:bg-accent/5 transition"><td class="px-6 py-4">3時間</td><td class="px-6 py-4 text-right font-bold text-lg">19,000円</td></tr>
+            <tbody class="divide-y divide-line">
+              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">1時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">7,000円</td></tr>
+              <tr class="bg-bg hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">1.5時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">10,000円</td></tr>
+              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">2時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">13,000円</td></tr>
+              <tr class="bg-bg hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">2.5時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">16,000円</td></tr>
+              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">3時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">19,000円</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl p-8 shadow-sm">
+      <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm">
         <h3 class="font-bold text-lg mb-4">プライベートレッスンについて</h3>
-        <ul class="text-text-light space-y-3">
+        <ul class="text-text-light space-y-3 leading-relaxed">
           <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
+            <span class="text-accent-dark font-bold">●</span>
             <span>最大6名まで参加可能</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
+            <span class="text-accent-dark font-bold">●</span>
             <span>会員でなくても受講可能</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
+            <span class="text-accent-dark font-bold">●</span>
             <span>コートはお客様にてご手配ください</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
+            <span class="text-accent-dark font-bold">●</span>
             <span>白石区・中央区在住の方は無料で出張いたします</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-primary font-bold">●</span>
+            <span class="text-accent-dark font-bold">●</span>
             <span>定期的・継続的にご利用いただく場合は、料金についてご相談を承ります</span>
           </li>
         </ul>
@@ -253,10 +263,13 @@ const courses = [
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary text-white text-center">
-    <h2 class="text-2xl font-bold mb-6">お問い合わせ・体験レッスンのお申し込み</h2>
-    <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="bg-accent hover:bg-accent-light text-primary-dark font-bold px-10 py-4 rounded-lg transition inline-block text-lg shadow-lg">
-      LINE でお問い合わせ
-    </a>
+  <section class="py-20 bg-gradient-to-br from-navy-950 via-primary-dark to-primary text-white text-center">
+    <div class="max-w-2xl mx-auto px-4 md:px-6">
+      <h2 class="text-2xl md:text-3xl font-black tracking-tight mb-4">お問い合わせ・体験レッスンのお申し込み</h2>
+      <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
+        LINE でお問い合わせ
+      </a>
+    </div>
   </section>
 </Layout>

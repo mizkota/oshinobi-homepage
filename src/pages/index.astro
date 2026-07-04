@@ -56,12 +56,12 @@ const base = import.meta.env.BASE_URL;
   <section class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-primary-dark/60 to-primary-dark/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-primary-dark/40 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 py-32 w-full">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-32 w-full">
       <div class="max-w-3xl">
-        <p class="text-accent font-bold tracking-[0.3em] text-sm mb-6">TENNIS SCHOOL IN SAPPORO</p>
-        <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tight">
+        <p class="text-accent font-display font-semibold tracking-[0.3em] text-xs md:text-sm mb-6">TENNIS SCHOOL IN SAPPORO</p>
+        <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-black text-white mb-8 leading-[1.1] tracking-tight">
           御忍庭球塾
         </h1>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
@@ -70,10 +70,10 @@ const base = import.meta.env.BASE_URL;
           一人ひとりの上達をサポートします
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href={`${base}courses`} class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition text-center tracking-wider">
+          <a href={`${base}courses`} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
             コース・料金
           </a>
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
+          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider">
             体験のお申し込み
           </a>
         </div>
@@ -81,55 +81,57 @@ const base = import.meta.env.BASE_URL;
     </div>
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
-      <span class="text-xs tracking-[0.2em]">SCROLL</span>
+      <span class="text-xs tracking-[0.2em] font-display">SCROLL</span>
       <div class="w-px h-10 bg-white/30 animate-pulse"></div>
     </div>
   </section>
 
   <!-- ===== NEWS ===== -->
-  <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-        <div>
-          <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">NEWS</p>
-          <h2 class="text-3xl font-bold relative">お知らせ</h2>
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
+        <div class="relative overflow-hidden">
+          <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">NEWS</p>
+          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">NEWS</p>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">お知らせ</h2>
+          <div class="w-12 h-0.5 bg-accent mt-4"></div>
         </div>
-        <a href={`${base}blog`} class="mt-6 md:mt-0 text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition inline-flex items-center gap-2">
+        <a href={`${base}blog`} class="mt-6 md:mt-0 text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
           一覧へ <span class="text-lg">→</span>
         </a>
       </div>
-      <div class="divide-y divide-gray-200">
-        <a href={`${base}blog`} class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-5 hover:opacity-70 transition">
-          <time class="text-sm text-text-light whitespace-nowrap">2026.02.07</time>
-          <span class="text-sm text-accent font-bold">ご案内</span>
-          <span class="font-medium">出欠マニュアル</span>
+      <div class="divide-y divide-line border-y border-line">
+        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
+          <time class="text-sm text-text-light whitespace-nowrap font-display">2026.02.07</time>
+          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご案内</span>
+          <span class="font-medium group-hover:text-primary transition duration-300">出欠マニュアル</span>
         </a>
-        <a href={`${base}blog`} class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-5 hover:opacity-70 transition">
-          <time class="text-sm text-text-light whitespace-nowrap">2025.10.09</time>
-          <span class="text-sm text-accent font-bold">ご報告</span>
-          <span class="font-medium">瀧野詩穂さん・長野友美さんが A級部門 準優勝！全国大会へ進出！</span>
+        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
+          <time class="text-sm text-text-light whitespace-nowrap font-display">2025.10.09</time>
+          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご報告</span>
+          <span class="font-medium group-hover:text-primary transition duration-300">瀧野詩穂さん・長野友美さんが A級部門 準優勝！全国大会へ進出！</span>
         </a>
-        <a href={`${base}blog`} class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-5 hover:opacity-70 transition">
-          <time class="text-sm text-text-light whitespace-nowrap">2025.10.09</time>
-          <span class="text-sm text-accent font-bold">ご報告</span>
-          <span class="font-medium">北海道テニス選手権 & 全日本テニス選手権 北海道予選 結果報告</span>
+        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
+          <time class="text-sm text-text-light whitespace-nowrap font-display">2025.10.09</time>
+          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご報告</span>
+          <span class="font-medium group-hover:text-primary transition duration-300">北海道テニス選手権 & 全日本テニス選手権 北海道予選 結果報告</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section class="relative py-32 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
-    <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none tracking-tight">ABOUT</p>
-    <div class="relative max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="aspect-[4/3] overflow-hidden">
+  <section class="relative py-24 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
+    <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none tracking-tight select-none">ABOUT</p>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-navy-950/50">
           <img src={`${base}images/en/coach_kota.jpg`} alt="水上皓太コーチ" class="w-full h-full object-cover" />
         </div>
         <div class="text-white">
-          <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">ABOUT US</p>
-          <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">
+          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">ABOUT US</p>
+          <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight tracking-tight">
             1人でも多くの方に<br />
             テニスの楽しさを。
           </h2>
@@ -140,7 +142,7 @@ const base = import.meta.env.BASE_URL;
             天候に左右されない快適な環境で、年間を通してテニスを楽しめます。
           </p>
           <div class="flex flex-col sm:flex-row gap-6">
-            <a href={`${base}courses`} class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition text-center tracking-wider text-sm">
+            <a href={`${base}courses`} class="rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition-all duration-300 text-center tracking-wider text-sm">
               コース・料金
             </a>
           </div>
@@ -150,89 +152,99 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== FEATURES ===== -->
-  <section class="py-32 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">FEATURES</p>
-        <h2 class="text-3xl font-bold relative">3つの特徴</h2>
+  <section class="py-24 md:py-28 bg-bg">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">FEATURES</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">FEATURES</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">3つの特徴</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
-      <div class="grid md:grid-cols-3 gap-12">
-        <div class="group">
-          <div class="relative mb-8">
-            <span class="text-[4rem] font-black text-accent/20 leading-none">01</span>
-            <div class="w-12 h-0.5 bg-accent mt-2"></div>
-          </div>
-          <div class="aspect-[4/3] overflow-hidden mb-6">
+      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
             <img src={`${base}images/features/snapshot.jpg`} alt="少人数レッスン" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
           </div>
-          <h3 class="text-xl font-bold mb-3">少人数制（定員6名）</h3>
-          <p class="text-text-light leading-relaxed text-sm">
-            レギュラー定員6名。コーチの目が一人ひとりに行き届く環境で、確実に上達できます。<br />
-            <span class="text-xs text-text-light/70">※振替等で最大7名になることがあります。</span>
-          </p>
-        </div>
-        <div class="group">
-          <div class="relative mb-8">
-            <span class="text-[4rem] font-black text-accent/20 leading-none">02</span>
-            <div class="w-12 h-0.5 bg-accent mt-2"></div>
+          <div class="p-8">
+            <div class="flex items-baseline gap-3 mb-4">
+              <span class="text-3xl font-black font-display text-accent leading-none">01</span>
+              <div class="w-8 h-0.5 bg-accent/40"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">少人数制（定員6名）</h3>
+            <p class="text-text-light leading-relaxed text-sm">
+              レギュラー定員6名。コーチの目が一人ひとりに行き届く環境で、確実に上達できます。<br />
+              <span class="text-xs text-text-light/70">※振替等で最大7名になることがあります。</span>
+            </p>
           </div>
-          <div class="aspect-[4/3] overflow-hidden mb-6">
+        </div>
+        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
             <img src={`${base}images/features/decoturf-court.jpg`} alt="デコターフコート" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
           </div>
-          <h3 class="text-xl font-bold mb-3">デコターフコート</h3>
-          <p class="text-text-light leading-relaxed text-sm">
-            PLACE OF SPORTS NEO のインドアデコターフコートを使用。天候に左右されない快適な環境です。
-          </p>
-        </div>
-        <div class="group">
-          <div class="relative mb-8">
-            <span class="text-[4rem] font-black text-accent/20 leading-none">03</span>
-            <div class="w-12 h-0.5 bg-accent mt-2"></div>
+          <div class="p-8">
+            <div class="flex items-baseline gap-3 mb-4">
+              <span class="text-3xl font-black font-display text-accent leading-none">02</span>
+              <div class="w-8 h-0.5 bg-accent/40"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">デコターフコート</h3>
+            <p class="text-text-light leading-relaxed text-sm">
+              PLACE OF SPORTS NEO のインドアデコターフコートを使用。天候に左右されない快適な環境です。
+            </p>
           </div>
-          <div class="aspect-[4/3] overflow-hidden mb-6">
+        </div>
+        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="aspect-[4/3] overflow-hidden">
             <img src={`${base}images/features/lesson-snapshot.png`} alt="動画で振り返り" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
           </div>
-          <h3 class="text-xl font-bold mb-3">動画で振り返り</h3>
-          <p class="text-text-light leading-relaxed text-sm">
-            レッスンを動画で撮影。自分のプレーを客観的に確認し、効率的にスキルアップできます。
-          </p>
+          <div class="p-8">
+            <div class="flex items-baseline gap-3 mb-4">
+              <span class="text-3xl font-black font-display text-accent leading-none">03</span>
+              <div class="w-8 h-0.5 bg-accent/40"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">動画で振り返り</h3>
+            <p class="text-text-light leading-relaxed text-sm">
+              レッスンを動画で撮影。自分のプレーを客観的に確認し、効率的にスキルアップできます。
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== GUT24 BANNER ===== -->
-  <section class="relative py-32 overflow-hidden">
-    <div class="absolute inset-0 bg-[#0a0a1a]"></div>
-    <p class="absolute top-8 right-4 md:right-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none tracking-tight">GUT 24</p>
-    <div class="relative max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+  <section class="relative py-24 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-navy-950"></div>
+    <p class="absolute top-8 right-4 md:right-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none tracking-tight select-none">GUT 24</p>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="text-white order-2 md:order-1">
-          <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">STRINGING SERVICE</p>
-          <h2 class="text-3xl md:text-4xl font-black mb-4">OSHINOBI GUT 24</h2>
+          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">STRINGING SERVICE</p>
+          <h2 class="text-3xl md:text-4xl font-black font-display mb-4 tracking-tight">OSHINOBI GUT 24</h2>
           <p class="text-xl text-white/80 mb-2">24時間受付のガット張替サービス</p>
           <div class="w-12 h-0.5 bg-accent my-8"></div>
           <p class="text-white/50 mb-8 text-lg">JR白石駅北口 徒歩2分 ・ 全品工賃込み ・ 2,800円〜</p>
-          <a href={`${base}gut24`} class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-10 py-4 transition inline-block tracking-wider">
+          <a href={`${base}gut24`} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
             詳しく見る
           </a>
         </div>
         <div class="flex justify-center order-1 md:order-2">
-          <img src={`${base}images/logo/gut24-logo.png`} alt="OSHINOBI GUT 24" class="w-56 h-56 md:w-72 md:h-72 rounded-full shadow-2xl" />
+          <img src={`${base}images/logo/gut24-logo.png`} alt="OSHINOBI GUT 24" class="w-56 h-56 md:w-72 md:h-72 rounded-full shadow-2xl ring-1 ring-white/10" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== YOUTUBE ===== -->
-  <section class="py-32 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">MOVIE</p>
-        <h2 class="text-3xl font-bold relative mb-4">ダブルスの技術を毎日配信中</h2>
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 md:mb-16 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">MOVIE</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">MOVIE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative mb-4">ダブルスの技術を毎日配信中</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
         <p class="text-text-light">YouTubeチャンネルでレッスン技術動画を投稿しています</p>
       </div>
-      <div class="aspect-video overflow-hidden shadow-2xl">
+      <div class="aspect-video overflow-hidden rounded-2xl ring-1 ring-line shadow-2xl shadow-primary/10">
         <iframe
           class="w-full h-full"
           src="https://www.youtube.com/embed/bXEScAkbFYI"
@@ -243,7 +255,7 @@ const base = import.meta.env.BASE_URL;
         ></iframe>
       </div>
       <div class="text-center mt-10">
-        <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition inline-flex items-center gap-2">
+        <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
           YouTubeチャンネルを見る <span class="text-lg">→</span>
         </a>
       </div>
@@ -251,20 +263,20 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== CTA ===== -->
-  <section class="relative py-32 overflow-hidden">
+  <section class="relative py-24 md:py-28 overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-primary-dark/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-primary-dark/85 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
-      <p class="text-accent font-bold tracking-[0.2em] text-sm mb-6">TRIAL LESSON</p>
-      <h2 class="text-3xl md:text-4xl font-black mb-6">体験レッスン受付中</h2>
+    <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-6">TRIAL LESSON</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-6 tracking-tight">体験レッスン受付中</h2>
       <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
       <p class="text-white/70 mb-12 text-lg leading-relaxed">
         体験受講が可能です。<br />
         初回 3,000円でお試しいただけます。
       </p>
-      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
+      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
         LINE で体験を申し込む
       </a>
     </div>

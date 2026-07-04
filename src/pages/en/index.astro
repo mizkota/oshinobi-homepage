@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL;
         "@type": "Person",
         "name": "Kota Mizukami",
         "jobTitle": "Head Tennis Coach",
-        "description": "Tennis coach in Sapporo with basic conversational English. YouTube channel with 7,500+ subscribers. Nihon University Tennis Team graduate, specializes in doubles strategy.",
+        "description": "Tennis coach in Sapporo with basic conversational English. YouTube channel with 7,500+ subscribers. Competed in national tournaments since junior years, specializes in doubles strategy.",
         "sameAs": "https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ"
       },
       "amenityFeature": [
@@ -132,12 +132,12 @@ const base = import.meta.env.BASE_URL;
   <section class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-primary-dark/60 to-primary-dark/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-primary-dark/40 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-4 py-32 w-full">
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-32 w-full">
       <div class="max-w-3xl">
-        <p class="text-accent font-bold tracking-[0.3em] text-sm mb-6">PRIVATE TENNIS LESSONS &mdash; SAPPORO, HOKKAIDO</p>
-        <h1 class="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tight">
+        <p class="text-accent font-display font-semibold tracking-[0.3em] text-xs md:text-sm mb-6">PRIVATE TENNIS LESSONS &mdash; SAPPORO, HOKKAIDO</p>
+        <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-black font-display text-white mb-8 leading-[1.1] tracking-tight">
           Play Tennis<br />in Sapporo
         </h1>
         <div class="w-16 h-0.5 bg-accent mb-8"></div>
@@ -155,10 +155,10 @@ const base = import.meta.env.BASE_URL;
           <span class="flex items-center gap-2"><span class="text-accent">&#10003;</span> YouTube coach &mdash; 7,500+ subscribers</span>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#booking" class="bg-accent text-primary-dark hover:opacity-90 font-bold px-10 py-4 transition text-center tracking-wider">
+          <a href="#booking" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
             Check Availability
           </a>
-          <a href="#pricing" class="border border-white/40 text-white hover:bg-white/10 font-bold px-10 py-4 transition text-center tracking-wider">
+          <a href="#pricing" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider">
             See Pricing
           </a>
         </div>
@@ -166,23 +166,23 @@ const base = import.meta.env.BASE_URL;
     </div>
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
-      <span class="text-xs tracking-[0.2em]">SCROLL</span>
+      <span class="text-xs tracking-[0.2em] font-display">SCROLL</span>
       <div class="w-px h-10 bg-white/30 animate-pulse"></div>
     </div>
   </section>
 
   <!-- ===== ABOUT COACH ===== -->
-  <section id="coach" class="relative py-32 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary"></div>
-    <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black text-white/[0.03] leading-none tracking-tight">COACH</p>
-    <div class="relative max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="aspect-[4/3] overflow-hidden">
+  <section id="coach" class="relative py-24 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
+    <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none tracking-tight select-none">COACH</p>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-navy-950/50">
           <img src={`${base}images/en/coach_kota.jpg`} alt="Coach Kota Mizukami on court" class="w-full h-full object-cover" />
         </div>
         <div class="text-white">
-          <p class="text-accent font-bold tracking-[0.2em] text-sm mb-4">COACH PROFILE</p>
-          <h2 class="text-3xl md:text-4xl font-black mb-2 leading-tight">
+          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">COACH PROFILE</p>
+          <h2 class="text-3xl md:text-4xl font-black font-display mb-2 leading-tight tracking-tight">
             Kota Mizukami
           </h2>
           <p class="text-white/50 text-sm mb-8">Head Coach &amp; Founder, Oshinobi Tennis Academy</p>
@@ -191,10 +191,6 @@ const base = import.meta.env.BASE_URL;
             <li class="flex items-start gap-3">
               <span class="text-accent mt-1">&#9670;</span>
               <span>Competed in national tournaments since junior years</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-accent mt-1">&#9670;</span>
-              <span>Nihon University Tennis Team graduate</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-accent mt-1">&#9670;</span>
@@ -210,10 +206,10 @@ const base = import.meta.env.BASE_URL;
             </li>
           </ul>
           <div class="flex flex-wrap gap-4">
-            <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition text-center tracking-wider text-sm inline-block">
+            <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition-all duration-300 text-center tracking-wider text-sm inline-block">
               Watch on YouTube
             </a>
-            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-white/40 text-white hover:bg-white/10 font-bold px-8 py-3 transition text-center tracking-wider text-sm inline-block">
+            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-8 py-3 transition-all duration-300 text-center tracking-wider text-sm inline-block">
               Message Coach Kota
             </a>
           </div>
@@ -223,15 +219,17 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== LESSON ===== -->
-  <section id="lessons" class="py-32 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">LESSON</p>
-        <h2 class="text-3xl font-bold relative">International Lesson</h2>
+  <section id="lessons" class="py-24 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">LESSON</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">LESSON</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">International Lesson</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
 
       <div class="max-w-lg mx-auto">
-        <div class="bg-bg rounded-2xl p-8 shadow-sm border-2 border-accent relative">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-accent relative">
           <div class="text-4xl mb-4">&#127758;</div>
           <p class="text-text-light text-sm leading-relaxed mb-4">
             Designed for visitors and international residents in Sapporo. Lessons are conducted in basic English &mdash; tennis instructions, drills, and simple conversation are no problem. Perfect for tourists who want a unique sports experience in Japan.
@@ -261,33 +259,35 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section id="pricing" class="py-32 bg-bg-dark">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">PRICE</p>
-        <h2 class="text-3xl font-bold relative">Pricing</h2>
+  <section id="pricing" class="py-24 md:py-28 bg-bg-dark">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">PRICE</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">PRICE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">Pricing</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mb-10">
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
-          <p class="text-sm font-bold tracking-wider text-text-light mb-2">60 MIN</p>
-          <p class="text-4xl font-black text-primary mb-4">&yen;10,000</p>
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+          <p class="text-sm font-semibold font-display tracking-[0.25em] text-text-light mb-2">60 MIN</p>
+          <p class="text-4xl font-black font-display text-primary mb-4">&yen;10,000</p>
           <p class="text-text-light text-sm leading-relaxed">A quick session &mdash; perfect for a first try or a busy travel day.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center border-2 border-accent relative">
-          <p class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-primary-dark text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">MOST POPULAR</p>
-          <p class="text-sm font-bold tracking-wider text-text-light mb-2">90 MIN</p>
-          <p class="text-4xl font-black text-primary mb-4">&yen;13,000</p>
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center border-2 border-accent relative">
+          <p class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-primary-dark text-xs font-bold font-display px-4 py-1 rounded-full whitespace-nowrap tracking-wider">MOST POPULAR</p>
+          <p class="text-sm font-semibold font-display tracking-[0.25em] text-text-light mb-2">90 MIN</p>
+          <p class="text-4xl font-black font-display text-primary mb-4">&yen;13,000</p>
           <p class="text-text-light text-sm leading-relaxed">Enough time for warm-up, drills, and match play. Our recommendation.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-sm text-center">
-          <p class="text-sm font-bold tracking-wider text-text-light mb-2">120 MIN</p>
-          <p class="text-4xl font-black text-primary mb-4">&yen;16,500</p>
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+          <p class="text-sm font-semibold font-display tracking-[0.25em] text-text-light mb-2">120 MIN</p>
+          <p class="text-4xl font-black font-display text-primary mb-4">&yen;16,500</p>
           <p class="text-text-light text-sm leading-relaxed">A full training session for serious improvement.</p>
         </div>
       </div>
 
-      <div class="bg-white rounded-2xl p-8 shadow-sm max-w-3xl mx-auto mb-8">
+      <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm max-w-3xl mx-auto mb-8">
         <ul class="text-sm text-text-light space-y-3">
           <li class="flex items-start gap-3">
             <span class="text-accent font-bold mt-0.5">&#10003;</span>
@@ -304,7 +304,7 @@ const base = import.meta.env.BASE_URL;
         </ul>
       </div>
 
-      <div class="bg-primary-dark rounded-2xl p-8 max-w-3xl mx-auto mb-12 text-center">
+      <div class="bg-gradient-to-br from-navy-950 to-primary-dark rounded-2xl p-8 max-w-3xl mx-auto mb-12 text-center shadow-lg shadow-primary/10">
         <h3 class="text-white font-bold text-lg mb-3">Cancellation Policy</h3>
         <p class="text-white/70 text-sm leading-relaxed">
           Free cancellation up to <strong class="text-white">7 days</strong> before your lesson.
@@ -315,10 +315,10 @@ const base = import.meta.env.BASE_URL;
 
       <div class="text-center">
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#booking" class="inline-block bg-primary text-white hover:bg-primary/90 font-bold px-12 py-5 transition tracking-wider text-lg">
+          <a href="#booking" class="inline-block rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg">
             Check Availability
           </a>
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
+          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg">
             Ask on LINE
           </a>
         </div>
@@ -330,29 +330,31 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== WHAT'S INCLUDED ===== -->
-  <section class="py-32 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">FEATURES</p>
-        <h2 class="text-3xl font-bold relative">What's Included</h2>
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">FEATURES</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">FEATURES</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">What's Included</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="text-4xl mb-4">&#127934;</div>
           <h3 class="font-bold mb-3">Personalized Coaching</h3>
           <p class="text-text-light text-sm leading-relaxed">Tailored lessons for all levels, from complete beginners to advanced competitive players.</p>
         </div>
-        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="text-4xl mb-4">&#127969;</div>
           <h3 class="font-bold mb-3">Indoor Court</h3>
           <p class="text-text-light text-sm leading-relaxed">Play rain or shine, even in Hokkaido's snowy winter! DecoTurf surface, year-round availability.</p>
         </div>
-        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="text-4xl mb-4">&#127873;</div>
           <h3 class="font-bold mb-3">Free Equipment</h3>
           <p class="text-text-light text-sm leading-relaxed">Rackets and balls provided for free. Just bring sportswear and indoor shoes (shoe rental available).</p>
         </div>
-        <div class="bg-bg rounded-2xl p-8 shadow-sm text-center">
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div class="text-4xl mb-4">&#128172;</div>
           <h3 class="font-bold mb-3">Basic English OK</h3>
           <p class="text-text-light text-sm leading-relaxed">Coach Kota speaks basic conversational English &mdash; enough for tennis lessons and LINE bookings. He is not a fluent speaker, but tennis instructions and simple conversation are no problem.</p>
@@ -362,31 +364,33 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== HOW TO BOOK ===== -->
-  <section id="booking" class="py-32 bg-bg-dark">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">BOOK</p>
-        <h2 class="text-3xl font-bold relative">How to Book</h2>
+  <section id="booking" class="py-24 md:py-28 bg-bg-dark">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">BOOK</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">BOOK</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">How to Book</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
         <p class="text-text-light mt-4">Via LINE in 3 easy steps &mdash; or use the booking form below (no LINE needed)</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div class="text-center">
-          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">1</div>
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black font-display mx-auto mb-6 shadow-lg shadow-primary/20">1</div>
           <h3 class="font-bold mb-3">Add us on LINE</h3>
           <p class="text-text-light text-sm leading-relaxed">
             Tap the "Book via LINE" button below. LINE is Japan's most popular messaging app (free to download).
           </p>
         </div>
         <div class="text-center">
-          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">2</div>
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black font-display mx-auto mb-6 shadow-lg shadow-primary/20">2</div>
           <h3 class="font-bold mb-3">Send a Message</h3>
           <p class="text-text-light text-sm leading-relaxed">
             Tell us your preferred date, time, lesson duration, and number of participants. We reply in simple English!
           </p>
         </div>
         <div class="text-center">
-          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">3</div>
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black font-display mx-auto mb-6 shadow-lg shadow-primary/20">3</div>
           <h3 class="font-bold mb-3">Show Up &amp; Play</h3>
           <p class="text-text-light text-sm leading-relaxed">
             Come to the venue, grab the free equipment, and enjoy your personalized tennis lesson!
@@ -395,14 +399,14 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="text-center mb-16">
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block border border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition tracking-wider text-lg">
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg shadow-lg shadow-accent/20 hover:-translate-y-0.5">
           Book via LINE
         </a>
         <p class="text-sm text-text-light mt-4">LINE is the fastest way to book. We usually reply within a few hours.</p>
       </div>
 
       <!-- Booking Form for non-LINE users -->
-      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-sm">
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 md:p-12 ring-1 ring-line shadow-sm">
         <h3 class="text-xl font-bold text-center mb-2">Don't have LINE? No problem.</h3>
         <p class="text-text-light text-center text-sm mb-8">Fill out this form and we'll get back to you by email within 24 hours.</p>
 
@@ -416,22 +420,22 @@ const base = import.meta.env.BASE_URL;
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-bold mb-2">Your Name <span class="text-red-500">*</span></label>
-              <input type="text" id="name" name="name" required placeholder="John Smith" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+              <input type="text" id="name" name="name" required placeholder="John Smith" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
             </div>
             <div>
               <label for="email" class="block text-sm font-bold mb-2">Email <span class="text-red-500">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+              <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
             </div>
           </div>
 
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <label for="date" class="block text-sm font-bold mb-2">Preferred Date <span class="text-red-500">*</span></label>
-              <input type="date" id="date" name="preferred_date" required class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+              <input type="date" id="date" name="preferred_date" required class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
             </div>
             <div>
               <label for="time" class="block text-sm font-bold mb-2">Preferred Time</label>
-              <select id="time" name="preferred_time" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+              <select id="time" name="preferred_time" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
                 <option value="">Select a time</option>
                 <option value="Morning (9:00-12:00)">Morning (9:00-12:00)</option>
                 <option value="Afternoon (12:00-17:00)">Afternoon (12:00-17:00)</option>
@@ -444,7 +448,7 @@ const base = import.meta.env.BASE_URL;
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <label for="duration" class="block text-sm font-bold mb-2">Lesson Duration</label>
-              <select id="duration" name="lesson_duration" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+              <select id="duration" name="lesson_duration" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
                 <option value="60min">60 min</option>
                 <option value="90min" selected>90 min (recommended)</option>
                 <option value="120min">120 min</option>
@@ -454,7 +458,7 @@ const base = import.meta.env.BASE_URL;
             </div>
             <div>
               <label for="players" class="block text-sm font-bold mb-2">Number of Players</label>
-              <select id="players" name="number_of_players" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+              <select id="players" name="number_of_players" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
                 <option value="1">1 player</option>
                 <option value="2">2 players</option>
               </select>
@@ -463,10 +467,10 @@ const base = import.meta.env.BASE_URL;
 
           <div>
             <label for="message" class="block text-sm font-bold mb-2">Message (optional)</label>
-            <textarea id="message" name="message" rows="3" placeholder="Any questions, skill level, special requests..." class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"></textarea>
+            <textarea id="message" name="message" rows="3" placeholder="Any questions, skill level, special requests..." class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300 resize-none"></textarea>
           </div>
 
-          <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-primary/90 transition tracking-wider text-lg">
+          <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-full hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300 tracking-wider text-lg">
             Send Booking Request
           </button>
           <p class="text-xs text-text-light text-center">We'll confirm availability and pricing by email. No payment required at this stage.</p>
@@ -482,13 +486,15 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== LOCATION & ACCESS ===== -->
-  <section id="access" class="py-32 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">ACCESS</p>
-        <h2 class="text-3xl font-bold relative">Location &amp; Access</h2>
+  <section id="access" class="py-24 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">ACCESS</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">ACCESS</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">Location &amp; Access</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
-      <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
         <div>
           <h3 class="text-xl font-bold mb-6">PLACE OF SPORTS NEO</h3>
           <p class="text-text-light leading-loose mb-6">
@@ -514,17 +520,17 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
           <div>
-            <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition inline-flex items-center gap-2">
+            <a href="https://neo-spo.com/" target="_blank" rel="noopener" class="text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
               Visit venue website <span class="text-lg">&rarr;</span>
             </a>
           </div>
         </div>
         <div>
-          <div class="aspect-[4/3] overflow-hidden mb-6">
-            <img src={`${base}images/en/neo_building.jpg`} alt="PLACE OF SPORTS NEO building exterior" class="w-full h-full object-cover rounded-lg" />
+          <div class="aspect-[4/3] overflow-hidden mb-6 rounded-2xl ring-1 ring-line shadow-sm">
+            <img src={`${base}images/en/neo_building.jpg`} alt="PLACE OF SPORTS NEO building exterior" class="w-full h-full object-cover" />
           </div>
           <!-- Google Maps Embed -->
-          <div class="aspect-[4/3] overflow-hidden rounded-lg">
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-line shadow-sm">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.5!2d141.4078!3d43.0536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b29f4c2e1b0f1%3A0x4c3b2a1d5e6f7890!2sPLACE+OF+SPORTS+NEO!5e0!3m2!1sen!2sjp!4v1"
               class="w-full h-full border-0"
@@ -540,110 +546,112 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section id="faq" class="py-32 bg-bg-dark">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-20">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">FAQ</p>
-        <h2 class="text-3xl font-bold relative">Frequently Asked Questions</h2>
+  <section id="faq" class="py-24 md:py-28 bg-bg-dark">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">FAQ</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">FAQ</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">Frequently Asked Questions</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
 
-      <div class="space-y-6">
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             Does the coach speak English?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             Yes, Coach Kota speaks basic conversational English &mdash; enough to run a tennis lesson. He is not a fluent speaker, but tennis instructions, drills, and simple conversation are no problem. LINE communication (booking, questions) is also handled in basic English, so you don't need Japanese to book or take a lesson.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             I'm a complete beginner. Is that OK?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             Absolutely! All skill levels are welcome, from people who have never held a racket to advanced competitive players. Lessons are fully personalized to your current level and goals.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             Do I need to bring my own racket or equipment?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             No, rackets and balls are provided for free. Just bring sportswear and indoor court shoes (clean soles). If you don't have indoor shoes, they can be rented at the venue.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             Can I play even during winter or rainy days?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             Yes! The court at PLACE OF SPORTS NEO is fully indoors, so lessons are available year-round regardless of weather. Even during Hokkaido's snowy winters, you can enjoy tennis comfortably.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             What is LINE and how do I use it?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             LINE is Japan's most popular free messaging app (similar to WhatsApp). Download it from the App Store or Google Play, then tap our "Book via LINE" button to add us as a friend. Send us a message with your preferred date and time, and we'll reply in simple English.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             How do I get to the venue from central Sapporo?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             The easiest option is a taxi from Sapporo Station (about 20&ndash;25 min). Alternatively, take the Tozai Line subway to "Bus Center Mae" station, then a JR Hokkaido Bus (about 25 min total). If you're driving, there's free parking with 30+ spaces.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             How much does a private tennis lesson in Sapporo cost?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             &yen;10,000 for 60 minutes, &yen;13,000 for 90 minutes, or &yen;16,500 for 120 minutes &mdash; per lesson, not per person (up to 2 players). Indoor court rental (&yen;4,400&ndash;&yen;6,600 per hour depending on season and time) is added; Coach Kota arranges the court booking for you.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             What does the court rental fee include?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             The court rental fee is charged by the venue and covers the use of the indoor court: &yen;4,400&ndash;&yen;6,600 per hour depending on season and time of day. This is separate from the lesson fee. Coach Kota arranges the court booking for you and confirms the exact cost before your lesson.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             What if I need to cancel?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             Free cancellation up to 7 days before your lesson. Within 7 days, just send us a message &mdash; we'll do our best to reschedule instead. And since the court is fully indoors, lessons are never cancelled because of weather.
           </div>
         </details>
 
-        <details class="bg-white rounded-2xl shadow-sm group">
-          <summary class="px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between hover:text-primary transition">
+        <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
+          <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
             Can I bring a friend?
-            <span class="text-primary text-2xl transition-transform group-open:rotate-45">+</span>
+            <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-8 pb-6 text-text-light leading-relaxed">
+          <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
             Yes! Up to 2 people can participate at the same time. It's a great way to enjoy tennis together with a friend or partner.
           </div>
         </details>
@@ -652,14 +660,16 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== YOUTUBE ===== -->
-  <section class="py-32 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <p class="text-[5rem] md:text-[7rem] font-black text-primary/5 leading-none -mb-6 md:-mb-8">MOVIE</p>
-        <h2 class="text-3xl font-bold relative mb-4">Watch Our Doubles Strategy Videos</h2>
+  <section class="py-24 md:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12 md:mb-16 relative overflow-hidden">
+        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">MOVIE</p>
+        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">MOVIE</p>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative mb-4">Watch Our Doubles Strategy Videos</h2>
+        <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
         <p class="text-text-light">Daily tennis tips on our YouTube channel (7,500+ subscribers)</p>
       </div>
-      <div class="aspect-video overflow-hidden shadow-2xl">
+      <div class="aspect-video overflow-hidden rounded-2xl ring-1 ring-line shadow-2xl shadow-primary/10">
         <iframe
           class="w-full h-full"
           src="https://www.youtube.com/embed/bXEScAkbFYI"
@@ -670,7 +680,7 @@ const base = import.meta.env.BASE_URL;
         ></iframe>
       </div>
       <div class="text-center mt-10">
-        <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="text-primary font-bold border-b border-primary pb-1 hover:opacity-70 transition inline-flex items-center gap-2">
+        <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
           Visit our YouTube channel <span class="text-lg">&rarr;</span>
         </a>
       </div>
@@ -678,24 +688,24 @@ const base = import.meta.env.BASE_URL;
   </section>
 
   <!-- ===== CTA / BOOK NOW ===== -->
-  <section class="relative py-32 overflow-hidden">
+  <section class="relative py-24 md:py-28 overflow-hidden">
     <div class="absolute inset-0">
       <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-primary-dark/90"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-primary-dark/85 to-navy-950/90"></div>
     </div>
-    <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
-      <p class="text-accent font-bold tracking-[0.2em] text-sm mb-6">BOOK NOW</p>
-      <h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Play Tennis in Sapporo?</h2>
+    <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
+      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-6">BOOK NOW</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-6 tracking-tight">Ready to Play Tennis in Sapporo?</h2>
       <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
       <p class="text-white/70 mb-12 text-lg leading-relaxed">
         From &yen;10,000 per lesson &mdash; indoor court, all gear included.<br />
         We'll reply in simple English. Beginners are absolutely welcome.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#booking" class="bg-accent text-primary-dark hover:opacity-90 font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
+        <a href="#booking" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
           Check Availability
         </a>
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="border border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-12 py-5 transition inline-block text-lg tracking-wider">
+        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider">
           Book via LINE
         </a>
       </div>
