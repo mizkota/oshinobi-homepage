@@ -11,7 +11,7 @@ const courses = [
 ];
 ---
 
-<Layout title="コース・料金システム" description="御忍庭球塾のコース・料金案内。グループレッスン月額12,000円〜、プライベートレッスン7,000円〜、体験3,000円。少人数制で確実に上達。">
+<Layout title="コース・料金システム" description="御忍庭球塾のコース・料金案内。グループレッスン月額12,000円〜、体験3,000円。少人数制で確実に上達。">
 
   <Fragment slot="head">
     <!-- 構造化データ: Service -->
@@ -79,17 +79,7 @@ const courses = [
             "itemOffered": {
               "@type": "Service",
               "name": "プライベートレッスン",
-              "description": "最大6名まで参加可能。会員でなくても受講可。1時間〜3時間。"
-            },
-            "price": "7000",
-            "priceCurrency": "JPY",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "7000",
-              "priceCurrency": "JPY",
-              "unitText": "時間",
-              "minPrice": "7000",
-              "maxPrice": "15000"
+              "description": "最大6名まで参加可能。会員でなくても受講可。料金はLINEにて個別にご案内。"
             }
           }
         ]
@@ -214,24 +204,9 @@ const courses = [
         <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
 
-      <div class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden mb-8">
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th class="px-6 py-4 text-left font-bold tracking-wider">時間</th>
-                <th class="px-6 py-4 text-right font-bold tracking-wider">料金</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-line">
-              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">1時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">7,000円</td></tr>
-              <tr class="bg-bg hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">1.5時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">10,000円</td></tr>
-              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">2時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">13,000円</td></tr>
-              <tr class="bg-bg hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">2.5時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">16,000円</td></tr>
-              <tr class="bg-white hover:bg-accent/5 transition duration-300"><td class="px-6 py-4">3時間</td><td class="px-6 py-4 text-right font-bold text-lg text-primary">19,000円</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="bg-accent/10 ring-1 ring-accent/30 rounded-2xl p-8 mb-8 text-center">
+        <p class="text-xl font-bold text-primary mb-2">料金はご希望の時間・内容に応じて個別にご案内いたします</p>
+        <p class="text-text-light">LINEにてお気軽にお問い合わせください</p>
       </div>
 
       <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm">
