@@ -1,6 +1,14 @@
 ---
 import LayoutEN from '../../layouts/LayoutEN.astro';
+import Reviews from '../../components/Reviews.astro';
+import { getReviews } from '../../data/reviews';
 const base = import.meta.env.BASE_URL;
+
+const enReviews = getReviews('international', 'en');
+const avgRating =
+  enReviews.length > 0
+    ? enReviews.reduce((sum, r) => sum + r.rating, 0) / enReviews.length
+    : 0;
 ---
 
 <LayoutEN title="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. From ¥10,000 (60 min), indoor court open year-round, all equipment free. Beginners welcome.">
@@ -52,6 +60,26 @@ const base = import.meta.env.BASE_URL;
         { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Basic English Supported", "value": true }
       ],
+      ...(enReviews.length > 0 && {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": avgRating.toFixed(1),
+          "reviewCount": String(enReviews.length),
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": enReviews.map(r => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": r.author },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": String(r.rating),
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "reviewBody": r.body
+        }))
+      }),
       "potentialAction": {
         "@type": "ReserveAction",
         "target": {
@@ -366,6 +394,9 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+
+  <!-- ===== REVIEWS（src/data/reviews.ts で一元管理。英語の声が入ると自動表示） ===== -->
+  <Reviews category="international" lang="en" bg="bg-white" />
 
   <!-- ===== HOW TO BOOK ===== -->
   <section id="booking" class="py-24 md:py-28 bg-bg-dark">

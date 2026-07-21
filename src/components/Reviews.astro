@@ -1,0 +1,86 @@
+---
+import { getReviews, type ReviewCategory } from '../data/reviews';
+
+interface Props {
+  category: ReviewCategory;
+  lang?: 'ja' | 'en';
+  /** 見出し下に出す一言（例: Googleクチコミより ★5.0 / 10件） */
+  note?: string;
+  /** 口コミ投稿リンク（お客様に「よかったら口コミを」と案内する導線） */
+  writeReviewUrl?: string;
+  /** 背景色クラス */
+  bg?: string;
+}
+
+const { category, lang = 'ja', note, writeReviewUrl, bg = 'bg-white' } = Astro.props;
+const items = getReviews(category, lang);
+
+const t =
+  lang === 'en'
+    ? {
+        eyebrow: 'VOICE',
+        heading: 'What Our Students Say',
+        cta: 'Leave a review on Google',
+      }
+    : {
+        eyebrow: 'VOICE',
+        heading: 'お客様の声',
+        cta: 'Googleにクチコミを書く',
+      };
+---
+
+{
+  items.length > 0 && (
+    <section class={`py-24 md:py-28 ${bg}`}>
+      <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">
+            {t.eyebrow}
+          </p>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight">{t.heading}</h2>
+          <div class="w-12 h-0.5 bg-accent mx-auto mt-4" />
+          {note && <p class="text-text-light text-lg mt-4" set:html={note} />}
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {items.map((r) => (
+            <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              {r.photo && (
+                <img
+                  src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${r.photo}`}
+                  alt={lang === 'en' ? `Lesson photo shared by ${r.author}` : `${r.author}様ご提供のレッスン写真`}
+                  class="w-full rounded-xl mb-6 object-cover"
+                  loading="lazy"
+                />
+              )}
+              <div class="flex items-center gap-1 mb-4 text-accent" aria-label={`${r.rating} / 5`}>
+                {Array.from({ length: r.rating }).map(() => (
+                  <span>★</span>
+                ))}
+              </div>
+              <p class="text-text-light leading-relaxed mb-6">{r.body}</p>
+              <p class="font-bold text-sm text-text">
+                — {r.author}
+                {lang === 'ja' ? ' 様' : ''}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {writeReviewUrl && (
+          <div class="text-center mt-12">
+            <a
+              href={writeReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-full ring-1 ring-line text-sm font-bold text-text hover:bg-bg transition-colors"
+            >
+              <span class="text-accent">★</span>
+              {t.cta}
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
