@@ -128,6 +128,18 @@ export const reviews: Review[] = [
     // 本人提供の写真（お子さんの顔はスタンプでマスク済み・2026-07-22 社長承認で掲載）
     photo: '/images/reviews/jennifer-lesson.jpg',
   },
+  {
+    id: 'g-eugene-kim',
+    category: 'international',
+    author: 'Eugene Kim',
+    rating: 5,
+    body: 'Outstanding teacher and excellent facility. He really helped me work out high volleys and backhand slice down the line. He himself is an excellent player as well. He is very attentive and speaks English.',
+    lang: 'en',
+    source: 'google', // 2026-07-30頃 Googleクチコミ投稿（★5）。原文のまま掲載
+    featured: true,
+    // 本人と撮ったセルフィー（顔はスタンプでマスク済み・2026-08-01 社長指示で掲載）
+    photo: '/images/reviews/eugene-lesson.jpg',
+  },
 ];
 
 /** Googleクチコミの実数（プロフィールの実測値。HP表示・構造化データの根拠） */
@@ -135,7 +147,7 @@ export const googleRating = {
   /** OSHINOBI GUT 24 のビジネスプロフィール */
   gut24: {
     ratingValue: 5.0,
-    reviewCount: 11, // 2026-07-21 時点の実測（11件目はレッスンの英語クチコミ）
+    reviewCount: 12, // 2026-08-01 時点の実測（11件目=Jennifer・12件目=Eugene、レッスンの英語クチコミ）
     /** 口コミ投稿用リンク（お客様に案内する用） */
     writeReviewUrl: 'https://g.page/r/CT7vSjW5mZYJEAE/review',
   },
