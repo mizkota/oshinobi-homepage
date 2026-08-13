@@ -149,6 +149,8 @@ export const reviews: Review[] = [
     lang: 'en',
     source: 'google', // 2026-08-09頃 Googleクチコミ投稿（★5）。原文のまま掲載
     featured: true,
+    // 本人と撮った記念写真（同行者の顔はスタンプでマスク済み・2026-08-13 社長指示で掲載）
+    photo: '/images/reviews/daniel-lesson.jpg',
   },
   {
     id: 'g-chappy',
@@ -159,6 +161,8 @@ export const reviews: Review[] = [
     lang: 'en',
     source: 'google', // 2026-08-11頃 Googleクチコミ投稿（★5）。原文のまま掲載
     featured: true,
+    // 本人と撮ったセルフィー（本人と同行者の顔はスタンプでマスク済み・2026-08-13 社長指示で掲載）
+    photo: '/images/reviews/chappy-lesson.jpg',
   },
 ];
 
