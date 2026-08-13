@@ -140,6 +140,26 @@ export const reviews: Review[] = [
     // 本人と撮ったセルフィー（顔はスタンプでマスク済み・2026-08-01 社長指示で掲載）
     photo: '/images/reviews/eugene-lesson.jpg',
   },
+  {
+    id: 'g-daniel',
+    category: 'international',
+    author: 'Daniel',
+    rating: 5,
+    body: "With superb technique and precision, Coach Mizukami makes every single hit on court a pleasure. If you're a tennis enthusiast traveling to Hokkaido, don't miss this place. Plus, they offer rackets and footwear on-site—which is incredibly convenient.",
+    lang: 'en',
+    source: 'google', // 2026-08-09頃 Googleクチコミ投稿（★5）。原文のまま掲載
+    featured: true,
+  },
+  {
+    id: 'g-chappy',
+    category: 'international',
+    author: 'Chappy',
+    rating: 5,
+    body: 'This place was a gem! My girlfriend was a complete beginner, and she wanted to try learning tennis across 4 lessons during our stay in Sapporo. Coach Mizukami was super friendly and encouraging, making our time in Hokkaido so much better! The court is super spacious and well-maintained, so I would highly recommend checking out this place for both beginners and advanced players!!! I cannot recommend more!',
+    lang: 'en',
+    source: 'google', // 2026-08-11頃 Googleクチコミ投稿（★5）。原文のまま掲載
+    featured: true,
+  },
 ];
 
 /** Googleクチコミの実数（プロフィールの実測値。HP表示・構造化データの根拠） */
@@ -147,7 +167,7 @@ export const googleRating = {
   /** OSHINOBI GUT 24 のビジネスプロフィール */
   gut24: {
     ratingValue: 5.0,
-    reviewCount: 12, // 2026-08-01 時点の実測（11件目=Jennifer・12件目=Eugene、レッスンの英語クチコミ）
+    reviewCount: 14, // 2026-08-13 時点の実測（13件目=Daniel・14件目=Chappy、レッスンの英語クチコミ）
     /** 口コミ投稿用リンク（お客様に案内する用） */
     writeReviewUrl: 'https://g.page/r/CT7vSjW5mZYJEAE/review',
   },
