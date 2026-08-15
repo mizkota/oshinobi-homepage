@@ -87,7 +87,7 @@ const avgRating =
           "urlTemplate": "https://lin.ee/2CKErIS",
           "actionPlatform": "http://schema.org/DesktopWebPlatform"
         },
-        "description": "Contact us via LINE for pricing and availability"
+        "description": "Contact us via LINE or WeChat (ID: Oshinobi_Tennis) for pricing and availability"
       }
     })} />
 
@@ -101,7 +101,7 @@ const avgRating =
           "name": "Does the coach speak English?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Coach Kota speaks basic conversational English — enough to run a tennis lesson. He is not a fluent speaker, but tennis instructions, drills, and simple conversation are no problem. LINE replies are also in basic English."
+            "text": "Yes, Coach Kota speaks basic conversational English — enough to run a tennis lesson. He is not a fluent speaker, but tennis instructions, drills, and simple conversation are no problem. LINE and WeChat replies are also in basic English."
           }
         },
         {
@@ -133,7 +133,7 @@ const avgRating =
           "name": "How do I book a tennis lesson in Sapporo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simply send a message via LINE (Japan's most popular messaging app), or use the booking form on our website — no LINE account needed. We'll reply in simple English to confirm your preferred date, time, and lesson duration."
+            "text": "Send us a message on LINE (Japan's most popular messaging app) or on WeChat (WeChat ID: Oshinobi_Tennis). We'll reply in simple English to confirm your preferred date, time, and lesson duration."
           }
         },
         {
@@ -350,8 +350,8 @@ const avgRating =
           <a href="#booking" class="inline-block rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg">
             Check Availability
           </a>
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg">
-            Ask on LINE
+          <a href="#booking" class="inline-block rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg">
+            Ask on LINE / WeChat
           </a>
         </div>
         <p class="text-sm text-text-light mt-6">
@@ -406,15 +406,15 @@ const avgRating =
         <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">BOOK</p>
         <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">How to Book</h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
-        <p class="text-text-light mt-4">Via LINE in 3 easy steps &mdash; or use the booking form below (no LINE needed)</p>
+        <p class="text-text-light mt-4">Message us on LINE or WeChat &mdash; 3 easy steps, and we reply in simple English</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div class="text-center">
           <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black font-display mx-auto mb-6 shadow-lg shadow-primary/20">1</div>
-          <h3 class="font-bold mb-3">Add us on LINE</h3>
+          <h3 class="font-bold mb-3">Add us on LINE or WeChat</h3>
           <p class="text-text-light text-sm leading-relaxed">
-            Tap the "Book via LINE" button below. LINE is Japan's most popular messaging app (free to download).
+            Use whichever app you already have &mdash; both are below. LINE is Japan's most popular messaging app (free to download).
           </p>
         </div>
         <div class="text-center">
@@ -433,90 +433,44 @@ const avgRating =
         </div>
       </div>
 
-      <div class="text-center mb-16">
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="inline-block rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 tracking-wider text-lg shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-          Book via LINE
-        </a>
-        <p class="text-sm text-text-light mt-4">LINE is the fastest way to book. We usually reply within a few hours.</p>
-      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
-      <!-- Booking Form for non-LINE users -->
-      <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 md:p-12 ring-1 ring-line shadow-sm">
-        <h3 class="text-xl font-bold text-center mb-2">Don't have LINE? No problem.</h3>
-        <p class="text-text-light text-center text-sm mb-8">Fill out this form and we'll get back to you by email within 24 hours.</p>
-
-        <form id="booking-form" action="https://formsubmit.co/info@oshinobi-co.com" method="POST" class="space-y-6">
-          <input type="hidden" name="_subject" value="New Booking Request from English Page">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_next" value="https://oshinobitennis.com/en#booking-thanks">
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-bold mb-2">Your Name <span class="text-red-500">*</span></label>
-              <input type="text" id="name" name="name" required placeholder="John Smith" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-bold mb-2">Email <span class="text-red-500">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="date" class="block text-sm font-bold mb-2">Preferred Date <span class="text-red-500">*</span></label>
-              <input type="date" id="date" name="preferred_date" required class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-            </div>
-            <div>
-              <label for="time" class="block text-sm font-bold mb-2">Preferred Time</label>
-              <select id="time" name="preferred_time" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-                <option value="">Select a time</option>
-                <option value="Morning (9:00-12:00)">Morning (9:00-12:00)</option>
-                <option value="Afternoon (12:00-17:00)">Afternoon (12:00-17:00)</option>
-                <option value="Evening (17:00-21:00)">Evening (17:00-21:00)</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="duration" class="block text-sm font-bold mb-2">Lesson Duration</label>
-              <select id="duration" name="lesson_duration" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-                <option value="60min">60 min</option>
-                <option value="90min" selected>90 min (recommended)</option>
-                <option value="120min">120 min</option>
-                <option value="150min">150 min (2.5h)</option>
-                <option value="180min">180 min (3h)</option>
-              </select>
-            </div>
-            <div>
-              <label for="players" class="block text-sm font-bold mb-2">Number of Players</label>
-              <select id="players" name="number_of_players" class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300">
-                <option value="1">1 player</option>
-                <option value="2">2 players</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="message" class="block text-sm font-bold mb-2">Message (optional)</label>
-            <textarea id="message" name="message" rows="3" placeholder="Any questions, skill level, special requests..." class="w-full border border-line rounded-xl px-4 py-3 text-sm bg-bg/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition duration-300 resize-none"></textarea>
-          </div>
-
-          <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-full hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300 tracking-wider text-lg">
-            Send Booking Request
-          </button>
-          <p class="text-xs text-text-light text-center">We'll confirm availability and pricing by email. No payment required at this stage.</p>
-        </form>
-
-        <div id="booking-thanks" class="hidden text-center py-8">
-          <div class="text-4xl mb-4">&#10003;</div>
-          <h3 class="text-xl font-bold mb-2">Thank you!</h3>
-          <p class="text-text-light">We've received your booking request and will reply within 24 hours.</p>
+        <!-- LINE -->
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm flex flex-col items-center text-center">
+          <p class="font-display font-black tracking-[0.2em] text-xs text-accent mb-3">LINE</p>
+          <h3 class="text-xl font-bold mb-3">Book via LINE</h3>
+          <p class="text-text-light text-sm leading-relaxed mb-8 flex-grow">
+            Japan&rsquo;s most popular messaging app, free to download. Tap the button to add us, then send your preferred date and time.
+          </p>
+          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="w-full rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-8 py-4 transition-all duration-300 tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5 inline-block">
+            Open LINE
+          </a>
         </div>
+
+        <!-- WeChat -->
+        <div class="bg-white rounded-2xl p-8 ring-1 ring-line shadow-sm flex flex-col items-center text-center">
+          <p class="font-display font-black tracking-[0.2em] text-xs text-accent mb-3">WECHAT&nbsp;&middot;&nbsp;&#24494;&#20449;</p>
+          <h3 class="text-xl font-bold mb-3">Book via WeChat</h3>
+          <p class="text-text-light text-sm leading-relaxed mb-6 flex-grow">
+            Scan the QR code to add Coach Kota, then send us a message. We reply in simple English.
+          </p>
+          <img
+            src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/contact/wechat-qr.png`}
+            alt="WeChat QR code to add Coach Kota Mizukami"
+            width="640"
+            height="640"
+            loading="lazy"
+            class="w-44 h-44 rounded-xl ring-1 ring-line bg-white p-2 mb-6"
+          />
+          <div class="w-full">
+            <p class="text-xs text-text-light mb-2">Or search this WeChat ID</p>
+            <code class="block rounded-full bg-bg/70 ring-1 ring-line px-5 py-4 font-bold tracking-wide text-primary-dark select-all cursor-text">Oshinobi_Tennis</code>
+          </div>
+        </div>
+
       </div>
+
+      <p class="text-sm text-text-light text-center mt-8">Either app is fine &mdash; we usually reply within a few hours.</p>
     </div>
   </section>
 
@@ -597,7 +551,7 @@ const avgRating =
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            Yes, Coach Kota speaks basic conversational English &mdash; enough to run a tennis lesson. He is not a fluent speaker, but tennis instructions, drills, and simple conversation are no problem. LINE communication (booking, questions) is also handled in basic English, so you don't need Japanese to book or take a lesson.
+            Yes, Coach Kota speaks basic conversational English &mdash; enough to run a tennis lesson. He is not a fluent speaker, but tennis instructions, drills, and simple conversation are no problem. Messages on LINE and WeChat (booking, questions) are also handled in basic English, so you don't need Japanese to book or take a lesson.
           </div>
         </details>
 
@@ -633,11 +587,12 @@ const avgRating =
 
         <details class="bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden">
           <summary class="px-6 md:px-8 py-6 cursor-pointer font-bold text-lg flex items-center justify-between gap-4 hover:text-primary transition duration-300">
-            What is LINE and how do I use it?
+            Can I contact you on WeChat? What is LINE?
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            LINE is Japan's most popular free messaging app (similar to WhatsApp). Download it from the App Store or Google Play, then tap our "Book via LINE" button to add us as a friend. Send us a message with your preferred date and time, and we'll reply in simple English.
+            Yes &mdash; WeChat works exactly the same as LINE for us. Scan the QR code in the &ldquo;How to Book&rdquo; section, or search the WeChat ID <span class="font-bold text-text">Oshinobi_Tennis</span> under &ldquo;Add Contacts&rdquo;.<br /><br />
+            LINE is Japan's most popular free messaging app (similar to WhatsApp). Download it from the App Store or Google Play, then tap our "Open LINE" button to add us as a friend. Either way, send us your preferred date and time and we'll reply in simple English.
           </div>
         </details>
 
@@ -740,8 +695,8 @@ const avgRating =
         <a href="#booking" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
           Check Availability
         </a>
-        <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider">
-          Book via LINE
+        <a href="#booking" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider">
+          LINE / WeChat
         </a>
       </div>
     </div>
