@@ -15,6 +15,17 @@
 
 export type ReviewCategory = 'gut24' | 'lesson' | 'international';
 export type ReviewSource = 'google' | 'line' | 'email';
+export type ReviewLang = 'ja' | 'en' | 'zh';
+
+/**
+ * どのページにどの言語の声を出すか。
+ * 英語ページは海外のお客様向けなので、英語に加えて中国語の声も載せる
+ * （WeChat導線を置いているため、中国語圏のお客様への信号になる）。
+ */
+const PAGE_LANGS: Record<'ja' | 'en', ReviewLang[]> = {
+  ja: ['ja'],
+  en: ['en', 'zh'],
+};
 
 export interface Review {
   /** 一意ID（重複掲載防止） */
@@ -28,7 +39,9 @@ export interface Review {
   /** 本文（原文のまま） */
   body: string;
   /** 本文の言語 */
-  lang: 'ja' | 'en';
+  lang: ReviewLang;
+  /** 原文が英語以外のときに併記する英訳。原文を置き換えず、下に添える */
+  translation?: string;
   /** 取得元 */
   source: ReviewSource;
   /** 掲載許可の記録。source が google 以外の場合は必須（YYYY-MM-DD / 誰から） */
@@ -164,6 +177,24 @@ export const reviews: Review[] = [
     // 本人と撮ったセルフィー（本人と同行者の顔はスタンプでマスク済み・2026-08-13 社長指示で掲載）
     photo: '/images/reviews/chappy-lesson.jpg',
   },
+  {
+    id: 'g-shadow-jiang',
+    category: 'international',
+    author: 'Shadow Jiang',
+    rating: 5,
+    // 2026-08-15頃 Googleクチコミ投稿（★5・中国語）。
+    // 末尾の「结束还开车送我到车站（終了後に駅まで車で送ってくれた）」は
+    // 送迎サービスと誤解されるため 2026-08-17 社長判断で抜粋・非掲載。
+    // それ以外は原文のまま（掲載ルール上、抜粋は可・改変は不可）。
+    body: '在日本也能过网瘾🎾，约了KOTA教练打球，童子功就是不一样，教的很细致，正反手问题都直击要害，对拉全场跑着喂球，感觉至少涨球0.5😝，五星好评，这就叫专业👍',
+    translation:
+      'You can get your tennis fix even in Japan 🎾 I booked a session with Coach Kota — you can tell he has trained since childhood. His coaching is detailed, and he pinpoints exactly what needs fixing on both forehand and backhand. During rallies he runs all over the court to feed balls. I feel like I improved at least half a level 😝 Five stars. This is what professional means 👍',
+    lang: 'zh',
+    source: 'google',
+    featured: true,
+    // レッスン後の記念写真（お客様の顔はスタンプでマスク済み・2026-08-17 社長提供）
+    photo: '/images/reviews/shadow-lesson.jpg',
+  },
 ];
 
 /** Googleクチコミの実数（プロフィールの実測値。HP表示・構造化データの根拠） */
@@ -171,7 +202,7 @@ export const googleRating = {
   /** OSHINOBI GUT 24 のビジネスプロフィール */
   gut24: {
     ratingValue: 5.0,
-    reviewCount: 14, // 2026-08-13 時点の実測（13件目=Daniel・14件目=Chappy、レッスンの英語クチコミ）
+    reviewCount: 15, // 2026-08-17 時点の実測（15件目=Shadow Jiang、レッスンの中国語クチコミ）
     /** 口コミ投稿用リンク（お客様に案内する用） */
     writeReviewUrl: 'https://g.page/r/CT7vSjW5mZYJEAE/review',
   },
@@ -180,6 +211,9 @@ export const googleRating = {
 /** 掲載可の声だけを取り出す */
 export function getReviews(category: ReviewCategory, lang?: 'ja' | 'en'): Review[] {
   return reviews.filter(
-    (r) => r.featured && r.category === category && (lang ? r.lang === lang : true)
+    (r) =>
+      r.featured &&
+      r.category === category &&
+      (lang ? PAGE_LANGS[lang].includes(r.lang) : true)
   );
 }

@@ -77,7 +77,8 @@ const avgRating =
             "bestRating": "5",
             "worstRating": "1"
           },
-          "reviewBody": r.body
+          // 原文が英語以外の声は、英語ページの構造化データには英訳を出す
+          "reviewBody": r.translation ?? r.body
         }))
       }),
       "potentialAction": {

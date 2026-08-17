@@ -59,6 +59,11 @@ const t =
                 ))}
               </div>
               <p class="text-text-light leading-relaxed mb-6">{r.body}</p>
+              {r.translation && (
+                <p class="text-text-light/85 text-sm leading-relaxed mb-6 pt-5 border-t border-line">
+                  {r.translation}
+                </p>
+              )}
               <p class="font-bold text-sm text-text">
                 — {r.author}
                 {lang === 'ja' ? ' 様' : ''}
