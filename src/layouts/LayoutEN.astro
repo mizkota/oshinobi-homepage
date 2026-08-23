@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -31,6 +32,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
     <slot name="head" />
+    <Analytics />
   </head>
   <body class="bg-white text-text font-sans">
     <!-- Header -->
