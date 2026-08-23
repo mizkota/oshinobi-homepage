@@ -1,0 +1,338 @@
+---
+import LayoutEN from '../../layouts/LayoutEN.astro';
+const base = import.meta.env.BASE_URL;
+
+const title = 'Where to Play Tennis in Sapporo: A Visitor’s Guide';
+const description = 'How to play tennis in Sapporo as a visitor — indoor courts in winter, what it costs, why booking is the hard part, and three ways around it. Written by a local Sapporo coach.';
+const url = 'https://oshinobitennis.com/en/tennis-in-sapporo/';
+
+const seasons = [
+  {
+    months: 'December – March',
+    label: 'Deep winter',
+    outdoor: 'Closed — under snow',
+    indoor: 'Open, and busy',
+    note: 'Sapporo gets around five metres of snowfall across a season. Every outdoor court is buried. Indoor is the only option, and it is also when local players compete for court time.',
+  },
+  {
+    months: 'April – May',
+    label: 'Thaw',
+    outdoor: 'Opening up',
+    indoor: 'Open',
+    note: 'Outdoor courts typically reopen from late April, though the exact date depends on the facility and how fast the snow clears.',
+  },
+  {
+    months: 'June – September',
+    label: 'Best season',
+    outdoor: 'Open',
+    indoor: 'Open',
+    note: 'Hokkaido summers are dry and mild compared with Tokyo or Osaka. This is genuinely one of the best places in Japan to play tennis outdoors.',
+  },
+  {
+    months: 'October – November',
+    label: 'Closing down',
+    outdoor: 'Closing',
+    indoor: 'Open',
+    note: 'Outdoor courts start shutting from late October as the first snow arrives.',
+  },
+];
+
+const options = [
+  {
+    n: '01',
+    name: 'Book a public court yourself',
+    cost: 'Cheapest',
+    barrier: 'Hardest',
+    detail: 'Sapporo has municipal courts, and they are inexpensive. The catch is the booking system: it runs in Japanese, some facilities take reservations by phone only, and a few give priority to residents. Doable if you read Japanese or have a local friend.',
+  },
+  {
+    n: '02',
+    name: 'Rent an indoor court at a private facility',
+    cost: '¥4,400–¥6,600 / hour',
+    barrier: 'Medium',
+    detail: 'Private indoor facilities rent courts by the hour, year-round. That is the real going rate in Sapporo — it varies by season and time of day, with evenings and winter at the top end. You will usually still need some Japanese to book, and you need to bring your own partner and gear.',
+  },
+  {
+    n: '03',
+    name: 'Take a lesson with an English-speaking coach',
+    cost: 'From ¥10,000 / lesson',
+    barrier: 'None',
+    detail: 'The coach handles the court booking, supplies rackets, balls and indoor shoes, and gives you someone to hit with. This is what we do — see below. Worth it if you are here for a few days and do not want to spend them navigating a Japanese reservation system.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can you play tennis in Sapporo in winter?',
+    a: 'Yes, but only indoors. From December through March every outdoor court in the city is under snow. Indoor courts run all winter and the temperature inside is controlled, so a February lesson plays the same as a July one.',
+  },
+  {
+    q: 'How much does a tennis court cost in Sapporo?',
+    a: 'Private indoor courts run roughly ¥4,400 to ¥6,600 per hour depending on the season and time of day, with winter evenings at the top of that range. Municipal outdoor courts are considerably cheaper but are only open in the warmer months and are booked through a Japanese-language system.',
+  },
+  {
+    q: 'Do I need to bring my own racket to Japan?',
+    a: 'Not necessarily. Most facilities that rent courts assume you bring your own gear, but coaches and lesson providers generally supply rackets and balls. We include rackets, balls and indoor court shoes at no charge. Check before you fly — it is one less thing in your luggage.',
+  },
+  {
+    q: 'Do I need to speak Japanese to play tennis in Sapporo?',
+    a: 'To book a court yourself, in practice yes — reservation systems and front desks operate in Japanese. To take a lesson, no. Booking through a coach who handles the reservation removes the language problem entirely.',
+  },
+  {
+    q: 'Are indoor tennis shoes required?',
+    a: 'Yes. Indoor facilities in Japan require non-marking indoor court shoes, and outdoor shoes are not permitted on the surface. Rental shoes are commonly available — ours are free.',
+  },
+  {
+    q: 'How far in advance should I book?',
+    a: 'In winter, as early as you can — indoor court time is the scarce resource in Sapporo from December to March. In summer there is more slack, but a few days’ notice is still sensible.',
+  },
+];
+---
+
+<LayoutEN title={`${title} | Oshinobi Tennis Academy`} description={description}>
+
+  <Fragment slot="head">
+    <link rel="canonical" href={url} />
+    <meta property="og:title" content={`${title} | Oshinobi Tennis Academy`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={url} />
+    <meta property="og:site_name" content="Oshinobi Tennis Academy" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Where to Play Tennis in Sapporo: A Visitor's Guide",
+      "description": description,
+      "image": "https://oshinobitennis.com/images/hero/court.jpg",
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+      "author": {
+        "@type": "Person",
+        "name": "Kota Mizukami",
+        "jobTitle": "Head Tennis Coach",
+        "description": "Tennis coach based in Sapporo, Hokkaido. Competed in national tournaments since junior years. Runs a YouTube channel with 7,500+ subscribers.",
+        "sameAs": "https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Oshinobi Tennis Academy",
+        "url": "https://oshinobitennis.com/en/"
+      },
+      "about": { "@type": "Thing", "name": "Tennis in Sapporo, Hokkaido" }
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Tennis Lessons in Sapporo", "item": "https://oshinobitennis.com/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Where to Play Tennis in Sapporo", "item": url }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- ===== HERO ===== -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-primary-dark/60 to-navy-950/95"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 md:px-6 py-24 md:py-32">
+      <nav class="mb-8 text-sm text-white/50" aria-label="Breadcrumb">
+        <a href={`${base}en`} class="hover:text-accent transition duration-300">Tennis Lessons in Sapporo</a>
+        <span class="mx-2">&rsaquo;</span>
+        <span class="text-white/70">Where to Play</span>
+      </nav>
+      <p class="text-accent font-display font-semibold tracking-[0.3em] text-xs md:text-sm mb-6">A LOCAL COACH&rsquo;S GUIDE</p>
+      <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-black font-display text-white mb-8 leading-[1.15] tracking-tight">
+        Where to Play Tennis<br />in Sapporo
+      </h1>
+      <div class="w-16 h-0.5 bg-accent mb-8"></div>
+      <p class="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+        Sapporo is one of the best cities in Japan for tennis &mdash; and one of the most confusing to arrange as a visitor. Here is how it actually works.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SHORT ANSWER ===== -->
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <div class="rounded-2xl border-2 border-primary/15 bg-primary/[0.03] p-8 md:p-10">
+        <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-5">THE SHORT ANSWER</p>
+        <p class="text-lg md:text-xl text-text leading-relaxed mb-5">
+          <strong class="font-bold">Yes, you can play tennis in Sapporo year-round</strong> &mdash; including in the middle of a Hokkaido winter, because the indoor courts never close.
+        </p>
+        <p class="text-base text-text-light leading-relaxed">
+          The difficulty is almost never finding a court. It is booking one. Reservation systems here run in Japanese, some facilities take phone bookings only, and a visitor with a week in the city rarely wants to spend an afternoon on it. The rest of this page is about getting around that.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEASONS ===== -->
+  <section class="py-20 md:py-24 bg-bg">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-4">SEASONS</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display text-text mb-6 tracking-tight">Tennis by season in Sapporo</h2>
+      <p class="text-base text-text-light leading-relaxed mb-12 max-w-2xl">
+        Hokkaido is not the rest of Japan. The seasonal swing here decides where you can play far more than it does in Tokyo.
+      </p>
+
+      <div class="space-y-4">
+        {seasons.map((s) => (
+          <div class="rounded-xl bg-white border border-line p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-5">
+              <div>
+                <p class="text-xs font-display font-semibold tracking-[0.2em] text-accent-dark mb-1">{s.label.toUpperCase()}</p>
+                <h3 class="text-xl font-bold font-display text-text tracking-tight">{s.months}</h3>
+              </div>
+              <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                <span class="text-text-light">Outdoor: <strong class="text-text font-semibold">{s.outdoor}</strong></span>
+                <span class="text-text-light">Indoor: <strong class="text-text font-semibold">{s.indoor}</strong></span>
+              </div>
+            </div>
+            <p class="text-base text-text-light leading-relaxed">{s.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE REAL OBSTACLE ===== -->
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-4">THE HARD PART</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display text-text mb-8 tracking-tight">
+        The obstacle is the booking, not the court
+      </h2>
+      <div class="space-y-6 text-base md:text-lg text-text-light leading-relaxed">
+        <p>
+          Most visitors assume the problem will be finding somewhere to play. It is not. Sapporo has plenty of courts, indoor and out. What stops people is the layer in front of them.
+        </p>
+        <p>
+          Municipal facilities are booked through a Japanese-language reservation system. Private facilities usually take bookings by phone or through a Japanese web form, and the person answering may not speak English. Some public courts give priority to residents or require registration. None of this is hostile &mdash; it simply was not built with short-term visitors in mind.
+        </p>
+        <p>
+          The second thing people underestimate is <strong class="text-text font-semibold">indoor court scarcity in winter</strong>. From December to March, every serious player in the city wants the same indoor slots you do. Turning up and asking for a court that evening will usually not work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THREE OPTIONS ===== -->
+  <section class="py-20 md:py-24 bg-bg">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-4">YOUR OPTIONS</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display text-text mb-6 tracking-tight">Three ways to get on court</h2>
+      <p class="text-base text-text-light leading-relaxed mb-12 max-w-2xl">
+        Ranked from cheapest to easiest. They are genuinely different trade-offs, and the right one depends on how long you are here.
+      </p>
+
+      <div class="space-y-6">
+        {options.map((o) => (
+          <div class="rounded-xl bg-white border border-line p-6 md:p-8">
+            <div class="flex items-start gap-5 md:gap-8">
+              <span class="text-3xl md:text-4xl font-black font-display text-primary/20 shrink-0 leading-none">{o.n}</span>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold font-display text-text mb-4 tracking-tight">{o.name}</h3>
+                <div class="flex flex-wrap gap-x-6 gap-y-2 mb-5 text-sm">
+                  <span class="text-text-light">Cost: <strong class="text-text font-semibold">{o.cost}</strong></span>
+                  <span class="text-text-light">Language barrier: <strong class="text-text font-semibold">{o.barrier}</strong></span>
+                </div>
+                <p class="text-base text-text-light leading-relaxed">{o.detail}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT TO BRING ===== -->
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-4">PRACTICALITIES</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display text-text mb-10 tracking-tight">What to bring</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-xl border border-line p-7">
+          <h3 class="text-lg font-bold font-display text-text mb-4 tracking-tight">Worth packing</h3>
+          <ul class="space-y-3 text-base text-text-light leading-relaxed">
+            <li class="flex gap-3"><span class="text-accent-dark shrink-0">&#10003;</span> Sportswear you can move in</li>
+            <li class="flex gap-3"><span class="text-accent-dark shrink-0">&#10003;</span> Your own racket, if you are particular about it</li>
+            <li class="flex gap-3"><span class="text-accent-dark shrink-0">&#10003;</span> Socks &mdash; nobody rents those</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-line p-7">
+          <h3 class="text-lg font-bold font-display text-text mb-4 tracking-tight">Leave at home</h3>
+          <ul class="space-y-3 text-base text-text-light leading-relaxed">
+            <li class="flex gap-3"><span class="text-text-light/50 shrink-0">&mdash;</span> Outdoor trainers &mdash; indoor courts require non-marking indoor shoes, and yours will be turned away</li>
+            <li class="flex gap-3"><span class="text-text-light/50 shrink-0">&mdash;</span> Balls &mdash; every provider supplies them</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-base text-text-light leading-relaxed mt-8">
+        One Hokkaido-specific note: in winter you will be walking to the venue on packed snow and ice. Bring boots with grip and change at the court. Court shoes on a Sapporo pavement in January is a bad plan.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== OUR LESSONS ===== -->
+  <section class="py-20 md:py-24 bg-navy-950 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-accent mb-4">IF YOU WANT THE EASY ROUTE</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display mb-8 tracking-tight">We handle the whole thing</h2>
+      <div class="space-y-6 text-base md:text-lg text-white/70 leading-relaxed mb-10">
+        <p>
+          I am Kota Mizukami, a tennis coach based in Sapporo. I book the indoor court, bring the rackets, balls and indoor shoes, and run the session in basic English &mdash; enough for instructions, drills and conversation, though I am not a fluent speaker.
+        </p>
+        <p>
+          Lessons start at &yen;10,000 for 60 minutes, priced per lesson rather than per person, so two of you can split it. Indoor court rental is separate and charged at the venue rate. Messages on LINE and WeChat are answered in simple English, so you never have to deal with a Japanese booking form.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={`${base}en`} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5 font-display">
+          See Lessons &amp; Pricing
+        </a>
+        <a href="https://line.me/R/ti/p/@853empvr" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider font-display">
+          Ask on LINE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <p class="text-sm font-display font-semibold tracking-[0.25em] text-primary mb-4">FAQ</p>
+      <h2 class="text-3xl md:text-4xl font-black font-display text-text mb-10 tracking-tight">Common questions</h2>
+
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-line bg-white p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+              <h3 class="text-lg font-bold font-display text-text tracking-tight">{f.q}</h3>
+              <span class="text-primary text-xl shrink-0 transition-transform duration-300 group-open:rotate-45 leading-none">+</span>
+            </summary>
+            <p class="mt-5 text-base text-text-light leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</LayoutEN>
