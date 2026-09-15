@@ -1,0 +1,38 @@
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('button[id^="menu-toggle"]');
+  const overlay = document.querySelector<HTMLElement>('div[id^="menu-overlay"]');
+  if (toggle && overlay) {
+    let open = false;
+    let previousOverflow = '';
+    const background = [...document.querySelectorAll<HTMLElement>('main, footer, header a, header nav')];
+    const setOpen = (value: boolean) => {
+      open = value;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', document.documentElement.lang === 'ja' ? (open ? 'メニューを閉じる' : 'メニューを開く') : (open ? 'Close menu' : 'Open menu'));
+      overlay.classList.toggle('hidden', !open);
+      overlay.classList.toggle('opacity-0', !open);
+      overlay.classList.toggle('opacity-100', open);
+      background.forEach(el => el.inert = open);
+      if (open) {
+        previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        overlay.querySelector<HTMLAnchorElement>('a')?.focus();
+      } else {
+        document.body.style.overflow = previousOverflow;
+        toggle.focus();
+      }
+    };
+    toggle.addEventListener('click', () => setOpen(!open));
+    overlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', event => {
+      if (!open) return;
+      if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
+      if (event.key === 'Tab') {
+        const stops = [toggle, ...overlay.querySelectorAll<HTMLAnchorElement>('a')];
+        const index = stops.indexOf(document.activeElement as HTMLButtonElement);
+        event.preventDefault();
+        stops[(index + (event.shiftKey ? -1 : 1) + stops.length) % stops.length].focus();
+      }
+    });
+  }
+</script>

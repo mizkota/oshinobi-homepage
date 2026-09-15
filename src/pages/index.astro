@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TennisIcon from '../components/TennisIcon.astro';
+import '../styles/editorial.css';
 import Reviews from '../components/Reviews.astro';
+import { posts } from '../data/blog-posts';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="もっと充実したテニスライフを実現" description="札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスンで一人ひとりの上達をサポートします。">
+<Layout title="札幌の少人数テニスレッスン" description="水上皓太が指導する、札幌の御忍庭球塾。レギュラー6名の少人数レッスン。グループレッスンはPLACE OF SPORTS NEOのコートを借りて開催しています。" showFooterCta={false} socialImage="https://oshinobitennis.com/images/hero/coach-kota-20260907.png">
 
   <Fragment slot="head">
     <!-- 構造化データ: SportsActivityLocation -->
@@ -53,237 +56,63 @@ const base = import.meta.env.BASE_URL;
     })} />
   </Fragment>
 
-  <!-- ===== HERO ===== -->
-  <section class="relative min-h-screen flex items-center overflow-hidden">
-    <div class="absolute inset-0">
-      <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-primary-dark/40 to-navy-950/90"></div>
-    </div>
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-32 w-full">
-      <div class="max-w-3xl">
-        <p class="text-accent font-display font-semibold tracking-[0.3em] text-xs md:text-sm mb-6">TENNIS SCHOOL IN SAPPORO</p>
-        <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-black text-white mb-8 leading-[1.1] tracking-tight">
-          御忍庭球塾
-        </h1>
-        <div class="w-16 h-0.5 bg-accent mb-8"></div>
-        <p class="text-lg md:text-xl text-white/80 leading-relaxed mb-12 max-w-lg">
-          札幌市白石区を拠点に、少人数制レッスンで<br />
-          一人ひとりの上達をサポートします
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href={`${base}courses`} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-            コース・料金
-          </a>
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-4 transition-all duration-300 text-center tracking-wider">
-            体験のお申し込み
-          </a>
+  <div class="editorial-home">
+    <section class="opening">
+      <div class="opening-inner">
+        <div class="opening-copy" data-reveal>
+          <p class="kicker"><span class="live-dot"></span> 札幌・白石区の少人数テニスレッスン</p>
+          <h1><span>いつもの練習に、</span><br /><span>気づきをひとつ。</span></h1>
+          <p class="opening-description">一人ひとりのプレーを見て、<br />その場で伝える少人数レッスン。</p>
+          <a href={`${base}courses`} class="action action-lime">コース・料金を見る <TennisIcon name="arrow" /></a>
+          <a class="quiet-link" href="https://lin.ee/2CKErIS" target="_blank" rel="noopener">体験について相談する <span aria-hidden="true">↗</span></a>
         </div>
+        <figure class="opening-portrait">
+          <div class="portrait-window"><img src={`${base}images/hero/coach-kota-20260907.png`} width="1086" height="1448" alt="ラケットを手に笑顔を見せる水上皓太コーチ" fetchpriority="high" /></div>
+          <figcaption><span>YOUR COACH</span><strong>水上 皓太</strong><span>KOTA MIZUKAMI</span></figcaption>
+        </figure>
       </div>
-    </div>
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
-      <span class="text-xs tracking-[0.2em] font-display">SCROLL</span>
-      <div class="w-px h-10 bg-white/30 animate-pulse"></div>
-    </div>
-  </section>
+      <div class="opening-bottom"><span>OSHINOBI TENNIS / SAPPORO</span><a href="#lesson">レッスンについて <span aria-hidden="true">↓</span></a></div>
+    </section>
 
-  <!-- ===== NEWS ===== -->
-  <section class="py-20 md:py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
-        <div class="relative overflow-hidden">
-          <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">NEWS</p>
-          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">NEWS</p>
-          <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">お知らせ</h2>
-          <div class="w-12 h-0.5 bg-accent mt-4"></div>
-        </div>
-        <a href={`${base}blog`} class="mt-6 md:mt-0 text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
-          一覧へ <span class="text-lg">→</span>
-        </a>
-      </div>
-      <div class="divide-y divide-line border-y border-line">
-        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
-          <time class="text-sm text-text-light whitespace-nowrap font-display">2026.02.07</time>
-          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご案内</span>
-          <span class="font-medium group-hover:text-primary transition duration-300">出欠マニュアル</span>
-        </a>
-        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
-          <time class="text-sm text-text-light whitespace-nowrap font-display">2025.10.09</time>
-          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご報告</span>
-          <span class="font-medium group-hover:text-primary transition duration-300">瀧野詩穂さん・長野友美さんが A級部門 準優勝！全国大会へ進出！</span>
-        </a>
-        <a href={`${base}blog`} class="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-6 px-2 hover:bg-bg transition duration-300">
-          <time class="text-sm text-text-light whitespace-nowrap font-display">2025.10.09</time>
-          <span class="text-xs text-accent-dark font-bold tracking-wider whitespace-nowrap">ご報告</span>
-          <span class="font-medium group-hover:text-primary transition duration-300">北海道テニス選手権 & 全日本テニス選手権 北海道予選 結果報告</span>
-        </a>
-      </div>
+    <div class="lesson-facts wrap">
+      <div><TennisIcon name="people" /><p><span>グループレッスン</span><strong>レギュラー <b>6</b> 名</strong><small>振替を含む場合は最大7名</small></p></div>
+      <div><TennisIcon name="racket" /><p><span>はじめての方へ</span><strong>初回体験 <b>3,000</b> 円</strong><small>体験日程はLINEでご案内</small></p></div>
+      <div><TennisIcon name="pin" /><p><span>グループレッスンの会場</span><strong>札幌市白石区</strong><small>PLACE OF SPORTS NEOのコートを借りて開催</small></p></div>
     </div>
-  </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="relative py-24 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
-    <p class="absolute top-8 left-4 md:left-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none tracking-tight select-none">ABOUT</p>
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-navy-950/50">
-          <img src={`${base}images/en/coach_kota.jpg`} alt="水上皓太コーチ" class="w-full h-full object-cover" />
-        </div>
-        <div class="text-white">
-          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">ABOUT US</p>
-          <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight tracking-tight">
-            1人でも多くの方に<br />
-            テニスの楽しさを。
-          </h2>
-          <div class="w-12 h-0.5 bg-accent mb-8"></div>
-          <p class="text-white/70 leading-loose mb-8">
-            御忍庭球塾は、PLACE OF SPORTS NEO のインドアデコターフコートを使用し、
-            レギュラー定員6名の少人数制で一人ひとりに寄り添ったレッスンを提供しています。
-            天候に左右されない快適な環境で、年間を通してテニスを楽しめます。
-          </p>
-          <div class="flex flex-col sm:flex-row gap-6">
-            <a href={`${base}courses`} class="rounded-full border-2 border-accent text-accent hover:bg-accent hover:text-primary-dark font-bold px-8 py-3 transition-all duration-300 text-center tracking-wider text-sm">
-              コース・料金
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="lesson" class="lesson-story wrap section-space">
+      <div class="section-heading"><p class="section-label">01 / OUR LESSON</p><h2>打って、試して、<br />少しずつ。</h2></div>
+      <div class="lesson-body" data-reveal><p class="lead-text">うまく打てた一本も、<br />思うようにいかなかった一本も。</p><p>コーチがプレーを見ながら、その場でアドバイスします。気になることは、コートで聞いてください。少人数で、じっくり打つ時間をつくっています。</p><a class="line-link" href={`${base}private-lesson#coach`}>水上皓太・コーチ紹介 <TennisIcon name="arrow" /></a></div>
+      <figure class="lesson-photo" data-reveal><img src={`${base}images/features/snapshot.jpg`} alt="御忍庭球塾の少人数レッスンの様子" width="1200" height="800" loading="lazy" /><figcaption><span>ON THE COURT</span> 御忍庭球塾のレッスン風景</figcaption></figure>
+      <aside class="venue-note"><TennisIcon name="pin" /><div><h3>いつものコートで。</h3><p>グループレッスンは、PLACE OF SPORTS NEOのインドアコートを借りて行います。</p><a class="line-link" href="https://neo-spo.com/" target="_blank" rel="noopener">会場の公式サイト <span aria-hidden="true">↗</span></a></div></aside>
+    </section>
 
-  <!-- ===== FEATURES ===== -->
-  <section class="py-24 md:py-28 bg-bg">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-16 md:mb-20 relative overflow-hidden">
-        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">FEATURES</p>
-        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">FEATURES</p>
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">3つの特徴</h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
-        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src={`${base}images/features/snapshot.jpg`} alt="少人数レッスン" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-          </div>
-          <div class="p-8">
-            <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-3xl font-black font-display text-accent leading-none">01</span>
-              <div class="w-8 h-0.5 bg-accent/40"></div>
-            </div>
-            <h3 class="text-xl font-bold mb-3">少人数制（定員6名）</h3>
-            <p class="text-text-light leading-relaxed text-sm">
-              レギュラー定員6名。コーチの目が一人ひとりに行き届く環境で、確実に上達できます。<br />
-              <span class="text-xs text-text-light/70">※振替等で最大7名になることがあります。</span>
-            </p>
-          </div>
+    <section class="lesson-options section-space">
+      <div class="wrap">
+        <div class="section-top"><div><p class="section-label">02 / FIND YOUR LESSON</p><h2>あなたに合う、<br class="mobile-break" />レッスンを。</h2></div><p>仲間と打つ時間も、<br />自分の課題に向き合う時間も。</p></div>
+        <div class="course-links">
+          <a class="course-link" href={`${base}courses`}><span class="course-number">01</span><div><span class="course-en">GROUP LESSON</span><h3>グループレッスン</h3><p>レギュラー6名。仲間と一緒に練習する、<br class="wide-break" />定期的なテニスの時間。</p><span class="course-detail">時間割・月会費・体験料金</span></div><span class="round-arrow"><TennisIcon name="arrow" /></span></a>
+          <a class="course-link" href={`${base}private-lesson`}><span class="course-number">02</span><div><span class="course-en">PRIVATE LESSON</span><h3>プライベートレッスン</h3><p>練習したいことに合わせて。<br />一人でも、仲間と一緒でも相談できます。</p><span class="course-detail">レッスン内容・ご相談</span></div><span class="round-arrow"><TennisIcon name="arrow" /></span></a>
         </div>
-        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src={`${base}images/features/decoturf-court.jpg`} alt="デコターフコート" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-          </div>
-          <div class="p-8">
-            <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-3xl font-black font-display text-accent leading-none">02</span>
-              <div class="w-8 h-0.5 bg-accent/40"></div>
-            </div>
-            <h3 class="text-xl font-bold mb-3">デコターフコート</h3>
-            <p class="text-text-light leading-relaxed text-sm">
-              PLACE OF SPORTS NEO のインドアデコターフコートを使用。天候に左右されない快適な環境です。
-            </p>
-          </div>
-        </div>
-        <div class="group bg-white rounded-2xl ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-          <div class="aspect-[4/3] overflow-hidden">
-            <img src={`${base}images/features/lesson-snapshot.png`} alt="動画で振り返り" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-          </div>
-          <div class="p-8">
-            <div class="flex items-baseline gap-3 mb-4">
-              <span class="text-3xl font-black font-display text-accent leading-none">03</span>
-              <div class="w-8 h-0.5 bg-accent/40"></div>
-            </div>
-            <h3 class="text-xl font-bold mb-3">動画で振り返り</h3>
-            <p class="text-text-light leading-relaxed text-sm">
-              レッスンを動画で撮影。自分のプレーを客観的に確認し、効率的にスキルアップできます。
-            </p>
-          </div>
-        </div>
+        <a class="international-link" href={`${base}en`}><span>Visiting Sapporo?</span><span>Tennis lessons in English <span aria-hidden="true">↗</span></span></a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== GUT24 BANNER ===== -->
-  <section class="relative py-24 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 bg-navy-950"></div>
-    <p class="absolute top-8 right-4 md:right-12 text-[5rem] md:text-[10rem] font-black font-display text-white/[0.03] leading-none tracking-tight select-none">GUT 24</p>
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div class="text-white order-2 md:order-1">
-          <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-4">STRINGING SERVICE</p>
-          <h2 class="text-3xl md:text-4xl font-black font-display mb-4 tracking-tight">OSHINOBI GUT 24</h2>
-          <p class="text-xl text-white/80 mb-2">24時間受付のガット張替サービス</p>
-          <div class="w-12 h-0.5 bg-accent my-8"></div>
-          <p class="text-white/50 mb-8 text-lg">JR白石駅北口 徒歩2分 ・ 全品工賃込み ・ 2,800円〜</p>
-          <a href={`${base}gut24`} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-            詳しく見る
-          </a>
-        </div>
-        <div class="flex justify-center order-1 md:order-2">
-          <img src={`${base}images/logo/gut24-logo.png`} alt="OSHINOBI GUT 24" class="w-56 h-56 md:w-72 md:h-72 rounded-full shadow-2xl ring-1 ring-white/10" />
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="journal wrap section-space">
+      <div class="journal-copy"><p class="section-label">03 / OFF THE COURT</p><h2>コートの外でも、<br />テニスの話を。</h2><p>ダブルスの動きや考え方を、動画で解説。<br />次の練習のヒントにどうぞ。</p><a class="line-link" href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener"><TennisIcon name="play" /> YouTubeチャンネル <span aria-hidden="true">↗</span></a></div>
+      <div class="video-window" data-reveal><iframe src="https://www.youtube.com/embed/bXEScAkbFYI" title="御忍庭球塾のダブルス解説動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </section>
 
-  <!-- ===== YOUTUBE ===== -->
-  <section class="py-24 md:py-28 bg-white">
-    <div class="max-w-5xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-12 md:mb-16 relative overflow-hidden">
-        <p class="text-[4rem] md:text-[6rem] font-black font-display text-primary/[0.03] leading-none -mb-5 md:-mb-7 select-none">MOVIE</p>
-        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2 relative">MOVIE</p>
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight relative mb-4">ダブルスの技術を毎日配信中</h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
-        <p class="text-text-light">YouTubeチャンネルでレッスン技術動画を投稿しています</p>
-      </div>
-      <div class="aspect-video overflow-hidden rounded-2xl ring-1 ring-line shadow-2xl shadow-primary/10">
-        <iframe
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/bXEScAkbFYI"
-          title="テニス解説動画"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="text-center mt-10">
-        <a href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener" class="text-primary font-bold border-b-2 border-accent pb-1 hover:text-primary-light transition duration-300 inline-flex items-center gap-2">
-          YouTubeチャンネルを見る <span class="text-lg">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <section class="updates wrap">
+      <div class="section-top"><div><p class="section-label">INFORMATION</p><h2>塾からのお知らせ</h2></div><a class="line-link" href={`${base}blog`}>一覧へ <TennisIcon name="arrow" /></a></div>
+      <div class="update-list">{posts.slice(0,3).map(post => <a href={`${base}blog/${post.slug}/`}><time>{post.date}</time><span class="update-category">{post.category}</span><span class="update-title">{post.title}</span><TennisIcon name="arrow" /></a>)}</div>
+      <a class="string-service string-service-photo" href={`${base}gut24`}><img src={`${base}images/gut24/hands.png`} alt="ガット張替の手元" width="1223" height="1286" loading="lazy" /><div><span>RACKET STRINGING</span><h3>ガット張替も、御忍で。</h3><p>OSHINOBI GUT 24 / 24時間受付</p></div><TennisIcon name="arrow" /></a>
+    </section>
+    <Reviews category="lesson" lang="ja" bg="bg-white" />
 
-  <!-- ===== VOICE（src/data/reviews.ts で一元管理。レッスンの声が入ると自動表示） ===== -->
-  <Reviews category="lesson" lang="ja" bg="bg-bg" />
-
-  <!-- ===== CTA ===== -->
-  <section class="relative py-24 md:py-28 overflow-hidden">
-    <div class="absolute inset-0">
-      <img src={`${base}images/hero/court.jpg`} alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-primary-dark/85 to-navy-950/90"></div>
-    </div>
-    <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
-      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-6">TRIAL LESSON</p>
-      <h2 class="text-3xl md:text-4xl font-black mb-6 tracking-tight">体験レッスン受付中</h2>
-      <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
-      <p class="text-white/70 mb-12 text-lg leading-relaxed">
-        体験受講が可能です。<br />
-        初回 3,000円でお試しいただけます。
-      </p>
-      <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-12 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-        LINE で体験を申し込む
-      </a>
-    </div>
-  </section>
-
+    <section class="closing section-space">
+      <svg class="court-lines" viewBox="0 0 500 360" fill="none" aria-hidden="true"><path d="M20 20h460v320H20zM70 20v320M430 20v320M20 180h460M70 85h360M70 275h360M250 85v190" /></svg>
+      <div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>まずは一度、<br />一緒に打ちませんか。</h2></div><div class="closing-action"><p>初回体験 <strong>3,000</strong> 円</p><a class="action action-lime" href="https://lin.ee/2CKErIS" target="_blank" rel="noopener"><TennisIcon name="chat" /> LINEで体験を相談する <TennisIcon name="arrow" /></a><small>ご希望の日程とテニスの経験をお知らせください。<br />空き状況を確認してご案内します。</small></div></div>
+    </section>
+  </div>
 </Layout>

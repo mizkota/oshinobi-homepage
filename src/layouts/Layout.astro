@@ -1,13 +1,19 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import PageMotion from '../components/PageMotion.astro';
+import MenuBehavior from '../components/MenuBehavior.astro';
 
 interface Props {
   title: string;
   description?: string;
+  showFooterCta?: boolean;
+  socialImage?: string;
+  contactLabel?: string;
+  contactUrl?: string;
 }
 
-const { title, description = '札幌のテニススクール「御忍庭球塾」。少人数制レッスンで、もっと充実したテニスライフを。' } = Astro.props;
+const { title, contactLabel = "体験を相談する", contactUrl = "https://lin.ee/2CKErIS", showFooterCta = true, socialImage = 'https://oshinobitennis.com/images/hero/court.jpg', description = '札幌のテニススクール「御忍庭球塾」。少人数制レッスンで、もっと充実したテニスライフを。' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
@@ -38,29 +44,29 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="御忍庭球塾" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
+    <meta property="og:image" content={socialImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | 御忍庭球塾`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://oshinobitennis.com/images/hero/court.jpg" />
+    <meta name="twitter:image" content={socialImage} />
     <slot name="head" />
     <Analytics />
   </head>
-  <body class="bg-white text-text font-sans">
+  <body class:list={["bg-white text-text font-sans", { subpage: !isTop }]}>
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-line">
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex items-center justify-between">
         <a href={base} class="flex items-center gap-3 hover:opacity-70 transition duration-300">
-          <img src={`${base}images/logo/logo.png`} alt="御忍庭球塾" class="h-12 md:h-14" />
+          <span class="brand-mark"><img src={`${base}images/logo/logo.png`} alt="" class="brand-symbol" /></span><span class="brand-word">御忍庭球塾</span>
         </a>
-        <div class="flex items-center gap-3 md:gap-5">
+        <nav class="desktop-nav" aria-label="主なページ"><a href={`${base}courses`} aria-current={Astro.url.pathname.replace(/\/$/, "") === `${base}courses` ? "page" : undefined}>コース・料金</a><a href={`${base}private-lesson`} aria-current={Astro.url.pathname.replace(/\/$/, "") === `${base}private-lesson` ? "page" : undefined}>個別レッスン</a><a href={`${base}gut24`} aria-current={Astro.url.pathname.replace(/\/$/, "") === `${base}gut24` ? "page" : undefined}>ガット張替</a></nav><div class="flex items-center gap-3 md:gap-5">
           <a href={`${base}en`} class="text-sm text-text-light hover:text-primary transition duration-300 font-medium font-display tracking-wide">
             English
           </a>
-          <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 px-6 py-2.5 text-sm font-bold transition-all duration-300 tracking-wider">
-            お問い合わせ・体験の申し込み
+          <a href={contactUrl} target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 px-6 py-2.5 text-sm font-bold transition-all duration-300 tracking-wider">
+            {contactLabel}
           </a>
-          <button id="menu-toggle" class="p-2 flex flex-col gap-1.5" aria-label="メニュー">
+          <button id="menu-toggle" class="p-2 flex flex-col gap-1.5" aria-label="メニュー" aria-expanded="false" aria-controls="menu-overlay">
             <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-1"></span>
             <span class="block w-6 h-0.5 bg-text transition" id="menu-bar-2"></span>
             <span class="block w-4 h-0.5 bg-text transition ml-auto" id="menu-bar-3"></span>
@@ -82,8 +88,8 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
             <a href={`${base}en`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition duration-300 font-display">English</a>
           </div>
           <div class="mt-12 pt-8 border-t border-white/20">
-            <a href="https://lin.ee/2CKErIS" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-              体験のお申し込み
+            <a href={contactUrl} target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
+              {contactLabel}
             </a>
           </div>
         </nav>
@@ -100,7 +106,7 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
     <!-- Footer -->
     <footer class="bg-navy-950 text-white">
       <!-- CTA Band -->
-      <div class="border-b border-white/10">
+      {showFooterCta && <div class="border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
             <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">TRIAL LESSON</p>
@@ -111,6 +117,7 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
           </a>
         </div>
       </div>
+      }
       <div class="max-w-7xl mx-auto px-4 md:px-6 py-20">
         <div class="grid md:grid-cols-3 gap-12 md:gap-16">
           <div>
@@ -149,43 +156,7 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
       </div>
     </footer>
 
-    <script>
-      const toggle = document.getElementById('menu-toggle');
-      const overlay = document.getElementById('menu-overlay');
-      const bar1 = document.getElementById('menu-bar-1');
-      const bar2 = document.getElementById('menu-bar-2');
-      const bar3 = document.getElementById('menu-bar-3');
-      let isOpen = false;
-
-      toggle?.addEventListener('click', () => {
-        isOpen = !isOpen;
-        if (isOpen) {
-          overlay?.classList.remove('hidden');
-          requestAnimationFrame(() => {
-            overlay?.classList.remove('opacity-0');
-            overlay?.classList.add('opacity-100');
-          });
-          bar1?.classList.add('rotate-45', 'translate-y-[4px]');
-          bar2?.classList.add('opacity-0');
-          bar3?.classList.add('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
-          document.body.style.overflow = 'hidden';
-        } else {
-          overlay?.classList.remove('opacity-100');
-          overlay?.classList.add('opacity-0');
-          setTimeout(() => overlay?.classList.add('hidden'), 500);
-          bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
-          bar2?.classList.remove('opacity-0');
-          bar3?.classList.remove('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
-          document.body.style.overflow = '';
-        }
-      });
-
-      // Close on link click
-      overlay?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          toggle?.click();
-        });
-      });
-    </script>
+    <MenuBehavior />
+    <PageMotion />
   </body>
 </html>

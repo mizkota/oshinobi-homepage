@@ -1,0 +1,41 @@
+<!-- JSがなくても本文は表示。動きを減らす設定ではアニメーションを停止。 -->
+<script>
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const animations = new Set<Animation>();
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      observer.unobserve(entry.target);
+      if (preference.matches) continue;
+      const animation = entry.target.animate(
+        [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 750, easing: 'cubic-bezier(.2,.7,.2,1)' }
+      );
+      animations.add(animation);
+      animation.onfinish = () => animations.delete(animation);
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('main h2, [data-reveal]').forEach(element => observer.observe(element));
+  preference.addEventListener('change', () => {
+    if (preference.matches) {
+      animations.forEach(animation => animation.cancel());
+      animations.clear();
+    }
+  });
+</script>
+
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    main a.home-button, main a.rounded-full {
+      transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+    }
+    main a.home-button:hover, main a.home-button:focus-visible,
+    main a.rounded-full:hover { transform: translateY(-3px); }
+    .home-feature img { transition: transform 650ms cubic-bezier(.2,.7,.2,1); }
+    .home-feature:hover img { transform: scale(1.035); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>

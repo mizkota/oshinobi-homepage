@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Reviews from '../components/Reviews.astro';
 import { getReviews, googleRating } from '../data/reviews';
+import TennisIcon from '../components/TennisIcon.astro';
+import '../styles/editorial.css';
+import '../styles/services-editorial.css';
 const base = import.meta.env.BASE_URL;
 
 const gut24Reviews = getReviews('gut24', 'ja');
@@ -43,7 +46,7 @@ const strings = [
     material: 'ポリ',
     gauge: '1.25mm',
     price: 3200,
-    image: 'hyper-g.webp',
+    image: 'hyper-g-clean.png',
     desc: '五角形断面のスピン特化。ヘビースピナーに人気。',
     color: '#7FFF00',
   },
@@ -100,7 +103,7 @@ const strings = [
 ];
 ---
 
-<Layout title="札幌のガット張替 OSHINOBI GUT 24｜24時間受付・非対面" description="札幌市白石区JR白石駅徒歩2分のガット張替サービス。24時間ポスト受付・非対面で完結。全品工賃込み2,800円〜3,700円。LINE注文で最短2日仕上がり。Google★5.0。">
+<Layout contactLabel="ガットを相談する" contactUrl="https://lin.ee/yLlhrrT" socialImage="https://oshinobitennis.com/images/logo/gut24-logo.png" showFooterCta={false} title="札幌のガット張替 OSHINOBI GUT 24｜24時間受付・非対面" description="札幌市白石区JR白石駅徒歩2分のガット張替サービス。24時間ポスト受付・非対面で完結。全品工賃込み2,800円〜3,700円。LINE注文で最短2日仕上がり。Google★5.0。">
 
   <Fragment slot="head">
     <!-- 構造化データ: LocalBusiness + Service -->
@@ -165,240 +168,20 @@ const strings = [
     })} />
   </Fragment>
 
-  <!-- ===== HERO ===== -->
-  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-light/20 rounded-full blur-[120px]"></div>
-    </div>
-    <div class="relative max-w-6xl mx-auto px-4 md:px-6 py-20">
-      <div class="flex flex-col lg:flex-row items-center gap-12">
-        <div class="lg:w-1/2 text-center lg:text-left">
-          <div class="inline-block bg-accent/20 text-accent-light text-sm font-bold px-4 py-2 rounded-full mb-6">
-            JR白石駅北口 徒歩2分
-          </div>
-          <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-black font-display text-white mb-6 leading-tight tracking-tight">
-            OSHINOBI<br />GUT <span class="text-accent">24</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-white/80 mb-4">
-            24時間受付のガット張替サービス
-          </p>
-          <p class="text-white/50 mb-2 text-lg">
-            全品工賃込み・追加料金なし
-          </p>
-          <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
-            <span class="bg-white/10 text-white/90 text-sm font-bold px-4 py-2 rounded-full border border-white/20">📮 非対面・ポスト投函</span>
-            <span class="bg-white/10 text-white/90 text-sm font-bold px-4 py-2 rounded-full border border-white/20">📱 LINEで簡単注文</span>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-10 py-5 transition-all duration-300 shadow-lg shadow-accent/20 hover:-translate-y-0.5 text-lg tracking-wider">
-              LINE で今すぐ注文
-            </a>
-            <a href="#lineup" class="rounded-full border-2 border-white/60 text-white hover:bg-white hover:text-primary-dark font-bold px-10 py-5 transition-all duration-300 text-lg tracking-wider">
-              ラインナップを見る
-            </a>
-          </div>
-        </div>
-        <div class="lg:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="absolute inset-0 bg-accent/20 rounded-full blur-2xl"></div>
-            <img src={`${base}images/logo/gut24-logo.png`} alt="OSHINOBI GUT 24" class="relative w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="editorial-home service-page service-gut">
+  <section class="opening"><div class="opening-inner"><div class="opening-copy" data-reveal><p class="kicker"><span class="live-dot"></span> OSHINOBI GUT 24 / SAPPORO</p><h1>次の一打を、<br />張り替えよう。</h1><p class="opening-description">LINEで注文、ポストで受け渡し。<br />あなたの時間で使える、ガット張替サービス。</p><a href="https://lin.ee/yLlhrrT" class="action action-lime" target="_blank" rel="noopener">LINEで注文・相談 <TennisIcon name="arrow" /></a><a href="#lineup" class="quiet-link">ストリング・料金を見る <span aria-hidden="true">↓</span></a></div><figure class="stringing-portrait" data-reveal><img src={`${base}images/gut24/stringer.png`} alt="ラケットのガットを張る水上皓太" width="1086" height="1448" fetchpriority="high" /><figcaption><span>OSHINOBI GUT 24</span><span>張替作業のひとこま</span></figcaption></figure></div><div class="opening-bottom"><span>RACKET STRINGING / SHIROISHI</span><a href="#how-to">ご利用の流れ <span aria-hidden="true">↓</span></a></div></section>
+  <nav class="service-jump wrap" aria-label="ページ内メニュー"><a href="#lineup">商品・料金</a><a href="#how-to">ご利用の流れ</a><a href="#location">ポストの場所</a><a href="#faq">よくある質問</a></nav>
+  <section class="gut-facts wrap"><div><span>受付・受け渡し</span><strong>24<small>時間</small></strong><p>非対面のポスト方式</p></div><div><span>全品工賃込み</span><strong>{Math.min(...strings.map(s=>s.price)).toLocaleString()}<small>円〜</small></strong><p>ストリング代＋張替工賃</p></div><div><span>仕上がりの目安</span><strong>約2<small>日</small></strong><p>混雑状況によって前後します</p></div></section>
+  <section class="service-intro wrap section-space"><div><p class="section-label">01 / FITS YOUR DAY</p><h2>仕事のあとでも、<br />早朝でも。</h2></div><div><p class="service-lead">お店の営業時間に、<br />予定を合わせなくていい。</p><p>LINEで注文したら、JR白石駅北口から徒歩2分の専用ポストへ。完成のお知らせもLINEに届きます。御忍庭球塾の会員でない方もご利用いただけます。</p><a class="line-link" href="#how-to">注文から受け取りまで <TennisIcon name="arrow" /></a></div></section>
+
+  <section class="workshop-story wrap" aria-labelledby="workshop-title">
+    <div class="workshop-heading"><p class="section-label">AT THE STRINGING MACHINE</p><h2 id="workshop-title">張り替える手元まで、<br />見える安心を。</h2><p>お預かりしたラケットと向き合う、張替作業のひとこま。<br />ストリングや張りの強さに迷ったら、LINEでご相談ください。</p></div>
+    <figure class="workshop-detail" data-reveal><img src={`${base}images/gut24/hands.png`} alt="ストリングを通す手元とラケットの接写" width="1223" height="1286" loading="lazy" /><figcaption><span>01 / DETAIL</span>ストリングを通す手元</figcaption></figure>
+    <figure class="workshop-scene" data-reveal><img src={`${base}images/gut24/workshop.png`} alt="ストリングマシンに向かって張替作業をする様子" width="1086" height="1448" loading="lazy" /><figcaption><span>02 / WORKSHOP</span>張替作業の風景</figcaption></figure>
   </section>
-
-  <!-- ===== PRICE IMPACT ===== -->
-  <section class="bg-primary text-white py-12 border-y border-white/10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
-        <div>
-          <p class="text-white/60 text-sm mb-1">全品工賃込み</p>
-          <p class="text-5xl md:text-6xl font-black font-display">2,800<span class="text-2xl">円〜</span></p>
-        </div>
-        <div class="hidden md:block w-px h-16 bg-white/20"></div>
-        <div>
-          <p class="text-white/60 text-sm mb-1">受付時間</p>
-          <p class="text-5xl md:text-6xl font-black font-display">24<span class="text-2xl">時間</span></p>
-        </div>
-        <div class="hidden md:block w-px h-16 bg-white/20"></div>
-        <div>
-          <p class="text-white/60 text-sm mb-1">仕上がり</p>
-          <p class="text-5xl md:text-6xl font-black font-display">約2<span class="text-2xl">日</span></p>
-        </div>
-        <div class="hidden md:block w-px h-16 bg-white/20"></div>
-        <div>
-          <p class="text-white/60 text-sm mb-1">受渡方法</p>
-          <p class="text-3xl md:text-4xl font-black">非対面<span class="text-2xl">完結</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 3 REASONS ===== -->
-  <section class="py-24 md:py-28 bg-white">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-16">
-        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">WHY CHOOSE US</p>
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight">選ばれる<span class="text-primary">3つ</span>の理由</h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">1</div>
-          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🕐</div>
-          <h3 class="text-2xl font-black mb-4">24時間受付</h3>
-          <p class="text-text-light leading-relaxed">
-            非対面ポスト投函式だから、<strong class="text-text">仕事帰りでも早朝でも</strong>いつでも預けて、いつでも受け取れます。待ち時間ゼロ。
-          </p>
-        </div>
-        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">2</div>
-          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">💰</div>
-          <h3 class="text-2xl font-black mb-4">業界最安水準</h3>
-          <p class="text-text-light leading-relaxed">
-            全品工賃込みで<strong class="text-text">2,800円〜</strong>。追加料金は一切なし。表示価格がお支払い金額です。
-          </p>
-        </div>
-        <div class="relative bg-white rounded-2xl p-10 ring-1 ring-line shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-          <div class="absolute -top-5 left-10 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-black font-display text-lg shadow-lg shadow-primary/20">3</div>
-          <div class="text-5xl mb-6 group-hover:scale-110 transition duration-500">🎾</div>
-          <h3 class="text-2xl font-black mb-4">厳選ストリング</h3>
-          <p class="text-text-light leading-relaxed">
-            プロも使用する<strong class="text-text">高品質ストリングのみ</strong>を厳選。安いだけじゃない、本物の品質をお届けします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STRING LINEUP ===== -->
-  <section id="lineup" class="py-24 md:py-28 bg-bg">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-16">
-        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">LINEUP</p>
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">取り扱いストリング</h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mb-4"></div>
-        <p class="text-text-light">すべて工賃込み。表示価格以外の費用はかかりません。</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {strings.map((s) => (
-          <div class="bg-white rounded-2xl ring-1 ring-line shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-            <div class="h-48 bg-bg-dark flex items-center justify-center p-6 relative overflow-hidden">
-              <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition duration-500" style={`background-color: ${s.color}`}></div>
-              <img src={`${base}images/strings/${s.image}`} alt={s.name} class="max-h-36 max-w-full object-contain group-hover:scale-110 transition duration-500" />
-            </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-bold text-white px-2 py-0.5 rounded" style={`background-color: ${s.color}`}>{s.brand}</span>
-                <span class="text-xs text-text-light">{s.material} / {s.gauge}</span>
-              </div>
-              <h3 class="text-xl font-black mb-2">{s.name}</h3>
-              <p class="text-text-light text-sm mb-4 leading-relaxed">{s.desc}</p>
-              <div class="flex items-end justify-between">
-                <div>
-                  <span class="text-3xl font-black font-display text-primary">{s.price.toLocaleString()}</span>
-                  <span class="text-sm text-text-light ml-1">円</span>
-                </div>
-                <span class="text-xs bg-primary/5 text-primary font-bold px-3 py-1 rounded-full">工賃込み</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MID CTA ===== -->
-  <section class="py-20 bg-gradient-to-r from-navy-950 via-primary-dark to-primary text-white text-center">
-    <div class="max-w-3xl mx-auto px-4 md:px-6">
-      <p class="text-2xl md:text-3xl font-black tracking-tight mb-6">気になるストリングはありましたか？</p>
-      <p class="text-white/70 mb-8">テンションの相談もLINEで承ります。1ポンド単位で調整可能です。</p>
-      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-10 py-5 transition-all duration-300 inline-block text-lg tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
-        LINE で注文・相談する
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== HOW TO ===== -->
-  <section class="py-24 md:py-28 bg-white">
-    <div class="max-w-4xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-16">
-        <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">HOW TO USE</p>
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight">かんたん<span class="text-primary">3ステップ</span></h2>
-        <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
-      </div>
-
-      <div class="space-y-0">
-        <!-- Step 1 -->
-        <div class="flex gap-6 md:gap-10">
-          <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-primary/20 shrink-0">1</div>
-            <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
-          </div>
-          <div class="pb-12 flex-1">
-            <h3 class="text-2xl font-black mb-3">LINEで注文</h3>
-            <p class="text-text-light leading-relaxed text-lg mb-4">
-              リッチメニューから<strong class="text-text">ストリング・縦テンション・横テンション</strong>を選択するだけ。30秒で注文完了。
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="flex gap-6 md:gap-10">
-          <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-primary/20 shrink-0">2</div>
-            <div class="w-0.5 flex-1 bg-primary/20 my-2"></div>
-          </div>
-          <div class="pb-12 flex-1">
-            <h3 class="text-2xl font-black mb-3">ラケットを投函</h3>
-            <p class="text-text-light leading-relaxed text-lg mb-4">
-              JR白石駅北口近くの<strong class="text-text">専用ポストにラケットを入れるだけ</strong>。お支払いはPayPayまたは現金（事前払い）。
-            </p>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <p class="text-sm font-bold text-text mb-2">▼ ポストへの行き方</p>
-                <div class="aspect-video rounded-xl overflow-hidden shadow-md">
-                  <iframe class="w-full h-full" src="https://www.youtube.com/embed/uoU5HUspGDQ" title="ポストへの行き方" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm font-bold text-text mb-2">▼ ラケットの投函方法</p>
-                <div class="aspect-video rounded-xl overflow-hidden shadow-md">
-                  <iframe class="w-full h-full" src="https://www.youtube.com/embed/LM1KFw8jGu8" title="ラケットの投函方法" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="flex gap-6 md:gap-10">
-          <div class="flex flex-col items-center">
-            <div class="w-16 h-16 bg-accent text-primary-dark rounded-full flex items-center justify-center font-black font-display text-2xl shadow-lg shadow-accent/20 shrink-0">✓</div>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-black mb-3">完成通知 → 受け取り</h3>
-            <p class="text-text-light leading-relaxed text-lg mb-4">
-              約2日で完成。<strong class="text-text">LINEで通知</strong>が届いたら、ポスト番号・暗証番号で受け取り。対面不要で完結します。
-            </p>
-            <div class="max-w-md">
-              <p class="text-sm font-bold text-text mb-2">▼ ラケットの受け取り方</p>
-              <div class="aspect-video rounded-xl overflow-hidden shadow-md">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/k02k8nlYVG4" title="ラケットの受け取り方" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== POST LOCATION ===== -->
-  <section class="py-24 md:py-28 bg-bg">
+  <section id="lineup" class="service-wash section-space"><div class="wrap"><div class="section-top"><div><p class="section-label">02 / STRING COLLECTION</p><h2>打ち心地から、選ぶ。</h2></div><p>掲載価格はストリング代・工賃込み。<br />最新の在庫・料金はLINEでご確認ください。<br />商品画像は参考です。取扱ゲージは各商品欄をご覧ください。</p></div><div class="product-grid">{strings.map((s,index)=><article class="string-product" data-reveal><div class="product-photo"><span class="product-index">{String(index+1).padStart(2,'0')}</span><img src={`${base}images/strings/${s.image}`} alt={`${s.brand} ${s.name}`} loading="lazy" /></div><div class="product-info"><p class="product-brand">{s.brand}</p><h3>{s.name}</h3><p class="product-spec">{s.material} / {s.gauge}</p><p class="product-desc">{s.desc}</p><div class="product-bottom"><p><strong>{s.price.toLocaleString()}</strong> 円<small>工賃込み</small></p><a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" aria-label={`${s.name}についてLINEで相談`}><span>相談する</span><TennisIcon name="arrow" /></a></div></div></article>)}</div><div class="tension-note"><TennisIcon name="racket" /><div><h3>テンションに迷ったら。</h3><p>プレースタイルやラケットに合わせてLINEでご相談ください。1ポンド単位で調整できます。</p></div><a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="line-link">相談する <TennisIcon name="arrow" /></a></div></div></section>
+  <section id="how-to" class="wrap section-space"><div class="section-top"><div><p class="section-label">03 / DROP OFF. PICK UP. PLAY.</p><h2>注文から受け取りまで。</h2></div><p>LINEとポストで完結。<br />お支払いはPayPayまたは現金の事前払い。</p></div><ol class="service-steps"><li><span>01</span><TennisIcon name="chat" /><h3>LINEで注文</h3><p>メニューからストリング・縦テンション・横テンションを選びます。</p></li><li><span>02</span><TennisIcon name="pin" /><h3>ポストに預ける</h3><p>専用ポストにラケットを投函。ラケットを預ける際にお支払いください。</p></li><li><span>03</span><TennisIcon name="racket" /><h3>通知が届いたら、受け取り</h3><p>約2日が目安です。LINEで届くポスト番号と暗証番号で受け取れます。</p></li></ol><div class="guide-videos">{[{id:'uoU5HUspGDQ',title:'ポストへの行き方'},{id:'LM1KFw8jGu8',title:'ラケットの投函方法'},{id:'k02k8nlYVG4',title:'ラケットの受け取り方'}].map(v=><div><p>{v.title}</p><iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>)}</div></section>
+  <section id="location" class="legacy-section location-section py-24 md:py-28 bg-bg">
     <div class="max-w-4xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
         <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">LOCATION</p>
@@ -406,22 +189,18 @@ const strings = [
         <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
         <p class="text-text-light text-lg mt-4">札幌市 JR白石駅北口から<strong class="text-text">徒歩2分</strong></p>
       </div>
+      <div class="location-visuals">
+        <figure class="locker-photo" data-reveal><img src={`${base}images/gut24/locker.png`} alt="ラケットの預け入れと受け取りに使う専用ポスト" width="1086" height="1448" loading="lazy" /><figcaption>預け入れ・受け取り用の専用ポスト</figcaption></figure>
+        <div class="location-map"><p class="section-label">DROP OFF / PICK UP</p><h3>このポストが、受け渡し場所です。</h3><p>まずはLINEでご注文ください。<br />預け入れ・受け取りの手順は、上の案内動画でも確認できます。</p>
       <div class="rounded-2xl overflow-hidden ring-1 ring-line shadow-lg">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.5!2d141.4!3d43.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2b0052260585%3A0x99699b9354aef3e!2sOSHINOBI%20GUT%2024!5e0!3m2!1sja!2sjp!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="OSHINOBI GUT 24のポスト案内地図" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.5!2d141.4!3d43.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2b0052260585%3A0x99699b9354aef3e!2sOSHINOBI%20GUT%2024!5e0!3m2!1sja!2sjp!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- ===== TESTIMONIALS（src/data/reviews.ts で一元管理） ===== -->
-  <Reviews
-    category="gut24"
-    lang="ja"
-    note={`Googleマップのクチコミより（<span class="text-accent-dark font-bold">★${googleRating.gut24.ratingValue.toFixed(1)}</span> / ${googleRating.gut24.reviewCount}件）`}
-    writeReviewUrl={googleRating.gut24.writeReviewUrl}
-  />
-
-  <!-- ===== FAQ ===== -->
-  <section class="py-24 md:py-28 bg-bg">
+  <Reviews category="gut24" lang="ja" note={`Googleマップのクチコミより（★${googleRating.gut24.ratingValue.toFixed(1)} / ${googleRating.gut24.reviewCount}件）`} writeReviewUrl={googleRating.gut24.writeReviewUrl} />
+  <section id="faq" class="legacy-section faq-section py-24 md:py-28 bg-bg">
     <div class="max-w-3xl mx-auto px-4 md:px-6">
       <div class="text-center mb-16">
         <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs mb-2">FAQ</p>
@@ -477,29 +256,6 @@ const strings = [
       </div>
     </div>
   </section>
-
-  <!-- ===== FINAL CTA ===== -->
-  <section class="relative py-24 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-primary-dark to-primary"></div>
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-10 right-20 w-72 h-72 bg-accent/30 rounded-full blur-[100px]"></div>
-      <div class="absolute bottom-10 left-20 w-96 h-96 bg-primary-light/20 rounded-full blur-[120px]"></div>
-    </div>
-    <div class="relative max-w-3xl mx-auto px-4 md:px-6 text-center text-white">
-      <p class="text-accent font-display font-semibold tracking-[0.25em] text-xs md:text-sm mb-6">ORDER NOW</p>
-      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-        あなたのラケット、<br />最高の状態に。
-      </h2>
-      <div class="w-12 h-0.5 bg-accent mx-auto mb-8"></div>
-      <p class="text-white/60 text-lg mb-10">
-        LINEで注文 → ポスト投函 → 約2日で完成。<br />
-        対面不要で完結する、新しいガット張替体験。
-      </p>
-      <a href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-black px-12 py-6 transition-all duration-300 inline-block text-xl tracking-wider shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5">
-        LINE で今すぐ注文する
-      </a>
-      <p class="text-white/40 text-sm mt-6">JR白石駅北口 徒歩2分 ・ 全品工賃込み 2,800円〜</p>
-    </div>
-  </section>
-
+  <section class="closing section-space"><div class="wrap closing-inner"><div><p class="section-label">READY FOR YOUR NEXT GAME</p><h2>張りたての一本で、<br />またコートへ。</h2></div><div class="closing-action"><p>OSHINOBI GUT 24</p><a class="action action-lime" href="https://lin.ee/yLlhrrT" target="_blank" rel="noopener"><TennisIcon name="chat" /> LINEで注文・相談 <TennisIcon name="arrow" /></a><small>JR白石駅北口 徒歩2分 / 24時間ポスト受付<br />完成予定・在庫はLINEでご確認ください。</small></div></div></section>
+</div>
 </Layout>
