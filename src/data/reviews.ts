@@ -130,6 +130,18 @@ export const reviews: Review[] = [
 
   // ===== インターナショナルレッスン（英語） =====
   {
+    id: 'g-simon-c',
+    category: 'international',
+    author: 'Simon C',
+    rating: 5,
+    body: 'Coach Kota ! 🫡 thank you vert much for the great lesson I will come back again soon !!',
+    lang: 'en',
+    source: 'google', // 2026-10-05 Googleクチコミ。通知メールと公開投稿を照合、原文のまま掲載。
+    featured: true,
+    // お客様の顔を既存レビューと同じ星のスタンプでマスク（2026-10-06 社長指示）。
+    photo: '/images/reviews/simon-lesson.png',
+  },
+  {
     id: 'g-jennifer-cho',
     category: 'international',
     author: 'Jennifer Cho',
@@ -202,7 +214,7 @@ export const googleRating = {
   /** OSHINOBI GUT 24 のビジネスプロフィール */
   gut24: {
     ratingValue: 5.0,
-    reviewCount: 15, // 2026-08-17 時点の実測（15件目=Shadow Jiang、レッスンの中国語クチコミ）
+    reviewCount: 19, // 2026-10-06 Googleビジネスプロフィールで実測（レッスンの口コミを含む）。
     /** 口コミ投稿用リンク（お客様に案内する用） */
     writeReviewUrl: 'https://g.page/r/CT7vSjW5mZYJEAE/review',
   },
