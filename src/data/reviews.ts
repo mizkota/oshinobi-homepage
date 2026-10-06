@@ -50,6 +50,8 @@ export interface Review {
   featured: boolean;
   /** 添付写真（public/ 配下のパス）。顔が写る場合は必ずマスク済みのものを使う */
   photo?: string;
+  /** 投稿年月（YYYY-MM）。Google通知と既存の投稿記録で確認した月のみ。 */
+  publishedMonth?: string;
 }
 
 export const reviews: Review[] = [
@@ -131,6 +133,7 @@ export const reviews: Review[] = [
   // ===== インターナショナルレッスン（英語） =====
   {
     id: 'g-simon-c',
+    publishedMonth: '2026-10',
     category: 'international',
     author: 'Simon C',
     rating: 5,
@@ -143,6 +146,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'g-jennifer-cho',
+    publishedMonth: '2026-07',
     category: 'international',
     author: 'Jennifer Cho',
     rating: 5,
@@ -155,6 +159,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'g-eugene-kim',
+    publishedMonth: '2026-07',
     category: 'international',
     author: 'Eugene Kim',
     rating: 5,
@@ -167,6 +172,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'g-daniel',
+    publishedMonth: '2026-08',
     category: 'international',
     author: 'Daniel',
     rating: 5,
@@ -179,6 +185,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'g-chappy',
+    publishedMonth: '2026-08',
     category: 'international',
     author: 'Chappy',
     rating: 5,
@@ -191,6 +198,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'g-shadow-jiang',
+    publishedMonth: '2026-08',
     category: 'international',
     author: 'Shadow Jiang',
     rating: 5,

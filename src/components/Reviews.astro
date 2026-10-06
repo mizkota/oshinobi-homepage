@@ -14,6 +14,10 @@ interface Props {
 
 const { category, lang = 'ja', note, writeReviewUrl, bg = 'bg-white' } = Astro.props;
 const items = getReviews(category, lang);
+const formatMonth = (month: string) =>
+  new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'ja-JP', {
+    year: 'numeric', month: 'short', timeZone: 'UTC',
+  }).format(new Date(`${month}-01T00:00:00Z`));
 
 const t =
   lang === 'en'
@@ -68,6 +72,12 @@ const t =
                 — {r.author}
                 {lang === 'ja' ? ' 様' : ''}
               </p>
+              {r.publishedMonth && (
+                <p class="mt-1 text-xs font-normal text-text-light">
+                  {lang === 'en' ? 'Reviewed ' : '投稿日：'}
+                  <time datetime={r.publishedMonth}>{formatMonth(r.publishedMonth)}</time>
+                </p>
+              )}
             </div>
           ))}
         </div>
