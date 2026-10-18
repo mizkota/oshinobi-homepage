@@ -3,11 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import TennisIcon from '../components/TennisIcon.astro';
 import '../styles/editorial.css';
 import Reviews from '../components/Reviews.astro';
+import LessonSelector from '../components/LessonSelector.astro';
 import { posts } from '../data/blog-posts';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="札幌の少人数テニスレッスン" description="水上皓太が指導する、札幌の御忍庭球塾。レギュラー6名の少人数レッスン。グループレッスンはPLACE OF SPORTS NEOのコートを借りて開催しています。" showFooterCta={false} socialImage="https://oshinobitennis.com/images/hero/coach-kota-20260907.png">
+<Layout title="札幌の少人数テニスレッスン" description="水上皓太が指導する、札幌の御忍庭球塾。グループ会員はキャンセル待ち受付中。入会待ちやプライベートレッスンの料金・日時をLINEで相談できます。" contactLabel="レッスンを選ぶ" contactUrl="#choose-lesson" showFooterCta={false} socialImage="https://oshinobitennis.com/images/hero/coach-kota-20260907.png">
 
   <Fragment slot="head">
     <!-- 構造化データ: SportsActivityLocation -->
@@ -56,15 +57,15 @@ const base = import.meta.env.BASE_URL;
     })} />
   </Fragment>
 
-  <div class="editorial-home">
+  <div class="editorial-home lesson-entry-home">
     <section class="opening">
       <div class="opening-inner">
         <div class="opening-copy" data-reveal>
           <p class="kicker"><span class="live-dot"></span> 札幌・白石区の少人数テニスレッスン</p>
-          <h1><span>いつもの練習に、</span><br /><span>気づきをひとつ。</span></h1>
-          <p class="opening-description">一人ひとりのプレーを見て、<br />その場で伝える少人数レッスン。</p>
-          <a href={`${base}courses`} class="action action-lime">コース・料金を見る <TennisIcon name="arrow" /></a>
-          <a class="quiet-link" href="https://lin.ee/2CKErIS" target="_blank" rel="noopener">体験について相談する <span aria-hidden="true">↗</span></a>
+          <h1><span>そのミスの理由を、</span><br /><span>一緒に見つけよう。</span></h1>
+          <p class="opening-description">一人ひとりのプレーを見て、その場でアドバイス。<br />グループ・個別から、あなたに合う練習を。</p>
+          <a href="#choose-lesson" class="action action-lime">自分に合うレッスンを選ぶ <TennisIcon name="arrow" /></a>
+          <a class="quiet-link" href="#group-consultation">グループ会員のキャンセル待ち <span aria-hidden="true">↓</span></a>
         </div>
         <figure class="opening-portrait">
           <div class="portrait-window"><img src={`${base}images/hero/coach-kota-20260907.png`} width="1086" height="1448" alt="ラケットを手に笑顔を見せる水上皓太コーチ" fetchpriority="high" /></div>
@@ -74,27 +75,22 @@ const base = import.meta.env.BASE_URL;
       <div class="opening-bottom"><span>OSHINOBI TENNIS / SAPPORO</span><a href="#lesson">レッスンについて <span aria-hidden="true">↓</span></a></div>
     </section>
 
-    <div class="lesson-facts wrap">
-      <div><TennisIcon name="people" /><p><span>グループレッスン</span><strong>レギュラー <b>6</b> 名</strong><small>振替を含む場合は最大7名</small></p></div>
-      <div><TennisIcon name="racket" /><p><span>はじめての方へ</span><strong>初回体験 <b>3,000</b> 円</strong><small>体験日程はLINEでご案内</small></p></div>
-      <div><TennisIcon name="pin" /><p><span>グループレッスンの会場</span><strong>札幌市白石区</strong><small>PLACE OF SPORTS NEOのコートを借りて開催</small></p></div>
-    </div>
+    <LessonSelector />
 
     <section id="lesson" class="lesson-story wrap section-space">
-      <div class="section-heading"><p class="section-label">01 / OUR LESSON</p><h2>打って、試して、<br />少しずつ。</h2></div>
+      <div class="section-heading"><p class="section-label">02 / OUR LESSON</p><h2>打って、試して、<br />少しずつ。</h2></div>
       <div class="lesson-body" data-reveal><p class="lead-text">うまく打てた一本も、<br />思うようにいかなかった一本も。</p><p>コーチがプレーを見ながら、その場でアドバイスします。気になることは、コートで聞いてください。少人数で、じっくり打つ時間をつくっています。</p><a class="line-link" href={`${base}private-lesson#coach`}>水上皓太・コーチ紹介 <TennisIcon name="arrow" /></a></div>
       <figure class="lesson-photo" data-reveal><img src={`${base}images/features/snapshot.jpg`} alt="御忍庭球塾の少人数レッスンの様子" width="1200" height="800" loading="lazy" /><figcaption><span>ON THE COURT</span> 御忍庭球塾のレッスン風景</figcaption></figure>
       <aside class="venue-note"><TennisIcon name="pin" /><div><h3>いつものコートで。</h3><p>グループレッスンは、PLACE OF SPORTS NEOのインドアコートを借りて行います。</p><a class="line-link" href="https://neo-spo.com/" target="_blank" rel="noopener">会場の公式サイト <span aria-hidden="true">↗</span></a></div></aside>
     </section>
 
-    <section class="lesson-options section-space">
-      <div class="wrap">
-        <div class="section-top"><div><p class="section-label">02 / FIND YOUR LESSON</p><h2>あなたに合う、<br class="mobile-break" />レッスンを。</h2></div><p>仲間と打つ時間も、<br />自分の課題に向き合う時間も。</p></div>
-        <div class="course-links">
-          <a class="course-link" href={`${base}courses`}><span class="course-number">01</span><div><span class="course-en">GROUP LESSON</span><h3>グループレッスン</h3><p>レギュラー6名。仲間と一緒に練習する、<br class="wide-break" />定期的なテニスの時間。</p><span class="course-detail">時間割・月会費・体験料金</span></div><span class="round-arrow"><TennisIcon name="arrow" /></span></a>
-          <a class="course-link" href={`${base}private-lesson`}><span class="course-number">02</span><div><span class="course-en">PRIVATE LESSON</span><h3>プライベートレッスン</h3><p>練習したいことに合わせて。<br />一人でも、仲間と一緒でも相談できます。</p><span class="course-detail">レッスン内容・ご相談</span></div><span class="round-arrow"><TennisIcon name="arrow" /></span></a>
-        </div>
-        <a class="international-link" href={`${base}en`}><span>Visiting Sapporo?</span><span>Tennis lessons in English <span aria-hidden="true">↗</span></span></a>
+    <section class="lesson-questions wrap section-space" aria-labelledby="lesson-questions-title">
+      <div><p class="section-label">BEFORE YOUR LESSON</p><h2 id="lesson-questions-title">はじめる前の、<br />気になること。</h2></div>
+      <div class="question-list">
+        <details><summary>どのクラスが自分に合いますか？</summary><p>テニス経験と、練習したいことをLINEでお知らせください。グループのクラス選びや個別レッスンについてご相談いただけます。</p></details>
+        <details><summary>満員ですが、入会を希望できますか？</summary><p>レギュラー会員枠のキャンセル待ちを受け付けています。希望の曜日・時間帯とテニス経験をLINEでお知らせください。入会待ちの受付についてご相談いただけます。</p></details>
+        <details><summary>個別レッスンは一人でも受けられますか？</summary><p>1名から最大6名まで、会員でなくても受講できます。時間・人数・内容に応じて料金を個別にご案内します。コートはお客様にてご手配ください。</p></details>
+        <details><summary>持物や貸出について知りたいです。</summary><p>希望するレッスンと一緒に、ラケット・シューズなどの準備で気になる点をお知らせください。相談時にご確認いただけます。</p></details>
       </div>
     </section>
 
@@ -112,7 +108,7 @@ const base = import.meta.env.BASE_URL;
 
     <section class="closing section-space">
       <svg class="court-lines" viewBox="0 0 500 360" fill="none" aria-hidden="true"><path d="M20 20h460v320H20zM70 20v320M430 20v320M20 180h460M70 85h360M70 275h360M250 85v190" /></svg>
-      <div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>まずは一度、<br />一緒に打ちませんか。</h2></div><div class="closing-action"><p>初回体験 <strong>3,000</strong> 円</p><a class="action action-lime" href="https://lin.ee/2CKErIS" target="_blank" rel="noopener"><TennisIcon name="chat" /> LINEで体験を相談する <TennisIcon name="arrow" /></a><small>ご希望の日程とテニスの経験をお知らせください。<br />空き状況を確認してご案内します。</small></div></div>
+      <div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>練習したいことを、<br />聞かせてください。</h2></div><div class="closing-action"><p>あなたに合うレッスンから、はじめよう。</p><a class="action action-lime" href="#choose-lesson">レッスンを選んで相談する <TennisIcon name="arrow" /></a><small>グループ会員のキャンセル待ちや個別の料金・日時を、<br />それぞれの相談欄から確認できます。</small></div></div>
     </section>
   </div>
 </Layout>

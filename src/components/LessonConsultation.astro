@@ -1,0 +1,89 @@
+---
+import TennisIcon from './TennisIcon.astro';
+import { lessonConsultations, lessonLineUrl, type LessonType } from '../data/lessonConsultation';
+interface Props { lesson: LessonType; id: string; }
+const { lesson, id } = Astro.props;
+const copy = lessonConsultations[lesson];
+const steps = lesson === 'group'
+  ? [
+      ['希望を送る', '希望の曜日・時間帯と経験を伝える'],
+      ['受付について確認', '会員枠のキャンセル待ちを相談'],
+      ['入会について相談', '空き状況に応じて日程・条件を確認'],
+    ]
+  : [
+      ['希望を送る', 'LINEで経験・日時・目的を伝える'],
+      ['案内を確認する', '受講可否・料金・会場を確認'],
+      ['内容を相談する', '日時や練習内容を一緒に決める'],
+    ];
+---
+
+<section class="lesson-consultation" id={id} aria-labelledby={`${id}-title`} data-lesson-consultation>
+  <div class="consultation-intro">
+    <p class="consultation-kicker">LET’S TALK / LINEで相談</p>
+    <h3 id={`${id}-title`}>{copy.title}</h3>
+    <p>{copy.introduction}</p>
+  </div>
+  <div class="consultation-action">
+    <a class="consultation-button" href={lessonLineUrl} target="_blank" rel="noopener noreferrer">
+      <TennisIcon name="chat" /><span>{copy.label}</span><TennisIcon name="arrow" />
+    </a>
+    <p class="consultation-hint">LINEで友だち追加後、トークにご希望を送ってください。</p>
+    <details class="consultation-example">
+      <summary>何を書けばいい？ 相談文の例を見る</summary>
+      <label for={`${id}-message`}>例文をコピーし、LINEのトークで空欄を埋めてください。</label>
+      <textarea id={`${id}-message`} rows={lesson === 'group' ? 6 : 8} readonly data-consultation-message>{copy.message}</textarea>
+      <button type="button" class="consultation-copy" data-copy-message hidden>相談文をコピー</button>
+      <p class="consultation-status" role="status" data-copy-status></p>
+    </details>
+  </div>
+  <ol class="consultation-steps" aria-label="相談の流れ">
+    {steps.map(([title, description], index) => <li><span>{String(index + 1).padStart(2, '0')}</span><div><strong>{title}</strong><p>{description}</p></div></li>)}
+  </ol>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-lesson-consultation]').forEach(section => {
+    const button = section.querySelector<HTMLButtonElement>('[data-copy-message]');
+    const message = section.querySelector<HTMLTextAreaElement>('[data-consultation-message]');
+    const status = section.querySelector<HTMLElement>('[data-copy-status]');
+    if (!button || !message || !status) return;
+    button.hidden = false;
+    const example = section.querySelector<HTMLDetailsElement>('details');
+    const fitMessage = () => {
+      if (!example?.open) return;
+      message.style.height = 'auto';
+      message.style.height = `${message.scrollHeight + 2}px`;
+    };
+    example?.addEventListener('toggle', fitMessage);
+    window.addEventListener('resize', fitMessage);
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(message.value);
+        status.textContent = 'コピーしました。LINEのトークに貼り付け、空欄を埋めて送ってください。';
+      } catch {
+        message.focus();
+        message.select();
+        status.textContent = '相談文を選択しました。端末のコピー操作でコピーしてください。';
+      }
+    });
+  });
+</script>
+
+<style>
+  .lesson-consultation{color:#122e40;display:grid;grid-template-columns:1fr 1.1fr;gap:28px 44px;scroll-margin-top:100px}
+  .consultation-kicker{font-size:11px!important;letter-spacing:.12em;color:#566671;margin:0 0 12px!important;font-family:var(--font-display)}
+  .consultation-intro h3{font-size:23px;line-height:1.6;font-weight:700;margin:0 0 14px}
+  .consultation-intro>p:last-child{font-size:15px;line-height:1.9;color:#566671;margin:0}
+  .consultation-action{min-width:0}
+  .consultation-button{display:flex;align-items:center;gap:12px;padding:18px 20px;min-height:60px;background:#d5ed65;color:#122e40;font-size:15px;font-weight:700;transition:background .2s}
+  .consultation-button:hover{background:#e7fa98}.consultation-button :global(svg){flex-shrink:0;width:21px;height:21px}.consultation-button :global(svg:last-child){margin-left:auto}
+  .consultation-hint{font-size:12px;line-height:1.8;color:#566671;margin:10px 0 16px}
+  .consultation-example{border-top:1px solid #ced9df;border-bottom:1px solid #ced9df;padding:0 2px}
+  summary{font-size:14px;line-height:1.7;padding:14px 0;cursor:pointer}
+  label{display:block;font-size:13px;margin:4px 0 10px}textarea{display:block;resize:vertical;width:100%;max-width:100%;padding:14px;background:#fff;color:#122e40;border:1px solid #b9c7ce;border-radius:0;font:inherit;font-size:16px;line-height:1.8;min-height:180px}
+  .consultation-copy{font:inherit;font-size:13px;font-weight:700;background:#fff;color:#122e40;border:1px solid #8a9da7;padding:11px 15px;min-height:44px;margin-top:12px;cursor:pointer}.consultation-copy:hover{background:#eff4f5}.consultation-copy[hidden]{display:none}
+  .consultation-status{font-size:12px;line-height:1.8;margin:8px 0 12px;min-height:0}.consultation-status:empty{display:none}
+  .consultation-steps{grid-column:1/-1;list-style:none;padding:22px 0 0;margin:0;border-top:1px solid #ced9df;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .consultation-steps li{display:flex;gap:12px;align-items:baseline}.consultation-steps li>span{font-family:var(--font-display);font-size:12px;color:#526923}.consultation-steps strong{font-size:14px;font-weight:700}.consultation-steps p{font-size:12px;line-height:1.8;color:#566671;margin:5px 0 0}
+  @media(max-width:800px){.lesson-consultation{grid-template-columns:1fr;gap:22px}.consultation-intro h3{font-size:21px}.consultation-button{font-size:14px;padding:16px;gap:10px}.consultation-steps{grid-template-columns:1fr;gap:16px;padding-top:20px}.consultation-steps p{margin:2px 0 0}}
+</style>
