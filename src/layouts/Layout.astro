@@ -17,6 +17,7 @@ const { title, contactLabel = "体験を相談する", contactUrl = "https://lin
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
+const externalContact = /^https?:\/\//.test(contactUrl);
 ---
 
 <!doctype html>
@@ -63,7 +64,7 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
           <a href={`${base}en`} class="text-sm text-text-light hover:text-primary transition duration-300 font-medium font-display tracking-wide">
             English
           </a>
-          <a href={contactUrl} target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 px-6 py-2.5 text-sm font-bold transition-all duration-300 tracking-wider">
+          <a href={contactUrl} target={externalContact ? '_blank' : undefined} rel={externalContact ? 'noopener' : undefined} class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 hover:-translate-y-0.5 px-6 py-2.5 text-sm font-bold transition-all duration-300 tracking-wider">
             {contactLabel}
           </a>
           <button id="menu-toggle" class="p-2 flex flex-col gap-1.5" aria-label="メニュー" aria-expanded="false" aria-controls="menu-overlay">
@@ -88,7 +89,7 @@ const isTop = Astro.url.pathname === base || Astro.url.pathname === '/';
             <a href={`${base}en`} class="block text-white text-2xl font-bold tracking-wider hover:text-accent transition duration-300 font-display">English</a>
           </div>
           <div class="mt-12 pt-8 border-t border-white/20">
-            <a href={contactUrl} target="_blank" rel="noopener" class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
+            <a href={contactUrl} target={externalContact ? '_blank' : undefined} rel={externalContact ? 'noopener' : undefined} class="rounded-full bg-accent text-primary-dark hover:bg-accent-light font-bold px-10 py-4 transition-all duration-300 inline-block tracking-wider shadow-lg shadow-accent/20 hover:-translate-y-0.5">
               {contactLabel}
             </a>
           </div>

@@ -1,0 +1,82 @@
+---
+import LessonConsultation from './LessonConsultation.astro';
+import { lessonLineUrl } from '../data/lessonConsultation';
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="lesson-selector section-space" id="choose-lesson" aria-labelledby="choose-lesson-title" data-lesson-selector>
+  <div class="wrap">
+    <div class="section-top"><div><p class="section-label">01 / FIND YOUR LESSON</p><h2 id="choose-lesson-title">どんな練習が<br class="mobile-break" />したいですか？</h2></div><p>仲間と続ける。自分の課題に向き合う。<br />目的に合わせて、レッスンを選べます。</p></div>
+    <div class="lesson-switch" role="group" aria-label="レッスンを選ぶ" data-lesson-switch hidden>
+      <button type="button" data-lesson-choice="group" aria-pressed="true" aria-controls="group-lesson-panel"><span class="choice-number">01</span><span><strong>仲間と続けたい</strong><small>グループ・会員キャンセル待ち</small></span><span class="choice-mark" aria-hidden="true">↓</span></button>
+      <button type="button" data-lesson-choice="private" aria-pressed="false" aria-controls="private-lesson-panel"><span class="choice-number">02</span><span><strong>自分の課題に集中したい</strong><small>プライベートレッスン</small></span><span class="choice-mark" aria-hidden="true">↓</span></button>
+    </div>
+    <div class="selection-announcement" aria-live="polite" data-selection-status></div>
+    <article id="group-lesson-panel" class="lesson-panel" data-lesson-panel="group" aria-labelledby="group-panel-title">
+      <div class="lesson-overview"><div><p class="lesson-type">GROUP LESSON</p><h3 id="group-panel-title">定期的に、仲間と練習する。</h3><p>レギュラー6名の少人数レッスン。コーチが一人ひとりのプレーを見ながら、その場でアドバイスします。</p></div><div class="lesson-price membership-status"><span>グループ会員をご希望の方へ</span><strong class="quote-price">キャンセル待ち<br />受付中</strong><span>レギュラー会員枠は現在満員です</span></div></div>
+      <dl class="lesson-conditions"><div><dt>人数</dt><dd>レギュラー6名<br /><small>振替を含む場合は最大7名</small></dd></div><div><dt>会場</dt><dd>PLACE OF SPORTS NEO<br /><small>札幌市白石区・インドアコート</small></dd></div><div><dt>クラス選び</dt><dd>経験・練習したい内容から相談<br /><a href={`${base}courses#group-schedule`}>時間割・継続料金を見る →</a></dd></div></dl>
+      <p class="lesson-availability"><strong>入会をご希望の方は、まずキャンセル待ちへ。</strong> 希望の曜日・時間帯とテニス経験をLINEでお知らせください。</p>
+      <LessonConsultation lesson="group" id="group-consultation" />
+      <details class="group-trial"><summary>初回体験について</summary><p>初回体験は1回3,000円（税込）です。体験の受講可否・日程はLINEでご確認ください。</p></details>
+    </article>
+    <article id="private-lesson-panel" class="lesson-panel" data-lesson-panel="private" aria-labelledby="private-panel-title">
+      <div class="lesson-overview"><div><p class="lesson-type">PRIVATE LESSON</p><h3 id="private-panel-title">練習したいことに、じっくり。</h3><p>一人でも、仲間と一緒でも。レベルや目標に合わせて、取り組みたい課題と練習内容を相談できます。</p></div><div class="lesson-price"><span>プライベートレッスン</span><strong class="quote-price">個別お見積もり</strong><span>時間・人数・内容に応じてご案内</span></div></div>
+      <dl class="lesson-conditions"><div><dt>人数・対象</dt><dd>1名〜最大6名<br /><small>会員でなくても受講できます</small></dd></div><div><dt>日時</dt><dd>ご希望に合わせて相談<br /><small>開始時刻・練習時間をお知らせください</small></dd></div><div><dt>会場</dt><dd>コートはお客様が手配<br /><a href={`${base}private-lesson`}>内容・コーチ紹介を見る →</a></dd></div></dl>
+      <p class="lesson-availability">コートの手配や費用について気になる点も、希望条件と一緒にお知らせください。</p>
+      <LessonConsultation lesson="private" id="private-consultation" />
+    </article>
+    <div class="lesson-other"><div><p>どちらが合うか迷ったら</p><a href={lessonLineUrl} target="_blank" rel="noopener noreferrer">クラス選びからLINEで相談する ↗</a><small>テニス経験と、練習したいことをお知らせください。</small></div><a class="lesson-english" href={`${base}en`}><span>Visiting Sapporo?</span><strong>Tennis lessons in English ↗</strong></a></div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-lesson-selector]').forEach(section => {
+    const controls = section.querySelector<HTMLElement>('[data-lesson-switch]');
+    const buttons = section.querySelectorAll<HTMLButtonElement>('[data-lesson-choice]');
+    const panels = section.querySelectorAll<HTMLElement>('[data-lesson-panel]');
+    const status = section.querySelector<HTMLElement>('[data-selection-status]');
+    if (!controls || buttons.length !== 2 || panels.length !== 2) return;
+    const select = (lesson: string, announce = false) => {
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lessonChoice === lesson)));
+      panels.forEach(panel => panel.hidden = panel.dataset.lessonPanel !== lesson);
+      if (announce && status) status.textContent = `${lesson === 'group' ? 'グループ' : 'プライベート'}レッスンの条件と相談方法を表示しました。`;
+    };
+    // 深いリンクからも、目的の相談欄が隠れないようにする。
+    const revealTarget = (hash: string) => {
+      const target = document.getElementById(hash.slice(1));
+      if (!target || !section.contains(target)) return;
+      if (hash.startsWith('#private-')) select('private');
+      else if (hash.startsWith('#group-')) select('group');
+      else return;
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'start', behavior: 'instant' }));
+    };
+    select('group');
+    controls.hidden = false;
+    revealTarget(location.hash);
+    buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.lessonChoice!, true)));
+    window.addEventListener('hashchange', () => revealTarget(location.hash));
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#group-"], a[href^="#private-"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const hash = link.getAttribute('href')!;
+        const target = document.getElementById(hash.slice(1));
+        if (!target || !section.contains(target)) return;
+        event.preventDefault();
+        if (location.hash !== hash) history.pushState(null, '', hash);
+        revealTarget(hash);
+      });
+    });
+  });
+</script>
+
+<style>
+  .lesson-selector{background:#f0f4f5;scroll-margin-top:76px}.lesson-switch{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}.lesson-switch[hidden],.lesson-panel[hidden]{display:none}
+  .lesson-price.membership-status{background:#edf5d0;border-left:3px solid #79932e;padding:20px 24px}.membership-status .quote-price{font-size:27px;line-height:1.5}.group-trial{border-top:1px solid #d8e1e6;margin-top:24px}.group-trial summary{font-size:13px;padding:16px 0;cursor:pointer}.group-trial p{font-size:13px;color:#566671;margin:0 0 8px}
+  .lesson-switch button{font:inherit;display:flex;align-items:center;gap:20px;text-align:left;min-height:104px;border:1px solid #aabdc7;padding:22px 26px;background:#fff;color:#122e40;cursor:pointer}.lesson-switch button:hover{background:#e6edef}.lesson-switch button[aria-pressed="true"]{background:#122e40;color:#fff;border-color:#122e40}.choice-number{font-family:var(--font-display);font-size:13px;opacity:.7}.lesson-switch strong{display:block;font-size:22px;font-weight:700;line-height:1.5}.lesson-switch small{display:block;margin-top:6px;font-size:13px;opacity:.8}.choice-mark{margin-left:auto;font-size:22px}.lesson-switch button[aria-pressed="true"] .choice-mark{color:#d5ed65}
+  .lesson-panel{background:#fff;padding:36px;margin-top:24px}.lesson-overview{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;margin-bottom:28px}.lesson-type{font-family:var(--font-display);font-size:11px;letter-spacing:.14em;color:#566671;margin-bottom:12px}.lesson-overview h3{font-size:27px;line-height:1.5;font-weight:700;margin-bottom:14px}.lesson-overview p:last-child{font-size:15px;color:#566671;line-height:1.9;margin:0}.lesson-price{border-left:1px solid #d8e1e6;padding-left:30px}.lesson-price>span{display:block;font-size:12px;color:#566671}.lesson-price>strong{display:block;font-size:44px;font-weight:600;font-family:var(--font-display);line-height:1.5}.lesson-price strong small{font-size:18px;margin-left:5px}.lesson-price .quote-price{font-size:27px;font-family:inherit;margin:8px 0}
+  .lesson-conditions{display:grid;grid-template-columns:1fr 1.1fr 1.2fr;gap:24px;border-top:1px solid #d8e1e6;border-bottom:1px solid #d8e1e6;padding:22px 0;margin-bottom:20px}.lesson-conditions dt{font-size:12px;color:#566671;margin-bottom:8px}.lesson-conditions dd{font-size:14px;line-height:1.9;margin:0}.lesson-conditions small{font-size:12px;color:#566671}.lesson-conditions a{display:inline-block;padding-top:8px;font-size:13px;text-decoration:underline;text-underline-offset:5px;min-height:36px}.lesson-availability{font-size:13px!important;line-height:1.9!important;border-left:3px solid #a6bdc9;padding-left:14px;margin:0 0 32px!important;color:#425d6c}.lesson-availability strong{font-weight:700}
+  .lesson-other{display:flex;justify-content:space-between;gap:30px;margin-top:28px}.lesson-other p{font-size:13px;color:#566671;margin:0 0 8px}.lesson-other a{font-size:14px;text-decoration:underline;text-underline-offset:5px;display:inline-block;padding-block:6px}.lesson-other small{display:block;font-size:12px;color:#566671;margin-top:6px}.lesson-other .lesson-english{display:flex;flex-direction:column;justify-content:center;gap:7px;text-decoration:none;font-family:var(--font-display)}.lesson-english span{font-size:12px;color:#566671}.lesson-english strong{font-size:16px;font-weight:500}.lesson-english:hover strong{text-decoration:underline;text-underline-offset:5px}.selection-announcement{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  @media(max-width:1000px){.lesson-panel{padding:28px}.lesson-switch strong{font-size:18px}.lesson-switch button{gap:14px;padding:18px}.lesson-overview{gap:24px}.lesson-price .quote-price{font-size:24px}}
+  @media(max-width:800px){.lesson-switch{gap:10px;margin-bottom:20px}.lesson-switch button{padding:16px 14px;gap:0;align-items:flex-start;min-height:112px}.choice-number,.choice-mark{display:none}.lesson-switch strong{font-size:16px;line-height:1.7}.lesson-switch small{font-size:12px;line-height:1.6}.lesson-panel{padding:24px 20px;margin-top:20px}.lesson-overview{grid-template-columns:1fr;gap:22px}.lesson-overview h3{font-size:23px}.lesson-price{border-left:0;border-top:1px solid #d8e1e6;padding:18px 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 14px}.lesson-price>span:first-child{flex-basis:100%}.lesson-price>strong{font-size:36px}.lesson-price .quote-price{font-size:25px;margin:0}.lesson-conditions{grid-template-columns:1fr;gap:18px;padding:20px 0}.lesson-conditions>div{display:grid;grid-template-columns:68px 1fr;gap:10px}.lesson-conditions dt{margin:3px 0 0}.lesson-conditions dd{min-width:0}.lesson-other{flex-direction:column;gap:20px}.lesson-other .lesson-english{padding-top:20px;border-top:1px solid #c9d5dc}.lesson-availability{margin-bottom:26px!important}}
+  @media(max-width:359px){.lesson-panel{padding:20px 16px}.lesson-switch strong{font-size:15px}.lesson-switch button{padding:14px 11px}.lesson-conditions>div{grid-template-columns:1fr;gap:3px}}
+  @media(max-width:800px){.lesson-price.membership-status{padding:18px 20px;display:block;border-top:0;border-left:3px solid #79932e}.membership-status .quote-price{margin:8px 0;font-size:25px}}
+</style>
