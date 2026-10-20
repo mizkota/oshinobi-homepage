@@ -12,7 +12,7 @@ const courses = [
 ];
 ---
 
-<Layout showFooterCta={false} contactLabel="会員キャンセル待ち" contactUrl="#group-consultation" title="コース・料金システム" description="御忍庭球塾のコース・料金案内。グループ会員はキャンセル待ち受付中。時間割や継続料金を確認して、希望の曜日・時間帯をLINEでお知らせください。">
+<Layout showFooterCta={false} contactLabel="会員キャンセル待ち" contactUrl="#group-consultation" title="コース・料金システム" description="御忍庭球塾のコース・料金案内グループ会員はキャンセル待ち受付中時間割や継続料金を確認して希望の曜日・時間帯をLINEでお知らせください">
 
   <Fragment slot="head">
     <!-- 構造化データ: Service -->
@@ -38,7 +38,7 @@ const courses = [
             "itemOffered": {
               "@type": "Service",
               "name": "グループレッスン（通常期）",
-              "description": "定員6名の少人数制レッスン。月曜〜金曜 19:30〜22:40。通常期（5月〜10月）。"
+              "description": "定員6名の少人数制レッスン月曜〜金曜 19:30〜22:40通常期（5月〜10月）"
             },
             "price": "12000",
             "priceCurrency": "JPY",
@@ -54,7 +54,7 @@ const courses = [
             "itemOffered": {
               "@type": "Service",
               "name": "グループレッスン（冬期）",
-              "description": "定員6名の少人数制レッスン。月曜〜金曜 19:30〜22:40。冬期（11月〜4月）。"
+              "description": "定員6名の少人数制レッスン月曜〜金曜 19:30〜22:40冬期（11月〜4月）"
             },
             "price": "13000",
             "priceCurrency": "JPY",
@@ -80,7 +80,7 @@ const courses = [
             "itemOffered": {
               "@type": "Service",
               "name": "プライベートレッスン",
-              "description": "最大6名まで参加可能。会員でなくても受講可。料金はLINEにて個別にご案内。"
+              "description": "最大6名まで参加可能会員でなくても受講可料金はLINEにて個別にご案内"
             }
           }
         ]
@@ -113,16 +113,16 @@ const courses = [
 
       <div class="bg-accent/10 ring-1 ring-accent/30 rounded-2xl p-8 mb-8 text-center">
         <p class="text-xl font-bold text-primary mb-2">グループ会員のキャンセル待ち受付中</p>
-        <p class="text-text-light">レギュラー会員枠は現在満員です。入会をご希望の方は、希望の曜日・時間帯とテニス経験をLINEでお知らせください。</p>
+        <p class="text-text-light">レギュラー会員枠は現在満員です入会をご希望の方は希望の曜日・時間帯とテニス経験をLINEでお知らせください</p>
         <a href="#group-consultation" class="inline-block mt-4 underline underline-offset-4 font-bold text-primary">会員キャンセル待ちの相談へ →</a>
       </div>
       <!-- 定員説明 -->
       <div class="bg-white rounded-2xl p-6 md:p-8 ring-1 ring-line shadow-sm mb-8">
         <h3 class="font-bold text-lg mb-3">定員について</h3>
         <div class="text-text-light space-y-2 text-sm leading-relaxed">
-          <p>各コースの<strong class="text-text">レギュラー会員の定員は6名</strong>です。</p>
-          <p>振替受講用に1枠を確保しているため、<strong class="text-text">1レッスンの最大参加人数は7名</strong>になる場合があります。</p>
-          <p>少人数制を維持するため、7名を超えることはありません。</p>
+          <p>各コースの<strong class="text-text">レギュラー会員の定員は6名</strong>です</p>
+          <p>振替受講用に1枠を確保しているため<strong class="text-text">1レッスンの最大参加人数は7名</strong>になる場合があります</p>
+          <p>少人数制を維持するため7名を超えることはありません</p>
         </div>
       </div>
 
@@ -150,7 +150,7 @@ const courses = [
         </div>
       </div>
 
-      <p class="text-sm text-text-light leading-relaxed mb-8">B・BC・CDなどのクラス選びは、テニス経験と練習したい内容を伺ってご相談いただけます。<a href="#group-consultation" class="underline underline-offset-4 text-primary">自分に合うクラスを相談する →</a></p>
+      <p class="text-sm text-text-light leading-relaxed mb-8">B・BC・CDなどのクラス選びはテニス経験と練習したい内容を伺ってご相談いただけます<a href="#group-consultation" class="underline underline-offset-4 text-primary">自分に合うクラスを相談する →</a></p>
 
 
       <!-- Pricing -->
@@ -192,13 +192,13 @@ const courses = [
       <aside class="bg-primary/5 ring-1 ring-primary/20 rounded-2xl p-6 md:p-8 mb-8" aria-labelledby="price-revision-title">
         <p class="text-sm text-text-light mb-2">2026年9月29日 お知らせ</p>
         <h3 id="price-revision-title" class="font-bold text-xl text-primary mb-3">2027年1月からの料金改定について</h3>
-        <p class="leading-relaxed mb-3">2026年11月・12月は、従来の冬料金（月会費13,000円）を据え置きます。以下は改定後の料金です。すべて税込です。</p>
+        <p class="leading-relaxed mb-3">2026年11月・12月は従来の冬料金（月会費13,000円）を据え置きます以下は改定後の料金ですすべて税込です</p>
         <ul class="list-disc pl-5 space-y-2 leading-relaxed mb-4">
           <li><strong>2027年1月から：</strong>冬の月会費14,000円／単発・冬季4,200円</li>
           <li><strong>2027年1月から：</strong>会員の追加単発は通年3,000円</li>
           <li><strong>2027年5月から：</strong>夏の月会費13,000円／単発・夏季3,800円</li>
         </ul>
-        <p class="text-sm text-text-light mb-4">月会費は1か月あたり、単発料金は1回あたりです。改定後は夏季（5〜10月）・冬季（11〜4月）の料金を適用します。</p>
+        <p class="text-sm text-text-light mb-4">月会費は1か月あたり単発料金は1回あたりです改定後は夏季（5〜10月）・冬季（11〜4月）の料金を適用します</p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href={`${base}blog/price-revision-2027/`} class="font-bold text-primary underline underline-offset-4">改定の詳しいご案内</a>
           <a href={`${base}documents/price-revision-2027.pdf`} target="_blank" rel="noopener" class="font-bold text-primary underline underline-offset-4">お知らせPDFを開く</a>
@@ -221,7 +221,7 @@ const courses = [
 
       <div class="bg-accent/10 ring-1 ring-accent/30 rounded-2xl p-8 mb-8 text-center">
         <p class="text-xl font-bold text-primary mb-2">料金はご希望の時間・内容に応じて個別にご案内いたします</p>
-        <p class="text-text-light">希望日・開始時刻・練習時間・人数をお知らせください。</p>
+        <p class="text-text-light">希望日・開始時刻・練習時間・人数をお知らせください</p>
         <a href={`${base}private-lesson#private-consultation`} class="inline-block mt-4 font-bold text-primary underline underline-offset-4">個別レッスンの料金・日時を相談する →</a>
       </div>
 
@@ -246,7 +246,7 @@ const courses = [
           </li>
           <li class="flex items-start gap-3">
             <span class="text-accent-dark font-bold">●</span>
-            <span>定期的・継続的にご利用いただく場合は、料金についてご相談を承ります</span>
+            <span>定期的・継続的にご利用いただく場合は料金についてご相談を承ります</span>
           </li>
         </ul>
       </div>
