@@ -27,10 +27,10 @@ const steps = lesson === 'group'
     <a class="consultation-button" href={lessonLineUrl} target="_blank" rel="noopener noreferrer">
       <TennisIcon name="chat" /><span>{copy.label}</span><TennisIcon name="arrow" />
     </a>
-    <p class="consultation-hint">LINEで友だち追加後、トークにご希望を送ってください。</p>
+    <p class="consultation-hint">LINEで友だち追加後トークにご希望を送ってください</p>
     <details class="consultation-example">
       <summary>何を書けばいい？ 相談文の例を見る</summary>
-      <label for={`${id}-message`}>例文をコピーし、LINEのトークで空欄を埋めてください。</label>
+      <label for={`${id}-message`}>例文をコピーしLINEのトークで空欄を埋めてください</label>
       <textarea id={`${id}-message`} rows={lesson === 'group' ? 6 : 8} readonly data-consultation-message>{copy.message}</textarea>
       <button type="button" class="consultation-copy" data-copy-message hidden>相談文をコピー</button>
       <p class="consultation-status" role="status" data-copy-status></p>
@@ -59,11 +59,11 @@ const steps = lesson === 'group'
     button.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(message.value);
-        status.textContent = 'コピーしました。LINEのトークに貼り付け、空欄を埋めて送ってください。';
+        status.textContent = 'コピーしましたLINEのトークに貼り付け空欄を埋めて送ってください';
       } catch {
         message.focus();
         message.select();
-        status.textContent = '相談文を選択しました。端末のコピー操作でコピーしてください。';
+        status.textContent = '相談文を選択しました端末のコピー操作でコピーしてください';
       }
     });
   });

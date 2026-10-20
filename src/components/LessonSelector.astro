@@ -6,26 +6,26 @@ const base = import.meta.env.BASE_URL;
 
 <section class="lesson-selector section-space" id="choose-lesson" aria-labelledby="choose-lesson-title" data-lesson-selector>
   <div class="wrap">
-    <div class="section-top"><div><p class="section-label">01 / FIND YOUR LESSON</p><h2 id="choose-lesson-title">どんな練習が<br class="mobile-break" />したいですか？</h2></div><p>仲間と続ける。自分の課題に向き合う。<br />目的に合わせて、レッスンを選べます。</p></div>
+    <div class="section-top"><div><p class="section-label">01 / FIND YOUR LESSON</p><h2 id="choose-lesson-title">どんな練習が<br class="mobile-break" />したいですか？</h2></div><p>仲間と続ける自分の課題に向き合う<br />目的に合わせてレッスンを選べます</p></div>
     <div class="lesson-switch" role="group" aria-label="レッスンを選ぶ" data-lesson-switch hidden>
       <button type="button" data-lesson-choice="group" aria-pressed="true" aria-controls="group-lesson-panel"><span class="choice-number">01</span><span><strong>仲間と続けたい</strong><small>グループ・会員キャンセル待ち</small></span><span class="choice-mark" aria-hidden="true">↓</span></button>
       <button type="button" data-lesson-choice="private" aria-pressed="false" aria-controls="private-lesson-panel"><span class="choice-number">02</span><span><strong>自分の課題に集中したい</strong><small>プライベートレッスン</small></span><span class="choice-mark" aria-hidden="true">↓</span></button>
     </div>
     <div class="selection-announcement" aria-live="polite" data-selection-status></div>
     <article id="group-lesson-panel" class="lesson-panel" data-lesson-panel="group" aria-labelledby="group-panel-title">
-      <div class="lesson-overview"><div><p class="lesson-type">GROUP LESSON</p><h3 id="group-panel-title">定期的に、仲間と練習する。</h3><p>レギュラー6名の少人数レッスン。コーチが一人ひとりのプレーを見ながら、その場でアドバイスします。</p></div><div class="lesson-price membership-status"><span>グループ会員をご希望の方へ</span><strong class="quote-price">キャンセル待ち<br />受付中</strong><span>レギュラー会員枠は現在満員です</span></div></div>
+      <div class="lesson-overview"><div><p class="lesson-type">GROUP LESSON</p><h3 id="group-panel-title">定期的に仲間と練習する</h3><p>レギュラー6名の少人数レッスンコーチが一人ひとりのプレーを見ながらその場でアドバイスします</p></div><div class="lesson-price membership-status"><span>グループ会員をご希望の方へ</span><strong class="quote-price">キャンセル待ち<br />受付中</strong><span>レギュラー会員枠は現在満員です</span></div></div>
       <dl class="lesson-conditions"><div><dt>人数</dt><dd>レギュラー6名<br /><small>振替を含む場合は最大7名</small></dd></div><div><dt>会場</dt><dd>PLACE OF SPORTS NEO<br /><small>札幌市白石区・インドアコート</small></dd></div><div><dt>クラス選び</dt><dd>経験・練習したい内容から相談<br /><a href={`${base}courses#group-schedule`}>時間割・継続料金を見る →</a></dd></div></dl>
-      <p class="lesson-availability"><strong>入会をご希望の方は、まずキャンセル待ちへ。</strong> 希望の曜日・時間帯とテニス経験をLINEでお知らせください。</p>
+      <p class="lesson-availability"><strong>入会をご希望の方はまずキャンセル待ちへ</strong> 希望の曜日・時間帯とテニス経験をLINEでお知らせください</p>
       <LessonConsultation lesson="group" id="group-consultation" />
-      <details class="group-trial"><summary>初回体験について</summary><p>初回体験は1回3,000円（税込）です。体験の受講可否・日程はLINEでご確認ください。</p></details>
+      <details class="group-trial"><summary>初回体験について</summary><p>初回体験は1回3,000円（税込）です体験の受講可否・日程はLINEでご確認ください</p></details>
     </article>
     <article id="private-lesson-panel" class="lesson-panel" data-lesson-panel="private" aria-labelledby="private-panel-title">
-      <div class="lesson-overview"><div><p class="lesson-type">PRIVATE LESSON</p><h3 id="private-panel-title">練習したいことに、じっくり。</h3><p>一人でも、仲間と一緒でも。レベルや目標に合わせて、取り組みたい課題と練習内容を相談できます。</p></div><div class="lesson-price"><span>プライベートレッスン</span><strong class="quote-price">個別お見積もり</strong><span>時間・人数・内容に応じてご案内</span></div></div>
+      <div class="lesson-overview"><div><p class="lesson-type">PRIVATE LESSON</p><h3 id="private-panel-title">練習したいことにじっくり</h3><p>一人でも仲間と一緒でもレベルや目標に合わせて取り組みたい課題と練習内容を相談できます</p></div><div class="lesson-price"><span>プライベートレッスン</span><strong class="quote-price">個別お見積もり</strong><span>時間・人数・内容に応じてご案内</span></div></div>
       <dl class="lesson-conditions"><div><dt>人数・対象</dt><dd>1名〜最大6名<br /><small>会員でなくても受講できます</small></dd></div><div><dt>日時</dt><dd>ご希望に合わせて相談<br /><small>開始時刻・練習時間をお知らせください</small></dd></div><div><dt>会場</dt><dd>コートはお客様が手配<br /><a href={`${base}private-lesson`}>内容・コーチ紹介を見る →</a></dd></div></dl>
-      <p class="lesson-availability">コートの手配や費用について気になる点も、希望条件と一緒にお知らせください。</p>
+      <p class="lesson-availability">コートの手配や費用について気になる点も希望条件と一緒にお知らせください</p>
       <LessonConsultation lesson="private" id="private-consultation" />
     </article>
-    <div class="lesson-other"><div><p>どちらが合うか迷ったら</p><a href={lessonLineUrl} target="_blank" rel="noopener noreferrer">クラス選びからLINEで相談する ↗</a><small>テニス経験と、練習したいことをお知らせください。</small></div><a class="lesson-english" href={`${base}en`}><span>Visiting Sapporo?</span><strong>Tennis lessons in English ↗</strong></a></div>
+    <div class="lesson-other"><div><p>どちらが合うか迷ったら</p><a href={lessonLineUrl} target="_blank" rel="noopener noreferrer">クラス選びからLINEで相談する ↗</a><small>テニス経験と練習したいことをお知らせください</small></div><a class="lesson-english" href={`${base}en`}><span>Visiting Sapporo?</span><strong>Tennis lessons in English ↗</strong></a></div>
   </div>
 </section>
 
@@ -39,9 +39,9 @@ const base = import.meta.env.BASE_URL;
     const select = (lesson: string, announce = false) => {
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lessonChoice === lesson)));
       panels.forEach(panel => panel.hidden = panel.dataset.lessonPanel !== lesson);
-      if (announce && status) status.textContent = `${lesson === 'group' ? 'グループ' : 'プライベート'}レッスンの条件と相談方法を表示しました。`;
+      if (announce && status) status.textContent = `${lesson === 'group' ? 'グループ' : 'プライベート'}レッスンの条件と相談方法を表示しました`;
     };
-    // 深いリンクからも、目的の相談欄が隠れないようにする。
+    // 深いリンクからも目的の相談欄が隠れないようにする
     const revealTarget = (hash: string) => {
       const target = document.getElementById(hash.slice(1));
       if (!target || !section.contains(target)) return;

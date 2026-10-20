@@ -6,11 +6,11 @@ import '../styles/editorial.css';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout showFooterCta={false} title="札幌のテニス プライベートレッスン" contactLabel="個別の料金・日時を相談" contactUrl="#private-consultation" description="札幌の御忍庭球塾。1名から最大6名まで、目的に合わせたプライベートレッスン。時間・人数・内容に応じた料金と日時をLINEでご相談いただけます。">
+<Layout showFooterCta={false} title="札幌のテニス プライベートレッスン" contactLabel="個別の料金・日時を相談" contactUrl="#private-consultation" description="札幌の御忍庭球塾1名から最大6名まで目的に合わせたプライベートレッスン時間・人数・内容に応じた料金と日時をLINEでご相談いただけます">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org', '@type': 'Service', name: 'テニス プライベートレッスン',
-      description: '札幌で1名から最大6名まで、目標や経験に合わせて練習内容を相談できるテニスレッスン。料金は時間・人数・内容に応じて個別に案内。',
+      description: '札幌で1名から最大6名まで目標や経験に合わせて練習内容を相談できるテニスレッスン料金は時間・人数・内容に応じて個別に案内',
       serviceType: 'テニス プライベートレッスン', areaServed: { '@type': 'City', name: '札幌市' },
       provider: { '@type': 'SportsActivityLocation', name: '御忍庭球塾', url: 'https://oshinobitennis.com', address: { '@type': 'PostalAddress', addressLocality: '札幌市白石区', addressRegion: '北海道', addressCountry: 'JP' } }
     })} />
@@ -19,36 +19,36 @@ const base = import.meta.env.BASE_URL;
   <div class="editorial-home private-editorial">
     <section class="private-opening">
       <div class="wrap private-opening-grid">
-        <div><p class="section-label">PRIVATE LESSON / SAPPORO</p><h1>練習したいことに、<br />じっくり向き合う。</h1><p class="private-lead">一人でも、仲間と一緒でも。<br />取り組みたい課題に合わせて、<br />練習内容を相談できます。</p><a href="#private-consultation" class="action action-lime">料金・日時を相談する <TennisIcon name="arrow" /></a><p class="private-opening-note">1名〜最大6名／会員でなくても受講できます</p></div>
+        <div><p class="section-label">PRIVATE LESSON / SAPPORO</p><h1>練習したいことに<br />じっくり向き合う</h1><p class="private-lead">一人でも仲間と一緒でも<br />取り組みたい課題に合わせて<br />練習内容を相談できます</p><a href="#private-consultation" class="action action-lime">料金・日時を相談する <TennisIcon name="arrow" /></a><p class="private-opening-note">1名〜最大6名／会員でなくても受講できます</p></div>
         <figure><div class="private-portrait"><img src={`${base}images/hero/coach-kota-20260907.png`} alt="水上皓太コーチ" width="1086" height="1448" fetchpriority="high" /></div><figcaption>YOUR COACH　水上 皓太</figcaption></figure>
       </div>
     </section>
     <section class="wrap section-space private-approach">
-      <div><p class="section-label">YOUR GOAL, YOUR LESSON</p><h2>今、練習したいことを<br />聞かせてください。</h2></div>
-      <div><p class="approach-lead">「このショットを練習したい」<br />「試合での動きを見てほしい」</p><p>初心者から経験者まで、一人ひとりの経験・レベル・目標に合わせたレッスンです。希望する内容を伺いながら、練習することを一緒に考えます。</p><p>一人で取り組む時間にも、仲間と練習する時間にも。最大6名までご相談いただけます。</p></div>
+      <div><p class="section-label">YOUR GOAL, YOUR LESSON</p><h2>今練習したいことを<br />聞かせてください</h2></div>
+      <div><p class="approach-lead">「このショットを練習したい」<br />「試合での動きを見てほしい」</p><p>初心者から経験者まで一人ひとりの経験・レベル・目標に合わせたレッスンです希望する内容を伺いながら練習することを一緒に考えます</p><p>一人で取り組む時間にも仲間と練習する時間にも最大6名までご相談いただけます</p></div>
     </section>
     <section class="private-conditions section-space">
-      <div class="wrap"><div class="section-top"><div><p class="section-label">BEFORE YOU BOOK</p><h2>料金と、受講の条件。</h2></div><p>希望条件をお知らせいただき、<br />料金と実施できる日時をご案内します。</p></div>
+      <div class="wrap"><div class="section-top"><div><p class="section-label">BEFORE YOU BOOK</p><h2>料金と受講の条件</h2></div><p>希望条件をお知らせいただき<br />料金と実施できる日時をご案内します</p></div>
         <dl class="private-facts">
-          <div><dt>料金</dt><dd><strong>個別お見積もり</strong><p>練習時間・人数・希望内容に応じてご案内します。定期的・継続的なご利用もご相談ください。</p></dd></div>
-          <div><dt>人数・対象</dt><dd><strong>1名から最大6名まで</strong><p>初心者から経験者まで。会員でなくても受講できます。</p></dd></div>
-          <div><dt>日時</dt><dd><strong>ご希望に合わせて相談</strong><p>希望日・開始時刻に加えて、何時間練習したいかをお知らせください。</p></dd></div>
-          <div><dt>会場・出張</dt><dd><strong>コートはお客様が手配</strong><p>予定しているコートをお知らせください。白石区・中央区在住の方は無料で出張します。その他の地域や費用についてもLINEでご確認いただけます。</p></dd></div>
-        </dl><p class="private-condition-note">コートの予約や費用、持物など、気になることも一緒にお知らせください。</p>
+          <div><dt>料金</dt><dd><strong>個別お見積もり</strong><p>練習時間・人数・希望内容に応じてご案内します定期的・継続的なご利用もご相談ください</p></dd></div>
+          <div><dt>人数・対象</dt><dd><strong>1名から最大6名まで</strong><p>初心者から経験者まで会員でなくても受講できます</p></dd></div>
+          <div><dt>日時</dt><dd><strong>ご希望に合わせて相談</strong><p>希望日・開始時刻に加えて何時間練習したいかをお知らせください</p></dd></div>
+          <div><dt>会場・出張</dt><dd><strong>コートはお客様が手配</strong><p>予定しているコートをお知らせください白石区・中央区在住の方は無料で出張しますその他の地域や費用についてもLINEでご確認いただけます</p></dd></div>
+        </dl><p class="private-condition-note">コートの予約や費用持物など気になることも一緒にお知らせください</p>
       </div>
     </section>
     <section class="wrap section-space private-coach" id="coach">
       <div class="coach-photo"><img src={`${base}images/en/coach_kota.jpg`} alt="コートでラケットを持つ水上皓太コーチ" width="978" height="767" loading="lazy" /></div>
-      <div><p class="section-label">YOUR COACH</p><h2>水上 皓太</h2><p class="coach-role">御忍庭球塾 代表</p><p>札幌市白石区を拠点に活動するテニスコーチ。一人ひとりの個性やレベルに合わせて、プレーを見ながらその場でアドバイスします。</p><p>「うまく言葉にできない」という課題も、まずは気軽に聞かせてください。</p></div>
+      <div><p class="section-label">YOUR COACH</p><h2>水上 皓太</h2><p class="coach-role">御忍庭球塾 代表</p><p>札幌市白石区を拠点に活動するテニスコーチ一人ひとりの個性やレベルに合わせてプレーを見ながらその場でアドバイスします</p><p>「うまく言葉にできない」という課題もまずは気軽に聞かせてください</p></div>
     </section>
     <section class="private-contact-section section-space"><div class="wrap"><LessonConsultation lesson="private" id="private-consultation" /></div></section>
     <section class="lesson-questions wrap section-space" aria-labelledby="private-faq-title">
-      <div><p class="section-label">QUESTIONS</p><h2 id="private-faq-title">相談前に、<br />確認したいこと。</h2></div>
+      <div><p class="section-label">QUESTIONS</p><h2 id="private-faq-title">相談前に<br />確認したいこと</h2></div>
       <div class="question-list">
-        <details><summary>初めてでも、会員でなくても受けられますか？</summary><p>初心者から経験者まで、会員でなくても受講できます。テニス経験と練習したいことをお知らせください。</p></details>
-        <details><summary>仲間と一緒に受けられますか？</summary><p>1名から最大6名まで参加できます。人数と希望する練習内容を伺い、料金をご案内します。</p></details>
-        <details><summary>料金はどうすればわかりますか？</summary><p>希望日・開始時刻・練習時間・人数・練習内容をLINEでお知らせください。個別にご案内します。コート代など気になる費用も一緒にご確認ください。</p></details>
-        <details><summary>コートは誰が予約しますか？</summary><p>コートはお客様にてご手配ください。日時や場所が未定の場合は、希望条件をLINEでご相談いただけます。</p></details>
+        <details><summary>初めてでも会員でなくても受けられますか？</summary><p>初心者から経験者まで会員でなくても受講できますテニス経験と練習したいことをお知らせください</p></details>
+        <details><summary>仲間と一緒に受けられますか？</summary><p>1名から最大6名まで参加できます人数と希望する練習内容を伺い料金をご案内します</p></details>
+        <details><summary>料金はどうすればわかりますか？</summary><p>希望日・開始時刻・練習時間・人数・練習内容をLINEでお知らせください個別にご案内しますコート代など気になる費用も一緒にご確認ください</p></details>
+        <details><summary>コートは誰が予約しますか？</summary><p>コートはお客様にてご手配ください日時や場所が未定の場合は希望条件をLINEでご相談いただけます</p></details>
         <a class="line-link" href="#private-consultation">個別レッスンを相談する <TennisIcon name="arrow" /></a>
       </div>
     </section>

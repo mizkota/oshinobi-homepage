@@ -8,7 +8,7 @@ import { posts } from '../data/blog-posts';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="札幌の少人数テニスレッスン" description="水上皓太が指導する、札幌の御忍庭球塾。グループ会員はキャンセル待ち受付中。入会待ちやプライベートレッスンの料金・日時をLINEで相談できます。" contactLabel="レッスンを選ぶ" contactUrl="#choose-lesson" showFooterCta={false} socialImage="https://oshinobitennis.com/images/hero/coach-kota-20260907.png">
+<Layout title="札幌の少人数テニスレッスン" description="水上皓太が指導する札幌の御忍庭球塾グループ会員はキャンセル待ち受付中入会待ちやプライベートレッスンの料金・日時をLINEで相談できます" contactLabel="レッスンを選ぶ" contactUrl="#choose-lesson" showFooterCta={false} socialImage="https://oshinobitennis.com/images/hero/coach-kota-20260907.png">
 
   <Fragment slot="head">
     <!-- 構造化データ: SportsActivityLocation -->
@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL;
       "@context": "https://schema.org",
       "@type": "SportsActivityLocation",
       "name": "御忍庭球塾",
-      "description": "札幌市白石区のテニススクール。少人数制グループレッスン・プライベートレッスン。",
+      "description": "札幌市白石区のテニススクール少人数制グループレッスン・プライベートレッスン",
       "url": "https://oshinobitennis.com",
       "sport": "Tennis",
       "address": {
@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL;
           "name": "グループレッスン月会費",
           "price": "12000",
           "priceCurrency": "JPY",
-          "description": "通常期（5月〜10月）月額12,000円、冬期（11月〜4月）月額13,000円"
+          "description": "通常期（5月〜10月）月額12,000円冬期（11月〜4月）月額13,000円"
         },
         {
           "@type": "Offer",
@@ -62,8 +62,8 @@ const base = import.meta.env.BASE_URL;
       <div class="opening-inner">
         <div class="opening-copy" data-reveal>
           <p class="kicker"><span class="live-dot"></span> 札幌・白石区の少人数テニスレッスン</p>
-          <h1><span>そのミスの理由を、</span><br /><span>一緒に見つけよう。</span></h1>
-          <p class="opening-description">一人ひとりのプレーを見て、その場でアドバイス。<br />グループ・個別から、あなたに合う練習を。</p>
+          <h1><span>趣味だからこそ、</span><br /><span>本気のテニスを。</span></h1>
+          <p class="opening-description">一人ひとりのプレーを見てその場でアドバイス<br />グループ・個別からあなたに合う練習を</p>
           <a href="#choose-lesson" class="action action-lime">自分に合うレッスンを選ぶ <TennisIcon name="arrow" /></a>
           <a class="quiet-link" href="#group-consultation">グループ会員のキャンセル待ち <span aria-hidden="true">↓</span></a>
         </div>
@@ -78,37 +78,37 @@ const base = import.meta.env.BASE_URL;
     <LessonSelector />
 
     <section id="lesson" class="lesson-story wrap section-space">
-      <div class="section-heading"><p class="section-label">02 / OUR LESSON</p><h2>打って、試して、<br />少しずつ。</h2></div>
-      <div class="lesson-body" data-reveal><p class="lead-text">うまく打てた一本も、<br />思うようにいかなかった一本も。</p><p>コーチがプレーを見ながら、その場でアドバイスします。気になることは、コートで聞いてください。少人数で、じっくり打つ時間をつくっています。</p><a class="line-link" href={`${base}private-lesson#coach`}>水上皓太・コーチ紹介 <TennisIcon name="arrow" /></a></div>
+      <div class="section-heading"><p class="section-label">02 / OUR LESSON</p><h2>打って試して<br />少しずつ</h2></div>
+      <div class="lesson-body" data-reveal><p class="lead-text">うまく打てた一本も<br />思うようにいかなかった一本も</p><p>コーチがプレーを見ながらその場でアドバイスします気になることはコートで聞いてください少人数でじっくり打つ時間をつくっています</p><a class="line-link" href={`${base}private-lesson#coach`}>水上皓太・コーチ紹介 <TennisIcon name="arrow" /></a></div>
       <figure class="lesson-photo" data-reveal><img src={`${base}images/features/snapshot.jpg`} alt="御忍庭球塾の少人数レッスンの様子" width="1200" height="800" loading="lazy" /><figcaption><span>ON THE COURT</span> 御忍庭球塾のレッスン風景</figcaption></figure>
-      <aside class="venue-note"><TennisIcon name="pin" /><div><h3>いつものコートで。</h3><p>グループレッスンは、PLACE OF SPORTS NEOのインドアコートを借りて行います。</p><a class="line-link" href="https://neo-spo.com/" target="_blank" rel="noopener">会場の公式サイト <span aria-hidden="true">↗</span></a></div></aside>
+      <aside class="venue-note"><TennisIcon name="pin" /><div><h3>いつものコートで</h3><p>グループレッスンはPLACE OF SPORTS NEOのインドアコートを借りて行います</p><a class="line-link" href="https://neo-spo.com/" target="_blank" rel="noopener">会場の公式サイト <span aria-hidden="true">↗</span></a></div></aside>
     </section>
 
     <section class="lesson-questions wrap section-space" aria-labelledby="lesson-questions-title">
-      <div><p class="section-label">BEFORE YOUR LESSON</p><h2 id="lesson-questions-title">はじめる前の、<br />気になること。</h2></div>
+      <div><p class="section-label">BEFORE YOUR LESSON</p><h2 id="lesson-questions-title">はじめる前の<br />気になること</h2></div>
       <div class="question-list">
-        <details><summary>どのクラスが自分に合いますか？</summary><p>テニス経験と、練習したいことをLINEでお知らせください。グループのクラス選びや個別レッスンについてご相談いただけます。</p></details>
-        <details><summary>満員ですが、入会を希望できますか？</summary><p>レギュラー会員枠のキャンセル待ちを受け付けています。希望の曜日・時間帯とテニス経験をLINEでお知らせください。入会待ちの受付についてご相談いただけます。</p></details>
-        <details><summary>個別レッスンは一人でも受けられますか？</summary><p>1名から最大6名まで、会員でなくても受講できます。時間・人数・内容に応じて料金を個別にご案内します。コートはお客様にてご手配ください。</p></details>
-        <details><summary>持物や貸出について知りたいです。</summary><p>希望するレッスンと一緒に、ラケット・シューズなどの準備で気になる点をお知らせください。相談時にご確認いただけます。</p></details>
+        <details><summary>どのクラスが自分に合いますか？</summary><p>テニス経験と練習したいことをLINEでお知らせくださいグループのクラス選びや個別レッスンについてご相談いただけます</p></details>
+        <details><summary>満員ですが入会を希望できますか？</summary><p>レギュラー会員枠のキャンセル待ちを受け付けています希望の曜日・時間帯とテニス経験をLINEでお知らせください入会待ちの受付についてご相談いただけます</p></details>
+        <details><summary>個別レッスンは一人でも受けられますか？</summary><p>1名から最大6名まで会員でなくても受講できます時間・人数・内容に応じて料金を個別にご案内しますコートはお客様にてご手配ください</p></details>
+        <details><summary>持物や貸出について知りたいです</summary><p>希望するレッスンと一緒にラケット・シューズなどの準備で気になる点をお知らせください相談時にご確認いただけます</p></details>
       </div>
     </section>
 
     <section class="journal wrap section-space">
-      <div class="journal-copy"><p class="section-label">03 / OFF THE COURT</p><h2>コートの外でも、<br />テニスの話を。</h2><p>ダブルスの動きや考え方を、動画で解説。<br />次の練習のヒントにどうぞ。</p><a class="line-link" href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener"><TennisIcon name="play" /> YouTubeチャンネル <span aria-hidden="true">↗</span></a></div>
+      <div class="journal-copy"><p class="section-label">03 / OFF THE COURT</p><h2>コートの外でも<br />テニスの話を</h2><p>ダブルスの動きや考え方を動画で解説<br />次の練習のヒントにどうぞ</p><a class="line-link" href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener"><TennisIcon name="play" /> YouTubeチャンネル <span aria-hidden="true">↗</span></a></div>
       <div class="video-window" data-reveal><iframe src="https://www.youtube.com/embed/bXEScAkbFYI" title="御忍庭球塾のダブルス解説動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </section>
 
     <section class="updates wrap">
       <div class="section-top"><div><p class="section-label">INFORMATION</p><h2>塾からのお知らせ</h2></div><a class="line-link" href={`${base}blog`}>一覧へ <TennisIcon name="arrow" /></a></div>
       <div class="update-list">{posts.slice(0,3).map(post => <a href={`${base}blog/${post.slug}/`}><time>{post.date}</time><span class="update-category">{post.category}</span><span class="update-title">{post.title}</span><TennisIcon name="arrow" /></a>)}</div>
-      <a class="string-service string-service-photo" href={`${base}gut24`}><img src={`${base}images/gut24/hands.png`} alt="ガット張替の手元" width="1223" height="1286" loading="lazy" /><div><span>RACKET STRINGING</span><h3>ガット張替も、御忍で。</h3><p>OSHINOBI GUT 24 / 24時間受付</p></div><TennisIcon name="arrow" /></a>
+      <a class="string-service string-service-photo" href={`${base}gut24`}><img src={`${base}images/gut24/hands.png`} alt="ガット張替の手元" width="1223" height="1286" loading="lazy" /><div><span>RACKET STRINGING</span><h3>ガット張替も御忍で</h3><p>OSHINOBI GUT 24 / 24時間受付</p></div><TennisIcon name="arrow" /></a>
     </section>
     <Reviews category="lesson" lang="ja" bg="bg-white" />
 
     <section class="closing section-space">
       <svg class="court-lines" viewBox="0 0 500 360" fill="none" aria-hidden="true"><path d="M20 20h460v320H20zM70 20v320M430 20v320M20 180h460M70 85h360M70 275h360M250 85v190" /></svg>
-      <div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>練習したいことを、<br />聞かせてください。</h2></div><div class="closing-action"><p>あなたに合うレッスンから、はじめよう。</p><a class="action action-lime" href="#choose-lesson">レッスンを選んで相談する <TennisIcon name="arrow" /></a><small>グループ会員のキャンセル待ちや個別の料金・日時を、<br />それぞれの相談欄から確認できます。</small></div></div>
+      <div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>練習したいことを<br />聞かせてください</h2></div><div class="closing-action"><p>あなたに合うレッスンからはじめよう</p><a class="action action-lime" href="#choose-lesson">レッスンを選んで相談する <TennisIcon name="arrow" /></a><small>グループ会員のキャンセル待ちや個別の料金・日時を<br />それぞれの相談欄から確認できます</small></div></div>
     </section>
   </div>
 </Layout>
