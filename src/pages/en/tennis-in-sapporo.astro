@@ -1,6 +1,6 @@
 ---
 import LayoutEN from '../../layouts/LayoutEN.astro';
-import { internationalBookingUrl } from '../../data/internationalBooking';
+import { internationalBookingUrl, internationalLessonFeeSummary } from '../../data/internationalBooking';
 const base = import.meta.env.BASE_URL;
 
 const title = 'Where to Play Tennis in Sapporo: A Visitor’s Guide';
@@ -302,7 +302,7 @@ const faqs = [
           I am Kota Mizukami, a tennis coach based in Sapporo. I book the indoor court, bring the rackets, balls and indoor shoes, and run the session in basic English &mdash; enough for instructions, drills and conversation, though I am not a fluent speaker.
         </p>
         <p>
-          NEO lesson fees are &yen;10,000 for 60 minutes, &yen;14,000 for 90 minutes or &yen;18,000 for 120 minutes per group of up to three players. Court rental, &yen;3,000 travel per group and processing are added. Our English reservation form shows the full quote and terms before you submit. Pay the court rental plus processing amount within 60 minutes; the lesson fee and travel amount are due on the day. We confirm after securing the court. Outdoor lessons at Yamahana court are coming soon.
+          {internationalLessonFeeSummary} Court rental, &yen;3,000 travel per group and processing are added. Our English reservation form shows the full quote and terms before you submit. Pay the court rental plus processing amount within 60 minutes; the lesson fee and travel amount are due on the day. We confirm after securing the court. Outdoor lessons at Yamahana court are coming soon.
         </p>
       </div>
       <div class="flex flex-col sm:flex-row gap-4">
