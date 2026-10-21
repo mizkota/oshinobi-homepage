@@ -1,5 +1,6 @@
 ---
 import LayoutEN from '../../layouts/LayoutEN.astro';
+import { internationalBookingUrl, internationalTermsUrl } from '../../data/internationalBooking';
 import Reviews from '../../components/Reviews.astro';
 import { getReviews } from '../../data/reviews';
 import TennisIcon from '../../components/TennisIcon.astro';
@@ -14,12 +15,12 @@ const avgRating =
     : 0;
 ---
 
-<LayoutEN showFooterCta={false} title="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. From ¥10,000 (60 min), indoor court open year-round, all equipment free. Beginners welcome.">
+<LayoutEN showFooterCta={false} title="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" description="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. Lesson fees from ¥10,000, plus court rental, ¥3,000 travel per group and processing. NEO indoor tennis; equipment included.">
 
   <Fragment slot="head">
     <!-- Open Graph -->
     <meta property="og:title" content="Tennis Lessons in Sapporo, Hokkaido | Oshinobi Tennis Academy" />
-    <meta property="og:description" content="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. From ¥10,000 (60 min), indoor court open year-round, all equipment free. Beginners welcome." />
+    <meta property="og:description" content="Private tennis lessons in Sapporo, Hokkaido with an English-friendly Japanese coach. Lesson fees from ¥10,000, plus court rental, ¥3,000 travel per group and processing. NEO indoor tennis; equipment included." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://oshinobitennis.com/en/" />
     <meta property="og:site_name" content="Oshinobi Tennis Academy" />
@@ -34,7 +35,7 @@ const avgRating =
       "description": "Private tennis lessons in Sapporo, Japan. Basic English supported — Japanese coach with conversational English. Personalized coaching for all levels from beginners to advanced players.",
       "url": "https://oshinobitennis.com/en/",
       "image": "https://oshinobitennis.com/images/hero/coach-kota-20260907.png",
-      "priceRange": "¥10,000 - ¥18,000 per lesson (court rental separate)",
+      "priceRange": "Lesson ¥10,000–¥18,000; court rental, ¥3,000 travel per group and processing added",
       "sport": "Tennis",
       "address": {
         "@type": "PostalAddress",
@@ -49,7 +50,6 @@ const avgRating =
         "latitude": 43.0536,
         "longitude": 141.4078
       },
-      "telephone": "+81-11-827-7171",
       "employee": {
         "@type": "Person",
         "name": "Kota Mizukami",
@@ -88,10 +88,10 @@ const avgRating =
         "@type": "ReserveAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://line.me/R/ti/p/@853empvr",
+          "urlTemplate": internationalBookingUrl,
           "actionPlatform": "http://schema.org/DesktopWebPlatform"
         },
-        "description": "Contact us via LINE or WeChat (ID: Oshinobi_Tennis) for pricing and availability"
+        "description": "Request a NEO lesson online. Advance payment does not confirm a court reservation."
       }
     })} />
 
@@ -137,7 +137,7 @@ const avgRating =
           "name": "How do I book a tennis lesson in Sapporo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Send us a message on LINE (Japan's most popular messaging app) or on WeChat (WeChat ID: Oshinobi_Tennis). We'll reply in simple English to confirm your preferred date, time, and lesson duration."
+            "text": "Use our English reservation form to choose a NEO session from tomorrow through one month ahead, review the total and submit your request. Pay the court rental plus processing amount in advance; we confirm after securing the court. For today or questions, contact us on LINE or WeChat (ID: Oshinobi_Tennis)."
           }
         },
         {
@@ -145,7 +145,7 @@ const avgRating =
           "name": "How much does a private tennis lesson in Sapporo cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "¥10,000 for 60 minutes, ¥14,000 for 90 minutes, or ¥18,000 for 120 minutes (+¥4,000 per additional 30 minutes) — per lesson, not per person (up to 2 players). Indoor court rental (¥4,400–¥6,600 per hour depending on season and time) is added; the coach arranges the court booking for you."
+            "text": "Lesson fees are ¥10,000 for 60 minutes, ¥14,000 for 90 minutes or ¥18,000 for 120 minutes per group of up to 2 players. NEO court rental, a ¥3,000 travel amount per group and processing are added. The full quote and advance/day balance are displayed before submission."
           }
         },
         {
@@ -153,7 +153,7 @@ const avgRating =
           "name": "What is the cancellation policy?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Free cancellation up to 7 days before your lesson. Within 7 days, message us and we'll do our best to reschedule. The court is fully indoors, so lessons are never cancelled due to weather."
+            "text": "Free cancellation until 18:00 JST seven days before the lesson. After that, only documented unavoidable court costs, after waivers or recoveries, may be retained, within the advance and quoted court fee. Processing fees are not deducted from refunds. If we cannot provide the session, the advance is refunded in full or an alternative is agreed."
           }
         }
       ]
@@ -165,17 +165,17 @@ const avgRating =
     <p class="kicker"><span class="live-dot"></span> PRIVATE LESSONS / SAPPORO, JAPAN</p>
     <h1 class="english-title">Play tennis<br />in Sapporo.</h1>
     <p class="opening-description">A local coach. A session shaped around you.<br />For visitors and residents, from your first rally onwards.</p>
-    <a href="#booking" class="action action-lime">Check availability <TennisIcon name="arrow" /></a><a href="#pricing" class="quiet-link">Explore lesson pricing <span aria-hidden="true">↓</span></a>
+    <a href={internationalBookingUrl} class="action action-lime">Check availability <TennisIcon name="arrow" /></a><a href="#pricing" class="quiet-link">Explore lesson pricing <span aria-hidden="true">↓</span></a>
   </div><figure class="opening-portrait"><div class="portrait-window"><img src={`${base}images/hero/coach-kota-20260907.png`} alt="Your coach, Kota Mizukami, on court" width="1086" height="1448" fetchpriority="high" /></div><figcaption><span>YOUR COACH</span><strong>Kota Mizukami</strong><span>SAPPORO</span></figcaption></figure></div><div class="opening-bottom"><span>OSHINOBI TENNIS</span><span>BASIC ENGLISH WELCOME</span></div></section>
   <nav class="service-jump wrap" aria-label="Explore this page"><a href="#lessons">The lesson</a><a href="#pricing">Pricing</a><a href="#booking">Booking</a><a href="#access">Getting here</a><a href="#faq">FAQ</a></nav>
 
-  <section id="lessons" class="service-intro wrap section-space"><div><p class="section-label">01 / YOUR TIME ON COURT</p><h2>Bring your curiosity.<br />We’ll bring the rackets.</h2></div><div><p class="service-lead">Come on your own, or bring a friend.</p><p>Private coaching for up to two players, with drills and practice matched to your level. Rackets, balls and indoor shoes are available to borrow free of charge. Just bring sportswear.</p><p>Lessons take place on a rented indoor court at PLACE OF SPORTS NEO. Kota arranges the court booking for you.</p></div><div class="service-mini"><div><TennisIcon name="people" /><strong>1–2 players</strong><span>Per private lesson</span></div><div><TennisIcon name="racket" /><strong>Equipment included</strong><span>Rackets, balls &amp; shoes</span></div><div><TennisIcon name="chat" /><strong>Basic English</strong><span>Simple instructions &amp; conversation</span></div></div></section>
+  <section id="lessons" class="service-intro wrap section-space"><div><p class="section-label">01 / YOUR TIME ON COURT</p><h2>Bring your curiosity.<br />We’ll bring the rackets.</h2></div><div><p class="service-lead">Come on your own, or bring a friend.</p><p>Private coaching for up to two players, with drills and practice matched to your level. Rackets, balls and indoor shoes are available to borrow free of charge. Just bring sportswear.</p><p>Lessons take place on a rented indoor court at PLACE OF SPORTS NEO. Kota arranges the court booking for you.</p><p>Outdoor lessons at Yamahana court are coming soon and cannot be booked yet.</p></div><div class="service-mini"><div><TennisIcon name="people" /><strong>1–2 players</strong><span>Per private lesson</span></div><div><TennisIcon name="racket" /><strong>Equipment included</strong><span>Rackets, balls &amp; shoes</span></div><div><TennisIcon name="chat" /><strong>Basic English</strong><span>Simple instructions &amp; conversation</span></div></div></section>
 
   <section id="coach" class="service-coach wrap"><figure data-reveal><img src={`${base}images/en/coach_kota.jpg`} alt="Kota Mizukami playing tennis" loading="lazy" /><figcaption>ON COURT / KOTA MIZUKAMI</figcaption></figure><div><p class="section-label">MEET YOUR COACH</p><h2>Kota Mizukami</h2><p class="service-lead">Local knowledge.<br />Personal attention.</p><p>Founder of Oshinobi Tennis Academy, with national tournament experience since his junior years. Kota focuses on doubles strategy and practical advice you can try straight away.</p><p>He speaks basic conversational English, rather than fluent English. Tennis instructions and simple conversation are welcome.</p><a class="line-link" href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener">Meet Kota on YouTube <TennisIcon name="arrow" /></a></div></section>
 
-  <section id="pricing" class="service-wash section-space"><div class="wrap"><div class="section-top"><div><p class="section-label">02 / LESSON PRICING</p><h2>Your time. Your pace.</h2></div><p>Price per lesson, for up to two players.<br /><strong>Court rental is charged separately.</strong></p></div><div class="price-rail">{[{min:60,price:10000,desc:'A first try or a focused practice session.'},{min:90,price:14000,desc:'Time for warm-up, drills and match play.'},{min:120,price:18000,desc:'More room to work on your game.'}].map(p=><div><p class="price-duration">{p.min}<span> MINUTES</span></p><strong class="price-value">¥{p.price.toLocaleString()}</strong><p>{p.desc}</p></div>)}</div><div class="price-notes"><p><strong>Indoor court:</strong> ¥4,400–¥6,600 per hour, depending on season and time. We confirm the total when arranging your booking.</p><p><strong>Longer sessions:</strong> +¥4,000 for each extra 30 minutes (150 min ¥22,000 / 180 min ¥26,000).</p><p><strong>Cancellation:</strong> Free up to 7 days before your lesson. Within 7 days, contact us to discuss rescheduling.</p><p>No prepayment required. Payment details are confirmed with your reservation.</p></div></div></section>
+  <section id="pricing" class="service-wash section-space"><div class="wrap"><div class="section-top"><div><p class="section-label">02 / LESSON PRICING</p><h2>Your time. Your pace.</h2></div><p>Lesson fee per group, for up to two players.<br /><strong>Court rental, ¥3,000 travel and processing are added.</strong></p></div><div class="price-rail">{[{min:60,price:10000,desc:'A first try or a focused practice session.'},{min:90,price:14000,desc:'Time for warm-up, drills and match play.'},{min:120,price:18000,desc:'More room to work on your game.'}].map(p=><div><p class="price-duration">{p.min}<span> MINUTES</span></p><strong class="price-value">¥{p.price.toLocaleString()}</strong><p>{p.desc}</p></div>)}</div><div class="price-notes"><p><strong>NEO indoor court:</strong> ¥4,400–¥6,600 per hour, depending on season and time. The reservation form shows the full total before you submit.</p><p><strong>Travel:</strong> ¥3,000 per group, including when you arrange your own transport. Hotel pickup is a request and is confirmed separately.</p><p><strong>Payment:</strong> Pay the court rental plus processing amount within 60 minutes of your request. Pay the lesson fee and travel amount on the day. Payment alone does not confirm the court.</p><p><strong>Cancellation:</strong> Free until 18:00 JST seven days before the lesson. After that, documented unavoidable court costs may be retained after waivers or recoveries. Processing fees are not deducted from refunds. <a href={internationalTermsUrl} class="underline">Read the full booking and refund terms.</a></p></div></div></section>
 
-  <section id="booking" class="wrap section-space"><div class="section-top"><div><p class="section-label">03 / LET’S MAKE A PLAN</p><h2>A message is all<br />it takes to start.</h2></div><p>Send your preferred date, time, duration<br />and number of players. We reply in simple English.</p></div><ol class="service-steps"><li><span>01</span><h3>Say hello</h3><p>Add Kota on LINE or WeChat and tell us when you’d like to play.</p></li><li><span>02</span><h3>Confirm your session</h3><p>We check the court and confirm the time, total price and meeting details.</p></li><li><span>03</span><h3>See you on court</h3><p>Bring sportswear. Borrow the equipment and enjoy your lesson.</p></li></ol><div class="booking-options"><div><p class="section-label">LINE</p><h3>Message Coach Kota</h3><p>Add us on LINE, then send your preferred date and time.</p><a class="action action-lime" href="https://line.me/R/ti/p/@853empvr" target="_blank" rel="noopener">Open LINE <TennisIcon name="arrow" /></a></div><div class="wechat-option"><div><p class="section-label">WECHAT / 微信</p><h3>Scan &amp; say hello</h3><p>Scan this code, or search for our WeChat ID.</p><code>Oshinobi_Tennis</code></div><img src={`${base}images/contact/wechat-qr.png`} alt="Scan this QR code in WeChat to add Coach Kota" width="640" height="640" loading="lazy" /></div></div></section>
+  <section id="booking" class="wrap section-space"><div class="section-top"><div><p class="section-label">03 / LET’S MAKE A PLAN</p><h2>Choose your session.<br />We’ll confirm the court.</h2></div><p>Book NEO indoor tennis in English.<br />For today or questions, message us below.</p></div><ol class="service-steps"><li><span>01</span><h3>Review your request</h3><p>Choose the date, time and guests in the English reservation form. Check the total and terms before submitting.</p></li><li><span>02</span><h3>Pay the advance</h3><p>Pay the displayed court rental and processing amount within 60 minutes. Your court is not confirmed yet.</p></li><li><span>03</span><h3>Receive confirmation</h3><p>We secure the court and confirm your session and pickup details. Pay the remaining lesson fee and travel amount on the day.</p></li></ol><p><a class="action action-lime" href={internationalBookingUrl}>Check dates &amp; request a lesson <TennisIcon name="arrow" /></a></p><div class="booking-options"><div><p class="section-label">QUESTIONS / SAME-DAY REQUESTS</p><h3>Message Coach Kota</h3><p>For today or a question before booking, contact us on LINE. Same-day lessons depend on availability.</p><a class="action action-lime" href="https://line.me/R/ti/p/@853empvr" target="_blank" rel="noopener">Open LINE <TennisIcon name="arrow" /></a></div><div class="wechat-option"><div><p class="section-label">WECHAT / 微信</p><h3>Questions? Say hello.</h3><p>Scan this code, or search for our WeChat ID.</p><code>Oshinobi_Tennis</code></div><img src={`${base}images/contact/wechat-qr.png`} alt="Scan this QR code in WeChat to add Coach Kota" width="640" height="640" loading="lazy" /></div></div></section>
 
   <section id="access" class="legacy-section access-section py-24 md:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
@@ -284,7 +284,7 @@ const avgRating =
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            Yes! The court at PLACE OF SPORTS NEO is fully indoors, so lessons are available year-round regardless of weather. Even during Hokkaido's snowy winters, you can enjoy tennis comfortably.
+            NEO is indoors and can be used year-round, subject to court and coach availability and facility operation. If we cannot provide your session, we offer an agreed alternative or a full advance refund.
           </div>
         </details>
 
@@ -315,7 +315,7 @@ const avgRating =
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            &yen;10,000 for 60 minutes, &yen;14,000 for 90 minutes, or &yen;18,000 for 120 minutes (+&yen;4,000 per additional 30 minutes) &mdash; per lesson, not per person (up to 2 players). Indoor court rental (&yen;4,400&ndash;&yen;6,600 per hour depending on season and time) is added; Coach Kota arranges the court booking for you.
+            Lesson fees are &yen;10,000 for 60 minutes, &yen;14,000 for 90 minutes or &yen;18,000 for 120 minutes per group of up to two players. NEO court rental, &yen;3,000 travel per group and processing are added. <a href={internationalBookingUrl} class="underline">Review the exact total in the reservation form.</a>
           </div>
         </details>
 
@@ -325,7 +325,7 @@ const avgRating =
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            The court rental fee is charged by the venue and covers the use of the indoor court: &yen;4,400&ndash;&yen;6,600 per hour depending on season and time of day. This is separate from the lesson fee. Coach Kota arranges the court booking for you and confirms the exact cost before your lesson.
+            NEO court rental covers the indoor court and varies by season and time: &yen;4,400&ndash;&yen;6,600 per hour. It is separate from the lesson fee and &yen;3,000 travel amount per group. The court rental plus processing amount is paid in advance; the full quote is shown before submission.
           </div>
         </details>
 
@@ -335,7 +335,7 @@ const avgRating =
             <span class="text-accent-dark text-2xl shrink-0 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
           <div class="px-6 md:px-8 pb-8 text-text-light leading-relaxed border-t border-line pt-5">
-            Free cancellation up to 7 days before your lesson. Within 7 days, just send us a message &mdash; we'll do our best to reschedule instead. And since the court is fully indoors, lessons are never cancelled because of weather.
+            Free cancellation until 18:00 JST seven days before the lesson. Later, only documented unavoidable court costs after waivers or recoveries may be retained, within your advance and the quoted court fee. Processing fees are not deducted from refunds. If we cannot provide the session, the advance is refunded in full or an alternative is agreed. <a href={internationalTermsUrl} class="underline">Read the full terms.</a>
           </div>
         </details>
 
@@ -352,6 +352,6 @@ const avgRating =
     </div>
   </section>
   <section class="service-extra wrap"><a href={`${base}en/tennis-in-sapporo`}><div><p class="section-label">A LOCAL GUIDE</p><h3>More tennis in Sapporo.</h3><p>Explore where to play during your stay.</p></div><TennisIcon name="arrow" /></a><div class="service-video"><iframe src="https://www.youtube.com/embed/bXEScAkbFYI" title="Oshinobi Tennis doubles coaching video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a class="line-link" href="https://www.youtube.com/channel/UCKtgQuL9B0c8y42hHnx8JQQ" target="_blank" rel="noopener">More from Kota on YouTube <TennisIcon name="arrow" /></a></div></section>
-  <section class="closing section-space"><div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>Make time<br />for a good rally.</h2></div><div class="closing-action"><p>Lessons from <strong>¥10,000</strong></p><a href="#booking" class="action action-lime">Book via LINE / WeChat <TennisIcon name="arrow" /></a><small>Equipment included. Court rental charged separately.<br />Beginners welcome. Basic English supported.</small></div></div></section>
+  <section class="closing section-space"><div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>Make time<br />for a good rally.</h2></div><div class="closing-action"><p>Lesson fees from <strong>¥10,000</strong></p><a href={internationalBookingUrl} class="action action-lime">Request a lesson online <TennisIcon name="arrow" /></a><small>Equipment included. Court rental, ¥3,000 travel per group and processing added.<br />Beginners welcome. Basic English supported.</small></div></div></section>
 </div>
 </LayoutEN>
