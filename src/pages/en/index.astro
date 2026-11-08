@@ -184,6 +184,22 @@ const avgRating =
         <h2 class="text-3xl md:text-4xl font-black tracking-tight relative">Location &amp; Access</h2>
         <div class="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
       </div>
+      <section class="hotel-pickup" aria-labelledby="hotel-pickup-title">
+        <img
+          src={`${base}images/en/hotel-pickup-cx5-1200.webp`}
+          srcset={`${base}images/en/hotel-pickup-cx5-640.webp 640w, ${base}images/en/hotel-pickup-cx5-1200.webp 1200w`}
+          sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1296px) calc((100vw - 96px) / 2), 600px"
+          alt="White Mazda CX-5 for hotel pickup"
+          width="1200" height="870" loading="lazy" decoding="async"
+        />
+        <div class="hotel-pickup-copy">
+          <p class="section-label">HOTEL PICKUP</p>
+          <h3 id="hotel-pickup-title">From your hotel<br />to the court.</h3>
+          <p>Hotel pickup and return are available upon request for <strong>¥2,000 per group.</strong></p>
+          <p>Choose hotel pickup in the reservation form. Pickup is confirmed separately. If you arrange your own transport, the transport fee is ¥0.</p>
+          <a href={internationalBookingUrl} class="line-link">Request a lesson &amp; pickup <TennisIcon name="arrow" /></a>
+        </div>
+      </section>
       <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
         <div>
           <h3 class="text-xl font-bold mb-6">PLACE OF SPORTS NEO</h3><p class="text-text-light mb-6">We rent a court at this independent indoor sports facility for your lesson.</p>
@@ -355,3 +371,18 @@ const avgRating =
   <section class="closing section-space"><div class="wrap closing-inner"><div><p class="section-label">SEE YOU ON THE COURT</p><h2>Make time<br />for a good rally.</h2></div><div class="closing-action"><p>Lesson fees from <strong>¥10,000</strong></p><a href={internationalBookingUrl} class="action action-lime">Request a lesson online <TennisIcon name="arrow" /></a><small>Equipment included. Court rental and processing added. Optional hotel pickup and return: ¥2,000 per group; own transport: ¥0.<br />Beginners welcome. Basic English supported.</small></div></div></section>
 </div>
 </LayoutEN>
+
+<style>
+  .hotel-pickup { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 64px; background: #f0f4f5; }
+  .hotel-pickup > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .hotel-pickup-copy { align-self: center; padding: 36px 40px; }
+  .hotel-pickup-copy h3 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 38px); line-height: 1.2; letter-spacing: -.02em; margin-bottom: 20px; }
+  .hotel-pickup-copy > p:not(.section-label) { color: #566671; font-size: 16px; line-height: 1.9; margin-bottom: 16px; }
+  .hotel-pickup-copy strong { color: #122e40; font-weight: 600; }
+  .hotel-pickup-copy .line-link { margin-top: 4px; }
+  @media (max-width: 800px) {
+    .hotel-pickup { grid-template-columns: 1fr; margin-bottom: 40px; }
+    .hotel-pickup > img { height: auto; }
+    .hotel-pickup-copy { padding: 28px 24px 32px; }
+  }
+</style>
